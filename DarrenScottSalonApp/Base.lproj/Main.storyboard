@@ -1,25 +1,98 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wvy-zI-p1t" customClass="ASStarRatingView">
+                                <rect key="frame" x="67" y="303" width="240" height="37"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selfie" translatesAutoresizingMaskIntoConstraints="NO" id="zxz-JT-Mu9">
+                                <rect key="frame" x="67" y="28" width="240" height="228"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="228" id="YXl-Vj-wRm"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Very nice treatment. I'm very happy, definitely would be back." borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CfM-u8-hrs">
+                                <rect key="frame" x="64" y="474" width="246" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5a3-Mm-G8f">
+                                <rect key="frame" x="64" y="452" width="68" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="drd-be-A12"/>
+                                    <constraint firstAttribute="width" constant="68" id="t9Q-nE-x6E"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="73R-Mk-eeT">
+                                <rect key="frame" x="67" y="274" width="68" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="3mx-Xy-Iat"/>
+                                    <constraint firstAttribute="width" constant="68" id="XA1-zp-qNS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="73R-Mk-eeT" firstAttribute="leading" secondItem="wvy-zI-p1t" secondAttribute="leading" id="7U6-ps-riX"/>
+                            <constraint firstItem="5a3-Mm-G8f" firstAttribute="leading" secondItem="CfM-u8-hrs" secondAttribute="leading" id="AZ6-Xt-hri"/>
+                            <constraint firstItem="zxz-JT-Mu9" firstAttribute="trailing" secondItem="wvy-zI-p1t" secondAttribute="trailing" id="BcR-Yt-YVb"/>
+                            <constraint firstAttribute="bottom" secondItem="wvy-zI-p1t" secondAttribute="bottom" constant="327" id="CvM-8i-Ip3"/>
+                            <constraint firstItem="wvy-zI-p1t" firstAttribute="top" secondItem="73R-Mk-eeT" secondAttribute="bottom" constant="8" symbolic="YES" id="DxJ-tx-0Tv"/>
+                            <constraint firstItem="73R-Mk-eeT" firstAttribute="top" secondItem="zxz-JT-Mu9" secondAttribute="bottom" constant="18" id="J4J-Al-gqH"/>
+                            <constraint firstItem="zxz-JT-Mu9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="51" id="WgV-GI-nXX"/>
+                            <constraint firstItem="5a3-Mm-G8f" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="48" id="faE-lK-yY7"/>
+                            <constraint firstItem="CfM-u8-hrs" firstAttribute="top" secondItem="5a3-Mm-G8f" secondAttribute="bottom" constant="1" id="fry-Nh-zr1"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="CfM-u8-hrs" secondAttribute="bottom" constant="163" id="hx4-yw-HVY"/>
+                            <constraint firstItem="zxz-JT-Mu9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="m8M-XE-o8u"/>
+                            <constraint firstItem="wvy-zI-p1t" firstAttribute="centerX" secondItem="CfM-u8-hrs" secondAttribute="centerX" id="mVL-TC-CYe"/>
+                            <constraint firstItem="zxz-JT-Mu9" firstAttribute="leading" secondItem="73R-Mk-eeT" secondAttribute="leading" id="xWB-rr-ij7"/>
+                            <constraint firstItem="zxz-JT-Mu9" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="xuq-6C-J54"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="ivPickedImage" destination="zxz-JT-Mu9" id="zXQ-mT-h0l"/>
+                        <outlet property="textField" destination="CfM-u8-hrs" id="RRm-Xl-qlb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="162.5" y="365.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="selfie" width="300" height="350"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
+    </simulatedMetricsContainer>
 </document>

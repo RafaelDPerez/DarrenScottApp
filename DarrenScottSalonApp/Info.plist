@@ -43,5 +43,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>LSRequiresIPhoneOS - 2</key>
+	<true/>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This application will need access to your photos.</string>
 </dict>
 </plist>

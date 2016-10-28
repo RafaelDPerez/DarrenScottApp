@@ -15,6 +15,7 @@
 		025565E81DC2DAF8005A903E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 025565E71DC2DAF8005A903E /* Images.xcassets */; };
 		025565EB1DC2DAF8005A903E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 025565E91DC2DAF8005A903E /* LaunchScreen.xib */; };
 		025565F71DC2DAF8005A903E /* DarrenScottSalonAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 025565F61DC2DAF8005A903E /* DarrenScottSalonAppTests.m */; };
+		02C18A721DC2F307008745BE /* ASStarRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C18A711DC2F307008745BE /* ASStarRatingView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,8 @@
 		025565F01DC2DAF8005A903E /* DarrenScottSalonAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DarrenScottSalonAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		025565F51DC2DAF8005A903E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		025565F61DC2DAF8005A903E /* DarrenScottSalonAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DarrenScottSalonAppTests.m; sourceTree = "<group>"; };
+		02C18A701DC2F307008745BE /* ASStarRatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASStarRatingView.h; sourceTree = "<group>"; };
+		02C18A711DC2F307008745BE /* ASStarRatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASStarRatingView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +86,7 @@
 		025565D61DC2DAF8005A903E /* DarrenScottSalonApp */ = {
 			isa = PBXGroup;
 			children = (
+				02C18A6F1DC2F2E6008745BE /* ASStarRatingView */,
 				025565DB1DC2DAF8005A903E /* AppDelegate.h */,
 				025565DC1DC2DAF8005A903E /* AppDelegate.m */,
 				025565E11DC2DAF8005A903E /* ViewController.h */,
@@ -120,6 +124,15 @@
 				025565F51DC2DAF8005A903E /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		02C18A6F1DC2F2E6008745BE /* ASStarRatingView */ = {
+			isa = PBXGroup;
+			children = (
+				02C18A701DC2F307008745BE /* ASStarRatingView.h */,
+				02C18A711DC2F307008745BE /* ASStarRatingView.m */,
+			);
+			name = ASStarRatingView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02C18A721DC2F307008745BE /* ASStarRatingView.m in Sources */,
 				025565DD1DC2DAF8005A903E /* AppDelegate.m in Sources */,
 				025565E01DC2DAF8005A903E /* DarrenScottSalonApp.xcdatamodeld in Sources */,
 				025565E31DC2DAF8005A903E /* ViewController.m in Sources */,
@@ -422,6 +436,7 @@
 				025565FC1DC2DAF8005A903E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		025565FD1DC2DAF8005A903E /* Build configuration list for PBXNativeTarget "DarrenScottSalonAppTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +445,7 @@
 				025565FF1DC2DAF8005A903E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
