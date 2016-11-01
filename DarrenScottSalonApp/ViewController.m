@@ -21,15 +21,19 @@
 @synthesize btnCamera,btnGallery,btnPhotoGallery;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    CGRect frameRect = textField.frame;
-    frameRect.size.height = 100; // <-- Specify the height you want here.
-    textField.frame = frameRect;
+
     // Do any additional setup after loading the view, typically from a nib.
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetected)];
     singleTap.numberOfTapsRequired = 1;
     [ivPickedImage setUserInteractionEnabled:YES];
     [ivPickedImage addGestureRecognizer:singleTap];
+    
+    CGRect frameRect = textField.frame;
+    frameRect.size.height = 100; // <-- Specify the height you want here.
+    textField.frame = frameRect;
+    
 }
+
 
 
 -(void)tapDetected{
