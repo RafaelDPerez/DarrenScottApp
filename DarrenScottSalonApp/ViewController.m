@@ -17,23 +17,115 @@
 @end
 
 @implementation ViewController
-@synthesize ivPickedImage, textField;
+@synthesize ivPickedImage, textFieldService;
 @synthesize btnCamera,btnGallery,btnPhotoGallery;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.pickerViewService = [[UIPickerView alloc] init];
+    self.pickerViewService.delegate = self;     //#2
+    self.pickerViewService.dataSource = self;   //#2
+    
+    self.pickerViewStylist = [[UIPickerView alloc] init];
+    self.pickerViewStylist.delegate = self;     //#2
+    self.pickerViewStylist.dataSource = self;   //#2
+    
+   
+    
+    
+    self.textFieldService.inputView = self.pickerViewService;
+     self.textFieldStylist.inputView = self.pickerViewStylist;
+    
+    
+    self.pickerServices = @[ @"Hair", @"Nails", @"Extentions"];
+    self.pickerStylists = @[ @"Darren Scott", @"James Penningnton", @"Rafael Perez"];
+    
+    [self.view addSubview:self.textFieldService];
+    [self.view addSubview:self.textFieldStylist];
+    
     // Do any additional setup after loading the view, typically from a nib.
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetected)];
     singleTap.numberOfTapsRequired = 1;
     [ivPickedImage setUserInteractionEnabled:YES];
     [ivPickedImage addGestureRecognizer:singleTap];
     
-    CGRect frameRect = textField.frame;
+    CGRect frameRect = textFieldService.frame;
     frameRect.size.height = 100; // <-- Specify the height you want here.
-    textField.frame = frameRect;
+    textFieldService.frame = frameRect;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
     
 }
 
+-(void)dismissKeyboard {
+    [_textFieldComments resignFirstResponder];
+}
+
+-(BOOL) textFieldShouldReturn:(UITextField *)textField{
+    
+    [textField resignFirstResponder];
+    return YES;
+}
+#pragma mark - UIPickerViewDataSource
+
+// #3
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    if (pickerView == self.pickerViewService) {
+        return 1;
+    }
+    if (pickerView == self.pickerViewStylist) {
+        return 1;
+    }
+    
+    return 0;
+}
+
+// #4
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    if (pickerView == self.pickerViewService) {
+        return [self.pickerServices count];
+    }
+    if (pickerView == self.pickerViewStylist) {
+        return [self.pickerStylists count];
+    }
+
+    
+    return 0;
+}
+
+#pragma mark - UIPickerViewDelegate
+
+// #5
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    if (pickerView == self.pickerViewService) {
+        return self.pickerServices[row];
+    }
+    if (pickerView == self.pickerViewStylist) {
+        return self.pickerStylists[row];
+    }
+    
+    return nil;
+}
+
+// #6
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    if (pickerView == self.pickerViewService) {
+        self.textFieldService.text = self.pickerServices[row];
+    }
+    if (pickerView == self.pickerViewStylist) {
+        self.textFieldStylist.text = self.pickerStylists[row];
+    }
+    [[self view] endEditing:YES];
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    return textView.text.length + (text.length - range.length) <= 140;
+}
 
 
 -(void)tapDetected{
@@ -114,6 +206,8 @@
     //hola = [info objectForKey:UIImagePickerControllerOriginalImage];
     
 }
+
+
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {

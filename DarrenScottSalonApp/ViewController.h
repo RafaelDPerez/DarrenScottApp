@@ -20,7 +20,13 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnPhotoGallery;
 @property(strong,nonatomic) IBOutlet ASStarRatingView *starsRating;
 @property (weak, nonatomic) IBOutlet UIImageView *ivPickedImage;
-@property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldService;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldStylist;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldComments;
+@property (nonatomic, strong) UIPickerView *pickerViewService;
+@property (nonatomic, strong) UIPickerView *pickerViewStylist;
+@property (nonatomic, strong) NSArray *pickerServices;
+@property (nonatomic, strong) NSArray *pickerStylists;
 
 @end
 
