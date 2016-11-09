@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ASStarRatingView.h"
+@import Firebase;
 
 @interface ViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 {

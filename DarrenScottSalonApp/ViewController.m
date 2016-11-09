@@ -7,9 +7,10 @@
 //
 
 #import "ViewController.h"
+#import <Social/Social.h>
 
 @interface ViewController (){
-   // FIRStorageReference *storageRef;
+    FIRStorageReference *storageRef;
     NSData *imageData;
     UIImage *hola;
 }
@@ -22,6 +23,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [FIRApp configure];
+    FIRStorage *storage = [FIRStorage storage];
+    storageRef = [storage referenceForURL:@"gs://darrenscottsalon-46b98.appspot.com"];
 
     self.pickerViewService = [[UIPickerView alloc] init];
     self.pickerViewService.delegate = self;     //#2
@@ -59,6 +63,36 @@
     
     [self.view addGestureRecognizer:tap];
     
+}
+
+
+- (IBAction)btnAddReviewClicked:(id)sender
+{
+    
+        if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
+        {
+            SLComposeViewController *tweetSheet = [SLComposeViewController
+                                                   composeViewControllerForServiceType:SLServiceTypeTwitter];
+            [tweetSheet setInitialText:@"Great fun to learn iOS programming at appcoda.com!"];
+            [self presentViewController:tweetSheet animated:YES completion:nil];
+        }
+    
+//    // Create a reference to the file you want to upload
+//    FIRStorageReference *riversRef = [storageRef child:@"selfieImages/selfie.jpg"];
+//    
+//    // Upload the file to the path "images/rivers.jpg"
+//    // Upload the file to the path "images/rivers.jpg"
+//    FIRStorageUploadTask *uploadTask = [riversRef putData:imageData metadata:nil completion:^(FIRStorageMetadata *metadata, NSError *error) {
+//        if (error != nil) {
+//            // Uh-oh, an error occurred!
+//        } else {
+//            // Metadata contains file metadata such as size, content-type, and download URL.
+//            NSURL *downloadURL = metadata.downloadURL;
+//        }
+//    }];
+//    FIRDatabaseReference *rootRef= [[FIRDatabase database] reference];
+//    [[[rootRef child:@"users"] child:@"00"]
+//     setValue:@{@"username": @"rafaeldperez"}];
 }
 
 -(void)dismissKeyboard {

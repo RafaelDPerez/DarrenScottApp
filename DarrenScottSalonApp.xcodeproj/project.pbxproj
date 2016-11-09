@@ -16,6 +16,10 @@
 		025565EB1DC2DAF8005A903E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 025565E91DC2DAF8005A903E /* LaunchScreen.xib */; };
 		025565F71DC2DAF8005A903E /* DarrenScottSalonAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 025565F61DC2DAF8005A903E /* DarrenScottSalonAppTests.m */; };
 		02C18A721DC2F307008745BE /* ASStarRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C18A711DC2F307008745BE /* ASStarRatingView.m */; };
+		45C6B7FF1DD2960A0067654B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 45C6B7FE1DD2960A0067654B /* GoogleService-Info.plist */; };
+		45C6B8011DD2A3F90067654B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45C6B8001DD2A3F90067654B /* Social.framework */; };
+		5CCAB07E22968F3514F80D2C /* libPods-DarrenScottSalonAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DB04EBBF36AB7A0C112AAE5 /* libPods-DarrenScottSalonAppTests.a */; };
+		6B537880658ECAE480A094B0 /* libPods-DarrenScottSalonApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 86355BF8E0C5E1D4C83BE495 /* libPods-DarrenScottSalonApp.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +49,14 @@
 		025565F61DC2DAF8005A903E /* DarrenScottSalonAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DarrenScottSalonAppTests.m; sourceTree = "<group>"; };
 		02C18A701DC2F307008745BE /* ASStarRatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASStarRatingView.h; sourceTree = "<group>"; };
 		02C18A711DC2F307008745BE /* ASStarRatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASStarRatingView.m; sourceTree = "<group>"; };
+		0DB04EBBF36AB7A0C112AAE5 /* libPods-DarrenScottSalonAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DarrenScottSalonAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		128D1374D90FECCC4482D81A /* Pods-DarrenScottSalonApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DarrenScottSalonApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-DarrenScottSalonApp/Pods-DarrenScottSalonApp.release.xcconfig"; sourceTree = "<group>"; };
+		45C6B7FE1DD2960A0067654B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		45C6B8001DD2A3F90067654B /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		86355BF8E0C5E1D4C83BE495 /* libPods-DarrenScottSalonApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DarrenScottSalonApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FF0AA875CA448B782DCE7F1 /* Pods-DarrenScottSalonAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DarrenScottSalonAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DarrenScottSalonAppTests/Pods-DarrenScottSalonAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		AA6CC166E488F03C2A1B9DF0 /* Pods-DarrenScottSalonAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DarrenScottSalonAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DarrenScottSalonAppTests/Pods-DarrenScottSalonAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D8FF83F48A7CCDE892E7750A /* Pods-DarrenScottSalonApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DarrenScottSalonApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DarrenScottSalonApp/Pods-DarrenScottSalonApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +64,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45C6B8011DD2A3F90067654B /* Social.framework in Frameworks */,
+				6B537880658ECAE480A094B0 /* libPods-DarrenScottSalonApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CCAB07E22968F3514F80D2C /* libPods-DarrenScottSalonAppTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +86,8 @@
 				025565D61DC2DAF8005A903E /* DarrenScottSalonApp */,
 				025565F31DC2DAF8005A903E /* DarrenScottSalonAppTests */,
 				025565D51DC2DAF8005A903E /* Products */,
+				2112892D381349A5AE1C1774 /* Pods */,
+				14349295A1A86115EE6C9DAD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -92,6 +109,7 @@
 				025565E11DC2DAF8005A903E /* ViewController.h */,
 				025565E21DC2DAF8005A903E /* ViewController.m */,
 				025565E41DC2DAF8005A903E /* Main.storyboard */,
+				45C6B7FE1DD2960A0067654B /* GoogleService-Info.plist */,
 				025565E71DC2DAF8005A903E /* Images.xcassets */,
 				025565E91DC2DAF8005A903E /* LaunchScreen.xib */,
 				025565DE1DC2DAF8005A903E /* DarrenScottSalonApp.xcdatamodeld */,
@@ -135,6 +153,27 @@
 			name = ASStarRatingView;
 			sourceTree = "<group>";
 		};
+		14349295A1A86115EE6C9DAD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				45C6B8001DD2A3F90067654B /* Social.framework */,
+				86355BF8E0C5E1D4C83BE495 /* libPods-DarrenScottSalonApp.a */,
+				0DB04EBBF36AB7A0C112AAE5 /* libPods-DarrenScottSalonAppTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2112892D381349A5AE1C1774 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D8FF83F48A7CCDE892E7750A /* Pods-DarrenScottSalonApp.debug.xcconfig */,
+				128D1374D90FECCC4482D81A /* Pods-DarrenScottSalonApp.release.xcconfig */,
+				AA6CC166E488F03C2A1B9DF0 /* Pods-DarrenScottSalonAppTests.debug.xcconfig */,
+				8FF0AA875CA448B782DCE7F1 /* Pods-DarrenScottSalonAppTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -142,9 +181,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 025565FA1DC2DAF8005A903E /* Build configuration list for PBXNativeTarget "DarrenScottSalonApp" */;
 			buildPhases = (
+				5D3814B4AB644891951395D1 /* [CP] Check Pods Manifest.lock */,
 				025565D01DC2DAF8005A903E /* Sources */,
 				025565D11DC2DAF8005A903E /* Frameworks */,
 				025565D21DC2DAF8005A903E /* Resources */,
+				8A0FA957454656AD7311B0EF /* [CP] Embed Pods Frameworks */,
+				AFBCF4ECCAE9F7E287C130CA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -159,9 +201,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 025565FD1DC2DAF8005A903E /* Build configuration list for PBXNativeTarget "DarrenScottSalonAppTests" */;
 			buildPhases = (
+				4A8C15DB4D6CB3052F098062 /* [CP] Check Pods Manifest.lock */,
 				025565EC1DC2DAF8005A903E /* Sources */,
 				025565ED1DC2DAF8005A903E /* Frameworks */,
 				025565EE1DC2DAF8005A903E /* Resources */,
+				7105B4F4EC135AD23AD4D3F5 /* [CP] Embed Pods Frameworks */,
+				287A14FF4A09CDAC40370661 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -217,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				025565E61DC2DAF8005A903E /* Main.storyboard in Resources */,
+				45C6B7FF1DD2960A0067654B /* GoogleService-Info.plist in Resources */,
 				025565EB1DC2DAF8005A903E /* LaunchScreen.xib in Resources */,
 				025565E81DC2DAF8005A903E /* Images.xcassets in Resources */,
 			);
@@ -230,6 +276,99 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		287A14FF4A09CDAC40370661 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DarrenScottSalonAppTests/Pods-DarrenScottSalonAppTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4A8C15DB4D6CB3052F098062 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5D3814B4AB644891951395D1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7105B4F4EC135AD23AD4D3F5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DarrenScottSalonAppTests/Pods-DarrenScottSalonAppTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8A0FA957454656AD7311B0EF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DarrenScottSalonApp/Pods-DarrenScottSalonApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AFBCF4ECCAE9F7E287C130CA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DarrenScottSalonApp/Pods-DarrenScottSalonApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		025565D01DC2DAF8005A903E /* Sources */ = {
@@ -366,6 +505,7 @@
 		};
 		025565FB1DC2DAF8005A903E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D8FF83F48A7CCDE892E7750A /* Pods-DarrenScottSalonApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9ZZEJK9DFN;
@@ -378,6 +518,7 @@
 		};
 		025565FC1DC2DAF8005A903E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 128D1374D90FECCC4482D81A /* Pods-DarrenScottSalonApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9ZZEJK9DFN;
@@ -390,6 +531,7 @@
 		};
 		025565FE1DC2DAF8005A903E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA6CC166E488F03C2A1B9DF0 /* Pods-DarrenScottSalonAppTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -409,6 +551,7 @@
 		};
 		025565FF1DC2DAF8005A903E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8FF0AA875CA448B782DCE7F1 /* Pods-DarrenScottSalonAppTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
