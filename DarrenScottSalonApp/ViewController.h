@@ -23,7 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *ivPickedImage;
 @property (weak, nonatomic) IBOutlet UITextField *textFieldService;
 @property (weak, nonatomic) IBOutlet UITextField *textFieldStylist;
-@property (weak, nonatomic) IBOutlet UITextField *textFieldComments;
+@property (weak, nonatomic) IBOutlet UITextView *textViewComments;
 @property (nonatomic, strong) UIPickerView *pickerViewService;
 @property (nonatomic, strong) UIPickerView *pickerViewStylist;
 @property (nonatomic, strong) NSArray *pickerServices;
