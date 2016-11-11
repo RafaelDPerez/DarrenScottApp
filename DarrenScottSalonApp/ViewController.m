@@ -147,7 +147,7 @@
     }];
     FIRDatabaseReference *rootRef= [[FIRDatabase database] reference];
     [[[rootRef child:@"users" ]childByAutoId]
-     setValue:@{@"id": timestamp,
+     setValue:@{@"id":  timestamp,
                 @"review_photo_url": selfieStorageName,
                 @"review_rating": @"rafaeldperez",
                 @"review_comments": _textViewComments.text,
@@ -233,6 +233,7 @@
     if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
     {
         ipc.sourceType = UIImagePickerControllerSourceTypeCamera;
+        ipc.cameraDevice = UIImagePickerControllerCameraDeviceFront;
         [self presentViewController:ipc animated:YES completion:NULL];
     }
     else
