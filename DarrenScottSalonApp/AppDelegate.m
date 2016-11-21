@@ -6,7 +6,9 @@
 //  Copyright (c) 2016 maranta. All rights reserved.
 //
 
+#import "TermsAndConditionsViewController.h"
 #import "AppDelegate.h"
+#import "ViewController.h"
 
 @import Firebase;
 
@@ -19,7 +21,37 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    //first-time ever defaults check and set
+//    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+//    
+//    TermsAndConditionsViewController *controller = (TermsAndConditionsViewController *)[mainStoryboard instantiateViewControllerWithIdentifier: @"TermsAndConditions"];
+//    [self.window.rootViewController presentViewController: controller animated:YES completion:nil];
     
+    
+    
+    if([[NSUserDefaults standardUserDefaults] boolForKey:@"TermsAccepted"]!=YES)
+    {
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"TermsAccepted"];
+        self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        
+        TermsAndConditionsViewController *viewController =  (TermsAndConditionsViewController *)[storyboard instantiateViewControllerWithIdentifier: @"TermsAndConditions"];
+        
+        self.window.rootViewController = viewController;
+        [self.window makeKeyAndVisible];
+    }
+    else{
+        self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        
+        ViewController *viewController =  (ViewController *)[storyboard instantiateViewControllerWithIdentifier: @"Reviews"];
+        
+        self.window.rootViewController = viewController;
+        [self.window makeKeyAndVisible];
+    
+    }
     return YES;
 }
 

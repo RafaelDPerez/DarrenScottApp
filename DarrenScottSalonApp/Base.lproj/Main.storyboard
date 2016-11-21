@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="kRf-lM-sZr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -30,7 +30,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Reviews" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -141,7 +141,95 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="162.5" y="365.5"/>
+            <point key="canvasLocation" x="233" y="-130"/>
+        </scene>
+        <!--Terms And Conditions View Controller-->
+        <scene sceneID="atX-yt-9tY">
+            <objects>
+                <viewController storyboardIdentifier="TermsAndConditions" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BJC-I1-JZo" customClass="TermsAndConditionsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AKg-7R-a8n"/>
+                        <viewControllerLayoutGuide type="bottom" id="hZ6-eY-DEZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DK6-zg-Lxy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YAk-w5-FW3">
+                                <rect key="frame" x="209" y="544" width="75" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Decline"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KGE-3s-5yA">
+                                <rect key="frame" x="292" y="544" width="67" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Accept"/>
+                                <connections>
+                                    <action selector="AcceptTerms:" destination="BJC-I1-JZo" eventType="touchUpInside" id="guJ-PQ-p1Y"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsg-CB-Qqu">
+                                <rect key="frame" x="16" y="72" width="343" height="464"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Darren Scott Salon App Terms and Conditions
+
+The Darren Scott Salon App (“we”, “us”, “our”) provides an internet platform which allows you (“the customer”) of the salon to write reviews pertaining to your personal experiences at the salon and upload photographs of themselves. Our app also links in to other social media websites such as Facebook, Twitter, Instagram, Pinterest and others as may be added from time to time. You agree to our Terms and Conditions (“Terms”) by installing, accessing, or using our apps, services, features, software, or website (together, “Services”). 
+
+Registration
+You must register to use our services. To register you must provide your name, date of birth, telephone number and email address and go through the app registration service.
+Age
+You must be at least 13 years old to use our Services (or such greater age required in your country for you to be authorized to use our Services without parental approval). In addition to being of the minimum required age to use our Services under applicable law, if you are not old enough to have authority to agree to our Terms in your country, your parent or guardian must agree to our Terms on your behalf.
+Devices, Hardware and Software
+It is your responsibility to ensure that you have the correct devices, hardware and software to enable you to access our Services and fully utilize them. It is your responsibility to ensure that you continually update your devices, hardware and software for this same reason. You are also responsible for ensuring that you have the correct data connection. These aspects are not the responsibility of Darren Scott Salon and are not paid for by Darren Scott Salon.
+Fees
+Our Services are free of charge. Charges occurred as a result of accessing and/or utilizing our Services (for example, wifi charges, data package charges etc) are borne by you as the customer and are not the responsibility of Darren Scott Salon.
+
+Privacy and Data
+Darren Scott App Services will always use reasonable endeavors to ensure that your information is stored securely and in accordance with the laws and principles set out under the Data Protection Act 1998.
+Information we collect.
+We receive or collect information when we operate and provide our Services, including when you install, access, or use our Services. We will collect your name, date of birth, telephone number, email address and whichever photographs you upload to the Darren Scott Salon App website. 
+
+How we use your information.
+We will use your information to contact customers, update customers as to our latest offers, promotions and services and to help us operate, provide, improve, understand, customize, support, and market our Services. The feedback and photographs provided by you will be used to assist in the marketing of the Services of the Salon and the App.
+Third Parties
+Darren Scott Salon will never share your information with third parties for any reason.
+Intellectual Property
+All copyright of photographs and images (irrespective of the format or medium) uploaded on to the Darren Scott Salon App vest in Darren Scott Salon and you provide Darren Scott Salon with a worldwide, non-exclusive, royalty-free, perpetual, sub licensable, transferable license to utilize your photographs for commercial and non-commercial purposes as Darren Scott Salon see fit and at any time they so wish. For the purposes of commercial use of your photographs, you hereby agree that you waive all rights, entitlements and interests to any and all revenue share.
+
+Acceptable Use of our Services
+You must use our Services according to our Terms and posted policies. If we disable your account for a violation of our Terms, you will not create another account without our permission.
+Legal and Acceptable Use. You must access and use our Services only for legal, authorized, and acceptable purposes. You will not use (or assist others in using) our Services in ways that: (a) violate, misappropriate, or infringe the rights of other users, our users, or others, including privacy, publicity, intellectual property, or other proprietary rights; (b) are illegal, obscene, defamatory, threatening, intimidating, harassing, hateful, racially, or ethnically offensive, or instigate or encourage conduct that would be illegal, or otherwise inappropriate, including promoting violent crimes; (c) involve publishing falsehoods, misrepresentations, or misleading statements; (d) impersonate someone; (e) involve sending illegal or impermissible communications such as bulk messaging, auto-messaging, auto-dialing, and the like; or (f) involve any non-personal use of our Services unless otherwise authorized by us.
+
+Harm to Our or Other Users. You must not (or assist others to) access, use, copy, adapt, modify, prepare derivative works based upon, distribute, license, sublicense, transfer, display, perform, or otherwise exploit our Services in impermissible or unauthorized manners, or in ways that burden, impair, or harm Darren Scott Salon, our Services, systems, our users, or others, including that you must not directly or through automated means: (a) reverse engineer, alter, modify, create derivative works from, decompile, or extract code from our Services; (b) send, store, or transmit viruses or other harmful computer code through or onto our Services; (c) gain or attempt to gain unauthorized access to our Services or systems; (d) interfere with or disrupt the integrity or performance of our Services; (e) create accounts for our Services through unauthorized or automated means; (f) collect the information of or about our users in any impermissible or unauthorized manner; (g) sell, resell, rent, or charge for our Services; or (h) distribute or make our Services available over a network where they could be used by multiple devices at the same time.
+Keeping Your Account Secure. You are responsible for keeping your device and your Darren Scott Salon account safe and secure, and you must notify us promptly of any unauthorized use or security breach of your account or our Services.
+Third-party services
+Our Services may allow you to access, use, or interact with third-party websites, apps, content, and other products and services. Please note that when you use third-party services, their own terms and privacy policies will govern your use of those services.
+Disclaimer
+YOU USE OUR SERVICES AT YOUR OWN RISK AND SUBJECT TO THE FOLLOWING DISCLAIMERS. WE ARE PROVIDING OUR SERVICES ON AN “AS IS” BASIS WITHOUT ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, NON-INFRINGEMENT, AND FREEDOM FROM COMPUTER VIRUS OR OTHER HARMFUL CODE. WE DO NOT WARRANT THAT ANY INFORMATION PROVIDED BY US IS ACCURATE, COMPLETE, OR USEFUL, THAT OUR SERVICES WILL BE OPERATIONAL, ERROR FREE, SECURE, OR SAFE, OR THAT OUR SERVICES WILL FUNCTION WITHOUT DISRUPTIONS, DELAYS, OR IMPERFECTIONS. WE DO NOT CONTROL, AND ARE NOT RESPONSIBLE FOR, CONTROLLING HOW OR WHEN OUR USERS USE OUR SERVICES OR THE FEATURES, SERVICES, AND INTERFACES OUR SERVICES PROVIDE. WE ARE NOT RESPONSIBLE FOR AND ARE NOT OBLIGATED TO CONTROL THE ACTIONS OR INFORMATION (INCLUDING CONTENT) OF OUR USERS OR OTHER THIRD PARTIES. YOU RELEASE US, OUR SUBSIDIARIES, AFFILIATES, AND OUR AND THEIR DIRECTORS, CONTRACTORS, OFFICERS, EMPLOYEES, PARTNERS, AND AGENTS (TOGETHER, THE “DARREN SCOTT SALON APP PARTIES”) FROM ANY CLAIM, COMPLAINT, CAUSE OF ACTION, CONTROVERSY, OR DISPUTE (TOGETHER, “CLAIM”) AND DAMAGES, KNOWN AND UNKNOWN, RELATING TO, ARISING OUT OF, OR IN ANY WAY CONNECTED WITH ANY SUCH CLAIM YOU HAVE AGAINST ANY THIRD PARTIES. YOU WAIVE ANY RIGHTS YOU MAY HAVE UNDER THE LAW OF ENGLAND AND WALES, OR ANY OTHER SIMILAR APPLICABLE STATUTE OR LAW OF ANY OTHER JURISDICTION, WHICH SAYS THAT: A GENERAL RELEASE DOES NOT EXTEND TO CLAIMS WHICH THE CREDITOR DOES NOT KNOW OR SUSPECT TO EXIST IN HIS OR HER FAVOUR AT THE TIME OF EXECUTING THE RELEASE, WHICH IF KNOWN BY HIM OR HER MUST HAVE MATERIALLY AFFECTED HIS OR HER SETTLEMENT WITH THE DEBTOR.
+Limitation of liability
+THE DARREN SCOTT SALON APP PARTIES WILL NOT BE LIABLE TO YOU FOR ANY LOST PROFITS OR CONSEQUENTIAL, SPECIAL, PUNITIVE, INDIRECT, OR INCIDENTAL DAMAGES RELATING TO, ARISING OUT OF, OR IN ANY WAY IN CONNECTION WITH OUR TERMS, US, OR OUR SERVICES, EVEN IF THE DARREN SCOTT SALON APP PARTIES HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. OUR AGGREGATE LIABILITY RELATING TO, ARISING OUT OF, OR IN ANY WAY IN CONNECTION WITH OUR TERMS, US, OR OUR SERVICES WILL NOT EXCEED THE GREATER VALUE OF ONE HUNDRED POUNDS (£100). THE FOREGOING DISCLAIMER OF CERTAIN DAMAGES AND LIMITATION OF LIABILITY WILL APPLY TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW. THE LAWS OF SOME JURISDICTIONS MAY NOT ALLOW THE EXCLUSION OR LIMITATION OF CERTAIN DAMAGES, SO SOME OR ALL OF THE EXCLUSIONS AND LIMITATIONS SET FORTH ABOVE MAY NOT APPLY TO YOU. NOTWITHSTANDING ANYTHING TO THE CONTRARY IN OUR TERMS, IN SUCH CASES, THE LIABILITY OF THE DARREN SCOTT APP PARTIES WILL BE LIMITED TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW. 
+Indemnification
+You agree to defend, indemnify, and hold harmless the Darren Scott Salon Parties from and against all liabilities, damages, losses, and expenses of any kind (including reasonable legal fees and costs) relating to, arising out of, or in any way in connection with any of the following: (a) your access to or use of our Services, including information provided in connection therewith; (b) your breach or alleged breach of our Terms; or (c) any misrepresentation made by you. You will cooperate as fully as required by us in the defense or settlement of any Claim.
+
+Dispute Resolution
+If any dispute arises out of these Terms the Parties will first attempt to resolve the matter informally with each other. If the Parties are not able to resolve the dispute informally within a reasonable time not exceeding two (2) months from the date the informal process commenced they will attempt to settle it by mediation in accordance with the Centre for Effective Dispute Resolution (CEDR) Model Mediation Procedure.  
+Governing Law
+These Terms are governed by the Laws of England and Wales.
+Availability and termination of our Services
+Availability of Our Services. Our Services may be interrupted, including for maintenance, repairs, upgrades, or network or equipment failures. We may discontinue some or all of our Services, including certain features and the support for certain devices and platforms, at any time. Events beyond our control may affect our Services, such as events in nature and other force majeure events.
+Termination. We may modify, suspend, or terminate your access to or use of our Services at any time for any reason, such as if you violate the letter or spirit of our Terms or create harm, risk, or possible legal exposure for us, our users, or others. The following provisions will survive any termination of your relationship with Darren Scott Salon App: “Licenses,” “Disclaimers,” “Limitation of Liability,” “Indemnification,” “Dispute Resolution,” “Availability and Termination of our Services.”
+</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CL4-Q7-t8Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="233" y="987"/>
         </scene>
     </scenes>
     <resources>
