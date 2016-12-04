@@ -17,6 +17,9 @@
 		025565F71DC2DAF8005A903E /* DarrenScottSalonAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 025565F61DC2DAF8005A903E /* DarrenScottSalonAppTests.m */; };
 		02C18A721DC2F307008745BE /* ASStarRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C18A711DC2F307008745BE /* ASStarRatingView.m */; };
 		450927DE1DF4D0730052EB54 /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 450927DD1DF4D0730052EB54 /* NavigationViewController.m */; };
+		450927E61DF4DBBA0052EB54 /* AutocompleteModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 450927E11DF4DBBA0052EB54 /* AutocompleteModalViewController.m */; };
+		450927E71DF4DBBA0052EB54 /* AutocompleteBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 450927E31DF4DBBA0052EB54 /* AutocompleteBaseViewController.m */; };
+		450927E81DF4DBBA0052EB54 /* BaseDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 450927E51DF4DBBA0052EB54 /* BaseDemoViewController.m */; };
 		45B2F7411DE27C3100AAB600 /* TermsAndConditionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B2F7401DE27C3100AAB600 /* TermsAndConditionsViewController.m */; };
 		45C6B7FF1DD2960A0067654B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 45C6B7FE1DD2960A0067654B /* GoogleService-Info.plist */; };
 		45C6B8011DD2A3F90067654B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45C6B8001DD2A3F90067654B /* Social.framework */; };
@@ -55,6 +58,13 @@
 		128D1374D90FECCC4482D81A /* Pods-DarrenScottSalonApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DarrenScottSalonApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-DarrenScottSalonApp/Pods-DarrenScottSalonApp.release.xcconfig"; sourceTree = "<group>"; };
 		450927DC1DF4D0730052EB54 /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
 		450927DD1DF4D0730052EB54 /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
+		450927E01DF4DBBA0052EB54 /* AutocompleteModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutocompleteModalViewController.h; sourceTree = "<group>"; };
+		450927E11DF4DBBA0052EB54 /* AutocompleteModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutocompleteModalViewController.m; sourceTree = "<group>"; };
+		450927E21DF4DBBA0052EB54 /* AutocompleteBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutocompleteBaseViewController.h; sourceTree = "<group>"; };
+		450927E31DF4DBBA0052EB54 /* AutocompleteBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutocompleteBaseViewController.m; sourceTree = "<group>"; };
+		450927E41DF4DBBA0052EB54 /* BaseDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseDemoViewController.h; sourceTree = "<group>"; };
+		450927E51DF4DBBA0052EB54 /* BaseDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseDemoViewController.m; sourceTree = "<group>"; };
+		450927E91DF4DBC30052EB54 /* SDKDemoAPIKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDKDemoAPIKey.h; sourceTree = "<group>"; };
 		45B2F73F1DE27C3100AAB600 /* TermsAndConditionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermsAndConditionsViewController.h; sourceTree = "<group>"; };
 		45B2F7401DE27C3100AAB600 /* TermsAndConditionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermsAndConditionsViewController.m; sourceTree = "<group>"; };
 		45C6B7FE1DD2960A0067654B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -109,6 +119,7 @@
 		025565D61DC2DAF8005A903E /* DarrenScottSalonApp */ = {
 			isa = PBXGroup;
 			children = (
+				450927DF1DF4DBA30052EB54 /* Autocomplete Places */,
 				02C18A6F1DC2F2E6008745BE /* ASStarRatingView */,
 				025565DB1DC2DAF8005A903E /* AppDelegate.h */,
 				025565DC1DC2DAF8005A903E /* AppDelegate.m */,
@@ -182,6 +193,20 @@
 				8FF0AA875CA448B782DCE7F1 /* Pods-DarrenScottSalonAppTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		450927DF1DF4DBA30052EB54 /* Autocomplete Places */ = {
+			isa = PBXGroup;
+			children = (
+				450927E91DF4DBC30052EB54 /* SDKDemoAPIKey.h */,
+				450927E01DF4DBBA0052EB54 /* AutocompleteModalViewController.h */,
+				450927E11DF4DBBA0052EB54 /* AutocompleteModalViewController.m */,
+				450927E21DF4DBBA0052EB54 /* AutocompleteBaseViewController.h */,
+				450927E31DF4DBBA0052EB54 /* AutocompleteBaseViewController.m */,
+				450927E41DF4DBBA0052EB54 /* BaseDemoViewController.h */,
+				450927E51DF4DBBA0052EB54 /* BaseDemoViewController.m */,
+			);
+			name = "Autocomplete Places";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -391,6 +416,9 @@
 				025565DD1DC2DAF8005A903E /* AppDelegate.m in Sources */,
 				025565E01DC2DAF8005A903E /* DarrenScottSalonApp.xcdatamodeld in Sources */,
 				025565E31DC2DAF8005A903E /* ViewController.m in Sources */,
+				450927E71DF4DBBA0052EB54 /* AutocompleteBaseViewController.m in Sources */,
+				450927E61DF4DBBA0052EB54 /* AutocompleteModalViewController.m in Sources */,
+				450927E81DF4DBBA0052EB54 /* BaseDemoViewController.m in Sources */,
 				025565DA1DC2DAF8005A903E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
