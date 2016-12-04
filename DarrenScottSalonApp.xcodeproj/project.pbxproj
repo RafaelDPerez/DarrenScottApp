@@ -16,6 +16,7 @@
 		025565EB1DC2DAF8005A903E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 025565E91DC2DAF8005A903E /* LaunchScreen.xib */; };
 		025565F71DC2DAF8005A903E /* DarrenScottSalonAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 025565F61DC2DAF8005A903E /* DarrenScottSalonAppTests.m */; };
 		02C18A721DC2F307008745BE /* ASStarRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C18A711DC2F307008745BE /* ASStarRatingView.m */; };
+		450927DE1DF4D0730052EB54 /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 450927DD1DF4D0730052EB54 /* NavigationViewController.m */; };
 		45B2F7411DE27C3100AAB600 /* TermsAndConditionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B2F7401DE27C3100AAB600 /* TermsAndConditionsViewController.m */; };
 		45C6B7FF1DD2960A0067654B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 45C6B7FE1DD2960A0067654B /* GoogleService-Info.plist */; };
 		45C6B8011DD2A3F90067654B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45C6B8001DD2A3F90067654B /* Social.framework */; };
@@ -52,6 +53,8 @@
 		02C18A711DC2F307008745BE /* ASStarRatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASStarRatingView.m; sourceTree = "<group>"; };
 		0DB04EBBF36AB7A0C112AAE5 /* libPods-DarrenScottSalonAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DarrenScottSalonAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		128D1374D90FECCC4482D81A /* Pods-DarrenScottSalonApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DarrenScottSalonApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-DarrenScottSalonApp/Pods-DarrenScottSalonApp.release.xcconfig"; sourceTree = "<group>"; };
+		450927DC1DF4D0730052EB54 /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
+		450927DD1DF4D0730052EB54 /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
 		45B2F73F1DE27C3100AAB600 /* TermsAndConditionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermsAndConditionsViewController.h; sourceTree = "<group>"; };
 		45B2F7401DE27C3100AAB600 /* TermsAndConditionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermsAndConditionsViewController.m; sourceTree = "<group>"; };
 		45C6B7FE1DD2960A0067654B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -119,6 +122,8 @@
 				025565E91DC2DAF8005A903E /* LaunchScreen.xib */,
 				025565DE1DC2DAF8005A903E /* DarrenScottSalonApp.xcdatamodeld */,
 				025565D71DC2DAF8005A903E /* Supporting Files */,
+				450927DC1DF4D0730052EB54 /* NavigationViewController.h */,
+				450927DD1DF4D0730052EB54 /* NavigationViewController.m */,
 			);
 			path = DarrenScottSalonApp;
 			sourceTree = "<group>";
@@ -382,6 +387,7 @@
 			files = (
 				45B2F7411DE27C3100AAB600 /* TermsAndConditionsViewController.m in Sources */,
 				02C18A721DC2F307008745BE /* ASStarRatingView.m in Sources */,
+				450927DE1DF4D0730052EB54 /* NavigationViewController.m in Sources */,
 				025565DD1DC2DAF8005A903E /* AppDelegate.m in Sources */,
 				025565E01DC2DAF8005A903E /* DarrenScottSalonApp.xcdatamodeld in Sources */,
 				025565E31DC2DAF8005A903E /* ViewController.m in Sources */,

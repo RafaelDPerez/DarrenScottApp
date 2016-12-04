@@ -1,45 +1,27 @@
 //
-//  TermsAndConditionsViewController.m
+//  NavigationViewController.m
 //  DarrenScottSalonApp
 //
-//  Created by Rafael Perez on 11/20/16.
+//  Created by Rafael Perez on 12/4/16.
 //  Copyright © 2016 maranta. All rights reserved.
 //
 
-#import "TermsAndConditionsViewController.h"
 #import "NavigationViewController.h"
-#import "ViewController.h"
 
-@interface TermsAndConditionsViewController ()
+@interface NavigationViewController ()
 
 @end
 
-@implementation TermsAndConditionsViewController
+@implementation NavigationViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
--(IBAction)AcceptConditions:(id)sender{
-    [[NSUserDefaults standardUserDefaults] setValue:@"YES" forKey:@"Terms"];
-
-}
-
-
--(IBAction)DeclineConditions:(id)sender{
-    [[NSUserDefaults standardUserDefaults] setValue:@"NO" forKey:@"Terms"];
-}
-
-
-- (IBAction)AcceptTerms:(id)sender{
-[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"TermsAccepted"];
 }
 
 /*

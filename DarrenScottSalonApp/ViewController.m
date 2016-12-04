@@ -24,6 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+       [[NSUserDefaults standardUserDefaults] setValue:@"NO" forKey:@"Terms"];
     _textViewComments.text = @"Comment";
     _textViewComments.textColor = [UIColor lightGrayColor];
     _textViewComments.clipsToBounds = YES;
@@ -31,7 +32,7 @@
     [_textViewComments.layer setBorderColor:[[[UIColor grayColor] colorWithAlphaComponent:0.5] CGColor]];
     [_textViewComments.layer setBorderWidth:0.5];
     _textViewComments.delegate = self;
-    [FIRApp configure];
+   
     FIRStorage *storage = [FIRStorage storage];
     storageRef = [storage referenceForURL:@"gs://darrenscottsalon-46b98.appspot.com"];
 

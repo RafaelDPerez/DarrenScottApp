@@ -20,6 +20,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+     [FIRApp configure];
     // Override point for customization after application launch.
     //first-time ever defaults check and set
 //    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
@@ -27,31 +28,50 @@
 //    TermsAndConditionsViewController *controller = (TermsAndConditionsViewController *)[mainStoryboard instantiateViewControllerWithIdentifier: @"TermsAndConditions"];
 //    [self.window.rootViewController presentViewController: controller animated:YES completion:nil];
     
+
     
+    NSString *value = [[NSUserDefaults standardUserDefaults] stringForKey:@"Terms"];
+   NSLog(@"%@", value);
     
-    if([[NSUserDefaults standardUserDefaults] boolForKey:@"TermsAccepted"]!=YES)
+    if([value isEqualToString:@"(null)"] || ![value isEqualToString: @"YES"])
     {
-        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"TermsAccepted"];
+    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"TermsAndConditions"];
+    self.window.rootViewController = vc;
+    [self.window makeKeyAndVisible];
+    }
+    else
+    {
         self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
-        
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        
-        TermsAndConditionsViewController *viewController =  (TermsAndConditionsViewController *)[storyboard instantiateViewControllerWithIdentifier: @"TermsAndConditions"];
-        
-        self.window.rootViewController = viewController;
+        UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"NavigationController"];
+        self.window.rootViewController = vc;
         [self.window makeKeyAndVisible];
     }
-    else{
-        self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
-        
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        
-        ViewController *viewController =  (ViewController *)[storyboard instantiateViewControllerWithIdentifier: @"Reviews"];
-        
-        self.window.rootViewController = viewController;
-        [self.window makeKeyAndVisible];
-    
-    }
+//    if([[NSUserDefaults standardUserDefaults] boolForKey:@"TermsAccepted"]!=YES)
+//    {
+//        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"TermsAccepted"];
+//        self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+//        
+//        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//        
+//        TermsAndConditionsViewController *viewController =  (TermsAndConditionsViewController *)[storyboard instantiateViewControllerWithIdentifier: @"TermsAndConditions"];
+//        
+//        self.window.rootViewController = viewController;
+//        [self.window makeKeyAndVisible];
+//    }
+//    else{
+//        self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+//        
+//        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//        
+//        ViewController *viewController =  (ViewController *)[storyboard instantiateViewControllerWithIdentifier: @"Reviews"];
+//        
+//        self.window.rootViewController = viewController;
+//        [self.window makeKeyAndVisible];
+//    
+//    }
     return YES;
 }
 
