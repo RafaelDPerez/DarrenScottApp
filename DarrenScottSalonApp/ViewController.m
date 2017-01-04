@@ -101,7 +101,7 @@ didAutocompleteWithPlace:(GMSPlace *)place {
         [text appendAttributedString:place.attributions];
     }
 
-    _textViewComments.attributedText = text;
+    _lblLocation.text = place.name;
 }
 
 - (void)viewController:(GMSAutocompleteViewController *)viewController

@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *textFieldService;
 @property (weak, nonatomic) IBOutlet UITextField *textFieldStylist;
 @property (weak, nonatomic) IBOutlet UITextView *textViewComments;
+@property (weak, nonatomic) IBOutlet UILabel *lblLocation;
 @property (nonatomic, strong) UIPickerView *pickerViewService;
 @property (nonatomic, strong) UIPickerView *pickerViewStylist;
 @property (nonatomic, strong) NSArray *pickerServices;

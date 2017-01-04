@@ -11,9 +11,11 @@
 #import "ViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
 #import <GooglePlaces/GooglePlaces.h>
-#import "SDKDemoAPIKey.h"
+
 
 @import Firebase;
+@import GooglePlaces;
+@import GoogleMaps;
 
 @interface AppDelegate ()
 
@@ -24,10 +26,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
      [FIRApp configure];
-    [GMSPlacesClient provideAPIKey:kAPIKey];
+    [GMSPlacesClient provideAPIKey:@"AIzaSyDegZLmKL9c42BLpAAJGtNNFu7Dc7pabW0"];
     // Provide the Maps API with your API key. You may not need this in your app, however we do need
     // this for the demo app as it uses Maps.
-    [GMSServices provideAPIKey:kAPIKey];
+    [GMSServices provideAPIKey:@"AIzaSyDegZLmKL9c42BLpAAJGtNNFu7Dc7pabW0"];
     // Override point for customization after application launch.
     //first-time ever defaults check and set
 //    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
