@@ -9,8 +9,9 @@
 #import "ViewController.h"
 #import <Social/Social.h>
 #import <QuartzCore/QuartzCore.h>
+#import <GooglePlaces/GooglePlaces.h>
 
-@interface ViewController (){
+@interface ViewController ()<GMSAutocompleteViewControllerDelegate>{
     FIRStorageReference *storageRef;
     NSData *imageData;
     UIImage *hola;
@@ -75,6 +76,52 @@
 
 }
 
+
+#pragma mark - Actions
+
+- (IBAction)showAutocompleteWidgetButtonTapped {
+    // When the button is pressed modally present the autocomplete view controller.
+    GMSAutocompleteViewController *autocompleteViewController =
+    [[GMSAutocompleteViewController alloc] init];
+    autocompleteViewController.delegate = self;
+    [self presentViewController:autocompleteViewController animated:YES completion:nil];
+}
+
+
+#pragma mark - GMSAutocompleteViewControllerDelegate
+
+- (void)viewController:(GMSAutocompleteViewController *)viewController
+didAutocompleteWithPlace:(GMSPlace *)place {
+    // Dismiss the view controller and tell our superclass to populate the result view.
+    [viewController dismissViewControllerAnimated:YES completion:nil];
+    NSMutableAttributedString *text =
+    [[NSMutableAttributedString alloc] initWithString:[place description]];
+    if (place.attributions) {
+        [text appendAttributedString:[[NSAttributedString alloc] initWithString:@"\n\n"]];
+        [text appendAttributedString:place.attributions];
+    }
+
+    _textViewComments.attributedText = text;
+}
+
+- (void)viewController:(GMSAutocompleteViewController *)viewController
+didFailAutocompleteWithError:(NSError *)error {
+    // Dismiss the view controller and notify our superclass of the failure.
+    [viewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)wasCancelled:(GMSAutocompleteViewController *)viewController {
+    // Dismiss the controller and show a message that it was canceled.
+    [viewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)didRequestAutocompletePredictions:(GMSAutocompleteViewController *)viewController {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+}
+
+- (void)didUpdateAutocompletePredictions:(GMSAutocompleteViewController *)viewController {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+}
 
 
 - (void)keyboardFrameWillChange:(NSNotification *)notification

@@ -22,7 +22,7 @@
  * All other autocomplete demo classes inherit from this class. This class optionally adds a button
  * to present the autocomplete widget, and displays the results when these are selected.
  */
-@interface AutocompleteBaseViewController : BaseDemoViewController
+@interface AutocompleteBaseViewController : UIViewController
 
 /**
  * Build a UIButton to display the autocomplete widget and add it to the UI. This should be called

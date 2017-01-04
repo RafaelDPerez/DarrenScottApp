@@ -97,7 +97,7 @@
                                 </state>
                                 <connections>
                                     <action selector="btnAddReviewClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8FJ-P2-L9c"/>
-                                    <segue destination="IaQ-NZ-Jaq" kind="push" id="lIN-tY-0Q6"/>
+                                    <action selector="showAutocompleteWidgetButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="4so-HS-3wN"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y3x-X0-rKe">
@@ -176,7 +176,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wnq-oA-qZY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="625" y="-93"/>
+            <point key="canvasLocation" x="804" y="-87"/>
         </scene>
         <!--Terms And Conditions View Controller-->
         <scene sceneID="atX-yt-9tY">
