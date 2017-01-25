@@ -38,9 +38,9 @@
 }
 
 
-- (IBAction)AcceptTerms:(id)sender{
-[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"TermsAccepted"];
-}
+//- (IBAction)AcceptTerms:(id)sender{
+//[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"TermsAccepted"];
+//}
 
 /*
 #pragma mark - Navigation

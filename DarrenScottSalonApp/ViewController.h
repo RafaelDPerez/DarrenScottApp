@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "ASStarRatingView.h"
+#import "SlideNavigationController.h"
 @import Firebase;
 
-@interface ViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface ViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate, SlideNavigationControllerDelegate>
 {
     UIImagePickerController *ipc;
     UIPopoverController *popover;

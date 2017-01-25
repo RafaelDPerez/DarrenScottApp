@@ -10,6 +10,7 @@
 #import <Social/Social.h>
 #import <QuartzCore/QuartzCore.h>
 #import <GooglePlaces/GooglePlaces.h>
+#import "LeftMenuViewController.h"
 
 @interface ViewController ()<GMSAutocompleteViewControllerDelegate>{
     FIRStorageReference *storageRef;
@@ -26,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
        [[NSUserDefaults standardUserDefaults] setValue:@"NO" forKey:@"Terms"];
-    _textViewComments.text = @"Comment";
+    _textViewComments.text = @"Write";
     _textViewComments.textColor = [UIColor lightGrayColor];
     _textViewComments.clipsToBounds = YES;
     _textViewComments.layer.cornerRadius = 10.0f;
@@ -76,6 +77,10 @@
 
 }
 
+- (BOOL)slideNavigationControllerShouldDisplayLeftMenu
+{
+    return YES;
+}
 
 #pragma mark - Actions
 
@@ -147,7 +152,7 @@ didFailAutocompleteWithError:(NSError *)error {
 
 - (BOOL) textViewShouldBeginEditing:(UITextView *)textView
 {
-    if([_textViewComments.text isEqualToString:@"Comment"]){
+    if([_textViewComments.text isEqualToString:@"Write"]){
         _textViewComments.text = @"";
     _textViewComments.textColor = [UIColor blackColor];
     }
@@ -162,7 +167,7 @@ didFailAutocompleteWithError:(NSError *)error {
     
     if(_textViewComments.text.length == 0){
         _textViewComments.textColor = [UIColor lightGrayColor];
-        _textViewComments.text = @"Comment";
+        _textViewComments.text = @"Write";
         [_textViewComments resignFirstResponder];
     }
 }
@@ -185,22 +190,24 @@ didFailAutocompleteWithError:(NSError *)error {
     
     // Upload the file to the path "images/rivers.jpg"
     // Upload the file to the path "images/rivers.jpg"
-    FIRStorageUploadTask *uploadTask = [riversRef putData:imageData metadata:nil completion:^(FIRStorageMetadata *metadata, NSError *error) {
-        if (error != nil) {
-            // Uh-oh, an error occurred!
-        } else {
-            // Metadata contains file metadata such as size, content-type, and download URL.
-            NSURL *downloadURL = metadata.downloadURL;
-        }
-    }];
-    FIRDatabaseReference *rootRef= [[FIRDatabase database] reference];
-    [[[rootRef child:@"users" ]childByAutoId]
-     setValue:@{@"id":  timestamp,
-                @"review_photo_url": selfieStorageName,
-                @"review_rating": @"rafaeldperez",
-                @"review_comments": _textViewComments.text,
-                @"review_stylist": _textFieldStylist.text,
-                @"review_service": textFieldService.text}];
+
+    //***FIREBASE UPLOAD
+    //    FIRStorageUploadTask *uploadTask = [riversRef putData:imageData metadata:nil completion:^(FIRStorageMetadata *metadata, NSError *error) {
+//        if (error != nil) {
+//            // Uh-oh, an error occurred!
+//        } else {
+//            // Metadata contains file metadata such as size, content-type, and download URL.
+//            NSURL *downloadURL = metadata.downloadURL;
+//        }
+//    }];
+//    FIRDatabaseReference *rootRef= [[FIRDatabase database] reference];
+//    [[[rootRef child:@"users" ]childByAutoId]
+//     setValue:@{@"id":  timestamp,
+//                @"review_photo_url": selfieStorageName,
+//                @"review_rating": @"rafaeldperez",
+//                @"review_comments": _textViewComments.text,
+//                @"review_stylist": _textFieldStylist.text,
+//                @"review_service": textFieldService.text}];
 }
 
 -(void)dismissKeyboard {

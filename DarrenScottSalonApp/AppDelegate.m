@@ -11,21 +11,32 @@
 #import "ViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
 #import <GooglePlaces/GooglePlaces.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <Foundation/Foundation.h>
+#import <Security/Security.h>
+#import "FDKeychain.h"
+#import "ProfileViewController.h"
+
+
+
 
 
 @import Firebase;
 @import GooglePlaces;
 @import GoogleMaps;
 
+
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
-
+@synthesize loggedIn = _loggedIn;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
      [FIRApp configure];
+    [[FBSDKApplicationDelegate sharedInstance] application:application
+                             didFinishLaunchingWithOptions:launchOptions];
     [GMSPlacesClient provideAPIKey:@"AIzaSyDegZLmKL9c42BLpAAJGtNNFu7Dc7pabW0"];
     // Provide the Maps API with your API key. You may not need this in your app, however we do need
     // this for the demo app as it uses Maps.
@@ -36,28 +47,88 @@
 //    
 //    TermsAndConditionsViewController *controller = (TermsAndConditionsViewController *)[mainStoryboard instantiateViewControllerWithIdentifier: @"TermsAndConditions"];
 //    [self.window.rootViewController presentViewController: controller animated:YES completion:nil];
+    _loggedIn = [FDKeychain itemForKey: @"loggedin"
+                            forService: @"ReviewApp"
+                                 error: nil];
+    
+    if ([_loggedIn isEqualToString:@"YES"]) {
+      // self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//                UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"NavigationController"];
+//                self.window.rootViewController = vc;
+//                [self.window makeKeyAndVisible];
+        
+//        LeftMenuViewController *leftMenu = (LeftMenuViewController*)[storyboard instantiateViewControllerWithIdentifier: @"LeftMenuViewController"];
+         ProfileViewController *leftMenu = (ProfileViewController*)[storyboard instantiateViewControllerWithIdentifier: @"LeftMenuViewController"];
+        
+        RightMenuViewController *rightMenu = (RightMenuViewController*)[storyboard instantiateViewControllerWithIdentifier: @"RightMenuViewController"];
+        
+        [SlideNavigationController sharedInstance].rightMenu = rightMenu;
+        [SlideNavigationController sharedInstance].leftMenu = leftMenu;
+        [SlideNavigationController sharedInstance].menuRevealAnimationDuration = .18;
+        
+        // Creating a custom bar button for right menu
+        UIButton *button  = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+        [button setImage:[UIImage imageNamed:@"gear"] forState:UIControlStateNormal];
+        [button addTarget:[SlideNavigationController sharedInstance] action:@selector(toggleRightMenu) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+        [SlideNavigationController sharedInstance].rightBarButtonItem = rightBarButtonItem;
+        
+        [[NSNotificationCenter defaultCenter] addObserverForName:SlideNavigationControllerDidClose object:nil queue:nil usingBlock:^(NSNotification *note) {
+            NSString *menu = note.userInfo[@"menu"];
+            NSLog(@"Closed %@", menu);
+        }];
+        
+        [[NSNotificationCenter defaultCenter] addObserverForName:SlideNavigationControllerDidOpen object:nil queue:nil usingBlock:^(NSNotification *note) {
+            NSString *menu = note.userInfo[@"menu"];
+            NSLog(@"Opened %@", menu);
+        }];
+        
+        [[NSNotificationCenter defaultCenter] addObserverForName:SlideNavigationControllerDidReveal object:nil queue:nil usingBlock:^(NSNotification *note) {
+            NSString *menu = note.userInfo[@"menu"];
+            NSLog(@"Revealed %@", menu);
+        }];
+    }
+    else{
+        self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"LogIn"];
+            self.window.rootViewController = vc;
+            [self.window makeKeyAndVisible];
+        
+    }
+    
     
 
+
+//    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"login"];
+//    self.window.rootViewController = vc;
+//    [self.window makeKeyAndVisible];
     
-    NSString *value = [[NSUserDefaults standardUserDefaults] stringForKey:@"Terms"];
-   NSLog(@"%@", value);
     
-    if([value isEqualToString:@"(null)"] || ![value isEqualToString: @"YES"])
-    {
-    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"TermsAndConditions"];
-    self.window.rootViewController = vc;
-    [self.window makeKeyAndVisible];
-    }
-    else
-    {
-        self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"NavigationController"];
-        self.window.rootViewController = vc;
-        [self.window makeKeyAndVisible];
-    }
+    
+//    
+//    if([value isEqualToString:@"(null)"] || ![value isEqualToString: @"YES"])
+//    {
+//    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"TermsAndConditions"];
+//    self.window.rootViewController = vc;
+//    [self.window makeKeyAndVisible];
+//    }
+//    else
+//    {
+//        self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+//        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//        UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"NavigationController"];
+//        self.window.rootViewController = vc;
+//        [self.window makeKeyAndVisible];
+//    }
+    
+    
+    
 //    if([[NSUserDefaults standardUserDefaults] boolForKey:@"TermsAccepted"]!=YES)
 //    {
 //        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"TermsAccepted"];
@@ -83,6 +154,20 @@
 //    }
     return YES;
 }
+
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    
+    BOOL handled = [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                                  openURL:url
+                                                        sourceApplication:sourceApplication
+                                                               annotation:annotation
+                    ];
+    // Add any custom logic here.
+    return handled;
+} 
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

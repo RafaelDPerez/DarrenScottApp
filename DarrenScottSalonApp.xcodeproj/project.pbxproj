@@ -11,11 +11,30 @@
 		025565DD1DC2DAF8005A903E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 025565DC1DC2DAF8005A903E /* AppDelegate.m */; };
 		025565E01DC2DAF8005A903E /* DarrenScottSalonApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 025565DE1DC2DAF8005A903E /* DarrenScottSalonApp.xcdatamodeld */; };
 		025565E31DC2DAF8005A903E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 025565E21DC2DAF8005A903E /* ViewController.m */; };
-		025565E61DC2DAF8005A903E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 025565E41DC2DAF8005A903E /* Main.storyboard */; };
 		025565E81DC2DAF8005A903E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 025565E71DC2DAF8005A903E /* Images.xcassets */; };
 		025565EB1DC2DAF8005A903E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 025565E91DC2DAF8005A903E /* LaunchScreen.xib */; };
 		025565F71DC2DAF8005A903E /* DarrenScottSalonAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 025565F61DC2DAF8005A903E /* DarrenScottSalonAppTests.m */; };
 		02C18A721DC2F307008745BE /* ASStarRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C18A711DC2F307008745BE /* ASStarRatingView.m */; };
+		45025D121E381F0C001FEAB6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45025D111E381F0C001FEAB6 /* Security.framework */; };
+		45025D411E384D2C001FEAB6 /* Animations in Resources */ = {isa = PBXBuildFile; fileRef = 45025D401E384D2C001FEAB6 /* Animations */; };
+		45025D451E384D4C001FEAB6 /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = 45025D441E384D4C001FEAB6 /* Assets */; };
+		45025D481E384D57001FEAB6 /* SlideNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45025D471E384D57001FEAB6 /* SlideNavigationController.m */; };
+		45025D4D1E384DC6001FEAB6 /* LeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45025D4A1E384DC6001FEAB6 /* LeftMenuViewController.m */; };
+		45025D4E1E384DC6001FEAB6 /* RightMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45025D4C1E384DC6001FEAB6 /* RightMenuViewController.m */; };
+		45025D6A1E384EB9001FEAB6 /* SlideNavigationContorllerAnimatorFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 45025D611E384EB9001FEAB6 /* SlideNavigationContorllerAnimatorFade.m */; };
+		45025D6B1E384EB9001FEAB6 /* SlideNavigationContorllerAnimatorScale.m in Sources */ = {isa = PBXBuildFile; fileRef = 45025D631E384EB9001FEAB6 /* SlideNavigationContorllerAnimatorScale.m */; };
+		45025D6C1E384EB9001FEAB6 /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 45025D651E384EB9001FEAB6 /* SlideNavigationContorllerAnimatorScaleAndFade.m */; };
+		45025D6D1E384EB9001FEAB6 /* SlideNavigationContorllerAnimatorSlide.m in Sources */ = {isa = PBXBuildFile; fileRef = 45025D671E384EB9001FEAB6 /* SlideNavigationContorllerAnimatorSlide.m */; };
+		45025D6E1E384EB9001FEAB6 /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 45025D691E384EB9001FEAB6 /* SlideNavigationContorllerAnimatorSlideAndFade.m */; };
+		45025D711E3851E4001FEAB6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45025D6F1E3851E4001FEAB6 /* Main.storyboard */; };
+		45025D741E385A38001FEAB6 /* menu-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 45025D721E385A38001FEAB6 /* menu-button.png */; };
+		45025D751E385A38001FEAB6 /* menu-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45025D731E385A38001FEAB6 /* menu-button@2x.png */; };
+		45025D781E385BF3001FEAB6 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45025D771E385BF3001FEAB6 /* ProfileViewController.m */; };
+		450703E31E36D306003B7793 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 450703E21E36D306003B7793 /* LoginViewController.m */; };
+		450703E71E36D408003B7793 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 450703E41E36D408003B7793 /* Bolts.framework */; };
+		450703E81E36D408003B7793 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 450703E51E36D408003B7793 /* FBSDKCoreKit.framework */; };
+		450703E91E36D408003B7793 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 450703E61E36D408003B7793 /* FBSDKShareKit.framework */; };
+		450703EB1E36D5FD003B7793 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 450703EA1E36D5FD003B7793 /* FBSDKLoginKit.framework */; };
 		450927DE1DF4D0730052EB54 /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 450927DD1DF4D0730052EB54 /* NavigationViewController.m */; };
 		45B2F7411DE27C3100AAB600 /* TermsAndConditionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B2F7401DE27C3100AAB600 /* TermsAndConditionsViewController.m */; };
 		45C6B7FF1DD2960A0067654B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 45C6B7FE1DD2960A0067654B /* GoogleService-Info.plist */; };
@@ -43,7 +62,6 @@
 		025565DF1DC2DAF8005A903E /* DarrenScottSalonApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DarrenScottSalonApp.xcdatamodel; sourceTree = "<group>"; };
 		025565E11DC2DAF8005A903E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		025565E21DC2DAF8005A903E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		025565E51DC2DAF8005A903E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		025565E71DC2DAF8005A903E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		025565EA1DC2DAF8005A903E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		025565F01DC2DAF8005A903E /* DarrenScottSalonAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DarrenScottSalonAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,6 +71,37 @@
 		02C18A711DC2F307008745BE /* ASStarRatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASStarRatingView.m; sourceTree = "<group>"; };
 		0DB04EBBF36AB7A0C112AAE5 /* libPods-DarrenScottSalonAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DarrenScottSalonAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		128D1374D90FECCC4482D81A /* Pods-DarrenScottSalonApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DarrenScottSalonApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-DarrenScottSalonApp/Pods-DarrenScottSalonApp.release.xcconfig"; sourceTree = "<group>"; };
+		45025D111E381F0C001FEAB6 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		45025D401E384D2C001FEAB6 /* Animations */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Animations; sourceTree = "<group>"; };
+		45025D441E384D4C001FEAB6 /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Assets; sourceTree = "<group>"; };
+		45025D461E384D57001FEAB6 /* SlideNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationController.h; sourceTree = "<group>"; };
+		45025D471E384D57001FEAB6 /* SlideNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationController.m; sourceTree = "<group>"; };
+		45025D491E384DC6001FEAB6 /* LeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftMenuViewController.h; sourceTree = "<group>"; };
+		45025D4A1E384DC6001FEAB6 /* LeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftMenuViewController.m; sourceTree = "<group>"; };
+		45025D4B1E384DC6001FEAB6 /* RightMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightMenuViewController.h; sourceTree = "<group>"; };
+		45025D4C1E384DC6001FEAB6 /* RightMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightMenuViewController.m; sourceTree = "<group>"; };
+		45025D5F1E384EB9001FEAB6 /* SlideNavigationContorllerAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimator.h; sourceTree = "<group>"; };
+		45025D601E384EB9001FEAB6 /* SlideNavigationContorllerAnimatorFade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorFade.h; sourceTree = "<group>"; };
+		45025D611E384EB9001FEAB6 /* SlideNavigationContorllerAnimatorFade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationContorllerAnimatorFade.m; sourceTree = "<group>"; };
+		45025D621E384EB9001FEAB6 /* SlideNavigationContorllerAnimatorScale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorScale.h; sourceTree = "<group>"; };
+		45025D631E384EB9001FEAB6 /* SlideNavigationContorllerAnimatorScale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationContorllerAnimatorScale.m; sourceTree = "<group>"; };
+		45025D641E384EB9001FEAB6 /* SlideNavigationContorllerAnimatorScaleAndFade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorScaleAndFade.h; sourceTree = "<group>"; };
+		45025D651E384EB9001FEAB6 /* SlideNavigationContorllerAnimatorScaleAndFade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationContorllerAnimatorScaleAndFade.m; sourceTree = "<group>"; };
+		45025D661E384EB9001FEAB6 /* SlideNavigationContorllerAnimatorSlide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorSlide.h; sourceTree = "<group>"; };
+		45025D671E384EB9001FEAB6 /* SlideNavigationContorllerAnimatorSlide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationContorllerAnimatorSlide.m; sourceTree = "<group>"; };
+		45025D681E384EB9001FEAB6 /* SlideNavigationContorllerAnimatorSlideAndFade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorSlideAndFade.h; sourceTree = "<group>"; };
+		45025D691E384EB9001FEAB6 /* SlideNavigationContorllerAnimatorSlideAndFade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationContorllerAnimatorSlideAndFade.m; sourceTree = "<group>"; };
+		45025D701E3851E4001FEAB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		45025D721E385A38001FEAB6 /* menu-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-button.png"; path = "Assets/menu-button.png"; sourceTree = "<group>"; };
+		45025D731E385A38001FEAB6 /* menu-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-button@2x.png"; path = "Assets/menu-button@2x.png"; sourceTree = "<group>"; };
+		45025D761E385BF3001FEAB6 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		45025D771E385BF3001FEAB6 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		450703E11E36D306003B7793 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		450703E21E36D306003B7793 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		450703E41E36D408003B7793 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		450703E51E36D408003B7793 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		450703E61E36D408003B7793 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		450703EA1E36D5FD003B7793 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		450927DC1DF4D0730052EB54 /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
 		450927DD1DF4D0730052EB54 /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
 		45B2F73F1DE27C3100AAB600 /* TermsAndConditionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermsAndConditionsViewController.h; sourceTree = "<group>"; };
@@ -70,6 +119,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45025D121E381F0C001FEAB6 /* Security.framework in Frameworks */,
+				450703E71E36D408003B7793 /* Bolts.framework in Frameworks */,
+				450703E81E36D408003B7793 /* FBSDKCoreKit.framework in Frameworks */,
+				450703EB1E36D5FD003B7793 /* FBSDKLoginKit.framework in Frameworks */,
+				450703E91E36D408003B7793 /* FBSDKShareKit.framework in Frameworks */,
 				45C6B8011DD2A3F90067654B /* Social.framework in Frameworks */,
 				6B537880658ECAE480A094B0 /* libPods-DarrenScottSalonApp.a in Frameworks */,
 			);
@@ -109,21 +163,46 @@
 		025565D61DC2DAF8005A903E /* DarrenScottSalonApp */ = {
 			isa = PBXGroup;
 			children = (
+				45025D721E385A38001FEAB6 /* menu-button.png */,
+				45025D731E385A38001FEAB6 /* menu-button@2x.png */,
+				45025D5F1E384EB9001FEAB6 /* SlideNavigationContorllerAnimator.h */,
+				45025D601E384EB9001FEAB6 /* SlideNavigationContorllerAnimatorFade.h */,
+				45025D611E384EB9001FEAB6 /* SlideNavigationContorllerAnimatorFade.m */,
+				45025D621E384EB9001FEAB6 /* SlideNavigationContorllerAnimatorScale.h */,
+				45025D631E384EB9001FEAB6 /* SlideNavigationContorllerAnimatorScale.m */,
+				45025D641E384EB9001FEAB6 /* SlideNavigationContorllerAnimatorScaleAndFade.h */,
+				45025D651E384EB9001FEAB6 /* SlideNavigationContorllerAnimatorScaleAndFade.m */,
+				45025D661E384EB9001FEAB6 /* SlideNavigationContorllerAnimatorSlide.h */,
+				45025D671E384EB9001FEAB6 /* SlideNavigationContorllerAnimatorSlide.m */,
+				45025D681E384EB9001FEAB6 /* SlideNavigationContorllerAnimatorSlideAndFade.h */,
+				45025D691E384EB9001FEAB6 /* SlideNavigationContorllerAnimatorSlideAndFade.m */,
+				45025D461E384D57001FEAB6 /* SlideNavigationController.h */,
+				45025D471E384D57001FEAB6 /* SlideNavigationController.m */,
+				45025D441E384D4C001FEAB6 /* Assets */,
+				45025D401E384D2C001FEAB6 /* Animations */,
 				02C18A6F1DC2F2E6008745BE /* ASStarRatingView */,
 				025565DB1DC2DAF8005A903E /* AppDelegate.h */,
 				025565DC1DC2DAF8005A903E /* AppDelegate.m */,
+				45025D491E384DC6001FEAB6 /* LeftMenuViewController.h */,
+				45025D4A1E384DC6001FEAB6 /* LeftMenuViewController.m */,
+				45025D4B1E384DC6001FEAB6 /* RightMenuViewController.h */,
+				45025D4C1E384DC6001FEAB6 /* RightMenuViewController.m */,
 				45B2F73F1DE27C3100AAB600 /* TermsAndConditionsViewController.h */,
 				45B2F7401DE27C3100AAB600 /* TermsAndConditionsViewController.m */,
 				025565E11DC2DAF8005A903E /* ViewController.h */,
 				025565E21DC2DAF8005A903E /* ViewController.m */,
-				025565E41DC2DAF8005A903E /* Main.storyboard */,
 				45C6B7FE1DD2960A0067654B /* GoogleService-Info.plist */,
 				025565E71DC2DAF8005A903E /* Images.xcassets */,
+				45025D6F1E3851E4001FEAB6 /* Main.storyboard */,
 				025565E91DC2DAF8005A903E /* LaunchScreen.xib */,
 				025565DE1DC2DAF8005A903E /* DarrenScottSalonApp.xcdatamodeld */,
 				025565D71DC2DAF8005A903E /* Supporting Files */,
 				450927DC1DF4D0730052EB54 /* NavigationViewController.h */,
 				450927DD1DF4D0730052EB54 /* NavigationViewController.m */,
+				450703E11E36D306003B7793 /* LoginViewController.h */,
+				450703E21E36D306003B7793 /* LoginViewController.m */,
+				45025D761E385BF3001FEAB6 /* ProfileViewController.h */,
+				45025D771E385BF3001FEAB6 /* ProfileViewController.m */,
 			);
 			path = DarrenScottSalonApp;
 			sourceTree = "<group>";
@@ -166,6 +245,11 @@
 		14349295A1A86115EE6C9DAD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				45025D111E381F0C001FEAB6 /* Security.framework */,
+				450703EA1E36D5FD003B7793 /* FBSDKLoginKit.framework */,
+				450703E41E36D408003B7793 /* Bolts.framework */,
+				450703E51E36D408003B7793 /* FBSDKCoreKit.framework */,
+				450703E61E36D408003B7793 /* FBSDKShareKit.framework */,
 				45C6B8001DD2A3F90067654B /* Social.framework */,
 				86355BF8E0C5E1D4C83BE495 /* libPods-DarrenScottSalonApp.a */,
 				0DB04EBBF36AB7A0C112AAE5 /* libPods-DarrenScottSalonAppTests.a */,
@@ -271,9 +355,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				025565E61DC2DAF8005A903E /* Main.storyboard in Resources */,
+				45025D411E384D2C001FEAB6 /* Animations in Resources */,
+				45025D451E384D4C001FEAB6 /* Assets in Resources */,
 				45C6B7FF1DD2960A0067654B /* GoogleService-Info.plist in Resources */,
+				45025D711E3851E4001FEAB6 /* Main.storyboard in Resources */,
 				025565EB1DC2DAF8005A903E /* LaunchScreen.xib in Resources */,
+				45025D751E385A38001FEAB6 /* menu-button@2x.png in Resources */,
+				45025D741E385A38001FEAB6 /* menu-button.png in Resources */,
 				025565E81DC2DAF8005A903E /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -385,13 +473,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45025D4E1E384DC6001FEAB6 /* RightMenuViewController.m in Sources */,
+				45025D481E384D57001FEAB6 /* SlideNavigationController.m in Sources */,
+				45025D6D1E384EB9001FEAB6 /* SlideNavigationContorllerAnimatorSlide.m in Sources */,
+				450703E31E36D306003B7793 /* LoginViewController.m in Sources */,
 				45B2F7411DE27C3100AAB600 /* TermsAndConditionsViewController.m in Sources */,
 				02C18A721DC2F307008745BE /* ASStarRatingView.m in Sources */,
 				450927DE1DF4D0730052EB54 /* NavigationViewController.m in Sources */,
+				45025D6A1E384EB9001FEAB6 /* SlideNavigationContorllerAnimatorFade.m in Sources */,
 				025565DD1DC2DAF8005A903E /* AppDelegate.m in Sources */,
+				45025D781E385BF3001FEAB6 /* ProfileViewController.m in Sources */,
 				025565E01DC2DAF8005A903E /* DarrenScottSalonApp.xcdatamodeld in Sources */,
+				45025D6C1E384EB9001FEAB6 /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
 				025565E31DC2DAF8005A903E /* ViewController.m in Sources */,
+				45025D4D1E384DC6001FEAB6 /* LeftMenuViewController.m in Sources */,
 				025565DA1DC2DAF8005A903E /* main.m in Sources */,
+				45025D6E1E384EB9001FEAB6 /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
+				45025D6B1E384EB9001FEAB6 /* SlideNavigationContorllerAnimatorScale.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,20 +512,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		025565E41DC2DAF8005A903E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				025565E51DC2DAF8005A903E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		025565E91DC2DAF8005A903E /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				025565EA1DC2DAF8005A903E /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		45025D6F1E3851E4001FEAB6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45025D701E3851E4001FEAB6 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -526,6 +624,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9ZZEJK9DFN;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = DarrenScottSalonApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -541,6 +643,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9ZZEJK9DFN;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = DarrenScottSalonApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
