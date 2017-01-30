@@ -127,7 +127,7 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
     
     [FBSDKAccessToken setCurrentAccessToken:nil];
     
-     [self performSegueWithIdentifier:@"callLogIn" sender:self];    
+     [self performSegueWithIdentifier:@"callLogIn" sender:self];
     
 }
 
