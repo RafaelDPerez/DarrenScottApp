@@ -11,6 +11,8 @@
 #import <QuartzCore/QuartzCore.h>
 #import <GooglePlaces/GooglePlaces.h>
 #import "LeftMenuViewController.h"
+#import "ProfileViewController.h"
+#import "SlideNavigationController.h"
 
 @interface ViewController ()<GMSAutocompleteViewControllerDelegate>{
     FIRStorageReference *storageRef;
@@ -24,9 +26,40 @@
 @synthesize ivPickedImage, textFieldService;
 @synthesize btnCamera,btnGallery,btnPhotoGallery;
 
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self.slideOutAnimationEnabled = YES;
+    
+    return [super initWithCoder:aDecoder];
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-       [[NSUserDefaults standardUserDefaults] setValue:@"NO" forKey:@"Terms"];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ProfileViewController *leftMenu = (ProfileViewController*)[storyboard instantiateViewControllerWithIdentifier: @"LeftMenuViewController"];
+    [SlideNavigationController sharedInstance].leftMenu = leftMenu;
+    [SlideNavigationController sharedInstance].menuRevealAnimationDuration = .18;
+    UIButton *button  = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    [button setImage:[UIImage imageNamed:@"gear"] forState:UIControlStateNormal];
+    [button addTarget:[SlideNavigationController sharedInstance] action:@selector(toggleRightMenu) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:SlideNavigationControllerDidClose object:nil queue:nil usingBlock:^(NSNotification *note) {
+        NSString *menu = note.userInfo[@"menu"];
+        NSLog(@"Closed %@", menu);
+    }];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:SlideNavigationControllerDidOpen object:nil queue:nil usingBlock:^(NSNotification *note) {
+        NSString *menu = note.userInfo[@"menu"];
+        NSLog(@"Opened %@", menu);
+    }];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:SlideNavigationControllerDidReveal object:nil queue:nil usingBlock:^(NSNotification *note) {
+        NSString *menu = note.userInfo[@"menu"];
+        NSLog(@"Revealed %@", menu);
+    }];
     _textViewComments.text = @"Write";
     _textViewComments.textColor = [UIColor lightGrayColor];
     _textViewComments.clipsToBounds = YES;

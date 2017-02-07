@@ -12,9 +12,11 @@
 @import GoogleSignIn;
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import "SlideNavigationController.h"
 
 @interface LoginViewController : UIViewController<GIDSignInDelegate,
-GIDSignInUIDelegate>
+GIDSignInUIDelegate, SlideNavigationControllerDelegate>
+@property (nonatomic, assign) BOOL slideOutAnimationEnabled;
 @property (weak, nonatomic) IBOutlet FBSDKLoginButton *loginButton;
 
 @end

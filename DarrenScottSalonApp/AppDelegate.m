@@ -50,6 +50,7 @@
     _loggedIn = [FDKeychain itemForKey: @"loggedin"
                             forService: @"ReviewApp"
                                  error: nil];
+ 
     
     if ([_loggedIn isEqualToString:@"YES"]) {
       // self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
@@ -61,9 +62,7 @@
 //        LeftMenuViewController *leftMenu = (LeftMenuViewController*)[storyboard instantiateViewControllerWithIdentifier: @"LeftMenuViewController"];
          ProfileViewController *leftMenu = (ProfileViewController*)[storyboard instantiateViewControllerWithIdentifier: @"LeftMenuViewController"];
         
-        RightMenuViewController *rightMenu = (RightMenuViewController*)[storyboard instantiateViewControllerWithIdentifier: @"RightMenuViewController"];
         
-        [SlideNavigationController sharedInstance].rightMenu = rightMenu;
         [SlideNavigationController sharedInstance].leftMenu = leftMenu;
         [SlideNavigationController sharedInstance].menuRevealAnimationDuration = .18;
         
@@ -72,7 +71,7 @@
         [button setImage:[UIImage imageNamed:@"gear"] forState:UIControlStateNormal];
         [button addTarget:[SlideNavigationController sharedInstance] action:@selector(toggleRightMenu) forControlEvents:UIControlEventTouchUpInside];
         UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
-        [SlideNavigationController sharedInstance].rightBarButtonItem = rightBarButtonItem;
+
         
         [[NSNotificationCenter defaultCenter] addObserverForName:SlideNavigationControllerDidClose object:nil queue:nil usingBlock:^(NSNotification *note) {
             NSString *menu = note.userInfo[@"menu"];
@@ -88,6 +87,11 @@
             NSString *menu = note.userInfo[@"menu"];
             NSLog(@"Revealed %@", menu);
         }];
+        
+        self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+        UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"Slide"];
+        self.window.rootViewController = vc;
+        [self.window makeKeyAndVisible];
     }
     else{
         self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];

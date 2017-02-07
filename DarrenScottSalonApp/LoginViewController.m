@@ -11,15 +11,41 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import "FDKeychain.h"
 #import "ProfileViewController.h"
+#import "SlideNavigationController.h"
+#import "ACFloatingTextField.h"
 
 @interface LoginViewController ()
-
+@property (weak, nonatomic) IBOutlet ACFloatingTextField *txtEmail;
+@property (weak, nonatomic) IBOutlet ACFloatingTextField *txtPassword;
+@property (weak, nonatomic) IBOutlet ACFloatingTextField *txtForgotPassword;
+@property (weak, nonatomic) IBOutlet ACFloatingTextField *txtRegister;
 @end
 
 @implementation LoginViewController
 @synthesize loginButton = _loginButton;
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self.slideOutAnimationEnabled = YES;
+    
+    return [super initWithCoder:aDecoder];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [_txtEmail setTextFieldPlaceholderText:@"Email"];
+    _txtEmail.selectedLineColor = [UIColor blackColor];
+    _txtEmail.placeHolderColor = [UIColor blackColor];
+    [_txtEmail setTextColor:[UIColor blackColor]];
+    _txtEmail.selectedPlaceHolderColor = [UIColor blackColor];
+    _txtEmail.lineColor = [UIColor blackColor];
+    
+    [_txtPassword setTextFieldPlaceholderText:@"Password"];
+    _txtPassword.selectedLineColor = [UIColor blackColor];
+    _txtPassword.placeHolderColor = [UIColor blackColor];
+    [_txtPassword setTextColor:[UIColor blackColor]];
+    _txtPassword.selectedPlaceHolderColor = [UIColor blackColor];
+    _txtPassword.lineColor = [UIColor blackColor];
+    _txtPassword.secureTextEntry = YES;
     // Do any additional setup after loading the view.
     _loginButton = [[FBSDKLoginButton alloc] init];
     _loginButton.delegate = self;
@@ -30,48 +56,77 @@
 //    [self.view addSubview:loginButton];
 }
 
-- (void)loginButton:(FBSDKLoginButton *)loginButton
-didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
-              error:(NSError *)error {
-    
-    
-    if (error == nil) {
-        FIRAuthCredential *credential = [FIRFacebookAuthProvider
-                                         credentialWithAccessToken:[FBSDKAccessToken currentAccessToken]
-                                         .tokenString];
-        [[FIRAuth auth] signInWithCredential:credential
-                                  completion:^(FIRUser *user, NSError *error) {
-                                   
-                                      [FDKeychain saveItem: @"YES"
-                                                    forKey: @"loggedin"
-                                                forService: @"ReviewApp"
-                                                     error: nil];
-                                  }];
-         
-        
- [self performSegueWithIdentifier:@"callReviewApp" sender:self];
-    } else {
-        NSLog(error.localizedDescription);
-    }
-    
-    //    FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]
-    //                                  initWithGraphPath:@"/me/feed"
-    //                                  parameters:@{@"fields":  @"name, message, picture"}
-    //                                  HTTPMethod:@"GET"];
-    //    [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
-    //                                          id result,
-    //                                          NSError *error) {
-    //        NSLog([NSString stringWithFormat:@"%@", result]);
-    //    }];
+
+-(IBAction)FacebookLogIn:(id)sender{
+    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+    [login
+     logInWithReadPermissions: @[@"public_profile", @"email", @"user_friends", @"user_posts"]
+     fromViewController:self
+     handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+         if (error) {
+             NSLog(@"Process error");
+         } else if (result.isCancelled) {
+             NSLog(@"Cancelled");
+         } else {
+             FIRAuthCredential *credential = [FIRFacebookAuthProvider
+                                              credentialWithAccessToken:[FBSDKAccessToken currentAccessToken]
+                                              .tokenString];
+             [[FIRAuth auth] signInWithCredential:credential
+                                       completion:^(FIRUser *user, NSError *error) {
+                                           
+                                           [FDKeychain saveItem: @"YES"
+                                                         forKey: @"loggedin"
+                                                     forService: @"ReviewApp"
+                                                          error: nil];
+                                       }];
+             [self performSegueWithIdentifier:@"callReviewApp" sender:self];
+             
+             
+
+         }
+     }];
+
 }
+
+//- (void)loginButton:(FBSDKLoginButton *)loginButton
+//didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
+//              error:(NSError *)error {
+//    
+//    
+//    if (error == nil) {
+//        FIRAuthCredential *credential = [FIRFacebookAuthProvider
+//                                         credentialWithAccessToken:[FBSDKAccessToken currentAccessToken]
+//                                         .tokenString];
+//        [[FIRAuth auth] signInWithCredential:credential
+//                                  completion:^(FIRUser *user, NSError *error) {
+//                                   
+//                                      [FDKeychain saveItem: @"YES"
+//                                                    forKey: @"loggedin"
+//                                                forService: @"ReviewApp"
+//                                                     error: nil];
+//                                  }];
+//         
+//        
+// [self performSegueWithIdentifier:@"callReviewApp" sender:self];
+//    } else {
+//        NSLog(error.localizedDescription);
+//    }
+//    
+//    //    FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]
+//    //                                  initWithGraphPath:@"/me/feed"
+//    //                                  parameters:@{@"fields":  @"name, message, picture"}
+//    //                                  HTTPMethod:@"GET"];
+//    //    [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
+//    //                                          id result,
+//    //                                          NSError *error) {
+//    //        NSLog([NSString stringWithFormat:@"%@", result]);
+//    //    }];
+//}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([segue.identifier isEqualToString:@"callReviewApp"]) {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        ProfileViewController *leftMenu = (ProfileViewController*)[storyboard instantiateViewControllerWithIdentifier: @"LeftMenuViewController"];
-        [SlideNavigationController sharedInstance].leftMenu = leftMenu;
-        [SlideNavigationController sharedInstance].menuRevealAnimationDuration = .18;
+   
     }
 }
 

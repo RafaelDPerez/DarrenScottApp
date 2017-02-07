@@ -127,8 +127,12 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
     
     [FBSDKAccessToken setCurrentAccessToken:nil];
     
-     [self performSegueWithIdentifier:@"callLogIn" sender:self];
-    
+    //[self performSegueWithIdentifier:@"callLogIn" sender:self];
+    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"LogIn"];
+    self.window.rootViewController = vc;
+    [self.window makeKeyAndVisible];
 }
 
 /*

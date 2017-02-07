@@ -16,7 +16,7 @@
     UIImagePickerController *ipc;
     UIPopoverController *popover;
 }
-
+@property (nonatomic, assign) BOOL slideOutAnimationEnabled;
 @property (weak, nonatomic) IBOutlet UIButton *btnGallery;
 @property (weak, nonatomic) IBOutlet UIButton *btnCamera;
 @property (weak, nonatomic) IBOutlet UIButton *btnPhotoGallery;

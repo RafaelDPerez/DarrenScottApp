@@ -10,6 +10,7 @@
 #import <CoreData/CoreData.h>
 #import "SlideNavigationController.h"
 #import "LeftMenuViewController.h"
+#import "ProfileViewController.h"
 #import "RightMenuViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
