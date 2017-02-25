@@ -13,6 +13,7 @@
 #import "LeftMenuViewController.h"
 #import "ProfileViewController.h"
 #import "SlideNavigationController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface ViewController ()<GMSAutocompleteViewControllerDelegate>{
     FIRStorageReference *storageRef;
@@ -23,8 +24,8 @@
 @end
 
 @implementation ViewController
-@synthesize ivPickedImage, textFieldService;
-@synthesize btnCamera,btnGallery,btnPhotoGallery;
+@synthesize ivPickedImage;
+@synthesize btnCamera,btnGallery;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -36,6 +37,38 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[_txtWho layer] setBorderWidth:1.0f];
+    [[_txtWho layer] setBorderColor:self.view.tintColor.CGColor];
+    
+    [[_txtWhy layer] setBorderWidth:1.0f];
+    [[_txtWhy layer] setBorderColor:self.view.tintColor.CGColor];
+    
+    [[_txtWhat layer] setBorderWidth:1.0f];
+    [[_txtWhat layer] setBorderColor:self.view.tintColor.CGColor];
+    
+    [[_txtWith layer] setBorderWidth:1.0f];
+    [[_txtWith layer] setBorderColor:self.view.tintColor.CGColor];
+    
+    [[_txtWhere layer] setBorderWidth:1.0f];
+    [[_txtWhere layer] setBorderColor:self.view.tintColor.CGColor];
+    
+    [[_textViewComments layer] setBorderWidth:1.0f];
+    [[_textViewComments layer] setBorderColor:self.view.tintColor.CGColor];
+    
+    [[btnCamera layer] setBorderWidth:1.0f];
+    [[btnCamera layer] setBorderColor:self.view.tintColor.CGColor];
+    btnCamera.layer.cornerRadius = 15.0f;
+    
+    [[btnGallery layer] setBorderWidth:1.0f];
+    [[btnGallery layer] setBorderColor:self.view.tintColor.CGColor];
+    btnGallery.layer.cornerRadius = 15.0f;
+    
+    [[ivPickedImage layer] setBorderWidth:1.0f];
+    [[ivPickedImage layer] setBorderColor:self.view.tintColor.CGColor];
+    ivPickedImage.layer.cornerRadius = 15.0f;
+    
+    
+    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ProfileViewController *leftMenu = (ProfileViewController*)[storyboard instantiateViewControllerWithIdentifier: @"LeftMenuViewController"];
     [SlideNavigationController sharedInstance].leftMenu = leftMenu;
@@ -60,12 +93,10 @@
         NSString *menu = note.userInfo[@"menu"];
         NSLog(@"Revealed %@", menu);
     }];
-    _textViewComments.text = @"Write";
+    _textViewComments.text = @"Write (how was the whole experience)";
     _textViewComments.textColor = [UIColor lightGrayColor];
     _textViewComments.clipsToBounds = YES;
-    _textViewComments.layer.cornerRadius = 10.0f;
-    [_textViewComments.layer setBorderColor:[[[UIColor grayColor] colorWithAlphaComponent:0.5] CGColor]];
-    [_textViewComments.layer setBorderWidth:0.5];
+//    _textViewComments.layer.cornerRadius = 10.0f;
     _textViewComments.delegate = self;
    
     FIRStorage *storage = [FIRStorage storage];
@@ -82,15 +113,15 @@
    
     
     
-    self.textFieldService.inputView = self.pickerViewService;
-     self.textFieldStylist.inputView = self.pickerViewStylist;
-    
-    
-    self.pickerServices = @[ @"Hair", @"Nails", @"Extentions"];
-    self.pickerStylists = @[ @"Darren Scott", @"James Penningnton", @"Rafael Perez"];
-    
-    [self.view addSubview:self.textFieldService];
-    [self.view addSubview:self.textFieldStylist];
+//    self.textFieldService.inputView = self.pickerViewService;
+//     self.textFieldStylist.inputView = self.pickerViewStylist;
+//    
+//    
+//    self.pickerServices = @[ @"Hair", @"Nails", @"Extentions"];
+//    self.pickerStylists = @[ @"Darren Scott", @"James Penningnton", @"Rafael Perez"];
+//    
+//    [self.view addSubview:self.textFieldService];
+//    [self.view addSubview:self.textFieldStylist];
     
     // Do any additional setup after loading the view, typically from a nib.
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetected)];
@@ -112,6 +143,14 @@
 
 - (BOOL)slideNavigationControllerShouldDisplayLeftMenu
 {
+    return YES;
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    
+    if (textField == _txtWhere) {
+        [self showAutocompleteWidgetButtonTapped];
+    }
     return YES;
 }
 
@@ -139,7 +178,7 @@ didAutocompleteWithPlace:(GMSPlace *)place {
         [text appendAttributedString:place.attributions];
     }
 
-    _lblLocation.text = place.name;
+    _txtWhere.text = place.name;
 }
 
 - (void)viewController:(GMSAutocompleteViewController *)viewController
@@ -296,13 +335,13 @@ didFailAutocompleteWithError:(NSError *)error {
 
 // #6
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    if (pickerView == self.pickerViewService) {
-        self.textFieldService.text = self.pickerServices[row];
-    }
-    if (pickerView == self.pickerViewStylist) {
-        self.textFieldStylist.text = self.pickerStylists[row];
-    }
-    [[self view] endEditing:YES];
+//    if (pickerView == self.pickerViewService) {
+//        self.textFieldService.text = self.pickerServices[row];
+//    }
+//    if (pickerView == self.pickerViewStylist) {
+//        self.textFieldStylist.text = self.pickerStylists[row];
+//    }
+//    [[self view] endEditing:YES];
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text

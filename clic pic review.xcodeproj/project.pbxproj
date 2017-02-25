@@ -75,7 +75,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		025565D41DC2DAF8005A903E /* DarrenScottSalonApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DarrenScottSalonApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		025565D41DC2DAF8005A903E /* clic pic review.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "clic pic review.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		025565D81DC2DAF8005A903E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		025565D91DC2DAF8005A903E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		025565DB1DC2DAF8005A903E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -85,7 +85,7 @@
 		025565E21DC2DAF8005A903E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		025565E71DC2DAF8005A903E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		025565EA1DC2DAF8005A903E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		025565F01DC2DAF8005A903E /* DarrenScottSalonAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DarrenScottSalonAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		025565F01DC2DAF8005A903E /* clic pic reviewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "clic pic reviewTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		025565F51DC2DAF8005A903E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		025565F61DC2DAF8005A903E /* DarrenScottSalonAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DarrenScottSalonAppTests.m; sourceTree = "<group>"; };
 		02C18A701DC2F307008745BE /* ASStarRatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASStarRatingView.h; sourceTree = "<group>"; };
@@ -206,8 +206,8 @@
 		025565CB1DC2DAF8005A903E = {
 			isa = PBXGroup;
 			children = (
-				025565D61DC2DAF8005A903E /* DarrenScottSalonApp */,
-				025565F31DC2DAF8005A903E /* DarrenScottSalonAppTests */,
+				025565D61DC2DAF8005A903E /* clicpicreviewApp */,
+				025565F31DC2DAF8005A903E /* clicpicreviewTests */,
 				025565D51DC2DAF8005A903E /* Products */,
 				2112892D381349A5AE1C1774 /* Pods */,
 				14349295A1A86115EE6C9DAD /* Frameworks */,
@@ -217,13 +217,13 @@
 		025565D51DC2DAF8005A903E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				025565D41DC2DAF8005A903E /* DarrenScottSalonApp.app */,
-				025565F01DC2DAF8005A903E /* DarrenScottSalonAppTests.xctest */,
+				025565D41DC2DAF8005A903E /* clic pic review.app */,
+				025565F01DC2DAF8005A903E /* clic pic reviewTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		025565D61DC2DAF8005A903E /* DarrenScottSalonApp */ = {
+		025565D61DC2DAF8005A903E /* clicpicreviewApp */ = {
 			isa = PBXGroup;
 			children = (
 				453835371E496EA100B34BB4 /* FSCalendar */,
@@ -271,6 +271,7 @@
 				45025D761E385BF3001FEAB6 /* ProfileViewController.h */,
 				45025D771E385BF3001FEAB6 /* ProfileViewController.m */,
 			);
+			name = clicpicreviewApp;
 			path = DarrenScottSalonApp;
 			sourceTree = "<group>";
 		};
@@ -283,12 +284,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		025565F31DC2DAF8005A903E /* DarrenScottSalonAppTests */ = {
+		025565F31DC2DAF8005A903E /* clicpicreviewTests */ = {
 			isa = PBXGroup;
 			children = (
 				025565F61DC2DAF8005A903E /* DarrenScottSalonAppTests.m */,
 				025565F41DC2DAF8005A903E /* Supporting Files */,
 			);
+			name = clicpicreviewTests;
 			path = DarrenScottSalonAppTests;
 			sourceTree = "<group>";
 		};
@@ -408,9 +410,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		025565D31DC2DAF8005A903E /* DarrenScottSalonApp */ = {
+		025565D31DC2DAF8005A903E /* clic pic review */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 025565FA1DC2DAF8005A903E /* Build configuration list for PBXNativeTarget "DarrenScottSalonApp" */;
+			buildConfigurationList = 025565FA1DC2DAF8005A903E /* Build configuration list for PBXNativeTarget "clic pic review" */;
 			buildPhases = (
 				5D3814B4AB644891951395D1 /* [CP] Check Pods Manifest.lock */,
 				025565D01DC2DAF8005A903E /* Sources */,
@@ -423,14 +425,14 @@
 			);
 			dependencies = (
 			);
-			name = DarrenScottSalonApp;
+			name = "clic pic review";
 			productName = DarrenScottSalonApp;
-			productReference = 025565D41DC2DAF8005A903E /* DarrenScottSalonApp.app */;
+			productReference = 025565D41DC2DAF8005A903E /* clic pic review.app */;
 			productType = "com.apple.product-type.application";
 		};
-		025565EF1DC2DAF8005A903E /* DarrenScottSalonAppTests */ = {
+		025565EF1DC2DAF8005A903E /* clic pic reviewTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 025565FD1DC2DAF8005A903E /* Build configuration list for PBXNativeTarget "DarrenScottSalonAppTests" */;
+			buildConfigurationList = 025565FD1DC2DAF8005A903E /* Build configuration list for PBXNativeTarget "clic pic reviewTests" */;
 			buildPhases = (
 				4A8C15DB4D6CB3052F098062 /* [CP] Check Pods Manifest.lock */,
 				025565EC1DC2DAF8005A903E /* Sources */,
@@ -444,9 +446,9 @@
 			dependencies = (
 				025565F21DC2DAF8005A903E /* PBXTargetDependency */,
 			);
-			name = DarrenScottSalonAppTests;
+			name = "clic pic reviewTests";
 			productName = DarrenScottSalonAppTests;
-			productReference = 025565F01DC2DAF8005A903E /* DarrenScottSalonAppTests.xctest */;
+			productReference = 025565F01DC2DAF8005A903E /* clic pic reviewTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -468,7 +470,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 025565CF1DC2DAF8005A903E /* Build configuration list for PBXProject "DarrenScottSalonApp" */;
+			buildConfigurationList = 025565CF1DC2DAF8005A903E /* Build configuration list for PBXProject "clic pic review" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -481,8 +483,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				025565D31DC2DAF8005A903E /* DarrenScottSalonApp */,
-				025565EF1DC2DAF8005A903E /* DarrenScottSalonAppTests */,
+				025565D31DC2DAF8005A903E /* clic pic review */,
+				025565EF1DC2DAF8005A903E /* clic pic reviewTests */,
 			);
 		};
 /* End PBXProject section */
@@ -664,7 +666,7 @@
 /* Begin PBXTargetDependency section */
 		025565F21DC2DAF8005A903E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 025565D31DC2DAF8005A903E /* DarrenScottSalonApp */;
+			target = 025565D31DC2DAF8005A903E /* clic pic review */;
 			targetProxy = 025565F11DC2DAF8005A903E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -831,7 +833,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.maranta.darrenscott.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DarrenScottSalonApp.app/DarrenScottSalonApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/clic pic review.app/clic pic review";
 			};
 			name = Debug;
 		};
@@ -848,14 +850,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.maranta.darrenscott.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DarrenScottSalonApp.app/DarrenScottSalonApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/clic pic review.app/clic pic review";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		025565CF1DC2DAF8005A903E /* Build configuration list for PBXProject "DarrenScottSalonApp" */ = {
+		025565CF1DC2DAF8005A903E /* Build configuration list for PBXProject "clic pic review" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				025565F81DC2DAF8005A903E /* Debug */,
@@ -864,7 +866,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		025565FA1DC2DAF8005A903E /* Build configuration list for PBXNativeTarget "DarrenScottSalonApp" */ = {
+		025565FA1DC2DAF8005A903E /* Build configuration list for PBXNativeTarget "clic pic review" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				025565FB1DC2DAF8005A903E /* Debug */,
@@ -873,7 +875,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		025565FD1DC2DAF8005A903E /* Build configuration list for PBXNativeTarget "DarrenScottSalonAppTests" */ = {
+		025565FD1DC2DAF8005A903E /* Build configuration list for PBXNativeTarget "clic pic reviewTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				025565FE1DC2DAF8005A903E /* Debug */,

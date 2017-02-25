@@ -19,13 +19,14 @@
 @property (nonatomic, assign) BOOL slideOutAnimationEnabled;
 @property (weak, nonatomic) IBOutlet UIButton *btnGallery;
 @property (weak, nonatomic) IBOutlet UIButton *btnCamera;
-@property (weak, nonatomic) IBOutlet UIButton *btnPhotoGallery;
 @property(strong,nonatomic) IBOutlet ASStarRatingView *starsRating;
 @property (weak, nonatomic) IBOutlet UIImageView *ivPickedImage;
-@property (weak, nonatomic) IBOutlet UITextField *textFieldService;
-@property (weak, nonatomic) IBOutlet UITextField *textFieldStylist;
+@property (weak, nonatomic) IBOutlet UITextField *txtWhere;
+@property (weak, nonatomic) IBOutlet UITextField *txtWho;
+@property (weak, nonatomic) IBOutlet UITextField *txtWhat;
+@property (weak, nonatomic) IBOutlet UITextField *txtWith;
+@property (weak, nonatomic) IBOutlet UITextField *txtWhy;
 @property (weak, nonatomic) IBOutlet UITextView *textViewComments;
-@property (weak, nonatomic) IBOutlet UILabel *lblLocation;
 @property (nonatomic, strong) UIPickerView *pickerViewService;
 @property (nonatomic, strong) UIPickerView *pickerViewStylist;
 @property (nonatomic, strong) NSArray *pickerServices;
