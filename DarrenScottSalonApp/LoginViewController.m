@@ -11,7 +11,6 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import "FDKeychain.h"
 #import "ProfileViewController.h"
-#import "SlideNavigationController.h"
 #import "ACFloatingTextField.h"
 
 @interface LoginViewController ()
@@ -24,12 +23,6 @@
 @implementation LoginViewController
 @synthesize loginButton = _loginButton;
 
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-    self.slideOutAnimationEnabled = YES;
-    
-    return [super initWithCoder:aDecoder];
-}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [_txtEmail setTextFieldPlaceholderText:@"Email"];

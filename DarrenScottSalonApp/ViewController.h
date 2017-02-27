@@ -8,10 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ASStarRatingView.h"
-#import "SlideNavigationController.h"
 @import Firebase;
 
-@interface ViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate, SlideNavigationControllerDelegate>
+@interface ViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 {
     UIImagePickerController *ipc;
     UIPopoverController *popover;
@@ -27,6 +26,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtWith;
 @property (weak, nonatomic) IBOutlet UITextField *txtWhy;
 @property (weak, nonatomic) IBOutlet UITextView *textViewComments;
+@property (weak, nonatomic) IBOutlet UITextView *textViewWhere;
+@property (weak, nonatomic) IBOutlet UITextView *textViewWho;
+@property (weak, nonatomic) IBOutlet UITextView *textViewWhat;
+@property (weak, nonatomic) IBOutlet UITextView *textViewWith;
+@property (weak, nonatomic) IBOutlet UITextView *textViewWhy;
 @property (nonatomic, strong) UIPickerView *pickerViewService;
 @property (nonatomic, strong) UIPickerView *pickerViewStylist;
 @property (nonatomic, strong) NSArray *pickerServices;

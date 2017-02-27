@@ -12,67 +12,18 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Profile View Controller-->
-        <scene sceneID="hSz-Bh-p1P">
-            <objects>
-                <viewController storyboardIdentifier="LeftMenuViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pp8-24-HrU" customClass="ProfileViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="91t-vR-Lr6"/>
-                        <viewControllerLayoutGuide type="bottom" id="o0h-3h-gyQ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="pkC-FG-y6C">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W1H-dh-oll">
-                                <rect key="frame" x="0.0" y="0.0" width="247" height="188"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MMn-gv-BYs">
-                                <rect key="frame" x="16" y="230" width="231" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ix-Cf-JsM">
-                                <rect key="frame" x="16" y="277" width="231" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yq3-lZ-HUS">
-                                <rect key="frame" x="4" y="332" width="238" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Log Out"/>
-                                <connections>
-                                    <action selector="logOut:" destination="pp8-24-HrU" eventType="touchUpInside" id="SMb-pN-xjh"/>
-                                    <segue destination="Qn8-Fk-TBm" kind="modal" identifier="callLogIn" id="ehu-nV-af9"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <outlet property="imgProfilePic" destination="W1H-dh-oll" id="FQn-2G-YRk"/>
-                        <outlet property="txtEmail" destination="1Ix-Cf-JsM" id="Lks-vh-wsl"/>
-                        <outlet property="txtName" destination="MMn-gv-BYs" id="f7F-SP-T4g"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oZa-uX-qvY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2015" y="1107"/>
-        </scene>
-        <!--Slide Navigation Controller-->
+        <!--Navigation Controller-->
         <scene sceneID="1cM-EL-7Vs">
             <objects>
-                <navigationController storyboardIdentifier="Slide" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jxk-hw-it8" customClass="SlideNavigationController" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Slide" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jxk-hw-it8" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="1cP-1Z-D44"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Sc4-0g-Fat">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Syncopate-Regular" family="Syncopate" pointSize="17"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="MRW-RV-MeA"/>
@@ -227,10 +178,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Screen Shot 2017-02-25 at 12.55.51 PM" translatesAutoresizingMaskIntoConstraints="NO" id="zxz-JT-Mu9">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="zxz-JT-Mu9">
                                 <rect key="frame" x="16" y="72" width="140" height="126"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="140" id="c5N-CG-nkn"/>
+                                    <constraint firstAttribute="width" constant="140" id="fzo-tR-6td"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wvy-zI-p1t" customClass="ASStarRatingView">
@@ -249,9 +200,6 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7jf-Ef-p2W">
                                 <rect key="frame" x="200" y="112" width="154" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="eOR-An-27O"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                 <state key="normal" title="Take Photo/Video">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -263,11 +211,71 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7XP-uV-lh4">
                                 <rect key="frame" x="26" y="254" width="333" height="438"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="N5w-i6-0yN">
-                                        <rect key="frame" x="47" y="202" width="239" height="154"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XmH-Nt-zKz">
+                                        <rect key="frame" x="46" y="8" width="240" height="44"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="154" id="a7V-Xp-ddq"/>
+                                            <constraint firstAttribute="height" constant="44" id="Bct-Qd-qha"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="lcJ-jL-yzf"/>
+                                        </connections>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Wb6-2Z-MpQ">
+                                        <rect key="frame" x="46" y="60" width="240" height="44"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="OS0-ea-c7u"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="EVB-FM-8p9"/>
+                                        </connections>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vHb-6O-yNL">
+                                        <rect key="frame" x="47" y="112" width="240" height="44"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="SUo-4a-8oB"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="bES-9R-91B"/>
+                                        </connections>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="g6L-a8-Cdt">
+                                        <rect key="frame" x="46" y="164" width="240" height="44"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="JXh-As-kx7"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="Bno-O8-7Wx"/>
+                                        </connections>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="p1W-J9-kR0">
+                                        <rect key="frame" x="46" y="216" width="240" height="44"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="xKj-iS-GVC"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="haW-Id-4HW"/>
+                                        </connections>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="N5w-i6-0yN">
+                                        <rect key="frame" x="48" y="268" width="239" height="94"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="94" id="Yp5-ua-6kS"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -275,67 +283,34 @@
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="G0z-xq-2Il"/>
                                         </connections>
                                     </textView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What (did you see/drink/get done)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wyb-Cz-kAR">
-                                        <rect key="frame" x="46" y="88" width="239" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Who (Who helped/served you)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LeM-YE-iH8">
-                                        <rect key="frame" x="46" y="50" width="239" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Why (are you there, birthday, just because)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YUN-jn-OtN">
-                                        <rect key="frame" x="46" y="126" width="239" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Where (Check in or insert Website)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OV0-ln-bLU">
-                                        <rect key="frame" x="47" y="12" width="239" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="BYZ-38-t0r" id="ckU-Ve-JAp"/>
-                                        </connections>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="With (are you with friends/family)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jcA-6d-KBL">
-                                        <rect key="frame" x="46" y="164" width="239" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="YUN-jn-OtN" firstAttribute="top" secondItem="Wyb-Cz-kAR" secondAttribute="bottom" constant="8" symbolic="YES" id="2a1-2M-tzj"/>
-                                    <constraint firstItem="LeM-YE-iH8" firstAttribute="top" secondItem="OV0-ln-bLU" secondAttribute="bottom" constant="8" symbolic="YES" id="6Bd-Cb-227"/>
-                                    <constraint firstItem="jcA-6d-KBL" firstAttribute="top" secondItem="YUN-jn-OtN" secondAttribute="bottom" constant="8" symbolic="YES" id="6gt-bZ-6aZ"/>
-                                    <constraint firstItem="LeM-YE-iH8" firstAttribute="leading" secondItem="7XP-uV-lh4" secondAttribute="leading" constant="46" id="CNo-1A-k1B"/>
-                                    <constraint firstItem="OV0-ln-bLU" firstAttribute="leading" secondItem="N5w-i6-0yN" secondAttribute="leading" id="KUJ-PB-P9D"/>
-                                    <constraint firstAttribute="bottom" secondItem="N5w-i6-0yN" secondAttribute="bottom" constant="82" id="M3J-qP-6hq"/>
-                                    <constraint firstAttribute="trailing" secondItem="OV0-ln-bLU" secondAttribute="trailing" constant="47" id="P53-bl-rqX"/>
-                                    <constraint firstItem="LeM-YE-iH8" firstAttribute="leading" secondItem="Wyb-Cz-kAR" secondAttribute="leading" id="Unu-u7-kFs"/>
-                                    <constraint firstItem="OV0-ln-bLU" firstAttribute="leading" secondItem="7XP-uV-lh4" secondAttribute="leading" constant="47" id="Vyy-Ng-XhM"/>
-                                    <constraint firstItem="YUN-jn-OtN" firstAttribute="trailing" secondItem="jcA-6d-KBL" secondAttribute="trailing" id="YLB-JB-Pec"/>
-                                    <constraint firstItem="Wyb-Cz-kAR" firstAttribute="trailing" secondItem="YUN-jn-OtN" secondAttribute="trailing" id="YmP-ta-GoL"/>
-                                    <constraint firstAttribute="trailing" secondItem="LeM-YE-iH8" secondAttribute="trailing" constant="48" id="ZPg-mR-7hb"/>
-                                    <constraint firstItem="OV0-ln-bLU" firstAttribute="centerX" secondItem="7XP-uV-lh4" secondAttribute="centerX" id="cdA-Jo-dpW"/>
-                                    <constraint firstItem="Wyb-Cz-kAR" firstAttribute="top" secondItem="LeM-YE-iH8" secondAttribute="bottom" constant="8" symbolic="YES" id="dme-m2-bCA"/>
-                                    <constraint firstItem="OV0-ln-bLU" firstAttribute="top" secondItem="7XP-uV-lh4" secondAttribute="top" constant="12" id="hWM-mV-wd8"/>
-                                    <constraint firstItem="YUN-jn-OtN" firstAttribute="leading" secondItem="jcA-6d-KBL" secondAttribute="leading" id="iNO-Js-1Y6"/>
-                                    <constraint firstItem="Wyb-Cz-kAR" firstAttribute="leading" secondItem="YUN-jn-OtN" secondAttribute="leading" id="t0o-C4-3c8"/>
-                                    <constraint firstItem="N5w-i6-0yN" firstAttribute="top" secondItem="jcA-6d-KBL" secondAttribute="bottom" constant="8" symbolic="YES" id="tlr-p3-pvf"/>
-                                    <constraint firstItem="LeM-YE-iH8" firstAttribute="trailing" secondItem="Wyb-Cz-kAR" secondAttribute="trailing" id="y6y-Jr-6Wc"/>
-                                    <constraint firstItem="OV0-ln-bLU" firstAttribute="trailing" secondItem="N5w-i6-0yN" secondAttribute="trailing" id="zr8-uR-xTV"/>
+                                    <constraint firstAttribute="bottom" secondItem="N5w-i6-0yN" secondAttribute="bottom" constant="76" id="123-Hh-bzG"/>
+                                    <constraint firstAttribute="trailing" secondItem="vHb-6O-yNL" secondAttribute="trailing" constant="46" id="6fJ-1b-qLH"/>
+                                    <constraint firstItem="vHb-6O-yNL" firstAttribute="leading" secondItem="7XP-uV-lh4" secondAttribute="leading" constant="47" id="Jw2-hQ-rMP"/>
+                                    <constraint firstItem="XmH-Nt-zKz" firstAttribute="top" secondItem="7XP-uV-lh4" secondAttribute="topMargin" id="KfE-9N-tnF"/>
+                                    <constraint firstItem="Wb6-2Z-MpQ" firstAttribute="leading" secondItem="g6L-a8-Cdt" secondAttribute="leading" id="Nho-pc-OI5"/>
+                                    <constraint firstItem="g6L-a8-Cdt" firstAttribute="top" secondItem="vHb-6O-yNL" secondAttribute="bottom" constant="8" symbolic="YES" id="NtA-Fp-ABd"/>
+                                    <constraint firstItem="XmH-Nt-zKz" firstAttribute="trailing" secondItem="Wb6-2Z-MpQ" secondAttribute="trailing" id="Nz6-LP-wda"/>
+                                    <constraint firstItem="vHb-6O-yNL" firstAttribute="centerX" secondItem="N5w-i6-0yN" secondAttribute="centerX" id="O5X-SY-ZXA"/>
+                                    <constraint firstItem="XmH-Nt-zKz" firstAttribute="centerX" secondItem="7XP-uV-lh4" secondAttribute="centerX" id="OEu-LT-ROY"/>
+                                    <constraint firstItem="g6L-a8-Cdt" firstAttribute="leading" secondItem="p1W-J9-kR0" secondAttribute="leading" id="OzH-9h-KXj"/>
+                                    <constraint firstItem="Wb6-2Z-MpQ" firstAttribute="top" secondItem="XmH-Nt-zKz" secondAttribute="bottom" constant="8" symbolic="YES" id="R5v-Qc-QkB"/>
+                                    <constraint firstItem="vHb-6O-yNL" firstAttribute="top" secondItem="Wb6-2Z-MpQ" secondAttribute="bottom" constant="8" symbolic="YES" id="R65-gm-uae"/>
+                                    <constraint firstItem="g6L-a8-Cdt" firstAttribute="trailing" secondItem="p1W-J9-kR0" secondAttribute="trailing" id="RgB-UC-vUB"/>
+                                    <constraint firstItem="vHb-6O-yNL" firstAttribute="trailing" secondItem="N5w-i6-0yN" secondAttribute="trailing" id="gku-ta-Gme"/>
+                                    <constraint firstItem="XmH-Nt-zKz" firstAttribute="leading" secondItem="7XP-uV-lh4" secondAttribute="leading" constant="46" id="hgf-wn-Vwl"/>
+                                    <constraint firstItem="vHb-6O-yNL" firstAttribute="centerX" secondItem="7XP-uV-lh4" secondAttribute="centerX" id="ihB-Fa-E7j"/>
+                                    <constraint firstItem="N5w-i6-0yN" firstAttribute="top" secondItem="p1W-J9-kR0" secondAttribute="bottom" constant="8" symbolic="YES" id="jDM-ob-DZ8"/>
+                                    <constraint firstItem="p1W-J9-kR0" firstAttribute="top" secondItem="g6L-a8-Cdt" secondAttribute="bottom" constant="8" symbolic="YES" id="lcs-BQ-ubo"/>
+                                    <constraint firstItem="Wb6-2Z-MpQ" firstAttribute="trailing" secondItem="g6L-a8-Cdt" secondAttribute="trailing" id="pi9-U1-ujL"/>
+                                    <constraint firstItem="XmH-Nt-zKz" firstAttribute="leading" secondItem="Wb6-2Z-MpQ" secondAttribute="leading" id="yhf-p0-txr"/>
                                 </constraints>
                             </scrollView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share post with:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oMb-4r-9vS">
                                 <rect key="frame" x="16" y="700" width="339" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="YSh-TY-VDc"/>
+                                    <constraint firstAttribute="height" constant="21" id="Xie-pb-yUQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -360,10 +335,10 @@
                                 <rect key="frame" x="306" y="739" width="51" height="31"/>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QWS-gT-cig">
-                                <rect key="frame" x="17" y="795" width="354" height="44"/>
+                                <rect key="frame" x="10" y="799" width="354" height="44"/>
                                 <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="DSi-k5-7hM"/>
+                                    <constraint firstAttribute="height" constant="44" id="tEr-Gc-3Xf"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Share Review">
@@ -371,50 +346,56 @@
                                 </state>
                                 <connections>
                                     <action selector="btnAddReviewClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Dl-JW-iI5"/>
+                                    <action selector="shareReview" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hc3-6N-do9"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="kGf-3j-SI8" firstAttribute="centerY" secondItem="o3F-A4-p13" secondAttribute="centerY" id="3vz-Lf-vxc"/>
-                            <constraint firstItem="7XP-uV-lh4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="4i6-ge-fvT"/>
-                            <constraint firstItem="o3F-A4-p13" firstAttribute="leading" secondItem="Zjw-IX-KfD" secondAttribute="trailing" constant="8" symbolic="YES" id="7FG-bF-W0I"/>
-                            <constraint firstItem="zxz-JT-Mu9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="8pa-C9-I9X"/>
-                            <constraint firstItem="zxz-JT-Mu9" firstAttribute="leading" secondItem="oMb-4r-9vS" secondAttribute="leading" id="IXq-9l-xZX"/>
-                            <constraint firstItem="Zjw-IX-KfD" firstAttribute="centerY" secondItem="o3F-A4-p13" secondAttribute="centerY" id="JEG-Qi-6b6"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="QWS-gT-cig" secondAttribute="bottom" constant="12" id="KI2-p5-HiX"/>
-                            <constraint firstItem="QWS-gT-cig" firstAttribute="top" secondItem="Txo-Nj-HTZ" secondAttribute="bottom" constant="16" id="KcX-5F-sID"/>
-                            <constraint firstItem="zxz-JT-Mu9" firstAttribute="centerY" secondItem="7jf-Ef-p2W" secondAttribute="centerY" id="Ljr-1V-IGK"/>
-                            <constraint firstItem="wvy-zI-p1t" firstAttribute="top" secondItem="zxz-JT-Mu9" secondAttribute="bottom" constant="18" id="M4K-LJ-sCj"/>
-                            <constraint firstItem="NF3-BN-eFQ" firstAttribute="leading" secondItem="kGf-3j-SI8" secondAttribute="trailing" constant="2" id="MTc-xn-L8W"/>
-                            <constraint firstItem="7XP-uV-lh4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="254" id="P58-3y-F33"/>
-                            <constraint firstItem="wvy-zI-p1t" firstAttribute="top" secondItem="7jf-Ef-p2W" secondAttribute="bottom" constant="66" id="Rqd-ub-SMy"/>
-                            <constraint firstItem="wvy-zI-p1t" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VIu-ag-kEd"/>
-                            <constraint firstItem="7XP-uV-lh4" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="VqE-PW-Zx4"/>
-                            <constraint firstItem="Zjw-IX-KfD" firstAttribute="top" secondItem="oMb-4r-9vS" secondAttribute="bottom" constant="9" id="W94-Mb-WP7"/>
-                            <constraint firstItem="Txo-Nj-HTZ" firstAttribute="top" secondItem="kGf-3j-SI8" secondAttribute="top" id="YSO-K4-BdR"/>
-                            <constraint firstItem="xpk-aj-uo1" firstAttribute="leading" secondItem="Txo-Nj-HTZ" secondAttribute="trailing" constant="5" id="aBG-57-UdQ"/>
-                            <constraint firstItem="QWS-gT-cig" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="1" id="cRk-ln-0eM"/>
-                            <constraint firstItem="oMb-4r-9vS" firstAttribute="trailing" secondItem="o3F-A4-p13" secondAttribute="trailing" id="cbB-KR-Lp5"/>
-                            <constraint firstItem="7jf-Ef-p2W" firstAttribute="leading" secondItem="zxz-JT-Mu9" secondAttribute="trailing" constant="44" id="ce7-q6-dKg"/>
-                            <constraint firstItem="wvy-zI-p1t" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="52" id="dXh-DC-TF1"/>
-                            <constraint firstItem="kGf-3j-SI8" firstAttribute="leading" secondItem="xpk-aj-uo1" secondAttribute="trailing" constant="8" symbolic="YES" id="dt2-Ei-3ra"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="QWS-gT-cig" secondAttribute="trailing" constant="-12" id="eXt-ws-KXs"/>
-                            <constraint firstItem="oMb-4r-9vS" firstAttribute="top" secondItem="7XP-uV-lh4" secondAttribute="bottom" constant="8" symbolic="YES" id="fMs-Xc-utI"/>
-                            <constraint firstItem="Y3x-X0-rKe" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="iM6-Tc-Vke"/>
-                            <constraint firstItem="7XP-uV-lh4" firstAttribute="top" secondItem="wvy-zI-p1t" secondAttribute="bottom" constant="8" symbolic="YES" id="jxQ-jC-xAe"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="7jf-Ef-p2W" secondAttribute="trailing" constant="5" id="ng1-yR-asV"/>
-                            <constraint firstItem="kGf-3j-SI8" firstAttribute="centerY" secondItem="NF3-BN-eFQ" secondAttribute="centerY" id="oaA-ju-J8w"/>
-                            <constraint firstItem="Zjw-IX-KfD" firstAttribute="leading" secondItem="NF3-BN-eFQ" secondAttribute="trailing" constant="8" symbolic="YES" id="rHs-gR-Vge"/>
-                            <constraint firstItem="Txo-Nj-HTZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="17" id="rlb-gi-KUS"/>
-                            <constraint firstItem="Y3x-X0-rKe" firstAttribute="trailing" secondItem="oMb-4r-9vS" secondAttribute="trailing" id="wQg-bC-6AE"/>
-                            <constraint firstItem="Y3x-X0-rKe" firstAttribute="leading" secondItem="zxz-JT-Mu9" secondAttribute="trailing" constant="45" id="wcb-py-0YU"/>
-                            <constraint firstItem="xpk-aj-uo1" firstAttribute="top" secondItem="NF3-BN-eFQ" secondAttribute="top" id="yfF-KP-Icp"/>
-                            <constraint firstItem="zxz-JT-Mu9" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="yuG-RY-CGz"/>
+                            <constraint firstItem="wvy-zI-p1t" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="52" id="2L1-cj-Bax"/>
+                            <constraint firstItem="oMb-4r-9vS" firstAttribute="trailing" secondItem="o3F-A4-p13" secondAttribute="trailing" id="3cU-CF-SWg"/>
+                            <constraint firstItem="Y3x-X0-rKe" firstAttribute="trailing" secondItem="oMb-4r-9vS" secondAttribute="trailing" id="3nG-5d-a44"/>
+                            <constraint firstItem="o3F-A4-p13" firstAttribute="leading" secondItem="Zjw-IX-KfD" secondAttribute="trailing" constant="8" symbolic="YES" id="56q-A8-MpI"/>
+                            <constraint firstItem="kGf-3j-SI8" firstAttribute="centerY" secondItem="o3F-A4-p13" secondAttribute="centerY" id="5pT-LB-icu"/>
+                            <constraint firstItem="7XP-uV-lh4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="254" id="7Oi-9g-ZQG"/>
+                            <constraint firstItem="zxz-JT-Mu9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="7mq-Ap-dIw"/>
+                            <constraint firstItem="xpk-aj-uo1" firstAttribute="top" secondItem="NF3-BN-eFQ" secondAttribute="top" id="8Xo-yL-BMf"/>
+                            <constraint firstItem="NF3-BN-eFQ" firstAttribute="leading" secondItem="kGf-3j-SI8" secondAttribute="trailing" constant="2" id="Bcf-kH-Vfw"/>
+                            <constraint firstItem="7XP-uV-lh4" firstAttribute="top" secondItem="wvy-zI-p1t" secondAttribute="bottom" constant="8" symbolic="YES" id="DFB-aj-H3Y"/>
+                            <constraint firstItem="zxz-JT-Mu9" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="FyF-3X-uMg"/>
+                            <constraint firstItem="wvy-zI-p1t" firstAttribute="centerX" secondItem="QWS-gT-cig" secondAttribute="centerX" id="Ii9-tW-aBS"/>
+                            <constraint firstItem="wvy-zI-p1t" firstAttribute="top" secondItem="7jf-Ef-p2W" secondAttribute="bottom" constant="66" id="KJX-lt-ilA"/>
+                            <constraint firstItem="oMb-4r-9vS" firstAttribute="top" secondItem="7XP-uV-lh4" secondAttribute="bottom" constant="8" symbolic="YES" id="LJF-0w-t9o"/>
+                            <constraint firstItem="7XP-uV-lh4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="Mc2-Pe-dEb"/>
+                            <constraint firstItem="7XP-uV-lh4" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="P69-On-WjG"/>
+                            <constraint firstItem="7jf-Ef-p2W" firstAttribute="leading" secondItem="zxz-JT-Mu9" secondAttribute="trailing" constant="44" id="RaL-Wd-YZR"/>
+                            <constraint firstItem="Zjw-IX-KfD" firstAttribute="centerY" secondItem="o3F-A4-p13" secondAttribute="centerY" id="SuK-Il-LiN"/>
+                            <constraint firstItem="QWS-gT-cig" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-6" id="TXT-Uk-8wN"/>
+                            <constraint firstItem="zxz-JT-Mu9" firstAttribute="leading" secondItem="oMb-4r-9vS" secondAttribute="leading" id="VeX-Xm-lvW"/>
+                            <constraint firstItem="xpk-aj-uo1" firstAttribute="leading" secondItem="Txo-Nj-HTZ" secondAttribute="trailing" constant="5" id="Xfi-wl-3dE"/>
+                            <constraint firstItem="Txo-Nj-HTZ" firstAttribute="top" secondItem="kGf-3j-SI8" secondAttribute="top" id="ZtN-UC-m1E"/>
+                            <constraint firstItem="Y3x-X0-rKe" firstAttribute="leading" secondItem="zxz-JT-Mu9" secondAttribute="trailing" constant="45" id="cMF-rM-hzx"/>
+                            <constraint firstItem="Zjw-IX-KfD" firstAttribute="leading" secondItem="NF3-BN-eFQ" secondAttribute="trailing" constant="8" symbolic="YES" id="enT-QG-LCQ"/>
+                            <constraint firstItem="wvy-zI-p1t" firstAttribute="top" secondItem="zxz-JT-Mu9" secondAttribute="bottom" constant="10" id="hts-h0-G1w"/>
+                            <constraint firstItem="Zjw-IX-KfD" firstAttribute="top" secondItem="oMb-4r-9vS" secondAttribute="bottom" constant="9" id="iq6-0m-XKc"/>
+                            <constraint firstItem="kGf-3j-SI8" firstAttribute="centerY" secondItem="NF3-BN-eFQ" secondAttribute="centerY" id="jSz-fn-C6d"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7jf-Ef-p2W" secondAttribute="trailing" constant="5" id="jhj-OT-4aM"/>
+                            <constraint firstItem="7jf-Ef-p2W" firstAttribute="top" secondItem="Y3x-X0-rKe" secondAttribute="bottom" constant="10" id="l3I-B8-919"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="QWS-gT-cig" secondAttribute="bottom" constant="8" symbolic="YES" id="mW4-XS-KOa"/>
+                            <constraint firstItem="kGf-3j-SI8" firstAttribute="leading" secondItem="xpk-aj-uo1" secondAttribute="trailing" constant="8" symbolic="YES" id="nyV-Kl-mj1"/>
+                            <constraint firstItem="QWS-gT-cig" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oLh-RQ-4ig"/>
+                            <constraint firstItem="Txo-Nj-HTZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="17" id="wZT-1y-BVP"/>
+                            <constraint firstItem="zxz-JT-Mu9" firstAttribute="top" secondItem="Y3x-X0-rKe" secondAttribute="top" id="wso-oB-M6c"/>
+                            <constraint firstItem="QWS-gT-cig" firstAttribute="top" secondItem="Txo-Nj-HTZ" secondAttribute="bottom" constant="20" id="zxG-Ft-ZIQ"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="LPF-YG-Ctw"/>
                     <navigationItem key="navigationItem" title="clic pic review" id="75t-kZ-Zpq">
+                        <barButtonItem key="leftBarButtonItem" image="menu-button.png" id="Xaf-X7-0vm">
+                            <connections>
+                                <action selector="buttonMenuLeft:" destination="BYZ-38-t0r" id="ro1-E3-mOg"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="Calendar-50" id="Snd-x8-6j5">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -430,16 +411,35 @@
                         <outlet property="btnGallery" destination="Y3x-X0-rKe" id="b8o-ua-5wO"/>
                         <outlet property="ivPickedImage" destination="zxz-JT-Mu9" id="zXQ-mT-h0l"/>
                         <outlet property="textViewComments" destination="N5w-i6-0yN" id="KLx-Rg-dbO"/>
-                        <outlet property="txtWhat" destination="Wyb-Cz-kAR" id="cBU-t4-HY2"/>
-                        <outlet property="txtWhere" destination="OV0-ln-bLU" id="p9Y-tt-grJ"/>
-                        <outlet property="txtWho" destination="LeM-YE-iH8" id="Php-0R-r8o"/>
-                        <outlet property="txtWhy" destination="YUN-jn-OtN" id="hA8-zZ-0Fg"/>
-                        <outlet property="txtWith" destination="jcA-6d-KBL" id="J1V-ou-VFu"/>
+                        <outlet property="textViewWhat" destination="vHb-6O-yNL" id="a9x-xd-bvk"/>
+                        <outlet property="textViewWhere" destination="XmH-Nt-zKz" id="VnI-NO-65y"/>
+                        <outlet property="textViewWho" destination="Wb6-2Z-MpQ" id="CVI-oR-bq8"/>
+                        <outlet property="textViewWhy" destination="g6L-a8-Cdt" id="5wY-aE-gLm"/>
+                        <outlet property="textViewWith" destination="p1W-J9-kR0" id="a9t-ap-ZZr"/>
+                        <segue destination="Qn8-Fk-TBm" kind="modal" identifier="callLogIn" id="yk8-Rk-eXE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1513.5" y="361"/>
+            <point key="canvasLocation" x="-1524.5" y="477"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="jHD-Vh-alu">
+            <objects>
+                <viewController id="aeL-rY-IMe" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6B3-yF-5ly"/>
+                        <viewControllerLayoutGuide type="bottom" id="oQd-hb-ixM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HRm-DS-NsV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lGj-04-DP8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1005" y="361"/>
         </scene>
         <!--Calendar View Controller-->
         <scene sceneID="Q7W-j8-LQN">
@@ -458,7 +458,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mIJ-Fp-wB6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1034.5" y="360.5"/>
+            <point key="canvasLocation" x="-1061" y="990"/>
         </scene>
         <!--Autocomplete Modal View Controller-->
         <scene sceneID="zgv-6I-xfz">
@@ -515,54 +515,55 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsg-CB-Qqu">
                                 <rect key="frame" x="16" y="72" width="343" height="464"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Darren Scott Salon App Terms and Conditions
+                                <mutableString key="text">Click Pic Review App and website Terms and Conditions
 
-The Darren Scott Salon App (“we”, “us”, “our”) provides an internet platform which allows you (“the customer”) of the salon to write reviews pertaining to your personal experiences at the salon and upload photographs of themselves. Our app also links in to other social media websites such as Facebook, Twitter, Instagram, Pinterest and others as may be added from time to time. You agree to our Terms and Conditions (“Terms”) by installing, accessing, or using our apps, services, features, software, or website (together, “Services”). 
+The Click Pic Review App and website (www.clickpicreview.com) (“we”, “us”, “our” “CPR”) provides an internet platform which allows you (“the user”) to write reviews pertaining to your personal experiences and take and/or upload photographs, videos, images. Our app also links in to other social media websites such as Facebook, Twitter, Instagram, Pinterest and others as may be added from time to time. You agree to our Terms and Conditions (“Terms”) by installing, accessing, or using our apps, services, features, software, or website (together, “Services”). 
 
 Registration
 You must register to use our services. To register you must provide your name, date of birth, telephone number and email address and go through the app registration service.
 Age
 You must be at least 13 years old to use our Services (or such greater age required in your country for you to be authorized to use our Services without parental approval). In addition to being of the minimum required age to use our Services under applicable law, if you are not old enough to have authority to agree to our Terms in your country, your parent or guardian must agree to our Terms on your behalf.
 Devices, Hardware and Software
-It is your responsibility to ensure that you have the correct devices, hardware and software to enable you to access our Services and fully utilize them. It is your responsibility to ensure that you continually update your devices, hardware and software for this same reason. You are also responsible for ensuring that you have the correct data connection. These aspects are not the responsibility of Darren Scott Salon and are not paid for by Darren Scott Salon.
+It is your responsibility to ensure that you have the correct devices, hardware and software to enable you to access our Services and fully utilize them. It is your responsibility to ensure that you continually update your devices, hardware and software for this same reason. You are also responsible for ensuring that you have the correct data connection. These aspects are not the responsibility of CPR and are not paid for by CPR.
 Fees
-Our Services are free of charge. Charges occurred as a result of accessing and/or utilizing our Services (for example, wifi charges, data package charges etc) are borne by you as the customer and are not the responsibility of Darren Scott Salon.
+The majority of our Services are free of charge. Charges occurred as a result of accessing and/or utilizing our Services (for example, wifi charges, data package charges etc) are borne by you as the user and are not the responsibility of CPR.
 
 Privacy and Data
-Darren Scott App Services will always use reasonable endeavors to ensure that your information is stored securely and in accordance with the laws and principles set out under the Data Protection Act 1998.
+CPR App Services will always use reasonable endeavors to ensure that your information is stored securely and in accordance with the laws and principles set out under the pertaining legal jurisdiction.
 Information we collect.
-We receive or collect information when we operate and provide our Services, including when you install, access, or use our Services. We will collect your name, date of birth, telephone number, email address and whichever photographs you upload to the Darren Scott Salon App website. 
+We receive or collect information when we operate and provide our Services, including when you install, access, or use our Services. We will collect your name, date of birth, telephone number, email address and whichever photographs you upload to the CPR App website. 
 
 How we use your information.
-We will use your information to contact customers, update customers as to our latest offers, promotions and services and to help us operate, provide, improve, understand, customize, support, and market our Services. The feedback and photographs provided by you will be used to assist in the marketing of the Services of the Salon and the App.
+We will use your information to contact users, update users as to our latest offers, promotions and services and to help us operate, provide, improve, understand, customize, support, and market our Services. The feedback and photographs, videos, images provided by you will be used to assist in the marketing of the Services of what/who the user has reviewed and the App.
 Third Parties
-Darren Scott Salon will never share your information with third parties for any reason.
+CPR will never share your information with third parties for any reason unless permitted and consented to by the user.
 Intellectual Property
-All copyright of photographs and images (irrespective of the format or medium) uploaded on to the Darren Scott Salon App vest in Darren Scott Salon and you provide Darren Scott Salon with a worldwide, non-exclusive, royalty-free, perpetual, sub licensable, transferable license to utilize your photographs for commercial and non-commercial purposes as Darren Scott Salon see fit and at any time they so wish. For the purposes of commercial use of your photographs, you hereby agree that you waive all rights, entitlements and interests to any and all revenue share.
+All copyright of photographs videos and images (irrespective of the format or medium) uploaded on to CPR vest in CPR and you provide CPR with a worldwide, non-exclusive, royalty-free, perpetual, sub licensable, transferable license to utilize your photographs, videos, images for commercial and non-commercial purposes as CPR see fit and at any time they so wish. For the purposes of commercial use of your photographs, videos and images, you hereby agree that you waive all rights, entitlements and interests to any and all revenue share.
 
 Acceptable Use of our Services
 You must use our Services according to our Terms and posted policies. If we disable your account for a violation of our Terms, you will not create another account without our permission.
 Legal and Acceptable Use. You must access and use our Services only for legal, authorized, and acceptable purposes. You will not use (or assist others in using) our Services in ways that: (a) violate, misappropriate, or infringe the rights of other users, our users, or others, including privacy, publicity, intellectual property, or other proprietary rights; (b) are illegal, obscene, defamatory, threatening, intimidating, harassing, hateful, racially, or ethnically offensive, or instigate or encourage conduct that would be illegal, or otherwise inappropriate, including promoting violent crimes; (c) involve publishing falsehoods, misrepresentations, or misleading statements; (d) impersonate someone; (e) involve sending illegal or impermissible communications such as bulk messaging, auto-messaging, auto-dialing, and the like; or (f) involve any non-personal use of our Services unless otherwise authorized by us.
 
-Harm to Our or Other Users. You must not (or assist others to) access, use, copy, adapt, modify, prepare derivative works based upon, distribute, license, sublicense, transfer, display, perform, or otherwise exploit our Services in impermissible or unauthorized manners, or in ways that burden, impair, or harm Darren Scott Salon, our Services, systems, our users, or others, including that you must not directly or through automated means: (a) reverse engineer, alter, modify, create derivative works from, decompile, or extract code from our Services; (b) send, store, or transmit viruses or other harmful computer code through or onto our Services; (c) gain or attempt to gain unauthorized access to our Services or systems; (d) interfere with or disrupt the integrity or performance of our Services; (e) create accounts for our Services through unauthorized or automated means; (f) collect the information of or about our users in any impermissible or unauthorized manner; (g) sell, resell, rent, or charge for our Services; or (h) distribute or make our Services available over a network where they could be used by multiple devices at the same time.
-Keeping Your Account Secure. You are responsible for keeping your device and your Darren Scott Salon account safe and secure, and you must notify us promptly of any unauthorized use or security breach of your account or our Services.
+Harm to Our or Other Users. You must not (or assist others to) access, use, copy, adapt, modify, prepare derivative works based upon, distribute, license, sublicense, transfer, display, perform, or otherwise exploit our Services in impermissible or unauthorized manners, or in ways that burden, impair, or harm CPR, our Services, systems, our users, or others, including that you must not directly or through automated means: (a) reverse engineer, alter, modify, create derivative works from, decompile, or extract code from our Services; (b) send, store, or transmit viruses or other harmful computer code through or onto our Services; (c) gain or attempt to gain unauthorized access to our Services or systems; (d) interfere with or disrupt the integrity or performance of our Services; (e) create accounts for our Services through unauthorized or automated means; (f) collect the information of or about our users in any impermissible or unauthorized manner; (g) sell, resell, rent, or charge for our Services; or (h) distribute or make our Services available over a network where they could be used by multiple devices at the same time.
+Keeping Your Account Secure. You are responsible for keeping your device and your CPR account safe and secure, and you must notify us promptly of any unauthorized use or security breach of your account or our Services.
 Third-party services
 Our Services may allow you to access, use, or interact with third-party websites, apps, content, and other products and services. Please note that when you use third-party services, their own terms and privacy policies will govern your use of those services.
 Disclaimer
-YOU USE OUR SERVICES AT YOUR OWN RISK AND SUBJECT TO THE FOLLOWING DISCLAIMERS. WE ARE PROVIDING OUR SERVICES ON AN “AS IS” BASIS WITHOUT ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, NON-INFRINGEMENT, AND FREEDOM FROM COMPUTER VIRUS OR OTHER HARMFUL CODE. WE DO NOT WARRANT THAT ANY INFORMATION PROVIDED BY US IS ACCURATE, COMPLETE, OR USEFUL, THAT OUR SERVICES WILL BE OPERATIONAL, ERROR FREE, SECURE, OR SAFE, OR THAT OUR SERVICES WILL FUNCTION WITHOUT DISRUPTIONS, DELAYS, OR IMPERFECTIONS. WE DO NOT CONTROL, AND ARE NOT RESPONSIBLE FOR, CONTROLLING HOW OR WHEN OUR USERS USE OUR SERVICES OR THE FEATURES, SERVICES, AND INTERFACES OUR SERVICES PROVIDE. WE ARE NOT RESPONSIBLE FOR AND ARE NOT OBLIGATED TO CONTROL THE ACTIONS OR INFORMATION (INCLUDING CONTENT) OF OUR USERS OR OTHER THIRD PARTIES. YOU RELEASE US, OUR SUBSIDIARIES, AFFILIATES, AND OUR AND THEIR DIRECTORS, CONTRACTORS, OFFICERS, EMPLOYEES, PARTNERS, AND AGENTS (TOGETHER, THE “DARREN SCOTT SALON APP PARTIES”) FROM ANY CLAIM, COMPLAINT, CAUSE OF ACTION, CONTROVERSY, OR DISPUTE (TOGETHER, “CLAIM”) AND DAMAGES, KNOWN AND UNKNOWN, RELATING TO, ARISING OUT OF, OR IN ANY WAY CONNECTED WITH ANY SUCH CLAIM YOU HAVE AGAINST ANY THIRD PARTIES. YOU WAIVE ANY RIGHTS YOU MAY HAVE UNDER THE LAW OF ENGLAND AND WALES, OR ANY OTHER SIMILAR APPLICABLE STATUTE OR LAW OF ANY OTHER JURISDICTION, WHICH SAYS THAT: A GENERAL RELEASE DOES NOT EXTEND TO CLAIMS WHICH THE CREDITOR DOES NOT KNOW OR SUSPECT TO EXIST IN HIS OR HER FAVOUR AT THE TIME OF EXECUTING THE RELEASE, WHICH IF KNOWN BY HIM OR HER MUST HAVE MATERIALLY AFFECTED HIS OR HER SETTLEMENT WITH THE DEBTOR.
+YOU USE OUR SERVICES AT YOUR OWN RISK AND SUBJECT TO THE FOLLOWING DISCLAIMERS. WE ARE PROVIDING OUR SERVICES ON AN “AS IS” BASIS WITHOUT ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, NON-INFRINGEMENT, AND FREEDOM FROM COMPUTER VIRUS OR OTHER HARMFUL CODE. WE DO NOT WARRANT THAT ANY INFORMATION PROVIDED BY US IS ACCURATE, COMPLETE, OR USEFUL, THAT OUR SERVICES WILL BE OPERATIONAL, ERROR FREE, SECURE, OR SAFE, OR THAT OUR SERVICES WILL FUNCTION WITHOUT DISRUPTIONS, DELAYS, OR IMPERFECTIONS. WE DO NOT CONTROL, AND ARE NOT RESPONSIBLE FOR, CONTROLLING HOW OR WHEN OUR USERS USE OUR SERVICES OR THE FEATURES, SERVICES, AND INTERFACES OUR SERVICES PROVIDE. WE ARE NOT RESPONSIBLE FOR AND ARE NOT OBLIGATED TO CONTROL THE ACTIONS OR INFORMATION (INCLUDING CONTENT) OF OUR USERS OR OTHER THIRD PARTIES. YOU RELEASE US, OUR SUBSIDIARIES, AFFILIATES, AND OUR AND THEIR DIRECTORS, CONTRACTORS, OFFICERS, EMPLOYEES, PARTNERS, AND AGENTS (TOGETHER, THE “CPR APP/WEBSITE PARTIES”) FROM ANY CLAIM, COMPLAINT, CAUSE OF ACTION, CONTROVERSY, OR DISPUTE (TOGETHER, “CLAIM”) AND DAMAGES, KNOWN AND UNKNOWN, RELATING TO, ARISING OUT OF, OR IN ANY WAY CONNECTED WITH ANY SUCH CLAIM YOU HAVE AGAINST ANY THIRD PARTIES. YOU WAIVE ANY RIGHTS YOU MAY HAVE UNDER THE LAW OF ENGLAND AND WALES, OR ANY OTHER SIMILAR APPLICABLE STATUTE OR LAW OF ANY OTHER JURISDICTION, WHICH SAYS THAT: A GENERAL RELEASE DOES NOT EXTEND TO CLAIMS WHICH THE CREDITOR DOES NOT KNOW OR SUSPECT TO EXIST IN HIS OR HER FAVOUR AT THE TIME OF EXECUTING THE RELEASE, WHICH IF KNOWN BY HIM OR HER MUST HAVE MATERIALLY AFFECTED HIS OR HER SETTLEMENT WITH THE DEBTOR.
 Limitation of liability
-THE DARREN SCOTT SALON APP PARTIES WILL NOT BE LIABLE TO YOU FOR ANY LOST PROFITS OR CONSEQUENTIAL, SPECIAL, PUNITIVE, INDIRECT, OR INCIDENTAL DAMAGES RELATING TO, ARISING OUT OF, OR IN ANY WAY IN CONNECTION WITH OUR TERMS, US, OR OUR SERVICES, EVEN IF THE DARREN SCOTT SALON APP PARTIES HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. OUR AGGREGATE LIABILITY RELATING TO, ARISING OUT OF, OR IN ANY WAY IN CONNECTION WITH OUR TERMS, US, OR OUR SERVICES WILL NOT EXCEED THE GREATER VALUE OF ONE HUNDRED POUNDS (£100). THE FOREGOING DISCLAIMER OF CERTAIN DAMAGES AND LIMITATION OF LIABILITY WILL APPLY TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW. THE LAWS OF SOME JURISDICTIONS MAY NOT ALLOW THE EXCLUSION OR LIMITATION OF CERTAIN DAMAGES, SO SOME OR ALL OF THE EXCLUSIONS AND LIMITATIONS SET FORTH ABOVE MAY NOT APPLY TO YOU. NOTWITHSTANDING ANYTHING TO THE CONTRARY IN OUR TERMS, IN SUCH CASES, THE LIABILITY OF THE DARREN SCOTT APP PARTIES WILL BE LIMITED TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW. 
+THE CPR APP/WEBSITE PARTIES WILL NOT BE LIABLE TO YOU FOR ANY LOST PROFITS OR CONSEQUENTIAL, SPECIAL, PUNITIVE, INDIRECT, OR INCIDENTAL DAMAGES RELATING TO, ARISING OUT OF, OR IN ANY WAY IN CONNECTION WITH OUR TERMS, US, OR OUR SERVICES, EVEN IF THE CPR APP/website PARTIES HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. OUR AGGREGATE LIABILITY RELATING TO, ARISING OUT OF, OR IN ANY WAY IN CONNECTION WITH OUR TERMS, US, OR OUR SERVICES WILL NOT EXCEED THE GREATER VALUE OF ONE HUNDRED POUNDS (£100). THE FOREGOING DISCLAIMER OF CERTAIN DAMAGES AND LIMITATION OF LIABILITY WILL APPLY TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW. THE LAWS OF SOME JURISDICTIONS MAY NOT ALLOW THE EXCLUSION OR LIMITATION OF CERTAIN DAMAGES, SO SOME OR ALL OF THE EXCLUSIONS AND LIMITATIONS SET FORTH ABOVE MAY NOT APPLY TO YOU. NOTWITHSTANDING ANYTHING TO THE CONTRARY IN OUR TERMS, IN SUCH CASES, THE LIABILITY OF THE CPR APP/WEBSITE PARTIES WILL BE LIMITED TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW. 
 Indemnification
-You agree to defend, indemnify, and hold harmless the Darren Scott Salon Parties from and against all liabilities, damages, losses, and expenses of any kind (including reasonable legal fees and costs) relating to, arising out of, or in any way in connection with any of the following: (a) your access to or use of our Services, including information provided in connection therewith; (b) your breach or alleged breach of our Terms; or (c) any misrepresentation made by you. You will cooperate as fully as required by us in the defense or settlement of any Claim.
+You agree to defend, indemnify, and hold harmless the CPR Parties from and against all liabilities, damages, losses, and expenses of any kind (including reasonable legal fees and costs) relating to, arising out of, or in any way in connection with any of the following: (a) your access to or use of our Services, including information provided in connection therewith; (b) your breach or alleged breach of our Terms; or (c) any misrepresentation made by you. You will cooperate as fully as required by us in the defense or settlement of any Claim.
 
 Dispute Resolution
 If any dispute arises out of these Terms the Parties will first attempt to resolve the matter informally with each other. If the Parties are not able to resolve the dispute informally within a reasonable time not exceeding two (2) months from the date the informal process commenced they will attempt to settle it by mediation in accordance with the Centre for Effective Dispute Resolution (CEDR) Model Mediation Procedure.  
 Governing Law
-These Terms are governed by the Laws of England and Wales.
+Should any dispute arise, the pertaining legal jurisdiction will be under the Law of England and Wales.
 Availability and termination of our Services
 Availability of Our Services. Our Services may be interrupted, including for maintenance, repairs, upgrades, or network or equipment failures. We may discontinue some or all of our Services, including certain features and the support for certain devices and platforms, at any time. Events beyond our control may affect our Services, such as events in nature and other force majeure events.
-Termination. We may modify, suspend, or terminate your access to or use of our Services at any time for any reason, such as if you violate the letter or spirit of our Terms or create harm, risk, or possible legal exposure for us, our users, or others. The following provisions will survive any termination of your relationship with Darren Scott Salon App: “Licenses,” “Disclaimers,” “Limitation of Liability,” “Indemnification,” “Dispute Resolution,” “Availability and Termination of our Services.”
-</string>
+It is the User’s responsibility to ensure that they are using CPR within the confines of the applicable laws and legal jurisdiction where they are.  CPR negates any responsibility for any legal infringement that a User creates.  CPR will work with the relevant law enforcement should any legal breech be performed by the User.
+Termination. We may modify, suspend, or terminate your access to or use of our Services at any time for any reason, such as if you violate the letter or spirit of our Terms or create harm, risk, or possible legal exposure for us, our users, or others. The following provisions will survive any termination of your relationship with CPR App/Website: “Licenses,” “Disclaimers,” “Limitation of Liability,” “Indemnification,” “Dispute Resolution,” “Availability and Termination of our Services.”
+</mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -601,6 +602,24 @@ Termination. We may modify, suspend, or terminate your access to or use of our S
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2DV-DZ-OEG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1186" y="-344"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="hct-Wd-XD6">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u4p-vi-AjQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="wrC-g0-jo9" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UN2-Kj-8lH"/>
+                        <viewControllerLayoutGuide type="bottom" id="RNa-MC-HnW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nbR-zS-pQL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-506" y="-307"/>
         </scene>
         <!--Delegate-->
         <scene sceneID="Rz5-eS-ls5">
@@ -663,6 +682,26 @@ Termination. We may modify, suspend, or terminate your access to or use of our S
                                     <outlet property="delegate" destination="qrb-Ky-GbS" id="sv4-Sq-RAD"/>
                                 </connections>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XCQ-WQ-bAa" customClass="ACFloatingTextField">
+                                <rect key="frame" x="28" y="425" width="319" height="36"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="XCQ-WQ-bAa" secondAttribute="height" multiplier="319:36" id="xMx-0r-qi8"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="qrb-Ky-GbS" id="v0l-6l-OAE"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MVP-ZC-lMN" customClass="ACFloatingTextField">
+                                <rect key="frame" x="28" y="517" width="319" height="36"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="MVP-ZC-lMN" secondAttribute="height" multiplier="319:36" id="bWs-wb-Goa"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="qrb-Ky-GbS" id="Wqp-5m-SNW"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -670,28 +709,40 @@ Termination. We may modify, suspend, or terminate your access to or use of our S
                             <constraint firstItem="ygM-zG-R3M" firstAttribute="top" secondItem="K4g-dj-EdS" secondAttribute="bottom" constant="56" id="0WX-Dv-lMD"/>
                             <constraint firstItem="laY-xM-k2D" firstAttribute="top" secondItem="Bft-vd-vAx" secondAttribute="bottom" constant="56" id="3nw-lY-D2A"/>
                             <constraint firstItem="ygM-zG-R3M" firstAttribute="leading" secondItem="Bft-vd-vAx" secondAttribute="leading" id="AvY-Pd-oe2"/>
+                            <constraint firstItem="XCQ-WQ-bAa" firstAttribute="trailing" secondItem="laY-xM-k2D" secondAttribute="trailing" id="CY7-a6-8ab"/>
                             <constraint firstItem="Bft-vd-vAx" firstAttribute="width" secondItem="K4g-dj-EdS" secondAttribute="width" id="GE8-J6-c0I"/>
                             <constraint firstItem="laY-xM-k2D" firstAttribute="trailing" secondItem="Bft-vd-vAx" secondAttribute="trailing" id="ITF-F8-wRS"/>
+                            <constraint firstItem="XCQ-WQ-bAa" firstAttribute="trailing" secondItem="MVP-ZC-lMN" secondAttribute="trailing" id="MVf-hC-pwv"/>
+                            <constraint firstItem="XCQ-WQ-bAa" firstAttribute="leading" secondItem="laY-xM-k2D" secondAttribute="leading" id="N0o-zW-K1g"/>
                             <constraint firstItem="K4g-dj-EdS" firstAttribute="leading" secondItem="whv-Vt-og8" secondAttribute="leadingMargin" constant="12" id="Pmy-cJ-xcp"/>
                             <constraint firstItem="Bft-vd-vAx" firstAttribute="height" secondItem="K4g-dj-EdS" secondAttribute="height" id="Poq-29-3ak"/>
+                            <constraint firstItem="Kbz-Qq-J9f" firstAttribute="top" secondItem="MVP-ZC-lMN" secondAttribute="bottom" constant="24" id="QKU-cz-kqe"/>
+                            <constraint firstItem="MVP-ZC-lMN" firstAttribute="width" secondItem="MVP-ZC-lMN" secondAttribute="height" multiplier="319:36" id="Tqb-cL-eFP"/>
                             <constraint firstItem="Bft-vd-vAx" firstAttribute="top" secondItem="ygM-zG-R3M" secondAttribute="bottom" constant="56" id="VAc-NK-eb7"/>
                             <constraint firstItem="laY-xM-k2D" firstAttribute="width" secondItem="laY-xM-k2D" secondAttribute="height" multiplier="319:36" id="VjG-nF-YgS"/>
+                            <constraint firstItem="XCQ-WQ-bAa" firstAttribute="width" secondItem="XCQ-WQ-bAa" secondAttribute="height" multiplier="319:36" id="bHm-V2-Yqp"/>
+                            <constraint firstItem="XCQ-WQ-bAa" firstAttribute="leading" secondItem="MVP-ZC-lMN" secondAttribute="leading" id="cKH-Ta-KX0"/>
                             <constraint firstItem="ygM-zG-R3M" firstAttribute="height" secondItem="K4g-dj-EdS" secondAttribute="height" id="ctd-Cm-hyM"/>
                             <constraint firstItem="K4g-dj-EdS" firstAttribute="top" secondItem="soy-Ll-oHr" secondAttribute="bottom" constant="37" id="d2h-WG-1PZ"/>
                             <constraint firstItem="Bft-vd-vAx" firstAttribute="centerX" secondItem="Kbz-Qq-J9f" secondAttribute="centerX" id="dUS-uv-b0B"/>
                             <constraint firstItem="K4g-dj-EdS" firstAttribute="leading" secondItem="ygM-zG-R3M" secondAttribute="leading" id="jNR-xS-Mlv"/>
+                            <constraint firstItem="XCQ-WQ-bAa" firstAttribute="width" secondItem="XCQ-WQ-bAa" secondAttribute="height" multiplier="319:36" id="lxF-eX-SoK"/>
                             <constraint firstItem="Kbz-Qq-J9f" firstAttribute="centerX" secondItem="whv-Vt-og8" secondAttribute="centerX" id="nZd-ZJ-7qc"/>
                             <constraint firstAttribute="bottom" secondItem="Kbz-Qq-J9f" secondAttribute="bottom" constant="20" symbolic="YES" id="pIT-OZ-lCs"/>
                             <constraint firstItem="FYC-9D-kn0" firstAttribute="top" secondItem="Kbz-Qq-J9f" secondAttribute="bottom" constant="20" id="utN-4E-Ssl"/>
                             <constraint firstItem="ygM-zG-R3M" firstAttribute="width" secondItem="K4g-dj-EdS" secondAttribute="width" id="vq9-rG-wy0"/>
+                            <constraint firstItem="XCQ-WQ-bAa" firstAttribute="top" secondItem="laY-xM-k2D" secondAttribute="bottom" constant="56" id="wEB-db-WlS"/>
+                            <constraint firstItem="MVP-ZC-lMN" firstAttribute="width" secondItem="MVP-ZC-lMN" secondAttribute="height" multiplier="319:36" id="wSn-yi-YAr"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="maq-Hm-lyO"/>
                     <connections>
-                        <outlet property="txtEdad" destination="ygM-zG-R3M" id="Huu-ch-fA1"/>
-                        <outlet property="txtEmail" destination="laY-xM-k2D" id="dHc-Bc-Pyb"/>
-                        <outlet property="txtNombre" destination="K4g-dj-EdS" id="RL5-jK-HLi"/>
-                        <outlet property="txtSexo" destination="Bft-vd-vAx" id="hgv-yo-OKJ"/>
+                        <outlet property="txtEmail" destination="MVP-ZC-lMN" id="oIc-YE-eKk"/>
+                        <outlet property="txtFirstName" destination="K4g-dj-EdS" id="F9k-wb-AlY"/>
+                        <outlet property="txtLastName" destination="ygM-zG-R3M" id="xS0-9h-Ewk"/>
+                        <outlet property="txtPassword" destination="laY-xM-k2D" id="A6U-MQ-ljy"/>
+                        <outlet property="txtTelephoneNumber" destination="XCQ-WQ-bAa" id="KHu-Lo-0AB"/>
+                        <outlet property="txtUsername" destination="Bft-vd-vAx" id="1s9-Rx-hfC"/>
                         <segue destination="Mw8-MP-wxO" kind="modal" identifier="NextRegister" id="Uoq-1n-ZEn"/>
                     </connections>
                 </viewController>
@@ -787,9 +838,10 @@ Termination. We may modify, suspend, or terminate your access to or use of our S
         <image name="Instagram-48" width="48" height="48"/>
         <image name="Instagram-50" width="25" height="25"/>
         <image name="LinkedIn Filled-50" width="25" height="25"/>
-        <image name="Screen Shot 2017-02-25 at 12.55.51 PM" width="60" height="64"/>
         <image name="Twitter Filled-50" width="25" height="25"/>
         <image name="Twitter-48" width="48" height="48"/>
+        <image name="menu-button.png" width="22" height="22"/>
+        <image name="placeholder" width="60" height="64"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -797,6 +849,6 @@ Termination. We may modify, suspend, or terminate your access to or use of our S
         <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="bkg-l2-cro"/>
+        <segue reference="zCh-jI-aKz"/>
     </inferredMetricsTieBreakers>
 </document>

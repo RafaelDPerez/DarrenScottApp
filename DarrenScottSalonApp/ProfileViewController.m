@@ -7,11 +7,6 @@
 //
 
 #import "ProfileViewController.h"
-#import "SlideNavigationContorllerAnimatorFade.h"
-#import "SlideNavigationContorllerAnimatorSlide.h"
-#import "SlideNavigationContorllerAnimatorScale.h"
-#import "SlideNavigationContorllerAnimatorScaleAndFade.h"
-#import "SlideNavigationContorllerAnimatorSlideAndFade.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import "SDWebImage/UIImageView+WebCache.h"
@@ -24,12 +19,7 @@
 
 @implementation ProfileViewController
 @synthesize loginButton = _loginButton;
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-    self.slideOutAnimationEnabled = YES;
-    
-    return [super initWithCoder:aDecoder];
-}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];

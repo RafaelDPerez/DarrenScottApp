@@ -60,34 +60,13 @@
 //                [self.window makeKeyAndVisible];
         
 //        LeftMenuViewController *leftMenu = (LeftMenuViewController*)[storyboard instantiateViewControllerWithIdentifier: @"LeftMenuViewController"];
-         ProfileViewController *leftMenu = (ProfileViewController*)[storyboard instantiateViewControllerWithIdentifier: @"LeftMenuViewController"];
-        
-        
-        [SlideNavigationController sharedInstance].leftMenu = leftMenu;
-        [SlideNavigationController sharedInstance].menuRevealAnimationDuration = .18;
-        
-        // Creating a custom bar button for right menu
-        UIButton *button  = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-        [button setImage:[UIImage imageNamed:@"gear"] forState:UIControlStateNormal];
-        [button addTarget:[SlideNavigationController sharedInstance] action:@selector(toggleRightMenu) forControlEvents:UIControlEventTouchUpInside];
-        UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
 
         
-        [[NSNotificationCenter defaultCenter] addObserverForName:SlideNavigationControllerDidClose object:nil queue:nil usingBlock:^(NSNotification *note) {
-            NSString *menu = note.userInfo[@"menu"];
-            NSLog(@"Closed %@", menu);
-        }];
         
-        [[NSNotificationCenter defaultCenter] addObserverForName:SlideNavigationControllerDidOpen object:nil queue:nil usingBlock:^(NSNotification *note) {
-            NSString *menu = note.userInfo[@"menu"];
-            NSLog(@"Opened %@", menu);
-        }];
+
         
-        [[NSNotificationCenter defaultCenter] addObserverForName:SlideNavigationControllerDidReveal object:nil queue:nil usingBlock:^(NSNotification *note) {
-            NSString *menu = note.userInfo[@"menu"];
-            NSLog(@"Revealed %@", menu);
-        }];
-        
+        // Creating a custom bar button for right menu
+               
         self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
         UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"Slide"];
         self.window.rootViewController = vc;

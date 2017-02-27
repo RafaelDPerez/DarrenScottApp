@@ -12,14 +12,22 @@
 #import <GooglePlaces/GooglePlaces.h>
 #import "LeftMenuViewController.h"
 #import "ProfileViewController.h"
-#import "SlideNavigationController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "VKSideMenu.h"
+#import "FDKeychain.h"
 
-@interface ViewController ()<GMSAutocompleteViewControllerDelegate>{
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v) ([[[UIDevice currentDevice] systemVersion] compare:(v) options:NSNumericSearch] != NSOrderedAscending)
+
+@interface ViewController ()<VKSideMenuDelegate, VKSideMenuDataSource,GMSAutocompleteViewControllerDelegate, UIAlertViewDelegate>{
     FIRStorageReference *storageRef;
     NSData *imageData;
     UIImage *hola;
 }
+
+@property (nonatomic, strong) VKSideMenu *menuLeft;
+@property (nonatomic, strong) VKSideMenu *menuRight;
+@property (nonatomic, strong) VKSideMenu *menuTop;
+@property (nonatomic, strong) VKSideMenu *menuBottom;
 
 @end
 
@@ -27,33 +35,35 @@
 @synthesize ivPickedImage;
 @synthesize btnCamera,btnGallery;
 
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-    self.slideOutAnimationEnabled = YES;
-    
-    return [super initWithCoder:aDecoder];
-}
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[_txtWho layer] setBorderWidth:1.0f];
-    [[_txtWho layer] setBorderColor:self.view.tintColor.CGColor];
-    
-    [[_txtWhy layer] setBorderWidth:1.0f];
-    [[_txtWhy layer] setBorderColor:self.view.tintColor.CGColor];
-    
-    [[_txtWhat layer] setBorderWidth:1.0f];
-    [[_txtWhat layer] setBorderColor:self.view.tintColor.CGColor];
-    
-    [[_txtWith layer] setBorderWidth:1.0f];
-    [[_txtWith layer] setBorderColor:self.view.tintColor.CGColor];
-    
-    [[_txtWhere layer] setBorderWidth:1.0f];
-    [[_txtWhere layer] setBorderColor:self.view.tintColor.CGColor];
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo"]];
+    self.menuLeft = [[VKSideMenu alloc] initWithSize:320 andDirection:VKSideMenuDirectionFromLeft];
+    self.menuLeft.dataSource = self;
+    self.menuLeft.delegate   = self;
+    [self.menuLeft addSwipeGestureRecognition:self.view];
+    self.menuLeft.backgroundColor = [UIColor whiteColor];
     
     [[_textViewComments layer] setBorderWidth:1.0f];
     [[_textViewComments layer] setBorderColor:self.view.tintColor.CGColor];
+    
+    [[_textViewWho layer] setBorderWidth:1.0f];
+    [[_textViewWho layer] setBorderColor:self.view.tintColor.CGColor];
+    
+    [[_textViewWhat layer] setBorderWidth:1.0f];
+    [[_textViewWhat layer] setBorderColor:self.view.tintColor.CGColor];
+    
+    [[_textViewWhy layer] setBorderWidth:1.0f];
+    [[_textViewWhy layer] setBorderColor:self.view.tintColor.CGColor];
+    
+    [[_textViewWith layer] setBorderWidth:1.0f];
+    [[_textViewWith layer] setBorderColor:self.view.tintColor.CGColor];
+    
+    [[_textViewWhere layer] setBorderWidth:1.0f];
+    [[_textViewWhere layer] setBorderColor:self.view.tintColor.CGColor];
+
     
     [[btnCamera layer] setBorderWidth:1.0f];
     [[btnCamera layer] setBorderColor:self.view.tintColor.CGColor];
@@ -66,42 +76,46 @@
     [[ivPickedImage layer] setBorderWidth:1.0f];
     [[ivPickedImage layer] setBorderColor:self.view.tintColor.CGColor];
     ivPickedImage.layer.cornerRadius = 15.0f;
-    
-    
-    
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    ProfileViewController *leftMenu = (ProfileViewController*)[storyboard instantiateViewControllerWithIdentifier: @"LeftMenuViewController"];
-    [SlideNavigationController sharedInstance].leftMenu = leftMenu;
-    [SlideNavigationController sharedInstance].menuRevealAnimationDuration = .18;
-    UIButton *button  = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-    [button setImage:[UIImage imageNamed:@"gear"] forState:UIControlStateNormal];
-    [button addTarget:[SlideNavigationController sharedInstance] action:@selector(toggleRightMenu) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
-    
-    
-    [[NSNotificationCenter defaultCenter] addObserverForName:SlideNavigationControllerDidClose object:nil queue:nil usingBlock:^(NSNotification *note) {
-        NSString *menu = note.userInfo[@"menu"];
-        NSLog(@"Closed %@", menu);
-    }];
-    
-    [[NSNotificationCenter defaultCenter] addObserverForName:SlideNavigationControllerDidOpen object:nil queue:nil usingBlock:^(NSNotification *note) {
-        NSString *menu = note.userInfo[@"menu"];
-        NSLog(@"Opened %@", menu);
-    }];
-    
-    [[NSNotificationCenter defaultCenter] addObserverForName:SlideNavigationControllerDidReveal object:nil queue:nil usingBlock:^(NSNotification *note) {
-        NSString *menu = note.userInfo[@"menu"];
-        NSLog(@"Revealed %@", menu);
-    }];
+
     _textViewComments.text = @"Write (how was the whole experience)";
     _textViewComments.textColor = [UIColor lightGrayColor];
     _textViewComments.clipsToBounds = YES;
 //    _textViewComments.layer.cornerRadius = 10.0f;
     _textViewComments.delegate = self;
+    
+    _textViewWhere.text = @"Where (Check in or insert Website)";
+    _textViewWhere.textColor = [UIColor lightGrayColor];
+    _textViewWhere.clipsToBounds = YES;
+    //    _textViewComments.layer.cornerRadius = 10.0f;
+    _textViewWhere.delegate = self;
+    
+    _textViewWhy.text = @"Why (are you there, birthday, just because)";
+    _textViewWhy.textColor = [UIColor lightGrayColor];
+    _textViewWhy.clipsToBounds = YES;
+    //    _textViewComments.layer.cornerRadius = 10.0f;
+    _textViewWhy.delegate = self;
+    
+    _textViewWho.text = @"Who (Who helped/served you)";
+    _textViewWho.textColor = [UIColor lightGrayColor];
+    _textViewWho.clipsToBounds = YES;
+    //    _textViewComments.layer.cornerRadius = 10.0f;
+    _textViewWho.delegate = self;
+    
+    _textViewWhat.text = @"What (did you see/drink/get done)";
+    _textViewWhat.textColor = [UIColor lightGrayColor];
+    _textViewWhat.clipsToBounds = YES;
+    //    _textViewComments.layer.cornerRadius = 10.0f;
+    _textViewWhat.delegate = self;
+    
+    _textViewWith.text = @"With (are you with friends/family)";
+    _textViewWith.textColor = [UIColor lightGrayColor];
+    _textViewWhere.clipsToBounds = YES;
+    //    _textViewComments.layer.cornerRadius = 10.0f;
+    _textViewWhere.delegate = self;
    
     FIRStorage *storage = [FIRStorage storage];
     storageRef = [storage referenceForURL:@"gs://darrenscottsalon-46b98.appspot.com"];
-
+    
     self.pickerViewService = [[UIPickerView alloc] init];
     self.pickerViewService.delegate = self;     //#2
     self.pickerViewService.dataSource = self;   //#2
@@ -141,6 +155,261 @@
 
 }
 
+-(IBAction)shareReview{
+    if (_textViewWhere.text && _textViewWhere.text.length > 0 && _textViewWhy.text && _textViewWhy.text.length > 0 && _textViewWith.text && _textViewWith.text.length > 0 && _textViewWho.text && _textViewWho.text.length > 0 && _textViewWhat.text && _textViewWhat.text.length > 0)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"clic pic review"
+                                                        message:@"Are you sure you want to share this review?"
+                                                       delegate:self
+                                              cancelButtonTitle:@"No"
+                                              otherButtonTitles:@"Yes",nil];
+        [alert show];
+    }
+    else{
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Required Fields"
+                                                        message:@"Please fill all the fields."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        
+    }
+   
+
+}
+
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if( 0 == buttonIndex ){ //cancel button
+        [alertView dismissWithClickedButtonIndex:buttonIndex animated:YES];
+    } else if ( 1 == buttonIndex ){
+        [alertView dismissWithClickedButtonIndex:buttonIndex animated:YES];
+        UIAlertView * secondAlertView = [[UIAlertView alloc] initWithTitle:@"Success!!"
+                                                                   message:@"Thanks for sharing your review!"
+                                                                  delegate:nil
+                                                         cancelButtonTitle:@"OK"
+                                                         otherButtonTitles:nil];
+        [secondAlertView show];
+        _textViewComments.text = @"Write (how was the whole experience)";
+        _textViewComments.textColor = [UIColor lightGrayColor];
+        _textViewComments.clipsToBounds = YES;
+        //    _textViewComments.layer.cornerRadius = 10.0f;
+        _textViewComments.delegate = self;
+        
+        _textViewWhere.text = @"Where (Check in or insert Website)";
+        _textViewWhere.textColor = [UIColor lightGrayColor];
+        _textViewWhere.clipsToBounds = YES;
+        //    _textViewComments.layer.cornerRadius = 10.0f;
+        _textViewWhere.delegate = self;
+        
+        _textViewWhy.text = @"Why (are you there, birthday, just because)";
+        _textViewWhy.textColor = [UIColor lightGrayColor];
+        _textViewWhy.clipsToBounds = YES;
+        //    _textViewComments.layer.cornerRadius = 10.0f;
+        _textViewWhy.delegate = self;
+        
+        _textViewWho.text = @"Who (Who helped/served you)";
+        _textViewWho.textColor = [UIColor lightGrayColor];
+        _textViewWho.clipsToBounds = YES;
+        //    _textViewComments.layer.cornerRadius = 10.0f;
+        _textViewWho.delegate = self;
+        
+        _textViewWhat.text = @"What (did you see/drink/get done)";
+        _textViewWhat.textColor = [UIColor lightGrayColor];
+        _textViewWhat.clipsToBounds = YES;
+        //    _textViewComments.layer.cornerRadius = 10.0f;
+        _textViewWhat.delegate = self;
+        
+        _textViewWith.text = @"With (are you with friends/family)";
+        _textViewWith.textColor = [UIColor lightGrayColor];
+        _textViewWhere.clipsToBounds = YES;
+        //    _textViewComments.layer.cornerRadius = 10.0f;
+        _textViewWhere.delegate = self;
+        
+        ivPickedImage.image = [UIImage imageNamed:@"placeholder"];
+
+        
+    }
+}
+
+- (BOOL) textViewShouldBeginEditing:(UITextView *)textView
+{
+    if (textView == _textViewWhere) {
+        GMSAutocompleteViewController *autocompleteViewController =
+        [[GMSAutocompleteViewController alloc] init];
+        autocompleteViewController.delegate = self;
+        [self presentViewController:autocompleteViewController animated:YES completion:nil];
+    }
+    if([textView.text isEqualToString:@"Write (how was the whole experience)"]||[textView.text isEqualToString:@"Where (Check in or insert Website)"]||[textView.text isEqualToString:@"With (are you with friends/family)"]||[textView.text isEqualToString:@"Why (are you there, birthday, just because)"]||[textView.text isEqualToString:@"Who (Who helped/served you)"]||[textView.text isEqualToString:@"What (did you see/drink/get done)"]){
+        textView.text = @"";
+        textView.textColor = [UIColor blackColor];
+    }
+    else{
+        textView.textColor = [UIColor blackColor];
+        
+    }
+    return YES;
+}
+
+
+
+-(IBAction)buttonMenuLeft:(id)sender
+{
+    [self.menuLeft show];
+}
+
+
+#pragma mark - VKSideMenuDataSource
+
+-(NSInteger)numberOfSectionsInSideMenu:(VKSideMenu *)sideMenu
+{
+    return (sideMenu == self.menuLeft || sideMenu == self.menuTop) ? 1 : 2;
+}
+
+-(NSInteger)sideMenu:(VKSideMenu *)sideMenu numberOfRowsInSection:(NSInteger)section
+{
+    if (sideMenu == self.menuLeft || sideMenu == self.menuTop)
+        return 3;
+    
+    return section == 0 ? 1 : 2;
+}
+
+-(VKSideMenuItem *)sideMenu:(VKSideMenu *)sideMenu itemForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // This solution is provided for DEMO propose only
+    // It's beter to store all items in separate arrays like you do it in your UITableView's. Right?
+    VKSideMenuItem *item = [VKSideMenuItem new];
+    
+    if (sideMenu == self.menuLeft || sideMenu == self.menuTop) // All LEFT and TOP menu items
+    {
+        switch (indexPath.row)
+        {
+            case 0:
+                item.title = @"Profile";
+                item.icon  = [UIImage imageNamed:@"Home-50"];
+                break;
+                
+            case 1:
+                item.title = @"My Reviews";
+                item.icon  = [UIImage imageNamed:@"ic_option_1"];
+                break;
+                
+            case 2:
+                item.title = @"Log Out";
+                item.icon  = [UIImage imageNamed:@"Like-50"];
+                break;
+                
+            default:
+                break;
+        }
+    }
+    else if (indexPath.section == 0) // RIGHT menu first section items
+    {
+        item.title = @"Login";
+    }
+    else // RIGHT menu second section items
+    {
+        switch (indexPath.row)
+        {
+            case 0:
+                item.title = @"Like";
+                break;
+                
+            case 1:
+                item.title = @"Share";
+                break;
+            default:
+                break;
+        }
+    }
+    
+    return item;
+}
+
+#pragma mark - VKSideMenuDelegate
+
+-(void)sideMenu:(VKSideMenu *)sideMenu didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 2) {
+        FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
+        [loginManager logOut];
+        NSError *error;
+        [[FIRAuth auth] signOut:&error];
+        if (!error) {
+            // Sign-out succeeded
+            [FDKeychain saveItem: @"NO"
+                          forKey: @"loggedin"
+                      forService: @"ReviewApp"
+                           error: nil];
+            [self performSegueWithIdentifier:@"callLogIn" sender:self];
+        }
+    }
+    NSLog(@"SideMenu didSelectRow: %@", indexPath);
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"callLogIn"]) {
+        
+    }
+}
+
+-(void)sideMenuDidShow:(VKSideMenu *)sideMenu
+{
+    NSString *menu = @"";
+    
+    if (sideMenu == self.menuLeft)
+        menu = @"LEFT";
+    else if (sideMenu == self.menuTop)
+        menu = @"TOP";
+    else if (sideMenu == self.menuRight)
+        menu = @"RIGHT";
+    else if (sideMenu == self.menuBottom)
+        menu = @"RIGHT";
+    
+    NSLog(@"%@ VKSideMenue did show", menu);
+}
+
+-(void)sideMenuDidHide:(VKSideMenu *)sideMenu
+{
+    NSString *menu = @"";
+    
+    if (sideMenu == self.menuLeft)
+        menu = @"LEFT";
+    else if (sideMenu == self.menuTop)
+        menu = @"TOP";
+    else if (sideMenu == self.menuRight)
+        menu = @"RIGHT";
+    else if (sideMenu == self.menuBottom)
+        menu = @"RIGHT";
+    
+    NSLog(@"%@ VKSideMenue did hide", menu);
+}
+
+-(NSString *)sideMenu:(VKSideMenu *)sideMenu titleForHeaderInSection:(NSInteger)section
+{
+    if (sideMenu == self.menuLeft)
+        return nil;
+    
+    switch (section)
+    {
+        case 0:
+            return @"Profile";
+            break;
+            
+        case 1:
+            return @"Actions";
+            break;
+            
+        default:
+            return nil;
+            break;
+    }
+}
+
+
+
 - (BOOL)slideNavigationControllerShouldDisplayLeftMenu
 {
     return YES;
@@ -149,20 +418,23 @@
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
     
     if (textField == _txtWhere) {
-        [self showAutocompleteWidgetButtonTapped];
+        GMSAutocompleteViewController *autocompleteViewController =
+        [[GMSAutocompleteViewController alloc] init];
+        autocompleteViewController.delegate = self;
+        [self presentViewController:autocompleteViewController animated:YES completion:nil];
     }
     return YES;
 }
 
 #pragma mark - Actions
-
-- (IBAction)showAutocompleteWidgetButtonTapped {
-    // When the button is pressed modally present the autocomplete view controller.
-    GMSAutocompleteViewController *autocompleteViewController =
-    [[GMSAutocompleteViewController alloc] init];
-    autocompleteViewController.delegate = self;
-    [self presentViewController:autocompleteViewController animated:YES completion:nil];
-}
+//
+//- (IBAction)showAutocompleteWidgetButtonTapped {
+//    // When the button is pressed modally present the autocomplete view controller.
+//    GMSAutocompleteViewController *autocompleteViewController =
+//    [[GMSAutocompleteViewController alloc] init];
+//    autocompleteViewController.delegate = self;
+//    [self presentViewController:autocompleteViewController animated:YES completion:nil];
+//}
 
 
 #pragma mark - GMSAutocompleteViewControllerDelegate
@@ -177,8 +449,8 @@ didAutocompleteWithPlace:(GMSPlace *)place {
         [text appendAttributedString:[[NSAttributedString alloc] initWithString:@"\n\n"]];
         [text appendAttributedString:place.attributions];
     }
-
-    _txtWhere.text = place.name;
+    [_textViewWhere resignFirstResponder];
+    _textViewWhere.text = place.name;
 }
 
 - (void)viewController:(GMSAutocompleteViewController *)viewController
@@ -222,26 +494,22 @@ didFailAutocompleteWithError:(NSError *)error {
     [UIView commitAnimations];
 }
 
-- (BOOL) textViewShouldBeginEditing:(UITextView *)textView
-{
-    if([_textViewComments.text isEqualToString:@"Write"]){
-        _textViewComments.text = @"";
-    _textViewComments.textColor = [UIColor blackColor];
-    }
-    else
-        _textViewComments.textColor = [UIColor blackColor];
-    
-    return YES;
-}
+
 
 -(void) textViewDidChange:(UITextView *)textView
 {
     
-    if(_textViewComments.text.length == 0){
-        _textViewComments.textColor = [UIColor lightGrayColor];
-        _textViewComments.text = @"Write";
-        [_textViewComments resignFirstResponder];
-    }
+    //if(_textViewComments.text.length == 0){
+        //_textViewComments.textColor = [UIColor lightGrayColor];
+        //_textViewComments.text = @"Write";
+      //  [_textViewComments resignFirstResponder];
+    //}
+
+    //    CGFloat fixedWidth = textView.frame.size.width;
+//    CGSize newSize = [textView sizeThatFits:CGSizeMake(fixedWidth, MAXFLOAT)];
+//    CGRect newFrame = textView.frame;
+//    newFrame.size = CGSizeMake(fmaxf(newSize.width, fixedWidth), newSize.height);
+//    _textViewTest.frame = newFrame;
 }
 
 - (IBAction)btnAddReviewClicked:(id)sender

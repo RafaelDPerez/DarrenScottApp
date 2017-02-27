@@ -10,9 +10,11 @@
 #import "ACFloatingTextField.h"
 
 @interface Register1ViewController ()<UITextFieldDelegate>
-@property (weak, nonatomic) IBOutlet ACFloatingTextField *txtNombre;
-@property (weak, nonatomic) IBOutlet ACFloatingTextField *txtEdad;
-@property (weak, nonatomic) IBOutlet ACFloatingTextField *txtSexo;
+@property (weak, nonatomic) IBOutlet ACFloatingTextField *txtFirstName;
+@property (weak, nonatomic) IBOutlet ACFloatingTextField *txtLastName;
+@property (weak, nonatomic) IBOutlet ACFloatingTextField *txtUsername;
+@property (weak, nonatomic) IBOutlet ACFloatingTextField *txtPassword;
+@property (weak, nonatomic) IBOutlet ACFloatingTextField *txtTelephoneNumber;
 @property (weak, nonatomic) IBOutlet ACFloatingTextField *txtEmail;
 
 
@@ -22,33 +24,47 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [_txtNombre setTextFieldPlaceholderText:@"First Name"];
-    _txtNombre.selectedLineColor = [UIColor blackColor];
-    _txtNombre.placeHolderColor = [UIColor blackColor];
-    [_txtNombre setTextColor:[UIColor blackColor]];
-    _txtNombre.selectedPlaceHolderColor = [UIColor blackColor];
-    _txtNombre.lineColor = [UIColor blackColor];
+    [_txtFirstName setTextFieldPlaceholderText:@"First Name"];
+    _txtFirstName.selectedLineColor = [UIColor blackColor];
+    _txtFirstName.placeHolderColor = [UIColor blackColor];
+    [_txtFirstName setTextColor:[UIColor blackColor]];
+    _txtFirstName.selectedPlaceHolderColor = [UIColor blackColor];
+    _txtFirstName.lineColor = [UIColor blackColor];
     
-    [_txtEdad setTextFieldPlaceholderText:@"Last Name"];
-    _txtEdad.selectedLineColor = [UIColor blackColor];
-    _txtEdad.placeHolderColor = [UIColor blackColor];
-    [_txtEdad setTextColor:[UIColor blackColor]];
-    _txtEdad.selectedPlaceHolderColor = [UIColor blackColor];
-    _txtEdad.lineColor = [UIColor blackColor];
+    [_txtLastName setTextFieldPlaceholderText:@"Last Name"];
+    _txtLastName.selectedLineColor = [UIColor blackColor];
+    _txtLastName.placeHolderColor = [UIColor blackColor];
+    [_txtLastName setTextColor:[UIColor blackColor]];
+    _txtLastName.selectedPlaceHolderColor = [UIColor blackColor];
+    _txtLastName.lineColor = [UIColor blackColor];
     
-    [_txtSexo setTextFieldPlaceholderText:@"Date of Birth"];
-    _txtSexo.selectedLineColor = [UIColor blackColor];
-    _txtSexo.placeHolderColor = [UIColor blackColor];
-    [_txtSexo setTextColor:[UIColor blackColor]];
-    _txtSexo.selectedPlaceHolderColor = [UIColor blackColor];
-    _txtSexo.lineColor = [UIColor blackColor];
+    [_txtUsername setTextFieldPlaceholderText:@"Username"];
+    _txtUsername.selectedLineColor = [UIColor blackColor];
+    _txtUsername.placeHolderColor = [UIColor blackColor];
+    [_txtUsername setTextColor:[UIColor blackColor]];
+    _txtUsername.selectedPlaceHolderColor = [UIColor blackColor];
+    _txtUsername.lineColor = [UIColor blackColor];
     
-    [_txtEmail setTextFieldPlaceholderText:@"Email Address"];
+    [_txtEmail setTextFieldPlaceholderText:@"Email"];
     _txtEmail.selectedLineColor = [UIColor blackColor];
     _txtEmail.placeHolderColor = [UIColor blackColor];
     [_txtEmail setTextColor:[UIColor blackColor]];
     _txtEmail.selectedPlaceHolderColor = [UIColor blackColor];
     _txtEmail.lineColor = [UIColor blackColor];
+    
+    [_txtPassword setTextFieldPlaceholderText:@"Password"];
+    _txtPassword.selectedLineColor = [UIColor blackColor];
+    _txtPassword.placeHolderColor = [UIColor blackColor];
+    [_txtPassword setTextColor:[UIColor blackColor]];
+    _txtPassword.selectedPlaceHolderColor = [UIColor blackColor];
+    _txtPassword.lineColor = [UIColor blackColor];
+    
+    [_txtTelephoneNumber setTextFieldPlaceholderText:@"Telephone Number"];
+    _txtTelephoneNumber.selectedLineColor = [UIColor blackColor];
+    _txtTelephoneNumber.placeHolderColor = [UIColor blackColor];
+    [_txtTelephoneNumber setTextColor:[UIColor blackColor]];
+    _txtTelephoneNumber.selectedPlaceHolderColor = [UIColor blackColor];
+    _txtTelephoneNumber.lineColor = [UIColor blackColor];
     // Do any additional setup after loading the view.
 }
 #pragma mark  UITextfield Delegates
@@ -61,9 +77,12 @@
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
     
-    [_txtNombre resignFirstResponder];
-    [_txtEdad resignFirstResponder];
-    [_txtSexo resignFirstResponder];
+    [_txtTelephoneNumber resignFirstResponder];
+    [_txtPassword resignFirstResponder];
+    [_txtUsername resignFirstResponder];
+    [_txtFirstName resignFirstResponder];
+    [_txtLastName resignFirstResponder];
+    [_txtEmail resignFirstResponder];
     return YES;
 }
 
@@ -73,7 +92,7 @@
     // Dispose of any resources that can be recreated.
 }
 -(IBAction)nextRegister:(id)sender{
-    if (_txtNombre.text && _txtNombre.text.length > 0 && _txtSexo.text && _txtSexo.text.length > 0 &&_txtEdad.text && _txtEdad.text.length > 0  )
+    if (_txtFirstName.text && _txtFirstName.text.length > 0 && _txtLastName.text && _txtLastName.text.length > 0 && _txtUsername.text && _txtUsername.text.length > 0 && _txtEmail.text && _txtEmail.text.length > 0 && _txtPassword.text && _txtPassword.text.length > 0 && _txtTelephoneNumber.text && _txtTelephoneNumber.text.length > 0)
     {
         
         [self performSegueWithIdentifier:@"NextRegister" sender:self];

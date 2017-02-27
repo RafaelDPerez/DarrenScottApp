@@ -118,7 +118,7 @@ static SlideNavigationController *singletonInstance;
 		NSLog(@"Singleton instance already exists. You can only instantiate one instance of SlideNavigationController. This could cause major issues");
 	
 	singletonInstance = self;
-	
+
 	self.menuRevealAnimationDuration = MENU_SLIDE_ANIMATION_DURATION;
 	self.menuRevealAnimationOption = MENU_SLIDE_ANIMATION_OPTION;
 	self.landscapeSlideOffset = MENU_DEFAULT_SLIDE_OFFSET;

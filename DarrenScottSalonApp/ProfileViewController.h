@@ -9,13 +9,11 @@
 #import <UIKit/UIKit.h>
 @import FirebaseAuth;
 @import Firebase;
-#import "SlideNavigationController.h"
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 
 @interface ProfileViewController : UIViewController
-@property (nonatomic, assign) BOOL slideOutAnimationEnabled;
 @property (weak, nonatomic) IBOutlet UIImageView *imgProfilePic;
 @property (weak, nonatomic) IBOutlet FBSDKLoginButton *loginButton;
 @property (weak, nonatomic) IBOutlet UILabel *txtName;
