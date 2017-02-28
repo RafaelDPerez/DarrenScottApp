@@ -28,6 +28,8 @@
 		450703E91E36D408003B7793 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 450703E61E36D408003B7793 /* FBSDKShareKit.framework */; };
 		450703EB1E36D5FD003B7793 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 450703EA1E36D5FD003B7793 /* FBSDKLoginKit.framework */; };
 		450927DE1DF4D0730052EB54 /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 450927DD1DF4D0730052EB54 /* NavigationViewController.m */; };
+		451F948B1E64D6150006C105 /* Syncopate-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4540739B1E638AF3008F245E /* Syncopate-Regular.ttf */; };
+		451F948D1E64E8700006C105 /* Syncopate-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 451F948C1E64E8300006C105 /* Syncopate-Bold.ttf */; };
 		4538352A1E495FB700B34BB4 /* ACFloatingTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 453835291E495FB700B34BB4 /* ACFloatingTextField.m */; };
 		4538352E1E4960D100B34BB4 /* UIUnderlinedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4538352D1E4960D100B34BB4 /* UIUnderlinedButton.m */; };
 		453835321E4962CD00B34BB4 /* Register1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 453835311E4962CD00B34BB4 /* Register1ViewController.m */; };
@@ -101,6 +103,7 @@
 		450703EA1E36D5FD003B7793 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		450927DC1DF4D0730052EB54 /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
 		450927DD1DF4D0730052EB54 /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
+		451F948C1E64E8300006C105 /* Syncopate-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Syncopate-Bold.ttf"; sourceTree = "<group>"; };
 		453835281E495FB700B34BB4 /* ACFloatingTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACFloatingTextField.h; sourceTree = "<group>"; };
 		453835291E495FB700B34BB4 /* ACFloatingTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACFloatingTextField.m; sourceTree = "<group>"; };
 		4538352C1E4960D100B34BB4 /* UIUnderlinedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIUnderlinedButton.h; sourceTree = "<group>"; };
@@ -364,6 +367,7 @@
 		4540739A1E638AC2008F245E /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				451F948C1E64E8300006C105 /* Syncopate-Bold.ttf */,
 				4540739B1E638AF3008F245E /* Syncopate-Regular.ttf */,
 			);
 			name = Fonts;
@@ -491,6 +495,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				451F948D1E64E8700006C105 /* Syncopate-Bold.ttf in Resources */,
+				451F948B1E64D6150006C105 /* Syncopate-Regular.ttf in Resources */,
 				45025D411E384D2C001FEAB6 /* Animations in Resources */,
 				45025D451E384D4C001FEAB6 /* Assets in Resources */,
 				45C6B7FF1DD2960A0067654B /* GoogleService-Info.plist in Resources */,
@@ -781,7 +787,7 @@
 				INFOPLIST_FILE = DarrenScottSalonApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.maranta.darrenscott.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.maranta.darrenscott.DarrenScottSalonApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -800,7 +806,7 @@
 				INFOPLIST_FILE = DarrenScottSalonApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.maranta.darrenscott.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.maranta.darrenscott.DarrenScottSalonApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

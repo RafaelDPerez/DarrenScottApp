@@ -11,13 +11,18 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Syncopate-Regular.ttf">
+            <string>Syncopate-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="1cM-EL-7Vs">
             <objects>
                 <navigationController storyboardIdentifier="Slide" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jxk-hw-it8" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="1cP-1Z-D44"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Sc4-0g-Fat">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Sc4-0g-Fat">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -179,18 +184,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="zxz-JT-Mu9">
-                                <rect key="frame" x="16" y="72" width="140" height="126"/>
+                                <rect key="frame" x="16" y="72" width="140" height="110"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="140" id="fzo-tR-6td"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wvy-zI-p1t" customClass="ASStarRatingView">
-                                <rect key="frame" x="68" y="208" width="239" height="38"/>
+                                <rect key="frame" x="68" y="192" width="239" height="54"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y3x-X0-rKe">
-                                <rect key="frame" x="201" y="72" width="154" height="30"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                <rect key="frame" x="201" y="72" width="154" height="22"/>
+                                <fontDescription key="fontDescription" name="Syncopate-Regular" family="Syncopate" pointSize="10"/>
                                 <state key="normal" title="Pick From Gallery">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
@@ -199,8 +204,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7jf-Ef-p2W">
-                                <rect key="frame" x="200" y="112" width="154" height="30"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                <rect key="frame" x="200" y="104" width="154" height="22"/>
+                                <fontDescription key="fontDescription" name="Syncopate-Regular" family="Syncopate" pointSize="10"/>
                                 <state key="normal" title="Take Photo/Video">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
@@ -217,7 +222,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="Bct-Qd-qha"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="Syncopate-Regular" family="Syncopate" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         <connections>
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="lcJ-jL-yzf"/>
@@ -515,7 +520,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsg-CB-Qqu">
                                 <rect key="frame" x="16" y="72" width="343" height="464"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">Click Pic Review App and website Terms and Conditions
+                                <string key="text">Click Pic Review App and website Terms and Conditions
 
 The Click Pic Review App and website (www.clickpicreview.com) (“we”, “us”, “our” “CPR”) provides an internet platform which allows you (“the user”) to write reviews pertaining to your personal experiences and take and/or upload photographs, videos, images. Our app also links in to other social media websites such as Facebook, Twitter, Instagram, Pinterest and others as may be added from time to time. You agree to our Terms and Conditions (“Terms”) by installing, accessing, or using our apps, services, features, software, or website (together, “Services”). 
 
@@ -563,7 +568,7 @@ Availability and termination of our Services
 Availability of Our Services. Our Services may be interrupted, including for maintenance, repairs, upgrades, or network or equipment failures. We may discontinue some or all of our Services, including certain features and the support for certain devices and platforms, at any time. Events beyond our control may affect our Services, such as events in nature and other force majeure events.
 It is the User’s responsibility to ensure that they are using CPR within the confines of the applicable laws and legal jurisdiction where they are.  CPR negates any responsibility for any legal infringement that a User creates.  CPR will work with the relevant law enforcement should any legal breech be performed by the User.
 Termination. We may modify, suspend, or terminate your access to or use of our Services at any time for any reason, such as if you violate the letter or spirit of our Terms or create harm, risk, or possible legal exposure for us, our users, or others. The following provisions will survive any termination of your relationship with CPR App/Website: “Licenses,” “Disclaimers,” “Limitation of Liability,” “Indemnification,” “Dispute Resolution,” “Availability and Termination of our Services.”
-</mutableString>
+</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -606,7 +611,6 @@ Termination. We may modify, suspend, or terminate your access to or use of our S
         <!--View Controller-->
         <scene sceneID="hct-Wd-XD6">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="u4p-vi-AjQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="wrC-g0-jo9" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UN2-Kj-8lH"/>
@@ -618,6 +622,7 @@ Termination. We may modify, suspend, or terminate your access to or use of our S
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u4p-vi-AjQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-506" y="-307"/>
         </scene>
