@@ -235,6 +235,8 @@
     return YES;
 }
 
+
+
 -(IBAction)checkIn{
     GMSAutocompleteViewController *autocompleteViewController =
     [[GMSAutocompleteViewController alloc] init];
@@ -451,6 +453,8 @@
     return YES;
 }
 
+
+
 #pragma mark - Actions
 //
 //- (IBAction)showAutocompleteWidgetButtonTapped {
@@ -530,11 +534,11 @@ didFailAutocompleteWithError:(NSError *)error {
       //  [_textViewComments resignFirstResponder];
     //}
 
-    //    CGFloat fixedWidth = textView.frame.size.width;
+//    CGFloat fixedWidth = textView.frame.size.width;
 //    CGSize newSize = [textView sizeThatFits:CGSizeMake(fixedWidth, MAXFLOAT)];
 //    CGRect newFrame = textView.frame;
 //    newFrame.size = CGSizeMake(fmaxf(newSize.width, fixedWidth), newSize.height);
-//    _textViewTest.frame = newFrame;
+//    textView.frame = newFrame;
 }
 
 - (IBAction)btnAddReviewClicked:(id)sender
