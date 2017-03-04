@@ -22,6 +22,7 @@
     FIRStorageReference *storageRef;
     NSData *imageData;
     UIImage *hola;
+    UITextView *selectedTextView;
 }
 
 @property (nonatomic, strong) VKSideMenu *menuLeft;
@@ -127,22 +128,6 @@
     self.pickerViewStylist.delegate = self;     //#2
     self.pickerViewStylist.dataSource = self;   //#2
     
-
-    
-   
-    
-    
-//    self.textFieldService.inputView = self.pickerViewService;
-//     self.textFieldStylist.inputView = self.pickerViewStylist;
-//    
-//    
-//    self.pickerServices = @[ @"Hair", @"Nails", @"Extentions"];
-//    self.pickerStylists = @[ @"Darren Scott", @"James Penningnton", @"Rafael Perez"];
-//    
-//    [self.view addSubview:self.textFieldService];
-//    [self.view addSubview:self.textFieldStylist];
-    
-    // Do any additional setup after loading the view, typically from a nib.
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetected)];
     singleTap.numberOfTapsRequired = 1;
     [ivPickedImage setUserInteractionEnabled:YES];
@@ -199,37 +184,36 @@
         _textViewComments.text = @"Write (how was the whole experience)";
         _textViewComments.textColor = [UIColor lightGrayColor];
         _textViewComments.clipsToBounds = YES;
-        //    _textViewComments.layer.cornerRadius = 10.0f;
         _textViewComments.delegate = self;
         
         _textViewWhere.text = @"Where (Check in or insert Website)";
         _textViewWhere.textColor = [UIColor lightGrayColor];
         _textViewWhere.clipsToBounds = YES;
-        //    _textViewComments.layer.cornerRadius = 10.0f;
+
         _textViewWhere.delegate = self;
         
         _textViewWhy.text = @"Why (are you there, birthday, just because)";
         _textViewWhy.textColor = [UIColor lightGrayColor];
         _textViewWhy.clipsToBounds = YES;
-        //    _textViewComments.layer.cornerRadius = 10.0f;
+
         _textViewWhy.delegate = self;
         
         _textViewWho.text = @"Who (Who helped/served you)";
         _textViewWho.textColor = [UIColor lightGrayColor];
         _textViewWho.clipsToBounds = YES;
-        //    _textViewComments.layer.cornerRadius = 10.0f;
+
         _textViewWho.delegate = self;
         
         _textViewWhat.text = @"What (did you see/drink/get done)";
         _textViewWhat.textColor = [UIColor lightGrayColor];
         _textViewWhat.clipsToBounds = YES;
-        //    _textViewComments.layer.cornerRadius = 10.0f;
+
         _textViewWhat.delegate = self;
         
         _textViewWith.text = @"With (are you with friends/family)";
         _textViewWith.textColor = [UIColor lightGrayColor];
         _textViewWhere.clipsToBounds = YES;
-        //    _textViewComments.layer.cornerRadius = 10.0f;
+
         _textViewWhere.delegate = self;
         
         ivPickedImage.image = [UIImage imageNamed:@"placeholder"];
@@ -240,12 +224,6 @@
 
 - (BOOL) textViewShouldBeginEditing:(UITextView *)textView
 {
-//    if (textView == _textViewWhere) {
-//        GMSAutocompleteViewController *autocompleteViewController =
-//        [[GMSAutocompleteViewController alloc] init];
-//        autocompleteViewController.delegate = self;
-//        [self presentViewController:autocompleteViewController animated:YES completion:nil];
-//    }
     if([textView.text isEqualToString:@"Write (how was the whole experience)"]||[textView.text isEqualToString:@"Where (Check in or insert Website)"]||[textView.text isEqualToString:@"With (are you with friends/family)"]||[textView.text isEqualToString:@"Why (are you there, birthday, just because)"]||[textView.text isEqualToString:@"Who (Who helped/served you)"]||[textView.text isEqualToString:@"What (did you see/drink/get done)"]){
         textView.text = @"";
         textView.textColor = [UIColor blackColor];
@@ -262,40 +240,41 @@
     [[GMSAutocompleteViewController alloc] init];
     autocompleteViewController.delegate = self;
     [self presentViewController:autocompleteViewController animated:YES completion:nil];
-
 }
 
 - (void)textViewDidEndEditing:(UITextView *)textView {
     if([textView.text isEqualToString:@""])
     {
-        _textViewComments.text = @"Write (how was the whole experience)";
-        _textViewComments.textColor = [UIColor lightGrayColor];
-        _textViewComments.clipsToBounds = YES;
-
-        
-        _textViewWhere.text = @"Where (Check in or insert Website)";
-        _textViewWhere.textColor = [UIColor lightGrayColor];
-        _textViewWhere.clipsToBounds = YES;
-
-        
-        _textViewWhy.text = @"Why (are you there, birthday, just because)";
-        _textViewWhy.textColor = [UIColor lightGrayColor];
-        _textViewWhy.clipsToBounds = YES;
-
-        
-        _textViewWho.text = @"Who (Who helped/served you)";
-        _textViewWho.textColor = [UIColor lightGrayColor];
-        _textViewWho.clipsToBounds = YES;
-
-        
-        _textViewWhat.text = @"What (did you see/drink/get done)";
-        _textViewWhat.textColor = [UIColor lightGrayColor];
-        _textViewWhat.clipsToBounds = YES;
-
-        
-        _textViewWith.text = @"With (are you with friends/family)";
-        _textViewWith.textColor = [UIColor lightGrayColor];
-        _textViewWhere.clipsToBounds = YES;
+        if (textView.tag ==101) {
+            textView.text = @"Where (Check in or insert Website)";
+            textView.textColor = [UIColor lightGrayColor];
+            textView.clipsToBounds = YES;
+        }
+        if (textView.tag ==102) {
+            textView.text = @"Who (Who helped/served you)";
+            textView.textColor = [UIColor lightGrayColor];
+            textView.clipsToBounds = YES;
+        }
+        if (textView.tag ==103) {
+            textView.text = @"What (did you see/drink/get done)";
+            textView.textColor = [UIColor lightGrayColor];
+            textView.clipsToBounds = YES;
+        }
+        if (textView.tag ==104) {
+            textView.text = @"Why (are you there, birthday, just because)";
+            textView.textColor = [UIColor lightGrayColor];
+            textView.clipsToBounds = YES;
+        }
+        if (textView.tag ==105) {
+            textView.text = @"With (are you with friends/family)";
+            textView.textColor = [UIColor lightGrayColor];
+            textView.clipsToBounds = YES;
+        }
+        if (textView.tag ==106) {
+            textView.text = @"Write (how was the whole experience)";
+            textView.textColor = [UIColor lightGrayColor];
+            textView.clipsToBounds = YES;
+        }
     }
 }
 
