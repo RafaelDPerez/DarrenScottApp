@@ -95,7 +95,7 @@
     self.hideOnSelection            = YES;
     self.enableGestures             = YES;
     
-    self.sectionTitleFont   = [UIFont systemFontOfSize:15.];
+    self.sectionTitleFont   = [UIFont fontWithName:@"Syncopate Bold" size:20];
     self.selectionColor     = [UIColor colorWithWhite:1. alpha:.5];
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
@@ -294,7 +294,8 @@
         CGFloat titleX = item.icon ? CGRectGetMaxX(imageViewIcon.frame) + 12 : 12;
         title = [[UILabel alloc] initWithFrame:CGRectMake(titleX, contentTopBottomPadding, cell.frame.size.width - titleX - 12, contentHeight)];
         title.tag  = 200;
-        title.font = [UIFont systemFontOfSize:17.0];
+      //  title.font = [UIFont systemFontOfSize:15.0];
+        title.font = [UIFont fontWithName:@"Syncopate" size:15];
         title.adjustsFontSizeToFitWidth = YES;
         [cell.contentView addSubview:title];
     }

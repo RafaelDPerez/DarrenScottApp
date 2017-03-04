@@ -33,13 +33,12 @@
 
 @implementation ViewController
 @synthesize ivPickedImage;
-@synthesize btnCamera,btnGallery;
+@synthesize btnCamera,btnGallery,btnCheckIn;
 
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo"]];
     self.menuLeft = [[VKSideMenu alloc] initWithSize:320 andDirection:VKSideMenuDirectionFromLeft];
     self.menuLeft.dataSource = self;
     self.menuLeft.delegate   = self;
@@ -72,6 +71,10 @@
     [[btnGallery layer] setBorderWidth:1.0f];
     [[btnGallery layer] setBorderColor:self.view.tintColor.CGColor];
     btnGallery.layer.cornerRadius = 15.0f;
+    
+    [[btnCheckIn layer] setBorderWidth:1.0f];
+    [[btnCheckIn layer] setBorderColor:self.view.tintColor.CGColor];
+    //btnGallery.layer.cornerRadius = 15.0f;
     
     [[ivPickedImage layer] setBorderWidth:1.0f];
     [[ivPickedImage layer] setBorderColor:self.view.tintColor.CGColor];
@@ -123,6 +126,8 @@
     self.pickerViewStylist = [[UIPickerView alloc] init];
     self.pickerViewStylist.delegate = self;     //#2
     self.pickerViewStylist.dataSource = self;   //#2
+    
+
     
    
     
@@ -235,12 +240,12 @@
 
 - (BOOL) textViewShouldBeginEditing:(UITextView *)textView
 {
-    if (textView == _textViewWhere) {
-        GMSAutocompleteViewController *autocompleteViewController =
-        [[GMSAutocompleteViewController alloc] init];
-        autocompleteViewController.delegate = self;
-        [self presentViewController:autocompleteViewController animated:YES completion:nil];
-    }
+//    if (textView == _textViewWhere) {
+//        GMSAutocompleteViewController *autocompleteViewController =
+//        [[GMSAutocompleteViewController alloc] init];
+//        autocompleteViewController.delegate = self;
+//        [self presentViewController:autocompleteViewController animated:YES completion:nil];
+//    }
     if([textView.text isEqualToString:@"Write (how was the whole experience)"]||[textView.text isEqualToString:@"Where (Check in or insert Website)"]||[textView.text isEqualToString:@"With (are you with friends/family)"]||[textView.text isEqualToString:@"Why (are you there, birthday, just because)"]||[textView.text isEqualToString:@"Who (Who helped/served you)"]||[textView.text isEqualToString:@"What (did you see/drink/get done)"]){
         textView.text = @"";
         textView.textColor = [UIColor blackColor];
@@ -252,6 +257,47 @@
     return YES;
 }
 
+-(IBAction)checkIn{
+    GMSAutocompleteViewController *autocompleteViewController =
+    [[GMSAutocompleteViewController alloc] init];
+    autocompleteViewController.delegate = self;
+    [self presentViewController:autocompleteViewController animated:YES completion:nil];
+
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    if([textView.text isEqualToString:@""])
+    {
+        _textViewComments.text = @"Write (how was the whole experience)";
+        _textViewComments.textColor = [UIColor lightGrayColor];
+        _textViewComments.clipsToBounds = YES;
+
+        
+        _textViewWhere.text = @"Where (Check in or insert Website)";
+        _textViewWhere.textColor = [UIColor lightGrayColor];
+        _textViewWhere.clipsToBounds = YES;
+
+        
+        _textViewWhy.text = @"Why (are you there, birthday, just because)";
+        _textViewWhy.textColor = [UIColor lightGrayColor];
+        _textViewWhy.clipsToBounds = YES;
+
+        
+        _textViewWho.text = @"Who (Who helped/served you)";
+        _textViewWho.textColor = [UIColor lightGrayColor];
+        _textViewWho.clipsToBounds = YES;
+
+        
+        _textViewWhat.text = @"What (did you see/drink/get done)";
+        _textViewWhat.textColor = [UIColor lightGrayColor];
+        _textViewWhat.clipsToBounds = YES;
+
+        
+        _textViewWith.text = @"With (are you with friends/family)";
+        _textViewWith.textColor = [UIColor lightGrayColor];
+        _textViewWhere.clipsToBounds = YES;
+    }
+}
 
 
 -(IBAction)buttonMenuLeft:(id)sender
@@ -552,6 +598,12 @@ didFailAutocompleteWithError:(NSError *)error {
 
 -(void)dismissKeyboard {
     [_textViewComments resignFirstResponder];
+    [_textViewWhat resignFirstResponder];
+    [_textViewWho resignFirstResponder];
+    [_textViewWith resignFirstResponder];
+    [_textViewWhy resignFirstResponder];
+    [_textViewWhere resignFirstResponder];
+    
 }
 
 

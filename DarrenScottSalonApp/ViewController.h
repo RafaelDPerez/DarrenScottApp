@@ -18,6 +18,7 @@
 @property (nonatomic, assign) BOOL slideOutAnimationEnabled;
 @property (weak, nonatomic) IBOutlet UIButton *btnGallery;
 @property (weak, nonatomic) IBOutlet UIButton *btnCamera;
+@property (weak, nonatomic) IBOutlet UIButton *btnCheckIn;
 @property(strong,nonatomic) IBOutlet ASStarRatingView *starsRating;
 @property (weak, nonatomic) IBOutlet UIImageView *ivPickedImage;
 @property (weak, nonatomic) IBOutlet UITextField *txtWhere;
