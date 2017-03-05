@@ -26,9 +26,6 @@
 }
 
 @property (nonatomic, strong) VKSideMenu *menuLeft;
-@property (nonatomic, strong) VKSideMenu *menuRight;
-@property (nonatomic, strong) VKSideMenu *menuTop;
-@property (nonatomic, strong) VKSideMenu *menuBottom;
 
 @end
 
@@ -291,12 +288,12 @@
 
 -(NSInteger)numberOfSectionsInSideMenu:(VKSideMenu *)sideMenu
 {
-    return (sideMenu == self.menuLeft || sideMenu == self.menuTop) ? 1 : 2;
+    return (sideMenu == self.menuLeft) ? 1 : 2;
 }
 
 -(NSInteger)sideMenu:(VKSideMenu *)sideMenu numberOfRowsInSection:(NSInteger)section
 {
-    if (sideMenu == self.menuLeft || sideMenu == self.menuTop)
+    if (sideMenu == self.menuLeft)
         return 3;
     
     return section == 0 ? 1 : 2;
@@ -308,7 +305,7 @@
     // It's beter to store all items in separate arrays like you do it in your UITableView's. Right?
     VKSideMenuItem *item = [VKSideMenuItem new];
     
-    if (sideMenu == self.menuLeft || sideMenu == self.menuTop) // All LEFT and TOP menu items
+    if (sideMenu == self.menuLeft) // All LEFT and TOP menu items
     {
         switch (indexPath.row)
         {
@@ -388,12 +385,7 @@
     
     if (sideMenu == self.menuLeft)
         menu = @"LEFT";
-    else if (sideMenu == self.menuTop)
-        menu = @"TOP";
-    else if (sideMenu == self.menuRight)
-        menu = @"RIGHT";
-    else if (sideMenu == self.menuBottom)
-        menu = @"RIGHT";
+
     
     NSLog(@"%@ VKSideMenue did show", menu);
 }
@@ -404,12 +396,7 @@
     
     if (sideMenu == self.menuLeft)
         menu = @"LEFT";
-    else if (sideMenu == self.menuTop)
-        menu = @"TOP";
-    else if (sideMenu == self.menuRight)
-        menu = @"RIGHT";
-    else if (sideMenu == self.menuBottom)
-        menu = @"RIGHT";
+
     
     NSLog(@"%@ VKSideMenue did hide", menu);
 }

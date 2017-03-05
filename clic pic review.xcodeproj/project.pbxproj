@@ -53,10 +53,33 @@
 		4538356A1E496FFF00B34BB4 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 453835691E496FFF00B34BB4 /* CalendarViewController.m */; };
 		454073A41E63909C008F245E /* VKSideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 454073A31E63909C008F245E /* VKSideMenu.m */; };
 		45B2F7411DE27C3100AAB600 /* TermsAndConditionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B2F7401DE27C3100AAB600 /* TermsAndConditionsViewController.m */; };
+		45B829801E6BD67B0012B220 /* EAIntroPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B8297B1E6BD67B0012B220 /* EAIntroPage.m */; };
+		45B829811E6BD67B0012B220 /* EAIntroView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B8297D1E6BD67B0012B220 /* EAIntroView.m */; };
+		45B829821E6BD67B0012B220 /* EARestrictedScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B8297F1E6BD67B0012B220 /* EARestrictedScrollView.m */; };
+		45B829961E6BD7650012B220 /* bg1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B829831E6BD7650012B220 /* bg1@2x.png */; };
+		45B829971E6BD7650012B220 /* bg2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B829841E6BD7650012B220 /* bg2@2x.png */; };
+		45B829981E6BD7650012B220 /* bg3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B829851E6BD7650012B220 /* bg3@2x.png */; };
+		45B829991E6BD7650012B220 /* bg4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B829861E6BD7650012B220 /* bg4@2x.png */; };
+		45B8299A1E6BD7650012B220 /* bigLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B829871E6BD7650012B220 /* bigLogo@2x.png */; };
+		45B8299B1E6BD7650012B220 /* icon1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B829881E6BD7650012B220 /* icon1@2x.png */; };
+		45B8299C1E6BD7650012B220 /* icon2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B829891E6BD7650012B220 /* icon2@2x.png */; };
+		45B8299D1E6BD7650012B220 /* icon3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B8298A1E6BD7650012B220 /* icon3@2x.png */; };
+		45B8299E1E6BD7650012B220 /* img1.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B8298B1E6BD7650012B220 /* img1.png */; };
+		45B8299F1E6BD7650012B220 /* img2.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B8298C1E6BD7650012B220 /* img2.png */; };
+		45B829A21E6BD7650012B220 /* pageDot.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B8298F1E6BD7650012B220 /* pageDot.png */; };
+		45B829A31E6BD7650012B220 /* pageDot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B829901E6BD7650012B220 /* pageDot@2x.png */; };
+		45B829A41E6BD7650012B220 /* skipButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B829911E6BD7650012B220 /* skipButton@2x.png */; };
+		45B829A51E6BD7650012B220 /* title1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B829921E6BD7650012B220 /* title1@2x.png */; };
+		45B829A61E6BD7650012B220 /* title2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B829931E6BD7650012B220 /* title2@2x.png */; };
+		45B829A71E6BD7650012B220 /* title3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B829941E6BD7650012B220 /* title3@2x.png */; };
+		45B829A81E6BD7650012B220 /* title4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B829951E6BD7650012B220 /* title4@2x.png */; };
+		45B829AA1E6BDA760012B220 /* img3.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B829A91E6BDA760012B220 /* img3.png */; };
 		45C6B7FF1DD2960A0067654B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 45C6B7FE1DD2960A0067654B /* GoogleService-Info.plist */; };
 		45C6B8011DD2A3F90067654B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45C6B8001DD2A3F90067654B /* Social.framework */; };
+		562BDAAE4AF94B16711391D2 /* libPods-clic pic reviewTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBFB5E484F2F7E7340A3259 /* libPods-clic pic reviewTests.a */; };
 		5CCAB07E22968F3514F80D2C /* libPods-DarrenScottSalonAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DB04EBBF36AB7A0C112AAE5 /* libPods-DarrenScottSalonAppTests.a */; };
 		6B537880658ECAE480A094B0 /* libPods-DarrenScottSalonApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 86355BF8E0C5E1D4C83BE495 /* libPods-DarrenScottSalonApp.a */; };
+		C974EFF848C979EC65B5B37B /* libPods-clic pic review.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F4E1BA3085A2E07E709DE22 /* libPods-clic pic review.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +110,8 @@
 		02C18A711DC2F307008745BE /* ASStarRatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASStarRatingView.m; sourceTree = "<group>"; };
 		0DB04EBBF36AB7A0C112AAE5 /* libPods-DarrenScottSalonAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DarrenScottSalonAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		128D1374D90FECCC4482D81A /* Pods-DarrenScottSalonApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DarrenScottSalonApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-DarrenScottSalonApp/Pods-DarrenScottSalonApp.release.xcconfig"; sourceTree = "<group>"; };
+		1509F0AE6089A9E0D1F5839F /* Pods-clic pic review.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-clic pic review.debug.xcconfig"; path = "Pods/Target Support Files/Pods-clic pic review/Pods-clic pic review.debug.xcconfig"; sourceTree = "<group>"; };
+		2FBFB5E484F2F7E7340A3259 /* libPods-clic pic reviewTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-clic pic reviewTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45025D111E381F0C001FEAB6 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		45025D401E384D2C001FEAB6 /* Animations */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Animations; sourceTree = "<group>"; };
 		45025D441E384D4C001FEAB6 /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Assets; sourceTree = "<group>"; };
@@ -151,11 +176,39 @@
 		454073A31E63909C008F245E /* VKSideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VKSideMenu.m; path = VKSideMenu/VKSideMenu.m; sourceTree = "<group>"; };
 		45B2F73F1DE27C3100AAB600 /* TermsAndConditionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermsAndConditionsViewController.h; sourceTree = "<group>"; };
 		45B2F7401DE27C3100AAB600 /* TermsAndConditionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermsAndConditionsViewController.m; sourceTree = "<group>"; };
+		45B8297A1E6BD67B0012B220 /* EAIntroPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAIntroPage.h; sourceTree = "<group>"; };
+		45B8297B1E6BD67B0012B220 /* EAIntroPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAIntroPage.m; sourceTree = "<group>"; };
+		45B8297C1E6BD67B0012B220 /* EAIntroView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAIntroView.h; sourceTree = "<group>"; };
+		45B8297D1E6BD67B0012B220 /* EAIntroView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAIntroView.m; sourceTree = "<group>"; };
+		45B8297E1E6BD67B0012B220 /* EARestrictedScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EARestrictedScrollView.h; sourceTree = "<group>"; };
+		45B8297F1E6BD67B0012B220 /* EARestrictedScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EARestrictedScrollView.m; sourceTree = "<group>"; };
+		45B829831E6BD7650012B220 /* bg1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg1@2x.png"; sourceTree = "<group>"; };
+		45B829841E6BD7650012B220 /* bg2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg2@2x.png"; sourceTree = "<group>"; };
+		45B829851E6BD7650012B220 /* bg3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg3@2x.png"; sourceTree = "<group>"; };
+		45B829861E6BD7650012B220 /* bg4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg4@2x.png"; sourceTree = "<group>"; };
+		45B829871E6BD7650012B220 /* bigLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bigLogo@2x.png"; sourceTree = "<group>"; };
+		45B829881E6BD7650012B220 /* icon1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon1@2x.png"; sourceTree = "<group>"; };
+		45B829891E6BD7650012B220 /* icon2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon2@2x.png"; sourceTree = "<group>"; };
+		45B8298A1E6BD7650012B220 /* icon3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon3@2x.png"; sourceTree = "<group>"; };
+		45B8298B1E6BD7650012B220 /* img1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img1.png; sourceTree = "<group>"; };
+		45B8298C1E6BD7650012B220 /* img2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img2.png; sourceTree = "<group>"; };
+		45B8298F1E6BD7650012B220 /* pageDot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pageDot.png; sourceTree = "<group>"; };
+		45B829901E6BD7650012B220 /* pageDot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pageDot@2x.png"; sourceTree = "<group>"; };
+		45B829911E6BD7650012B220 /* skipButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "skipButton@2x.png"; sourceTree = "<group>"; };
+		45B829921E6BD7650012B220 /* title1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "title1@2x.png"; sourceTree = "<group>"; };
+		45B829931E6BD7650012B220 /* title2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "title2@2x.png"; sourceTree = "<group>"; };
+		45B829941E6BD7650012B220 /* title3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "title3@2x.png"; sourceTree = "<group>"; };
+		45B829951E6BD7650012B220 /* title4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "title4@2x.png"; sourceTree = "<group>"; };
+		45B829A91E6BDA760012B220 /* img3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img3.png; sourceTree = "<group>"; };
 		45C6B7FE1DD2960A0067654B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		45C6B8001DD2A3F90067654B /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		4F4E1BA3085A2E07E709DE22 /* libPods-clic pic review.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-clic pic review.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		86355BF8E0C5E1D4C83BE495 /* libPods-DarrenScottSalonApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DarrenScottSalonApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FF0AA875CA448B782DCE7F1 /* Pods-DarrenScottSalonAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DarrenScottSalonAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DarrenScottSalonAppTests/Pods-DarrenScottSalonAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		AA6CC166E488F03C2A1B9DF0 /* Pods-DarrenScottSalonAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DarrenScottSalonAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DarrenScottSalonAppTests/Pods-DarrenScottSalonAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B16F2E3CC2C102E7586FEC9D /* Pods-clic pic reviewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-clic pic reviewTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-clic pic reviewTests/Pods-clic pic reviewTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B4B14ECFED660E9B2E0E4BD4 /* Pods-clic pic reviewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-clic pic reviewTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-clic pic reviewTests/Pods-clic pic reviewTests.release.xcconfig"; sourceTree = "<group>"; };
+		D453EE1746104F00BB04BE44 /* Pods-clic pic review.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-clic pic review.release.xcconfig"; path = "Pods/Target Support Files/Pods-clic pic review/Pods-clic pic review.release.xcconfig"; sourceTree = "<group>"; };
 		D8FF83F48A7CCDE892E7750A /* Pods-DarrenScottSalonApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DarrenScottSalonApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DarrenScottSalonApp/Pods-DarrenScottSalonApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -171,6 +224,7 @@
 				450703E91E36D408003B7793 /* FBSDKShareKit.framework in Frameworks */,
 				45C6B8011DD2A3F90067654B /* Social.framework in Frameworks */,
 				6B537880658ECAE480A094B0 /* libPods-DarrenScottSalonApp.a in Frameworks */,
+				C974EFF848C979EC65B5B37B /* libPods-clic pic review.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CCAB07E22968F3514F80D2C /* libPods-DarrenScottSalonAppTests.a in Frameworks */,
+				562BDAAE4AF94B16711391D2 /* libPods-clic pic reviewTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +263,7 @@
 		025565D61DC2DAF8005A903E /* clicpicreviewApp */ = {
 			isa = PBXGroup;
 			children = (
+				45B829791E6BD66E0012B220 /* EAView */,
 				454073A11E639092008F245E /* VKSlideMenu */,
 				454073A01E638EE3008F245E /* Images */,
 				4540739E1E638DDF008F245E /* Controller */,
@@ -279,6 +335,8 @@
 				45C6B8001DD2A3F90067654B /* Social.framework */,
 				86355BF8E0C5E1D4C83BE495 /* libPods-DarrenScottSalonApp.a */,
 				0DB04EBBF36AB7A0C112AAE5 /* libPods-DarrenScottSalonAppTests.a */,
+				4F4E1BA3085A2E07E709DE22 /* libPods-clic pic review.a */,
+				2FBFB5E484F2F7E7340A3259 /* libPods-clic pic reviewTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -290,6 +348,10 @@
 				128D1374D90FECCC4482D81A /* Pods-DarrenScottSalonApp.release.xcconfig */,
 				AA6CC166E488F03C2A1B9DF0 /* Pods-DarrenScottSalonAppTests.debug.xcconfig */,
 				8FF0AA875CA448B782DCE7F1 /* Pods-DarrenScottSalonAppTests.release.xcconfig */,
+				1509F0AE6089A9E0D1F5839F /* Pods-clic pic review.debug.xcconfig */,
+				D453EE1746104F00BB04BE44 /* Pods-clic pic review.release.xcconfig */,
+				B16F2E3CC2C102E7586FEC9D /* Pods-clic pic reviewTests.debug.xcconfig */,
+				B4B14ECFED660E9B2E0E4BD4 /* Pods-clic pic reviewTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -393,6 +455,24 @@
 		454073A01E638EE3008F245E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				45B829A91E6BDA760012B220 /* img3.png */,
+				45B829831E6BD7650012B220 /* bg1@2x.png */,
+				45B829841E6BD7650012B220 /* bg2@2x.png */,
+				45B829851E6BD7650012B220 /* bg3@2x.png */,
+				45B829861E6BD7650012B220 /* bg4@2x.png */,
+				45B829871E6BD7650012B220 /* bigLogo@2x.png */,
+				45B829881E6BD7650012B220 /* icon1@2x.png */,
+				45B829891E6BD7650012B220 /* icon2@2x.png */,
+				45B8298A1E6BD7650012B220 /* icon3@2x.png */,
+				45B8298B1E6BD7650012B220 /* img1.png */,
+				45B8298C1E6BD7650012B220 /* img2.png */,
+				45B8298F1E6BD7650012B220 /* pageDot.png */,
+				45B829901E6BD7650012B220 /* pageDot@2x.png */,
+				45B829911E6BD7650012B220 /* skipButton@2x.png */,
+				45B829921E6BD7650012B220 /* title1@2x.png */,
+				45B829931E6BD7650012B220 /* title2@2x.png */,
+				45B829941E6BD7650012B220 /* title3@2x.png */,
+				45B829951E6BD7650012B220 /* title4@2x.png */,
 				45025D721E385A38001FEAB6 /* menu-button.png */,
 				45025D731E385A38001FEAB6 /* menu-button@2x.png */,
 			);
@@ -406,6 +486,19 @@
 				454073A31E63909C008F245E /* VKSideMenu.m */,
 			);
 			name = VKSlideMenu;
+			sourceTree = "<group>";
+		};
+		45B829791E6BD66E0012B220 /* EAView */ = {
+			isa = PBXGroup;
+			children = (
+				45B8297A1E6BD67B0012B220 /* EAIntroPage.h */,
+				45B8297B1E6BD67B0012B220 /* EAIntroPage.m */,
+				45B8297C1E6BD67B0012B220 /* EAIntroView.h */,
+				45B8297D1E6BD67B0012B220 /* EAIntroView.m */,
+				45B8297E1E6BD67B0012B220 /* EARestrictedScrollView.h */,
+				45B8297F1E6BD67B0012B220 /* EARestrictedScrollView.m */,
+			);
+			name = EAView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -495,15 +588,33 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45B8299C1E6BD7650012B220 /* icon2@2x.png in Resources */,
 				451F948D1E64E8700006C105 /* Syncopate-Bold.ttf in Resources */,
 				451F948B1E64D6150006C105 /* Syncopate-Regular.ttf in Resources */,
+				45B829AA1E6BDA760012B220 /* img3.png in Resources */,
 				45025D411E384D2C001FEAB6 /* Animations in Resources */,
+				45B829A21E6BD7650012B220 /* pageDot.png in Resources */,
+				45B8299B1E6BD7650012B220 /* icon1@2x.png in Resources */,
 				45025D451E384D4C001FEAB6 /* Assets in Resources */,
+				45B829A31E6BD7650012B220 /* pageDot@2x.png in Resources */,
+				45B829A81E6BD7650012B220 /* title4@2x.png in Resources */,
+				45B8299F1E6BD7650012B220 /* img2.png in Resources */,
 				45C6B7FF1DD2960A0067654B /* GoogleService-Info.plist in Resources */,
+				45B8299A1E6BD7650012B220 /* bigLogo@2x.png in Resources */,
+				45B829A51E6BD7650012B220 /* title1@2x.png in Resources */,
 				45025D711E3851E4001FEAB6 /* Main.storyboard in Resources */,
 				025565EB1DC2DAF8005A903E /* LaunchScreen.xib in Resources */,
+				45B829A61E6BD7650012B220 /* title2@2x.png in Resources */,
 				45025D751E385A38001FEAB6 /* menu-button@2x.png in Resources */,
+				45B829991E6BD7650012B220 /* bg4@2x.png in Resources */,
+				45B8299E1E6BD7650012B220 /* img1.png in Resources */,
 				45025D741E385A38001FEAB6 /* menu-button.png in Resources */,
+				45B829961E6BD7650012B220 /* bg1@2x.png in Resources */,
+				45B829A41E6BD7650012B220 /* skipButton@2x.png in Resources */,
+				45B829A71E6BD7650012B220 /* title3@2x.png in Resources */,
+				45B829981E6BD7650012B220 /* bg3@2x.png in Resources */,
+				45B8299D1E6BD7650012B220 /* icon3@2x.png in Resources */,
+				45B829971E6BD7650012B220 /* bg2@2x.png in Resources */,
 				025565E81DC2DAF8005A903E /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -530,7 +641,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DarrenScottSalonAppTests/Pods-DarrenScottSalonAppTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-clic pic reviewTests/Pods-clic pic reviewTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		4A8C15DB4D6CB3052F098062 /* [CP] Check Pods Manifest.lock */ = {
@@ -575,7 +686,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DarrenScottSalonAppTests/Pods-DarrenScottSalonAppTests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-clic pic reviewTests/Pods-clic pic reviewTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8A0FA957454656AD7311B0EF /* [CP] Embed Pods Frameworks */ = {
@@ -590,7 +701,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DarrenScottSalonApp/Pods-DarrenScottSalonApp-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-clic pic review/Pods-clic pic review-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AFBCF4ECCAE9F7E287C130CA /* [CP] Copy Pods Resources */ = {
@@ -605,7 +716,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DarrenScottSalonApp/Pods-DarrenScottSalonApp-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-clic pic review/Pods-clic pic review-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -627,6 +738,7 @@
 				450927DE1DF4D0730052EB54 /* NavigationViewController.m in Sources */,
 				4538352A1E495FB700B34BB4 /* ACFloatingTextField.m in Sources */,
 				453835641E496FCD00B34BB4 /* FSCalendarScopeHandle.m in Sources */,
+				45B829821E6BD67B0012B220 /* EARestrictedScrollView.m in Sources */,
 				453835671E496FCD00B34BB4 /* FSCalendarWeekdayView.m in Sources */,
 				4538356A1E496FFF00B34BB4 /* CalendarViewController.m in Sources */,
 				025565DD1DC2DAF8005A903E /* AppDelegate.m in Sources */,
@@ -638,6 +750,7 @@
 				453835651E496FCD00B34BB4 /* FSCalendarStickyHeader.m in Sources */,
 				453835661E496FCD00B34BB4 /* FSCalendarTransitionCoordinator.m in Sources */,
 				453835351E4962DD00B34BB4 /* Register2ViewController.m in Sources */,
+				45B829801E6BD67B0012B220 /* EAIntroPage.m in Sources */,
 				453835621E496FCD00B34BB4 /* FSCalendarExtensions.m in Sources */,
 				4538355B1E496FCD00B34BB4 /* FSCalendarCalculator.m in Sources */,
 				025565E01DC2DAF8005A903E /* DarrenScottSalonApp.xcdatamodeld in Sources */,
@@ -646,6 +759,7 @@
 				4538355D1E496FCD00B34BB4 /* FSCalendarCollectionView.m in Sources */,
 				453835321E4962CD00B34BB4 /* Register1ViewController.m in Sources */,
 				4538355C1E496FCD00B34BB4 /* FSCalendarCell.m in Sources */,
+				45B829811E6BD67B0012B220 /* EAIntroView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -776,7 +890,7 @@
 		};
 		025565FB1DC2DAF8005A903E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D8FF83F48A7CCDE892E7750A /* Pods-DarrenScottSalonApp.debug.xcconfig */;
+			baseConfigurationReference = 1509F0AE6089A9E0D1F5839F /* Pods-clic pic review.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9ZZEJK9DFN;
@@ -795,7 +909,7 @@
 		};
 		025565FC1DC2DAF8005A903E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 128D1374D90FECCC4482D81A /* Pods-DarrenScottSalonApp.release.xcconfig */;
+			baseConfigurationReference = D453EE1746104F00BB04BE44 /* Pods-clic pic review.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9ZZEJK9DFN;
@@ -814,7 +928,7 @@
 		};
 		025565FE1DC2DAF8005A903E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AA6CC166E488F03C2A1B9DF0 /* Pods-DarrenScottSalonAppTests.debug.xcconfig */;
+			baseConfigurationReference = B16F2E3CC2C102E7586FEC9D /* Pods-clic pic reviewTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -835,7 +949,7 @@
 		};
 		025565FF1DC2DAF8005A903E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8FF0AA875CA448B782DCE7F1 /* Pods-DarrenScottSalonAppTests.release.xcconfig */;
+			baseConfigurationReference = B4B14ECFED660E9B2E0E4BD4 /* Pods-clic pic reviewTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
