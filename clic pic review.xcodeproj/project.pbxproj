@@ -78,7 +78,6 @@
 		45C6B8011DD2A3F90067654B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45C6B8001DD2A3F90067654B /* Social.framework */; };
 		562BDAAE4AF94B16711391D2 /* libPods-clic pic reviewTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBFB5E484F2F7E7340A3259 /* libPods-clic pic reviewTests.a */; };
 		5CCAB07E22968F3514F80D2C /* libPods-DarrenScottSalonAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DB04EBBF36AB7A0C112AAE5 /* libPods-DarrenScottSalonAppTests.a */; };
-		6B537880658ECAE480A094B0 /* libPods-DarrenScottSalonApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 86355BF8E0C5E1D4C83BE495 /* libPods-DarrenScottSalonApp.a */; };
 		C974EFF848C979EC65B5B37B /* libPods-clic pic review.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F4E1BA3085A2E07E709DE22 /* libPods-clic pic review.a */; };
 /* End PBXBuildFile section */
 
@@ -223,7 +222,6 @@
 				450703EB1E36D5FD003B7793 /* FBSDKLoginKit.framework in Frameworks */,
 				450703E91E36D408003B7793 /* FBSDKShareKit.framework in Frameworks */,
 				45C6B8011DD2A3F90067654B /* Social.framework in Frameworks */,
-				6B537880658ECAE480A094B0 /* libPods-DarrenScottSalonApp.a in Frameworks */,
 				C974EFF848C979EC65B5B37B /* libPods-clic pic review.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
