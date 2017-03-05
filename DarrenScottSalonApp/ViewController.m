@@ -280,7 +280,7 @@
 
 -(IBAction)buttonMenuLeft:(id)sender
 {
-    [self.menuLeft show];
+    [self.menuLeft show:self.navigationController.view];
 }
 
 

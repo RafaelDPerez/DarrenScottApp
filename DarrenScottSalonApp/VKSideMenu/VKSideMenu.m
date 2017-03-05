@@ -182,12 +182,17 @@
 
 #pragma mark - Appearance
 
--(void)show
+-(void)show:(UIView*)currentView
 {
     [self initViews];
     
-    [ROOTVC.view addSubview:self.overlay];
-    [ROOTVC.view addSubview:self.view];
+//    [ROOTVC.view addSubview:self.overlay];
+//    [ROOTVC.view addSubview:self.view];
+    
+     [currentView addSubview:self.overlay];
+     [currentView addSubview:self.view];
+
+    
     
     CGRect frame = [self frameShowed];
     
@@ -206,7 +211,7 @@
 -(void)showWithSize:(CGFloat)size
 {
     self.size = size;
-    [self show];
+    [self show:ROOTVC.view];
 }
 
 -(void)hide

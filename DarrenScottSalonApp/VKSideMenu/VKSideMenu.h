@@ -252,7 +252,7 @@ typedef NS_ENUM(NSInteger, VKSideMenuDirection)
  @method    show
  @abstract  Shows <code>VKSideMenu</code> view
  */
--(void)show;
+-(void)show: (UIView *) currentView;
 
 /*!
  @method    show
