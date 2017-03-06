@@ -37,8 +37,8 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     [[_textViewLastName layer] setBorderWidth:1.0f];
     [[_textViewLastName layer] setBorderColor:self.view.tintColor.CGColor];
     
-    [[_textViewDateOfBirth layer] setBorderWidth:1.0f];
-    [[_textViewDateOfBirth layer] setBorderColor:self.view.tintColor.CGColor];
+    [[_txtDateOfBirth layer] setBorderWidth:1.0f];
+    [[_txtDateOfBirth layer] setBorderColor:self.view.tintColor.CGColor];
     
     [[_textViewEmail layer] setBorderWidth:1.0f];
     [[_textViewEmail layer] setBorderColor:self.view.tintColor.CGColor];
@@ -49,8 +49,27 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     [[_textViewUsername layer] setBorderWidth:1.0f];
     [[_textViewUsername layer] setBorderColor:self.view.tintColor.CGColor];
     
-    [[_textViewPassword layer] setBorderWidth:1.0f];
-    [[_textViewPassword layer] setBorderColor:self.view.tintColor.CGColor];
+    [[_txtPassword layer] setBorderWidth:1.0f];
+    [[_txtPassword layer] setBorderColor:self.view.tintColor.CGColor];
+    
+    UIDatePicker *datePicker = [[UIDatePicker alloc]init];
+    NSString *maxDateString = @"01-Jan-1996";
+    // the date formatter used to convert string to date
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    // the specific format to use
+    dateFormatter.dateFormat = @"dd-MMM-yyyy";
+    // converting string to date
+    NSDate *theMaximumDate = [dateFormatter dateFromString: maxDateString];
+    
+    // repeat the same logic for theMinimumDate if needed
+    
+    // here you can assign the max and min dates to your datePicker
+    [datePicker setMaximumDate:theMaximumDate]; //the min age restriction
+    [datePicker setDate:[NSDate date]];
+    datePicker.datePickerMode = UIDatePickerModeDate;
+    [datePicker addTarget:self action:@selector(updateTextField:) forControlEvents:UIControlEventValueChanged];
+    [self.txtDateOfBirth setInputView:datePicker];
+    
     
     _textViewFirstName.text = @"First Name";
     _textViewFirstName.textColor = [UIColor lightGrayColor];
@@ -64,11 +83,10 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     //    _textViewComments.layer.cornerRadius = 10.0f;
     _textViewLastName.delegate = self;
     
-    _textViewDateOfBirth.text = @"Date of Birth";
-    _textViewDateOfBirth.textColor = [UIColor lightGrayColor];
-    _textViewDateOfBirth.clipsToBounds = YES;
+
+    _txtDateOfBirth.clipsToBounds = YES;
     //    _textViewComments.layer.cornerRadius = 10.0f;
-    _textViewDateOfBirth.delegate = self;
+    _txtDateOfBirth.delegate = self;
     
     _textViewEmail.text = @"Email";
     _textViewEmail.textColor = [UIColor lightGrayColor];
@@ -88,12 +106,11 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     //    _textViewComments.layer.cornerRadius = 10.0f;
     _textViewUsername.delegate = self;
     
-    _textViewPassword.text = @"Password";
-    _textViewPassword.textColor = [UIColor lightGrayColor];
-    _textViewPassword.clipsToBounds = YES;
-    _textViewPassword.secureTextEntry = YES;
+
+    _txtPassword.clipsToBounds = YES;
+    _txtPassword.secureTextEntry = YES;
     //    _textViewComments.layer.cornerRadius = 10.0f;
-    _textViewPassword.delegate = self;
+    _txtPassword.delegate = self;
 
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
@@ -145,6 +162,21 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
 //    _txtTelephoneNumber.selectedPlaceHolderColor = [UIColor blackColor];
 //    _txtTelephoneNumber.lineColor = [UIColor blackColor];
     // Do any additional setup after loading the view.
+}
+
+-(void)updateTextField:(id)sender
+{
+    UIDatePicker *picker = (UIDatePicker*)self.txtDateOfBirth.inputView;
+    //self.txtDateOfBirth.text = [NSString stringWithFormat:@"%@",picker.date];
+    self.txtDateOfBirth.text = [self formatDate:picker.date];
+}
+
+- (NSString *)formatDate:(NSDate *)date {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle:NSDateFormatterShortStyle];
+    [dateFormatter setDateFormat:@"dd-MMM-yyyy"];
+    NSString *formattedDate = [dateFormatter stringFromDate:date];
+    return formattedDate;
 }
 
 
@@ -207,11 +239,11 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
 -(void)dismissKeyboard {
     [_textViewFirstName resignFirstResponder];
     [_textViewLastName resignFirstResponder];
-    [_textViewDateOfBirth resignFirstResponder];
+    [_txtDateOfBirth resignFirstResponder];
     [_textViewEmail resignFirstResponder];
     [_textViewUsername resignFirstResponder];
     [_textViewPhone resignFirstResponder];
-    [_textViewPassword resignFirstResponder];
+    [_txtPassword resignFirstResponder];
     
 }
 
@@ -312,7 +344,7 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     // Dispose of any resources that can be recreated.
 }
 -(IBAction)nextRegister:(id)sender{
-    if (_textViewFirstName.text && _textViewFirstName.text.length > 0 && _textViewLastName.text && _textViewLastName.text.length > 0 && _textViewDateOfBirth.text && _textViewDateOfBirth.text.length > 0 && _textViewEmail.text && _textViewEmail.text.length > 0 && _textViewUsername.text && _textViewUsername.text.length > 0 && _textViewPhone.text && _textViewPhone.text.length > 0 && _textViewPassword.text && _textViewPassword.text.length > 0)
+    if (_textViewFirstName.text && _textViewFirstName.text.length > 0 && _textViewLastName.text && _textViewLastName.text.length > 0 && _txtDateOfBirth.text && _txtDateOfBirth.text.length > 0 && _textViewEmail.text && _textViewEmail.text.length > 0 && _textViewUsername.text && _textViewUsername.text.length > 0 && _textViewPhone.text && _textViewPhone.text.length > 0 && _txtPassword.text && _txtPassword.text.length > 0)
     {
         
         [self performSegueWithIdentifier:@"NextRegister" sender:self];
