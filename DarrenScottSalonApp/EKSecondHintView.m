@@ -72,14 +72,14 @@
 
 - (void)layoutSubviews
 {
-    self.hint.frame = CGRectMake(self.bounds.origin.x + 20.0f, self.bounds.origin.y + (self.bounds.size.height / 3.0f) + 30.0f, self.frame.size.width - 40.0f, self.bounds.size.height / 10.0f);
+    self.hint.frame = CGRectMake(self.bounds.origin.x + 10.0f, self.bounds.origin.y + (self.bounds.size.height / 3.0f) + 30.0f, self.frame.size.width - 60.0f, self.bounds.size.height / 10.0f);
     
     self.hint2.frame = CGRectMake(self.bounds.origin.x + 20.0f, self.bounds.origin.y + (self.bounds.size.height / 3.0f) +115.0f, self.frame.size.width - 40.0f, self.bounds.size.height / 10.0f);
     
     
-    self.img1.frame = CGRectMake(self.bounds.origin.x + 20.0f, self.bounds.origin.y + 30.0f, self.frame.size.width - 40.0f, self.bounds.size.height / 4.0f);
+    self.img1.frame = CGRectMake(self.bounds.origin.x + 30.0f, self.bounds.origin.y + 30.0f, self.frame.size.width - 80.0f, self.bounds.size.height / 4.0f);
     
-    self.btn.frame =  CGRectMake(self.bounds.size.width/2 -50.0f, self.bounds.origin.y + 400.0f, 100.0f, 40.0f);
+    self.btn.frame =  CGRectMake(self.bounds.size.width/2 -50.0f, self.bounds.origin.y + 450.0f, 100.0f, 40.0f);
     
 
     

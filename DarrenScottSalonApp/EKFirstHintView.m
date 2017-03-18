@@ -59,11 +59,11 @@
     [self addSubview:self.hint3];
     
     self.img1 = [[UIImageView alloc]init];
-    self.img1.image = [UIImage imageNamed:@"img1"];
+    self.img1.image = [UIImage imageNamed:@"img4"];
    [self addSubview:self.img1];
     
     self.img2 = [[UIImageView alloc]init];
-    self.img2.image = [UIImage imageNamed:@"img2"];
+    self.img2.image = [UIImage imageNamed:@"img1"];
     [self addSubview:self.img2];
     
     
@@ -73,15 +73,15 @@
 
 - (void)layoutSubviews
 {
-	self.hint.frame = CGRectMake(self.bounds.origin.x + 20.0f, self.bounds.origin.y + (self.bounds.size.height / 4.0f) +30.0f, self.frame.size.width - 40.0f, self.bounds.size.height / 10.0f);
+	self.hint.frame = CGRectMake(self.bounds.origin.x + 10.0f, self.bounds.origin.y + (self.bounds.size.height / 4.0f) +30.0f, self.frame.size.width - 40.0f, self.bounds.size.height / 10.0f);
     
     self.hint2.frame = CGRectMake(self.bounds.origin.x + 20.0f, self.bounds.origin.y + ((self.bounds.size.height / 3.0f)+55.0f), self.frame.size.width - 40.0f, self.bounds.size.height / 10.0f);
     
     self.hint3.frame = CGRectMake(self.bounds.origin.x + 20.0f, self.bounds.origin.y + ((self.bounds.size.height / 3.0f)+115.0f), self.frame.size.width - 40.0f, self.bounds.size.height / 10.0f);
     
-    self.img1.frame = CGRectMake(self.bounds.origin.x + 20.0f, self.bounds.origin.y+30.0f, self.frame.size.width - 40.0f, self.bounds.size.height / 4.0f);
+    self.img1.frame = CGRectMake(self.bounds.origin.x + 30.0f, self.bounds.origin.y+30.0f, self.frame.size.width - 80.0f, self.bounds.size.height / 4.0f);
     
-    self.img2.frame = CGRectMake(self.bounds.origin.x + 40.0f, self.bounds.origin.y + 350.0f, self.frame.size.width - 80.0f, self.bounds.size.height / 4.0f);
+    self.img2.frame = CGRectMake(30.0f, self.bounds.origin.y + 350.0f, self.frame.size.width - 80.0f, self.bounds.size.height / 4.0f);
     
 //    self.hint.frame = CGRectMake(0.0f, self.frame.origin.y + 40.0f, self.bounds.size.width, self.bounds.size.height - 90.0f);
 
