@@ -30,8 +30,8 @@
 @end
 
 @implementation ViewController
-@synthesize ivPickedImage;
-@synthesize btnCamera,btnGallery,btnCheckIn;
+@synthesize ivPickedImage,ivPickedImage2,ivPickedImage3;
+@synthesize btnCamera,btnGallery,btnCheckIn, btnCamera2,btnGallery2,btnCamera3,btnGallery3;
 
 
 
@@ -70,6 +70,22 @@
     [[btnGallery layer] setBorderColor:self.view.tintColor.CGColor];
     btnGallery.layer.cornerRadius = 15.0f;
     
+    [[btnCamera2 layer] setBorderWidth:1.0f];
+    [[btnCamera2 layer] setBorderColor:self.view.tintColor.CGColor];
+    btnCamera2.layer.cornerRadius = 15.0f;
+    
+    [[btnGallery2 layer] setBorderWidth:1.0f];
+    [[btnGallery2 layer] setBorderColor:self.view.tintColor.CGColor];
+    btnGallery2.layer.cornerRadius = 15.0f;
+    
+    [[btnCamera3 layer] setBorderWidth:1.0f];
+    [[btnCamera3 layer] setBorderColor:self.view.tintColor.CGColor];
+    btnCamera3.layer.cornerRadius = 15.0f;
+    
+    [[btnGallery3 layer] setBorderWidth:1.0f];
+    [[btnGallery3 layer] setBorderColor:self.view.tintColor.CGColor];
+    btnGallery3.layer.cornerRadius = 15.0f;
+    
     [[btnCheckIn layer] setBorderWidth:1.0f];
     [[btnCheckIn layer] setBorderColor:self.view.tintColor.CGColor];
     //btnGallery.layer.cornerRadius = 15.0f;
@@ -77,6 +93,14 @@
     [[ivPickedImage layer] setBorderWidth:1.0f];
     [[ivPickedImage layer] setBorderColor:self.view.tintColor.CGColor];
     ivPickedImage.layer.cornerRadius = 15.0f;
+    
+    [[ivPickedImage2 layer] setBorderWidth:1.0f];
+    [[ivPickedImage2 layer] setBorderColor:self.view.tintColor.CGColor];
+    ivPickedImage2.layer.cornerRadius = 15.0f;
+    
+    [[ivPickedImage3 layer] setBorderWidth:1.0f];
+    [[ivPickedImage3 layer] setBorderColor:self.view.tintColor.CGColor];
+    ivPickedImage3.layer.cornerRadius = 15.0f;
 
     _textViewComments.text = @"Write (how was the whole experience)";
     _textViewComments.textColor = [UIColor lightGrayColor];
@@ -666,6 +690,9 @@ didFailAutocompleteWithError:(NSError *)error {
     ipc= [[UIImagePickerController alloc] init];
     ipc.delegate = self;
     ipc.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+
+    UIButton *hola = sender;
+    _senderID = hola.tag;
     
     if(UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPhone)
         [self presentViewController:ipc animated:YES completion:nil];
@@ -720,8 +747,20 @@ didFailAutocompleteWithError:(NSError *)error {
     } else {
         [popover dismissPopoverAnimated:YES];
     }
-    ivPickedImage.image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    imageData = UIImageJPEGRepresentation([info objectForKey:UIImagePickerControllerOriginalImage], 1.0);
+    if (_senderID == 11 || _senderID == 21) {
+        ivPickedImage.image = [info objectForKey:UIImagePickerControllerOriginalImage];
+        imageData = UIImageJPEGRepresentation([info objectForKey:UIImagePickerControllerOriginalImage], 1.0);
+    }
+    if (_senderID == 12 || _senderID == 22) {
+        ivPickedImage2.image = [info objectForKey:UIImagePickerControllerOriginalImage];
+        imageData = UIImageJPEGRepresentation([info objectForKey:UIImagePickerControllerOriginalImage], 1.0);
+    }
+    if (_senderID == 13 || _senderID == 23) {
+        ivPickedImage3.image = [info objectForKey:UIImagePickerControllerOriginalImage];
+        imageData = UIImageJPEGRepresentation([info objectForKey:UIImagePickerControllerOriginalImage], 1.0);
+    }
+//    ivPickedImage.image = [info objectForKey:UIImagePickerControllerOriginalImage];
+//    imageData = UIImageJPEGRepresentation([info objectForKey:UIImagePickerControllerOriginalImage], 1.0);
     //hola = [info objectForKey:UIImagePickerControllerOriginalImage];
     
 }
