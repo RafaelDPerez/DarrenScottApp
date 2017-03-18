@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+@import FirebaseAuth;
+@import Firebase;
 
 @interface Register2ViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UISwitch *sldFbk;
+
 
 @end

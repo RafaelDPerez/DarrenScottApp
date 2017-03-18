@@ -8,7 +8,6 @@
 
 #import "Register1ViewController.h"
 #import "ACFloatingTextField.h"
-#import "EAIntroView.h"
 
 static NSString * const sampleDescription1 = @"Welcome to clic pic review (CPR), the new exciting app that allows you a fun and simple way to record, review and share your experiences with your friends and the world.";
 static NSString * const sampleDescription2 = @"Use it as your personal diary or to promote and share your views on anything and everything.";
@@ -16,10 +15,9 @@ static NSString * const sampleDescription3 = @"We need your details in order to 
 static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit.";
 
 
-@interface Register1ViewController ()<UITextFieldDelegate,EAIntroDelegate> {
+@interface Register1ViewController ()<UITextFieldDelegate> {
     UIView *rootView;
-    EAIntroView *_intro;
-}
+    }
 
 
 
@@ -30,7 +28,6 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
 - (void)viewDidLoad {
     [super viewDidLoad];
     rootView = self.navigationController.view;
-    [self showIntroWithCrossDissolve];
     [[_textViewFirstName layer] setBorderWidth:1.0f];
     [[_textViewFirstName layer] setBorderColor:self.view.tintColor.CGColor];
     
@@ -120,48 +117,7 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
 
     
     
-    //    [_txtFirstName setTextFieldPlaceholderText:@"First Name"];
-//    _txtFirstName.selectedLineColor = [UIColor blackColor];
-//    _txtFirstName.placeHolderColor = [UIColor blackColor];
-//    [_txtFirstName setTextColor:[UIColor blackColor]];
-//    _txtFirstName.selectedPlaceHolderColor = [UIColor blackColor];
-//    _txtFirstName.lineColor = [UIColor blackColor];
-//    
-//    [_txtLastName setTextFieldPlaceholderText:@"Last Name"];
-//    _txtLastName.selectedLineColor = [UIColor blackColor];
-//    _txtLastName.placeHolderColor = [UIColor blackColor];
-//    [_txtLastName setTextColor:[UIColor blackColor]];
-//    _txtLastName.selectedPlaceHolderColor = [UIColor blackColor];
-//    _txtLastName.lineColor = [UIColor blackColor];
-//    
-//    [_txtUsername setTextFieldPlaceholderText:@"Username"];
-//    _txtUsername.selectedLineColor = [UIColor blackColor];
-//    _txtUsername.placeHolderColor = [UIColor blackColor];
-//    [_txtUsername setTextColor:[UIColor blackColor]];
-//    _txtUsername.selectedPlaceHolderColor = [UIColor blackColor];
-//    _txtUsername.lineColor = [UIColor blackColor];
-//    
-//    [_txtEmail setTextFieldPlaceholderText:@"Email"];
-//    _txtEmail.selectedLineColor = [UIColor blackColor];
-//    _txtEmail.placeHolderColor = [UIColor blackColor];
-//    [_txtEmail setTextColor:[UIColor blackColor]];
-//    _txtEmail.selectedPlaceHolderColor = [UIColor blackColor];
-//    _txtEmail.lineColor = [UIColor blackColor];
-//    
-//    [_txtPassword setTextFieldPlaceholderText:@"Password"];
-//    _txtPassword.selectedLineColor = [UIColor blackColor];
-//    _txtPassword.placeHolderColor = [UIColor blackColor];
-//    [_txtPassword setTextColor:[UIColor blackColor]];
-//    _txtPassword.selectedPlaceHolderColor = [UIColor blackColor];
-//    _txtPassword.lineColor = [UIColor blackColor];
-//    
-//    [_txtTelephoneNumber setTextFieldPlaceholderText:@"Telephone Number"];
-//    _txtTelephoneNumber.selectedLineColor = [UIColor blackColor];
-//    _txtTelephoneNumber.placeHolderColor = [UIColor blackColor];
-//    [_txtTelephoneNumber setTextColor:[UIColor blackColor]];
-//    _txtTelephoneNumber.selectedPlaceHolderColor = [UIColor blackColor];
-//    _txtTelephoneNumber.lineColor = [UIColor blackColor];
-    // Do any additional setup after loading the view.
+
 }
 
 -(void)updateTextField:(id)sender
@@ -254,69 +210,12 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     return YES;
 }
 
-#pragma mark - Demo
 
-- (void)showIntroWithCrossDissolve {
-    EAIntroPage *page1 = [EAIntroPage page];
-    page1.title = @"Welcome";
-    page1.desc = sampleDescription1;
-    page1.bgImage = [UIImage imageNamed:@"bg1"];
-    page1.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"img1"]];
-    
-    EAIntroPage *page2 = [EAIntroPage page];
-    page2.title = @"";
-    page2.desc = sampleDescription2;
-    page2.bgImage = [UIImage imageNamed:@"bg2"];
-    page2.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"img2"]];
-    
-    EAIntroPage *page3 = [EAIntroPage page];
-    page3.title = @"Sign in!";
-    page3.desc = sampleDescription3;
-    page3.bgImage = [UIImage imageNamed:@"bg3"];
-    page3.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"img3"]];
-    
-    EAIntroPage *page4 = [EAIntroPage page];
-    page4.title = @"This is page 4";
-    page4.desc = sampleDescription4;
-    page4.bgImage = [UIImage imageNamed:@"bg4"];
-    page4.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"img4"]];
-    
-    EAIntroView *intro = [[EAIntroView alloc] initWithFrame:rootView.bounds andPages:@[page1,page2,page3,page4]];
-    intro.skipButtonAlignment = EAViewAlignmentCenter;
-    intro.skipButtonY = 80.f;
-    intro.pageControlY = 42.f;
-    
-    [intro setDelegate:self];
-    
-    [intro showInView:rootView animateDuration:0.3];
-}
 
-#pragma mark - EAIntroView delegate
 
-- (void)introDidFinish:(EAIntroView *)introView wasSkipped:(BOOL)wasSkipped {
-    if(wasSkipped) {
-        NSLog(@"Intro skipped");
-    } else {
-        NSLog(@"Intro finished");
-    }
-}
 
-#pragma mark - Custom actions
 
-- (IBAction)switchFlip:(id)sender {
-    UISwitch *switchControl = (UISwitch *) sender;
-    NSLog(@"%@", switchControl.on ? @"On" : @"Off");
-    
-    // limit scrolling on one, currently visible page (can't go previous or next page)
-    //[_intro setScrollingEnabled:switchControl.on];
-    
-    if(!switchControl.on) {
-        // scroll no further selected page (can go previous pages, but not next)
-        _intro.limitPageIndex = _intro.visiblePageIndex;
-    } else {
-        [_intro setScrollingEnabled:YES];
-    }
-}
+
 
 
 #pragma mark  UITextfield Delegates

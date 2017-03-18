@@ -75,7 +75,7 @@
     else{
         self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"LogIn"];
+            UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"Welcome"];
             self.window.rootViewController = vc;
             [self.window makeKeyAndVisible];
         

@@ -7,6 +7,7 @@
 //
 
 #import "Register2ViewController.h"
+#import "FDKeychain.h"
 
 
 @interface Register2ViewController ()
@@ -15,13 +16,51 @@
 @end
 
 @implementation Register2ViewController
-
+@synthesize sldFbk;
 - (void)viewDidLoad {
     [super viewDidLoad];
-  
+  [sldFbk addTarget:self action:@selector(setState:) forControlEvents:UIControlEventValueChanged];
     // Do any additional setup after loading the view.
 }
 
+- (void)setState:(id)sender
+{
+    BOOL state = [sender isOn];
+    if (sender ==sldFbk && state) {
+        [self FacebookLogIn:self];
+    }
+  
+}
+-(IBAction)FacebookLogIn:(id)sender{
+    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+    [login
+     logInWithReadPermissions: @[@"public_profile", @"email", @"user_friends", @"user_posts"]
+     fromViewController:self
+     handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+         if (error) {
+             NSLog(@"Process error");
+         } else if (result.isCancelled) {
+             NSLog(@"Cancelled");
+         } else {
+             FIRAuthCredential *credential = [FIRFacebookAuthProvider
+                                              credentialWithAccessToken:[FBSDKAccessToken currentAccessToken]
+                                              .tokenString];
+             [[FIRAuth auth] signInWithCredential:credential
+                                       completion:^(FIRUser *user, NSError *error) {
+                                           
+                                           [FDKeychain saveItem: @"YES"
+                                                         forKey: @"loggedin"
+                                                     forService: @"ReviewApp"
+                                                          error: nil];
+                                       }];
+           //  [self performSegueWithIdentifier:@"callReviewApp" sender:self];
+             
+             
+             
+         }
+     }];
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

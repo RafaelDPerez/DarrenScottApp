@@ -237,7 +237,9 @@
 
         _textViewWhere.delegate = self;
         
-        ivPickedImage.image = [UIImage imageNamed:@"placeholder"];
+        ivPickedImage.image = [UIImage imageNamed:@"logo_cpr"];
+        ivPickedImage2.image = [UIImage imageNamed:@"logo_cpr"];
+        ivPickedImage3.image = [UIImage imageNamed:@"logo_cpr"];
 
         
     }
