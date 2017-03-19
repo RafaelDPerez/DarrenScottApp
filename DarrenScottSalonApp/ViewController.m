@@ -237,9 +237,9 @@
 
         _textViewWhere.delegate = self;
         
-        ivPickedImage.image = [UIImage imageNamed:@"logo_cpr"];
-        ivPickedImage2.image = [UIImage imageNamed:@"logo_cpr"];
-        ivPickedImage3.image = [UIImage imageNamed:@"logo_cpr"];
+        ivPickedImage.image = [UIImage imageNamed:@"logo_cpr_new"];
+        ivPickedImage2.image = [UIImage imageNamed:@"logo_cpr_new"];
+        ivPickedImage3.image = [UIImage imageNamed:@"logo_cpr_new"];
 
         
     }
@@ -260,6 +260,7 @@
 
 
 
+
 -(IBAction)checkIn{
     GMSAutocompleteViewController *autocompleteViewController =
     [[GMSAutocompleteViewController alloc] init];
@@ -268,6 +269,7 @@
 }
 
 - (void)textViewDidEndEditing:(UITextView *)textView {
+    [textView scrollRangeToVisible:NSMakeRange(0, 0)];
     if([textView.text isEqualToString:@""])
     {
         if (textView.tag ==101) {
@@ -706,20 +708,20 @@ didFailAutocompleteWithError:(NSError *)error {
 }
 
 
-- (IBAction)btnPhotoGalleryClicked:(id)sender
-{
-    ipc= [[UIImagePickerController alloc] init];
-    ipc.delegate = self;
-    ipc.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
-    
-    if(UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPhone)
-        [self presentViewController:ipc animated:YES completion:nil];
-    else
-    {
-        popover=[[UIPopoverController alloc]initWithContentViewController:ipc];
-        [popover presentPopoverFromRect:btnGallery.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-    }
-}
+//- (IBAction)btnPhotoGalleryClicked:(id)sender
+//{
+//    ipc= [[UIImagePickerController alloc] init];
+//    ipc.delegate = self;
+//    ipc.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+//    
+//    if(UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPhone)
+//        [self presentViewController:ipc animated:YES completion:nil];
+//    else
+//    {
+//        popover=[[UIPopoverController alloc]initWithContentViewController:ipc];
+//        [popover presentPopoverFromRect:btnGallery.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+//    }
+//}
 
 
 
@@ -727,6 +729,9 @@ didFailAutocompleteWithError:(NSError *)error {
 {
     ipc = [[UIImagePickerController alloc] init];
     ipc.delegate = self;
+    
+    UIButton *hola = sender;
+    _senderID = hola.tag;
     if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
     {
         ipc.sourceType = UIImagePickerControllerSourceTypeCamera;

@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *textViewLastName;
 @property (weak, nonatomic) IBOutlet UITextField *txtDateOfBirth;
 @property (weak, nonatomic) IBOutlet UITextView *textViewEmail;
+@property (weak, nonatomic) IBOutlet UITextView *textViewCountryCode;
 @property (weak, nonatomic) IBOutlet UITextView *textViewPhone;
 @property (weak, nonatomic) IBOutlet UITextField *txtPassword;
 @property (weak, nonatomic) IBOutlet UITextView *textViewUsername;

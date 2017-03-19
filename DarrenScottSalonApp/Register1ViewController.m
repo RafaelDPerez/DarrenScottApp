@@ -15,6 +15,7 @@ static NSString * const sampleDescription3 = @"We need your details in order to 
 static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit.";
 
 
+
 @interface Register1ViewController ()<UITextFieldDelegate> {
     UIView *rootView;
     }
@@ -46,6 +47,9 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     [[_textViewUsername layer] setBorderWidth:1.0f];
     [[_textViewUsername layer] setBorderColor:self.view.tintColor.CGColor];
     
+    [[_textViewCountryCode layer] setBorderWidth:1.0f];
+    [[_textViewCountryCode layer] setBorderColor:self.view.tintColor.CGColor];
+    
     [[_txtPassword layer] setBorderWidth:1.0f];
     [[_txtPassword layer] setBorderColor:self.view.tintColor.CGColor];
     
@@ -61,7 +65,7 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     // repeat the same logic for theMinimumDate if needed
     
     // here you can assign the max and min dates to your datePicker
-    [datePicker setMaximumDate:theMaximumDate]; //the min age restriction
+    //[datePicker setMaximumDate:theMaximumDate]; //the min age restriction
     [datePicker setDate:[NSDate date]];
     datePicker.datePickerMode = UIDatePickerModeDate;
     [datePicker addTarget:self action:@selector(updateTextField:) forControlEvents:UIControlEventValueChanged];
@@ -97,6 +101,12 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     //    _textViewComments.layer.cornerRadius = 10.0f;
     _textViewPhone.delegate = self;
     
+    _textViewCountryCode.text = @"Country Code";
+    _textViewCountryCode.textColor = [UIColor lightGrayColor];
+    _textViewCountryCode.clipsToBounds = YES;
+    //    _textViewComments.layer.cornerRadius = 10.0f;
+    _textViewCountryCode.delegate = self;
+    
     _textViewUsername.text = @"Username";
     _textViewUsername.textColor = [UIColor lightGrayColor];
     _textViewUsername.clipsToBounds = YES;
@@ -114,7 +124,7 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
                                    action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
-
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardFrameWillChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
     
     
 
@@ -138,7 +148,7 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
 
 - (BOOL) textViewShouldBeginEditing:(UITextView *)textView
 {
-    if([textView.text isEqualToString:@"First Name"]||[textView.text isEqualToString:@"Last Name"]||[textView.text isEqualToString:@"Date of Birth"]||[textView.text isEqualToString:@"Mobile/Cell"]||[textView.text isEqualToString:@"Email"]||[textView.text isEqualToString:@"Username"]||[textView.text isEqualToString:@"Password"]){
+    if([textView.text isEqualToString:@"First Name"]||[textView.text isEqualToString:@"Last Name"]||[textView.text isEqualToString:@"Date of Birth"]||[textView.text isEqualToString:@"Mobile/Cell"]||[textView.text isEqualToString:@"Email"]||[textView.text isEqualToString:@"Username"]||[textView.text isEqualToString:@"Password"]||[textView.text isEqualToString:@"Country Code"]){
         textView.text = @"";
         textView.textColor = [UIColor blackColor];
     }
@@ -189,6 +199,13 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
             textView.clipsToBounds = YES;
             
         }
+        if (textView.tag ==108) {
+            textView.text = @"Country Code";
+            textView.textColor = [UIColor lightGrayColor];
+            textView.secureTextEntry = YES;
+            textView.clipsToBounds = YES;
+            
+        }
     }
 }
 
@@ -200,6 +217,7 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     [_textViewUsername resignFirstResponder];
     [_textViewPhone resignFirstResponder];
     [_txtPassword resignFirstResponder];
+    [_textViewCountryCode resignFirstResponder];
     
 }
 
@@ -211,6 +229,27 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
 }
 
 
+
+- (void)keyboardFrameWillChange:(NSNotification *)notification
+{
+    CGRect keyboardEndFrame = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    CGRect keyboardBeginFrame = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
+    UIViewAnimationCurve animationCurve = [[[notification userInfo] objectForKey:UIKeyboardAnimationCurveUserInfoKey] integerValue];
+    NSTimeInterval animationDuration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] integerValue];
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:animationDuration];
+    [UIView setAnimationCurve:animationCurve];
+    
+    CGRect newFrame = self.view.frame;
+    CGRect keyboardFrameEnd = [self.view convertRect:keyboardEndFrame toView:nil];
+    CGRect keyboardFrameBegin = [self.view convertRect:keyboardBeginFrame toView:nil];
+    
+    newFrame.origin.y -= (keyboardFrameBegin.origin.y - keyboardFrameEnd.origin.y);
+    self.view.frame = newFrame;
+    
+    [UIView commitAnimations];
+}
 
 
 
@@ -243,7 +282,7 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     // Dispose of any resources that can be recreated.
 }
 -(IBAction)nextRegister:(id)sender{
-    if (_textViewFirstName.text && _textViewFirstName.text.length > 0 && _textViewLastName.text && _textViewLastName.text.length > 0 && _txtDateOfBirth.text && _txtDateOfBirth.text.length > 0 && _textViewEmail.text && _textViewEmail.text.length > 0 && _textViewUsername.text && _textViewUsername.text.length > 0 && _textViewPhone.text && _textViewPhone.text.length > 0 && _txtPassword.text && _txtPassword.text.length > 0)
+    if (_textViewFirstName.text && _textViewFirstName.text.length > 0 && _textViewLastName.text && _textViewLastName.text.length > 0 && _txtDateOfBirth.text && _txtDateOfBirth.text.length > 0 && _textViewEmail.text && _textViewEmail.text.length > 0 && _textViewUsername.text && _textViewUsername.text.length > 0 && _textViewPhone.text && _textViewPhone.text.length > 0 && _txtPassword.text && _txtPassword.text.length > 0 && _textViewCountryCode.text && _textViewCountryCode.text.length > 0)
     {
         
         [self performSegueWithIdentifier:@"NextRegister" sender:self];

@@ -10,7 +10,7 @@
 #import "ASStarRatingView.h"
 @import Firebase;
 
-@interface ViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface ViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITextViewDelegate>
 {
     UIImagePickerController *ipc;
     UIPopoverController *popover;
