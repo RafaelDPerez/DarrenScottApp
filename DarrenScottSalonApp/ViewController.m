@@ -26,6 +26,8 @@
 }
 
 @property (nonatomic, strong) VKSideMenu *menuLeft;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollview;
+@property (weak, nonatomic) UITextView *activeTxtView;
 
 @end
 
@@ -162,7 +164,8 @@
                                    action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardFrameWillChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    [self registerForKeyboardNotifications];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardFrameWillChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
 
 }
 
@@ -247,6 +250,7 @@
 
 - (BOOL) textViewShouldBeginEditing:(UITextView *)textView
 {
+    _activeTxtView = textView;
     if([textView.text isEqualToString:@"Write (how was the whole experience)"]||[textView.text isEqualToString:@"Where (Check in or insert Website)"]||[textView.text isEqualToString:@"With (are you with friends/family)"]||[textView.text isEqualToString:@"Why (are you there, birthday, just because)"]||[textView.text isEqualToString:@"Who (Who helped/served you)"]||[textView.text isEqualToString:@"What (did you see/drink/get done)"]){
         textView.text = @"";
         textView.textColor = [UIColor blackColor];
@@ -516,27 +520,65 @@ didFailAutocompleteWithError:(NSError *)error {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
-
-- (void)keyboardFrameWillChange:(NSNotification *)notification
+// Call this method somewhere in your view controller setup code.
+- (void)registerForKeyboardNotifications
 {
-    CGRect keyboardEndFrame = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    CGRect keyboardBeginFrame = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
-    UIViewAnimationCurve animationCurve = [[[notification userInfo] objectForKey:UIKeyboardAnimationCurveUserInfoKey] integerValue];
-    NSTimeInterval animationDuration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] integerValue];
-    
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:animationDuration];
-    [UIView setAnimationCurve:animationCurve];
-    
-    CGRect newFrame = self.view.frame;
-    CGRect keyboardFrameEnd = [self.view convertRect:keyboardEndFrame toView:nil];
-    CGRect keyboardFrameBegin = [self.view convertRect:keyboardBeginFrame toView:nil];
-    
-    newFrame.origin.y -= (keyboardFrameBegin.origin.y - keyboardFrameEnd.origin.y);
-    self.view.frame = newFrame;
-    
-    [UIView commitAnimations];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWasShown:)
+                                                 name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillBeHidden:)
+                                                 name:UIKeyboardWillHideNotification object:nil];
 }
+
+// Called when the UIKeyboardDidShowNotification is sent.
+- (void)keyboardWasShown:(NSNotification*)aNotification
+{
+    NSDictionary* info = [aNotification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
+    _scrollview.contentInset = contentInsets;
+    _scrollview.scrollIndicatorInsets = contentInsets;
+    
+    // If active text field is hidden by keyboard, scroll it so it's visible
+    // Your application might not need or want this behavior.
+    CGRect aRect = self.view.frame;
+    aRect.size.height -= kbSize.height;
+ //   if (!CGRectContainsPoint(aRect, _activeTxtView.frame.origin) ) {
+        CGPoint scrollPoint = CGPointMake(0.0, _activeTxtView.frame.origin.y-kbSize.height);
+        [_scrollview setContentOffset:scrollPoint animated:YES];
+   // }
+}
+
+// Called when the UIKeyboardWillHideNotification is sent
+- (void)keyboardWillBeHidden:(NSNotification*)aNotification
+{
+    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+    _scrollview.contentInset = contentInsets;
+    _scrollview.scrollIndicatorInsets = contentInsets;
+}
+
+
+//- (void)keyboardFrameWillChange:(NSNotification *)notification
+//{
+//    CGRect keyboardEndFrame = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+//    CGRect keyboardBeginFrame = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
+//    UIViewAnimationCurve animationCurve = [[[notification userInfo] objectForKey:UIKeyboardAnimationCurveUserInfoKey] integerValue];
+//    NSTimeInterval animationDuration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] integerValue];
+//    
+//    [UIView beginAnimations:nil context:nil];
+//    [UIView setAnimationDuration:animationDuration];
+//    [UIView setAnimationCurve:animationCurve];
+//    
+//    CGRect newFrame = self.view.frame;
+//    CGRect keyboardFrameEnd = [self.view convertRect:keyboardEndFrame toView:nil];
+//    CGRect keyboardFrameBegin = [self.view convertRect:keyboardBeginFrame toView:nil];
+//    
+//    newFrame.origin.y -= (keyboardFrameBegin.origin.y - keyboardFrameEnd.origin.y);
+//    self.view.frame = newFrame;
+//    
+//    [UIView commitAnimations];
+//}
 
 
 
