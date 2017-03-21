@@ -273,7 +273,8 @@
 }
 
 - (void)textViewDidEndEditing:(UITextView *)textView {
-    [textView scrollRangeToVisible:NSMakeRange(0, 0)];
+   // [textView scrollRangeToVisible:NSMakeRange(1, 1)];
+    [textView setContentOffset:CGPointZero animated:YES];
     if([textView.text isEqualToString:@""])
     {
         if (textView.tag ==101) {
