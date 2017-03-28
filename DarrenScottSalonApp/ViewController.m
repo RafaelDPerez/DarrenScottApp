@@ -39,6 +39,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.menuLeft = [[VKSideMenu alloc] initWithSize:320 andDirection:VKSideMenuDirectionFromLeft];
     self.menuLeft.dataSource = self;
     self.menuLeft.delegate   = self;
@@ -399,8 +400,12 @@
                           forKey: @"loggedin"
                       forService: @"ReviewApp"
                            error: nil];
+            [FDKeychain deleteItemForKey:@"token" forService:@"BIXI" error:nil];
             [self performSegueWithIdentifier:@"callLogIn" sender:self];
         }
+    }
+    if (indexPath.row==0) {
+        [self performSegueWithIdentifier:@"callProfile" sender:self];
     }
     NSLog(@"SideMenu didSelectRow: %@", indexPath);
 }

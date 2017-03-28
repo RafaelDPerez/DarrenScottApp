@@ -457,7 +457,7 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
         if ([self NSStringIsValidEmail:_textViewEmail.text]) {
         
             [[FIRAuth auth]
-             createUserWithEmail:_textViewUsername.text
+             createUserWithEmail:_textViewEmail.text
              password:_txtPassword.text
              completion:^(FIRUser *_Nullable user,
                           NSError *_Nullable error) {
@@ -475,6 +475,30 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
                                  @"reviews": @[
                                          ]}];
                      
+                     [FDKeychain saveItem: @"YES"
+                                   forKey: @"loggedin"
+                               forService: @"ReviewApp"
+                                    error: nil];
+                     
+                     [user getTokenWithCompletion:^(NSString *token, NSError *error) {
+                         // token, if not nil, is an ID token, which you can safely send to a backend
+                         [FDKeychain saveItem: token
+                                       forKey: @"token"
+                                   forService: @"ReviewApp"
+                                        error: nil];
+                         [self performSegueWithIdentifier:@"NextRegister" sender:self];
+                     }];
+                     
+                     
+                 }
+                 else
+                 {
+                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[error localizedDescription]
+                                                                     message:[error localizedRecoverySuggestion]
+                                                                    delegate:nil
+                                                           cancelButtonTitle:@"OK"
+                                                           otherButtonTitles:nil];
+                     [alert show];
                  }
                  
 
@@ -486,7 +510,7 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
             
             
             
-            [self performSegueWithIdentifier:@"NextRegister" sender:self];
+            
         }
         else{
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Valid Email"

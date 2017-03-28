@@ -7,6 +7,8 @@
 //
 
 #import "SignInViewController.h"
+@import Firebase;
+#import "FDKeychain.h"
 
 @interface SignInViewController ()
 
@@ -37,7 +39,37 @@
     if (_textViewUsername.text && _textViewUsername.text.length > 0 && _txtPassword.text && _txtPassword.text.length > 0)
     {
         if ([self NSStringIsValidEmail:_textViewUsername.text]) {
-            [self performSegueWithIdentifier:@"callHome" sender:self];
+            
+            [[FIRAuth auth] signInWithEmail:_textViewUsername.text
+                                   password:_txtPassword.text
+                                 completion:^(FIRUser *user, NSError *error) {
+                                     if (user) {
+                                         [FDKeychain saveItem: @"YES"
+                                                       forKey: @"loggedin"
+                                                   forService: @"ReviewApp"
+                                                        error: nil];
+                                
+                                         [user getTokenWithCompletion:^(NSString *token, NSError *error) {
+                                             // token, if not nil, is an ID token, which you can safely send to a backend
+                                             [FDKeychain saveItem: token
+                                                           forKey: @"token"
+                                                       forService: @"ReviewApp"
+                                                            error: nil];
+                                             [self performSegueWithIdentifier:@"callHome" sender:self];
+                                         }];
+                                     
+                                     }
+                                     else
+                                     {
+                                         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[error localizedDescription]
+                                                                                         message:[error localizedRecoverySuggestion]
+                                                                                        delegate:nil
+                                                                               cancelButtonTitle:@"OK"
+                                                                               otherButtonTitles:nil];
+                                         [alert show];
+                                     }
+                                 }];
+            
         }
         else{
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Valid Email"

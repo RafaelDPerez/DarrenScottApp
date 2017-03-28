@@ -14,11 +14,6 @@
 
 
 @interface ProfileViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UIImageView *imgProfilePic;
-@property (weak, nonatomic) IBOutlet FBSDKLoginButton *loginButton;
-@property (weak, nonatomic) IBOutlet UILabel *txtName;
-@property (weak, nonatomic) IBOutlet UILabel *txtEmail;
-@property (weak, nonatomic) IBOutlet UIButton *btnLogOut;
-@property (strong, nonatomic) UIWindow *window;
+
 
 @end
