@@ -14,8 +14,9 @@
 @import Firebase;
 #import "FDKeychain.h"
 #import "VKSideMenu.h"
+#import "User.h"
 
-@interface ProfileViewController ()<VKSideMenuDelegate, VKSideMenuDataSource>
+@interface ProfileViewController ()<VKSideMenuDelegate, VKSideMenuDataSource, UIAlertViewDelegate>
 @property (nonatomic, strong) VKSideMenu *menuLeft;
 @end
 
@@ -30,6 +31,35 @@
     self.menuLeft.delegate   = self;
     [self.menuLeft addSwipeGestureRecognition:self.view];
     self.menuLeft.backgroundColor = [UIColor whiteColor];
+   // FIRUser *user = [FIRAuth auth].currentUser;
+    User *user = [[User alloc] init ];
+    FIRDatabaseReference *rootRef= [[FIRDatabase database] reference];
+    NSString *userID = [FIRAuth auth].currentUser.uid;
+    
+    [[[rootRef child:@"users"] child:userID] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        // Get user value
+        
+        user.first_name = snapshot.value[@"first_name"];
+        user.last_name = snapshot.value[@"last_name"];
+        user.birth_date = snapshot.value[@"birth_date"];
+        user.email = snapshot.value[@"email"];
+        user.username = snapshot.value[@"username"];
+        user.mobile_phone = snapshot.value[@"mobile_phone"];
+        _lblName.text = [NSString stringWithFormat:@"%@ %@",user.first_name,user.last_name];
+        _lbluserName.text = user.username;
+        _lblemail.text = user.email;
+        _lblphone.text = user.mobile_phone;
+        _lbldateOfBirth.text= user.birth_date;
+        // ...
+    } withCancelBlock:^(NSError * _Nonnull error) {
+        NSLog(@"%@", error.localizedDescription);
+    }];
+    
+    
+    
+    
+    
+    
 //    // Do any additional setup after loading the view.
 //    _loginButton = [[FBSDKLoginButton alloc] init];
 //    _loginButton.delegate = self;
@@ -143,21 +173,16 @@
     if (indexPath.row == 2) {
         //        FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
         //        [loginManager logOut];
-        NSError *signOutError;
-        BOOL status = [[FIRAuth auth] signOut:&signOutError];
-        if (!status) {
-            NSLog(@"Error signing out: %@", signOutError);
-            return;
-        }
-        else{
-            // Sign-out succeeded
-            [FDKeychain saveItem: @"NO"
-                          forKey: @"loggedin"
-                      forService: @"ReviewApp"
-                           error: nil];
-            [FDKeychain deleteItemForKey:@"token" forService:@"BIXI" error:nil];
-            [self performSegueWithIdentifier:@"callLogIn" sender:self];
-        }
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle: @"Salir"
+                              message: @"Está seguro que desea salir de BIXI?"
+                              delegate: self
+                              cancelButtonTitle:@"NO"
+                              otherButtonTitles:@"SI",nil];
+        alert.tag = 1;
+        [alert show];
+        
+       
     }
     if (indexPath.row == 0) {
       [self performSegueWithIdentifier:@"callHome" sender:self];
@@ -272,6 +297,31 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
                        error: nil];
     }
 }
+
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag==1) {
+        if (buttonIndex == 1) {
+            NSError *signOutError;
+            BOOL status = [[FIRAuth auth] signOut:&signOutError];
+            if (!status) {
+                NSLog(@"Error signing out: %@", signOutError);
+                return;
+            }
+            else{
+                // Sign-out succeeded
+                [FDKeychain saveItem: @"NO"
+                              forKey: @"loggedin"
+                          forService: @"ReviewApp"
+                               error: nil];
+                [FDKeychain deleteItemForKey:@"token" forService:@"BIXI" error:nil];
+                [self performSegueWithIdentifier:@"callLogIn" sender:self];
+            }
+    }
+    }
+}
+
+
 
 
 

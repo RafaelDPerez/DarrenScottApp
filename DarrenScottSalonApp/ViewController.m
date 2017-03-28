@@ -16,6 +16,8 @@
 #import "VKSideMenu.h"
 #import "FDKeychain.h"
 
+
+@import Firebase;
 #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v) ([[[UIDevice currentDevice] systemVersion] compare:(v) options:NSNumericSearch] != NSOrderedAscending)
 
 @interface ViewController ()<VKSideMenuDelegate, VKSideMenuDataSource,GMSAutocompleteViewControllerDelegate, UIAlertViewDelegate>{
@@ -28,6 +30,7 @@
 @property (nonatomic, strong) VKSideMenu *menuLeft;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollview;
 @property (weak, nonatomic) UITextView *activeTxtView;
+@property (strong, nonatomic) FIRDatabaseReference *ref;
 
 @end
 
@@ -39,7 +42,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.ref = [[FIRDatabase database] reference];
     self.menuLeft = [[VKSideMenu alloc] initWithSize:320 andDirection:VKSideMenuDirectionFromLeft];
     self.menuLeft.dataSource = self;
     self.menuLeft.delegate   = self;
@@ -202,12 +205,33 @@
             [alertView dismissWithClickedButtonIndex:buttonIndex animated:YES];
         } else if ( 1 == buttonIndex ){
             [alertView dismissWithClickedButtonIndex:buttonIndex animated:YES];
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            formatter.dateFormat = @"dd-MM-yyyy";
+            NSString *string = [formatter stringFromDate:[NSDate date]];
+            FIRDatabaseReference *autoId = [_ref childByAutoId];
+            NSLog(@"%@",autoId.key);
+            [[[_ref child:@"reviews"] child:autoId.key]
+             setValue:@{@"id": autoId.key,
+                        @"comments": _textViewComments.text,
+                        @"date": string,
+                        @"photos":@[],
+                        @"what": _textViewWhat.text,
+                        @"where": _textViewWhere.text,
+                        @"who": _textViewWho.text,
+                        @"with": _textViewWith.text,
+                        @"why":_textViewWhy.text}];
+            NSString *userID = [FIRAuth auth].currentUser.uid;
+            [[[[_ref child:@"users"] child:userID] child:@"reviews"] setValue:@{@"id": autoId.key}];
+            
+            
             UIAlertView * secondAlertView = [[UIAlertView alloc] initWithTitle:@"Success!!"
                                                                        message:@"Thanks for sharing your review!"
                                                                       delegate:nil
                                                              cancelButtonTitle:@"OK"
                                                              otherButtonTitles:nil];
             [secondAlertView show];
+
+           
             _textViewComments.text = @"Write (how was the whole experience)";
             _textViewComments.textColor = [UIColor lightGrayColor];
             _textViewComments.clipsToBounds = YES;

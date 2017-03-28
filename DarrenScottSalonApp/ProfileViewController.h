@@ -14,6 +14,11 @@
 
 
 @interface ProfileViewController : UIViewController
-
+@property (weak, nonatomic) IBOutlet UILabel *lblName;
+@property (weak, nonatomic) IBOutlet UILabel *lbluserName;
+@property (weak, nonatomic) IBOutlet UILabel *lbldateOfBirth;
+@property (weak, nonatomic) IBOutlet UILabel *lblemail;
+@property (weak, nonatomic) IBOutlet UILabel *lblcountry;
+@property (weak, nonatomic) IBOutlet UILabel *lblphone;
 
 @end
