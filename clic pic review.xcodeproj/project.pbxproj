@@ -29,6 +29,8 @@
 		450703EB1E36D5FD003B7793 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 450703EA1E36D5FD003B7793 /* FBSDKLoginKit.framework */; };
 		450927DE1DF4D0730052EB54 /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 450927DD1DF4D0730052EB54 /* NavigationViewController.m */; };
 		45155B711E89DA14008250C7 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45155B701E89DA14008250C7 /* SignInViewController.m */; };
+		45155B751E89FEBE008250C7 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 45155B741E89FEBE008250C7 /* User.m */; };
+		45155B781E89FF5B008250C7 /* Review.m in Sources */ = {isa = PBXBuildFile; fileRef = 45155B771E89FF5B008250C7 /* Review.m */; };
 		451F948B1E64D6150006C105 /* Syncopate-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4540739B1E638AF3008F245E /* Syncopate-Regular.ttf */; };
 		451F948D1E64E8700006C105 /* Syncopate-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 451F948C1E64E8300006C105 /* Syncopate-Bold.ttf */; };
 		4538352A1E495FB700B34BB4 /* ACFloatingTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 453835291E495FB700B34BB4 /* ACFloatingTextField.m */; };
@@ -132,6 +134,10 @@
 		450927DD1DF4D0730052EB54 /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
 		45155B6F1E89DA14008250C7 /* SignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInViewController.h; sourceTree = "<group>"; };
 		45155B701E89DA14008250C7 /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
+		45155B731E89FEBE008250C7 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		45155B741E89FEBE008250C7 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		45155B761E89FF5B008250C7 /* Review.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Review.h; sourceTree = "<group>"; };
+		45155B771E89FF5B008250C7 /* Review.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Review.m; sourceTree = "<group>"; };
 		451F948C1E64E8300006C105 /* Syncopate-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Syncopate-Bold.ttf"; sourceTree = "<group>"; };
 		453835281E495FB700B34BB4 /* ACFloatingTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACFloatingTextField.h; sourceTree = "<group>"; };
 		453835291E495FB700B34BB4 /* ACFloatingTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACFloatingTextField.m; sourceTree = "<group>"; };
@@ -269,6 +275,7 @@
 		025565D61DC2DAF8005A903E /* clicpicreviewApp */ = {
 			isa = PBXGroup;
 			children = (
+				45155B721E89FEA5008250C7 /* Model */,
 				45B9AF011E7D08C600513B2E /* EKWelcomeView */,
 				454073A11E639092008F245E /* VKSlideMenu */,
 				454073A01E638EE3008F245E /* Images */,
@@ -360,6 +367,17 @@
 				B4B14ECFED660E9B2E0E4BD4 /* Pods-clic pic reviewTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		45155B721E89FEA5008250C7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				45155B731E89FEBE008250C7 /* User.h */,
+				45155B741E89FEBE008250C7 /* User.m */,
+				45155B761E89FF5B008250C7 /* Review.h */,
+				45155B771E89FF5B008250C7 /* Review.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		453835271E495F6A00B34BB4 /* ACFloatingTextField */ = {
@@ -738,6 +756,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45155B751E89FEBE008250C7 /* User.m in Sources */,
 				4538352E1E4960D100B34BB4 /* UIUnderlinedButton.m in Sources */,
 				4538355E1E496FCD00B34BB4 /* FSCalendarCollectionViewLayout.m in Sources */,
 				453835581E496FCD00B34BB4 /* FSCalendar.m in Sources */,
@@ -768,6 +787,7 @@
 				453835621E496FCD00B34BB4 /* FSCalendarExtensions.m in Sources */,
 				4538355B1E496FCD00B34BB4 /* FSCalendarCalculator.m in Sources */,
 				025565E01DC2DAF8005A903E /* DarrenScottSalonApp.xcdatamodeld in Sources */,
+				45155B781E89FF5B008250C7 /* Review.m in Sources */,
 				025565E31DC2DAF8005A903E /* ViewController.m in Sources */,
 				025565DA1DC2DAF8005A903E /* main.m in Sources */,
 				45B9AF091E7D08D400513B2E /* EKSecondHintView.m in Sources */,

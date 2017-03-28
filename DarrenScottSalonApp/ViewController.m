@@ -45,7 +45,7 @@
     self.menuLeft.delegate   = self;
     [self.menuLeft addSwipeGestureRecognition:self.view];
     self.menuLeft.backgroundColor = [UIColor whiteColor];
-    
+
     [[_textViewComments layer] setBorderWidth:1.0f];
     [[_textViewComments layer] setBorderColor:self.view.tintColor.CGColor];
     
@@ -182,11 +182,12 @@
     }
     else{
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Required Fields"
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Required Fields"
                                                         message:@"Please fill all the fields."
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
+        alert.tag=0;
         [alert show];
         
     }
@@ -196,58 +197,84 @@
 
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if( 0 == buttonIndex ){ //cancel button
-        [alertView dismissWithClickedButtonIndex:buttonIndex animated:YES];
-    } else if ( 1 == buttonIndex ){
-        [alertView dismissWithClickedButtonIndex:buttonIndex animated:YES];
-        UIAlertView * secondAlertView = [[UIAlertView alloc] initWithTitle:@"Success!!"
-                                                                   message:@"Thanks for sharing your review!"
-                                                                  delegate:nil
-                                                         cancelButtonTitle:@"OK"
-                                                         otherButtonTitles:nil];
-        [secondAlertView show];
-        _textViewComments.text = @"Write (how was the whole experience)";
-        _textViewComments.textColor = [UIColor lightGrayColor];
-        _textViewComments.clipsToBounds = YES;
-        _textViewComments.delegate = self;
-        
-        _textViewWhere.text = @"Where (Check in or insert Website)";
-        _textViewWhere.textColor = [UIColor lightGrayColor];
-        _textViewWhere.clipsToBounds = YES;
+    if (alertView.tag == 0) {
+        if( 0 == buttonIndex ){ //cancel button
+            [alertView dismissWithClickedButtonIndex:buttonIndex animated:YES];
+        } else if ( 1 == buttonIndex ){
+            [alertView dismissWithClickedButtonIndex:buttonIndex animated:YES];
+            UIAlertView * secondAlertView = [[UIAlertView alloc] initWithTitle:@"Success!!"
+                                                                       message:@"Thanks for sharing your review!"
+                                                                      delegate:nil
+                                                             cancelButtonTitle:@"OK"
+                                                             otherButtonTitles:nil];
+            [secondAlertView show];
+            _textViewComments.text = @"Write (how was the whole experience)";
+            _textViewComments.textColor = [UIColor lightGrayColor];
+            _textViewComments.clipsToBounds = YES;
+            _textViewComments.delegate = self;
+            
+            _textViewWhere.text = @"Where (Check in or insert Website)";
+            _textViewWhere.textColor = [UIColor lightGrayColor];
+            _textViewWhere.clipsToBounds = YES;
+            
+            _textViewWhere.delegate = self;
+            
+            _textViewWhy.text = @"Why (are you there, birthday, just because)";
+            _textViewWhy.textColor = [UIColor lightGrayColor];
+            _textViewWhy.clipsToBounds = YES;
+            
+            _textViewWhy.delegate = self;
+            
+            _textViewWho.text = @"Who (Who helped/served you)";
+            _textViewWho.textColor = [UIColor lightGrayColor];
+            _textViewWho.clipsToBounds = YES;
+            
+            _textViewWho.delegate = self;
+            
+            _textViewWhat.text = @"What (did you see/drink/get done)";
+            _textViewWhat.textColor = [UIColor lightGrayColor];
+            _textViewWhat.clipsToBounds = YES;
+            
+            _textViewWhat.delegate = self;
+            
+            _textViewWith.text = @"With (are you with friends/family)";
+            _textViewWith.textColor = [UIColor lightGrayColor];
+            _textViewWhere.clipsToBounds = YES;
+            
+            _textViewWhere.delegate = self;
+            
+            ivPickedImage.image = [UIImage imageNamed:@"logo_cpr_new"];
+            ivPickedImage2.image = [UIImage imageNamed:@"logo_cpr_new"];
+            ivPickedImage3.image = [UIImage imageNamed:@"logo_cpr_new"];
+            
+            
+        }
 
-        _textViewWhere.delegate = self;
-        
-        _textViewWhy.text = @"Why (are you there, birthday, just because)";
-        _textViewWhy.textColor = [UIColor lightGrayColor];
-        _textViewWhy.clipsToBounds = YES;
-
-        _textViewWhy.delegate = self;
-        
-        _textViewWho.text = @"Who (Who helped/served you)";
-        _textViewWho.textColor = [UIColor lightGrayColor];
-        _textViewWho.clipsToBounds = YES;
-
-        _textViewWho.delegate = self;
-        
-        _textViewWhat.text = @"What (did you see/drink/get done)";
-        _textViewWhat.textColor = [UIColor lightGrayColor];
-        _textViewWhat.clipsToBounds = YES;
-
-        _textViewWhat.delegate = self;
-        
-        _textViewWith.text = @"With (are you with friends/family)";
-        _textViewWith.textColor = [UIColor lightGrayColor];
-        _textViewWhere.clipsToBounds = YES;
-
-        _textViewWhere.delegate = self;
-        
-        ivPickedImage.image = [UIImage imageNamed:@"logo_cpr_new"];
-        ivPickedImage2.image = [UIImage imageNamed:@"logo_cpr_new"];
-        ivPickedImage3.image = [UIImage imageNamed:@"logo_cpr_new"];
-
-        
     }
-}
+    if (alertView.tag==1) {
+        if (buttonIndex == 1) {
+            NSError *signOutError;
+            BOOL status = [[FIRAuth auth] signOut:&signOutError];
+            if (!status) {
+                NSLog(@"Error signing out: %@", signOutError);
+                return;
+            }
+            else{
+                // Sign-out succeeded
+                [FDKeychain saveItem: @"NO"
+                              forKey: @"loggedin"
+                          forService: @"ReviewApp"
+                               error: nil];
+                [FDKeychain deleteItemForKey:@"token" forService:@"BIXI" error:nil];
+                [self performSegueWithIdentifier:@"callLogIn" sender:self];
+            }
+            
+        }
+        else {
+            
+        }
+    }
+   }
 
 - (BOOL) textViewShouldBeginEditing:(UITextView *)textView
 {
@@ -390,25 +417,24 @@
 -(void)sideMenu:(VKSideMenu *)sideMenu didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 2) {
-        FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
-        [loginManager logOut];
-        NSError *error;
-        [[FIRAuth auth] signOut:&error];
-        if (!error) {
-            // Sign-out succeeded
-            [FDKeychain saveItem: @"NO"
-                          forKey: @"loggedin"
-                      forService: @"ReviewApp"
-                           error: nil];
-            [FDKeychain deleteItemForKey:@"token" forService:@"BIXI" error:nil];
-            [self performSegueWithIdentifier:@"callLogIn" sender:self];
+//        FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
+//        [loginManager logOut];
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle: @"Salir"
+                              message: @"Está seguro que desea salir de BIXI?"
+                              delegate: self
+                              cancelButtonTitle:@"NO"
+                              otherButtonTitles:@"SI",nil];
+        alert.tag = 1;
+        [alert show];
         }
-    }
     if (indexPath.row==0) {
         [self performSegueWithIdentifier:@"callProfile" sender:self];
     }
     NSLog(@"SideMenu didSelectRow: %@", indexPath);
 }
+
+
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     

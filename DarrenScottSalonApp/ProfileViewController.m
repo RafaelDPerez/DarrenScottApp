@@ -141,18 +141,23 @@
 -(void)sideMenu:(VKSideMenu *)sideMenu didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 2) {
-//        FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
-//        [loginManager logOut];
-//        NSError *error;
-//        [[FIRAuth auth] signOut:&error];
-//        if (!error) {
+        //        FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
+        //        [loginManager logOut];
+        NSError *signOutError;
+        BOOL status = [[FIRAuth auth] signOut:&signOutError];
+        if (!status) {
+            NSLog(@"Error signing out: %@", signOutError);
+            return;
+        }
+        else{
             // Sign-out succeeded
             [FDKeychain saveItem: @"NO"
                           forKey: @"loggedin"
                       forService: @"ReviewApp"
                            error: nil];
+            [FDKeychain deleteItemForKey:@"token" forService:@"BIXI" error:nil];
             [self performSegueWithIdentifier:@"callLogIn" sender:self];
-       // }
+        }
     }
     if (indexPath.row == 0) {
       [self performSegueWithIdentifier:@"callHome" sender:self];

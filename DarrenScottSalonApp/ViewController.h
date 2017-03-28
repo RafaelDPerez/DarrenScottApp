@@ -44,5 +44,7 @@
 @property (nonatomic, strong) NSArray *pickerStylists;
 @property int senderID;
 
+
+
 @end
 
