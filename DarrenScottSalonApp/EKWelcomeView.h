@@ -11,6 +11,7 @@
 @protocol EKDismissWelcomeScreenDelegate <NSObject>
 
 - (void)dismissWelcomeScreen;
+-(void)goToLogIn;
 
 @end
 
@@ -20,4 +21,5 @@
 @property (nonatomic, unsafe_unretained) id <EKDismissWelcomeScreenDelegate> delegate;
 
 - (void)goNext;
+- (void)goNext2;
 @end

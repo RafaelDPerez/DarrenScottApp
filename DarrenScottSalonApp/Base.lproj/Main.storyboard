@@ -759,6 +759,7 @@ Termination. We may modify, suspend, or terminate your access to or use of our S
                     <navigationItem key="navigationItem" id="nud-W0-Hgi"/>
                     <connections>
                         <segue destination="3Pi-eE-rkh" kind="modal" identifier="callRegister" id="Q51-QE-2S4"/>
+                        <segue destination="iNK-nF-Kco" kind="modal" identifier="callLogIn" id="Smk-WB-gnZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l7g-nV-Pzo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -929,6 +930,78 @@ Termination. We may modify, suspend, or terminate your access to or use of our S
             </objects>
             <point key="canvasLocation" x="-612.5" y="1514"/>
         </scene>
+        <!--Sign In View Controller-->
+        <scene sceneID="xeT-Ox-wHQ">
+            <objects>
+                <viewController id="iNK-nF-Kco" customClass="SignInViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VvC-J2-OpM"/>
+                        <viewControllerLayoutGuide type="bottom" id="sry-Ed-d5J"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Z3K-gg-kS9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LHg-vd-Aki">
+                                <rect key="frame" x="16" y="283" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BBd-vo-Udg">
+                                <rect key="frame" x="16" y="339" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qLz-EN-dxh">
+                                <rect key="frame" x="152" y="577" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="GtT-WM-4TC"/>
+                                    <constraint firstAttribute="height" constant="70" id="i58-ZZ-Ccy"/>
+                                </constraints>
+                                <state key="normal" image="Forward Filled-50"/>
+                                <connections>
+                                    <action selector="SignIn:" destination="iNK-nF-Kco" eventType="touchUpInside" id="zHV-7K-KlK"/>
+                                    <action selector="nextRegister:" destination="qrb-Ky-GbS" eventType="touchUpInside" id="EkQ-gu-2Mg"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_cpr_new" translatesAutoresizingMaskIntoConstraints="NO" id="6mb-Sb-fSZ">
+                                <rect key="frame" x="129" y="43" width="116" height="116"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="116" id="5rw-RV-ZGQ"/>
+                                    <constraint firstAttribute="height" constant="116" id="OFO-Mv-8Hw"/>
+                                    <constraint firstAttribute="width" secondItem="6mb-Sb-fSZ" secondAttribute="height" multiplier="1:1" id="VEB-tD-dhN"/>
+                                    <constraint firstAttribute="width" constant="116" id="VJ5-Lc-LdB"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="116" id="Z1l-yP-Eb1"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LHg-vd-Aki" firstAttribute="trailing" secondItem="Z3K-gg-kS9" secondAttribute="trailingMargin" id="BNI-dN-eaa"/>
+                            <constraint firstItem="LHg-vd-Aki" firstAttribute="leading" secondItem="Z3K-gg-kS9" secondAttribute="leadingMargin" id="Cv5-01-2xW"/>
+                            <constraint firstItem="BBd-vo-Udg" firstAttribute="centerX" secondItem="qLz-EN-dxh" secondAttribute="centerX" id="MCu-RN-Izz"/>
+                            <constraint firstItem="LHg-vd-Aki" firstAttribute="trailing" secondItem="BBd-vo-Udg" secondAttribute="trailing" id="Qdc-XD-Zkc"/>
+                            <constraint firstItem="6mb-Sb-fSZ" firstAttribute="centerX" secondItem="LHg-vd-Aki" secondAttribute="centerX" id="SBW-oh-RC7"/>
+                            <constraint firstAttribute="bottom" secondItem="qLz-EN-dxh" secondAttribute="bottom" constant="20" symbolic="YES" id="aJv-yN-Qef"/>
+                            <constraint firstItem="6mb-Sb-fSZ" firstAttribute="top" secondItem="VvC-J2-OpM" secondAttribute="bottom" constant="23" id="bfn-A7-Ewc"/>
+                            <constraint firstItem="LHg-vd-Aki" firstAttribute="top" secondItem="Z3K-gg-kS9" secondAttribute="top" constant="283" id="dZi-l8-lfl"/>
+                            <constraint firstItem="BBd-vo-Udg" firstAttribute="top" secondItem="LHg-vd-Aki" secondAttribute="bottom" constant="26" id="ir0-Lf-ipy"/>
+                            <constraint firstItem="LHg-vd-Aki" firstAttribute="leading" secondItem="BBd-vo-Udg" secondAttribute="leading" id="rUU-D8-686"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnLogIn" destination="qLz-EN-dxh" id="a7p-h1-r0m"/>
+                        <outlet property="textViewUsername" destination="LHg-vd-Aki" id="imp-t8-jzv"/>
+                        <outlet property="txtPassword" destination="BBd-vo-Udg" id="1By-4N-NFk"/>
+                        <segue destination="jxk-hw-it8" kind="modal" identifier="callHome" id="C3W-72-0Wh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5sT-Gg-8Ft" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-605" y="2307"/>
+        </scene>
         <!--Register2 View Controller-->
         <scene sceneID="Oyf-if-jPp">
             <objects>
@@ -1024,7 +1097,7 @@ Termination. We may modify, suspend, or terminate your access to or use of our S
         <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="C3W-72-0Wh"/>
         <segue reference="kbp-sh-xaW"/>
-        <segue reference="bkg-l2-cro"/>
     </inferredMetricsTieBreakers>
 </document>

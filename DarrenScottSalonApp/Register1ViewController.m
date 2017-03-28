@@ -8,6 +8,8 @@
 
 #import "Register1ViewController.h"
 #import "ACFloatingTextField.h"
+#import "FDKeychain.h"
+@import Firebase;
 
 static NSString * const sampleDescription1 = @"Welcome to clic pic review (CPR), the new exciting app that allows you a fun and simple way to record, review and share your experiences with your friends and the world.";
 static NSString * const sampleDescription2 = @"Use it as your personal diary or to promote and share your views on anything and everything.";
@@ -24,6 +26,7 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
 @property (strong, nonatomic) NSMutableArray *countries;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollview;
 @property (weak, nonatomic) UITextView *activeTxtView;
+@property (strong, nonatomic) FIRDatabaseReference *ref;
 
 @end
 
@@ -31,6 +34,9 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [FIRApp configure];
+    self.ref = [[FIRDatabase database] reference];
+   
     rootView = self.navigationController.view;
     [[_textViewFirstName layer] setBorderWidth:1.0f];
     [[_textViewFirstName layer] setBorderColor:self.view.tintColor.CGColor];
@@ -449,7 +455,38 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     if (_textViewFirstName.text && _textViewFirstName.text.length > 0 && _textViewLastName.text && _textViewLastName.text.length > 0 && _txtDateOfBirth.text && _txtDateOfBirth.text.length > 0 && _textViewEmail.text && _textViewEmail.text.length > 0 && _textViewUsername.text && _textViewUsername.text.length > 0 && _textViewPhone.text && _textViewPhone.text.length > 0 && _txtPassword.text && _txtPassword.text.length > 0 && _textViewCountryCode.text && _textViewCountryCode.text.length > 0)
     {
         if ([self NSStringIsValidEmail:_textViewEmail.text]) {
-        [self performSegueWithIdentifier:@"NextRegister" sender:self];
+        
+            [[FIRAuth auth]
+             createUserWithEmail:_textViewUsername.text
+             password:_txtPassword.text
+             completion:^(FIRUser *_Nullable user,
+                          NSError *_Nullable error) {
+                 if (user) {
+                     FIRDatabaseReference *rootRef= [[FIRDatabase database] reference];
+                     [[[_ref child:@"users"] child:user.uid]
+                      setValue:@{@"id": user.uid,
+                                 @"first_name": _textViewFirstName.text,
+                                 @"last_name": _textViewLastName.text,
+                                 @"username": _textViewUsername.text,
+                                 @"email": _textViewEmail.text,
+                                 @"password": _txtPassword.text,
+                                 @"birth_date": _txtDateOfBirth.text,
+                                 @"mobile_phone": _textViewPhone.text,
+                                 @"reviews": @[
+                                         ]}];
+                     
+                 }
+                 
+
+//                 [[FIRAuth auth]
+//                  .currentUser sendEmailVerificationWithCompletion:^(NSError *_Nullable error) {
+//                      
+//                  }];
+             }];
+            
+            
+            
+            [self performSegueWithIdentifier:@"NextRegister" sender:self];
         }
         else{
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Valid Email"

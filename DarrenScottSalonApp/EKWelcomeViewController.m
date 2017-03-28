@@ -47,6 +47,11 @@ static NSString * const kEKSegueIdentifier = @"callRegister";
 	[self performSegueWithIdentifier:kEKSegueIdentifier sender:self];
 }
 
+- (void)goToLogIn
+{
+    [self performSegueWithIdentifier:@"callLogIn" sender:self];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
 	if ([segue.identifier isEqualToString:kEKSegueIdentifier]) {

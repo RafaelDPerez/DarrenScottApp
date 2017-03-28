@@ -15,6 +15,7 @@
 @property (nonatomic, strong) UILabel *hint2;
 @property (nonatomic, strong) UIImageView *img1;
 @property (nonatomic, strong) UIButton *btn;
+@property (nonatomic, strong) UIButton *btn2;
 @end
 @implementation EKSecondHintView
 
@@ -47,8 +48,12 @@
     [self addSubview:self.hint2];
     
     self.btn = [[UIButton alloc]init];
-    [self.btn setTitle:@"Start Now!" forState:UIControlStateNormal];
+    [self.btn setTitle:@"New? Start now!" forState:UIControlStateNormal];
     [self.btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    self.btn2 = [[UIButton alloc]init];
+    [self.btn2 setTitle:@"Log In" forState:UIControlStateNormal];
+    [self.btn2 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     //self.btn.titleLabel.tintColor = [UIColor blackColor];
     
     [[self.btn layer] setBorderWidth:1.0f];
@@ -57,6 +62,13 @@
     self.btn.backgroundColor = [UIColor clearColor];
     [self.btn addTarget:self action:@selector(goNext) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.btn];
+    
+    [[self.btn2 layer] setBorderWidth:1.0f];
+    [[self.btn2 layer] setBorderColor:self.tintColor.CGColor];
+    self.btn2.layer.cornerRadius = 15.0f;
+    self.btn2.backgroundColor = [UIColor clearColor];
+    [self.btn2 addTarget:self action:@selector(goNext2) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:self.btn2];
     
     
     
@@ -79,7 +91,9 @@
     
     self.img1.frame = CGRectMake(self.bounds.origin.x + 30.0f, self.bounds.origin.y + 30.0f, self.frame.size.width - 80.0f, self.bounds.size.height / 4.0f);
     
-    self.btn.frame =  CGRectMake(self.bounds.size.width/2 -50.0f, self.bounds.origin.y + 450.0f, 100.0f, 40.0f);
+    self.btn.frame =  CGRectMake(self.bounds.size.width/2 -80.0f, self.bounds.origin.y + 450.0f, 150.0f, 40.0f);
+    
+    self.btn2.frame =  CGRectMake(self.bounds.size.width/2 -55.0f, self.bounds.origin.y + 500.0f, 100.0f, 40.0f);
     
 
     
@@ -96,4 +110,15 @@
     [hola goNext];
     
 }
+
+- (void)goNext2
+{
+    EKWelcomeView *hola = [[EKWelcomeView alloc]init];
+    hola = self.superview.superview;
+    
+    //hola = (EKWelcomeView *)self.inputView;
+    [hola goNext2];
+    
+}
+
 @end

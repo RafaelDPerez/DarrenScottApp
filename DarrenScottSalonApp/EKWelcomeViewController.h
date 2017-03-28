@@ -10,4 +10,6 @@
 
 @interface EKWelcomeViewController : UIViewController
 - (void)dismissWelcomeScreen;
+- (void)loginGo;
+
 @end

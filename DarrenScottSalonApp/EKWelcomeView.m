@@ -140,4 +140,11 @@
 	}
 }
 
+- (void)goNext2
+{
+    if (self.delegate) {
+        [self.delegate goToLogIn];
+    }
+}
+
 @end
