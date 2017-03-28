@@ -42,17 +42,17 @@
          } else if (result.isCancelled) {
              NSLog(@"Cancelled");
          } else {
-             FIRAuthCredential *credential = [FIRFacebookAuthProvider
-                                              credentialWithAccessToken:[FBSDKAccessToken currentAccessToken]
-                                              .tokenString];
-             [[FIRAuth auth] signInWithCredential:credential
-                                       completion:^(FIRUser *user, NSError *error) {
-                                           
-                                           [FDKeychain saveItem: @"YES"
-                                                         forKey: @"loggedin"
-                                                     forService: @"ReviewApp"
-                                                          error: nil];
-                                       }];
+//             FIRAuthCredential *credential = [FIRFacebookAuthProvider
+//                                              credentialWithAccessToken:[FBSDKAccessToken currentAccessToken]
+//                                              .tokenString];
+//             [[FIRAuth auth] signInWithCredential:credential
+//                                       completion:^(FIRUser *user, NSError *error) {
+//                                           
+//                                           [FDKeychain saveItem: @"YES"
+//                                                         forKey: @"loggedin"
+//                                                     forService: @"ReviewApp"
+//                                                          error: nil];
+//                                       }];
            //  [self performSegueWithIdentifier:@"callReviewApp" sender:self];
              
              

@@ -174,11 +174,11 @@
         //        FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
         //        [loginManager logOut];
         UIAlertView *alert = [[UIAlertView alloc]
-                              initWithTitle: @"Salir"
-                              message: @"Está seguro que desea salir de BIXI?"
+                              initWithTitle: @"Log Out"
+                              message: @"Are you sure?"
                               delegate: self
                               cancelButtonTitle:@"NO"
-                              otherButtonTitles:@"SI",nil];
+                              otherButtonTitles:@"YES",nil];
         alert.tag = 1;
         [alert show];
         
@@ -186,6 +186,9 @@
     }
     if (indexPath.row == 0) {
       [self performSegueWithIdentifier:@"callHome" sender:self];
+    }
+    if(indexPath.row==1){
+        [self performSegueWithIdentifier:@"callReviews" sender:self];
     }
 
 }
@@ -314,7 +317,7 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
                               forKey: @"loggedin"
                           forService: @"ReviewApp"
                                error: nil];
-                [FDKeychain deleteItemForKey:@"token" forService:@"BIXI" error:nil];
+                [FDKeychain deleteItemForKey:@"token" forService:@"ReviewApp" error:nil];
                 [self performSegueWithIdentifier:@"callLogIn" sender:self];
             }
     }

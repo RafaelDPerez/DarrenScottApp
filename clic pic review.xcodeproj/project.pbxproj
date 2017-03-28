@@ -81,6 +81,8 @@
 		45B9AF0F1E7DA32300513B2E /* img4.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B9AF0E1E7DA32300513B2E /* img4.png */; };
 		45C6B7FF1DD2960A0067654B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 45C6B7FE1DD2960A0067654B /* GoogleService-Info.plist */; };
 		45C6B8011DD2A3F90067654B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45C6B8001DD2A3F90067654B /* Social.framework */; };
+		45E21AB61E8A15600042C2BC /* ReviewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E21AB51E8A15600042C2BC /* ReviewsTableViewCell.m */; };
+		45E21AB91E8A15F00042C2BC /* ReviewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E21AB81E8A15F00042C2BC /* ReviewsTableViewController.m */; };
 		562BDAAE4AF94B16711391D2 /* libPods-clic pic reviewTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBFB5E484F2F7E7340A3259 /* libPods-clic pic reviewTests.a */; };
 		5CCAB07E22968F3514F80D2C /* libPods-DarrenScottSalonAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DB04EBBF36AB7A0C112AAE5 /* libPods-DarrenScottSalonAppTests.a */; };
 		C974EFF848C979EC65B5B37B /* libPods-clic pic review.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F4E1BA3085A2E07E709DE22 /* libPods-clic pic review.a */; };
@@ -215,6 +217,10 @@
 		45B9AF0E1E7DA32300513B2E /* img4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img4.png; sourceTree = "<group>"; };
 		45C6B7FE1DD2960A0067654B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		45C6B8001DD2A3F90067654B /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		45E21AB41E8A15600042C2BC /* ReviewsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewsTableViewCell.h; sourceTree = "<group>"; };
+		45E21AB51E8A15600042C2BC /* ReviewsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewsTableViewCell.m; sourceTree = "<group>"; };
+		45E21AB71E8A15F00042C2BC /* ReviewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewsTableViewController.h; sourceTree = "<group>"; };
+		45E21AB81E8A15F00042C2BC /* ReviewsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewsTableViewController.m; sourceTree = "<group>"; };
 		4F4E1BA3085A2E07E709DE22 /* libPods-clic pic review.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-clic pic review.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		86355BF8E0C5E1D4C83BE495 /* libPods-DarrenScottSalonApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DarrenScottSalonApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FF0AA875CA448B782DCE7F1 /* Pods-DarrenScottSalonAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DarrenScottSalonAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DarrenScottSalonAppTests/Pods-DarrenScottSalonAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -275,6 +281,7 @@
 		025565D61DC2DAF8005A903E /* clicpicreviewApp */ = {
 			isa = PBXGroup;
 			children = (
+				45E21AB31E8A15490042C2BC /* Cells */,
 				45155B721E89FEA5008250C7 /* Model */,
 				45B9AF011E7D08C600513B2E /* EKWelcomeView */,
 				454073A11E639092008F245E /* VKSlideMenu */,
@@ -409,6 +416,8 @@
 				453835691E496FFF00B34BB4 /* CalendarViewController.m */,
 				45155B6F1E89DA14008250C7 /* SignInViewController.h */,
 				45155B701E89DA14008250C7 /* SignInViewController.m */,
+				45E21AB71E8A15F00042C2BC /* ReviewsTableViewController.h */,
+				45E21AB81E8A15F00042C2BC /* ReviewsTableViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -528,6 +537,15 @@
 				45B9AF071E7D08D400513B2E /* EKWelcomeView.m */,
 			);
 			name = EKWelcomeView;
+			sourceTree = "<group>";
+		};
+		45E21AB31E8A15490042C2BC /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				45E21AB41E8A15600042C2BC /* ReviewsTableViewCell.h */,
+				45E21AB51E8A15600042C2BC /* ReviewsTableViewCell.m */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -767,6 +785,7 @@
 				45B2F7411DE27C3100AAB600 /* TermsAndConditionsViewController.m in Sources */,
 				02C18A721DC2F307008745BE /* ASStarRatingView.m in Sources */,
 				454073A41E63909C008F245E /* VKSideMenu.m in Sources */,
+				45E21AB91E8A15F00042C2BC /* ReviewsTableViewController.m in Sources */,
 				450927DE1DF4D0730052EB54 /* NavigationViewController.m in Sources */,
 				4538352A1E495FB700B34BB4 /* ACFloatingTextField.m in Sources */,
 				453835641E496FCD00B34BB4 /* FSCalendarScopeHandle.m in Sources */,
@@ -786,6 +805,7 @@
 				453835351E4962DD00B34BB4 /* Register2ViewController.m in Sources */,
 				453835621E496FCD00B34BB4 /* FSCalendarExtensions.m in Sources */,
 				4538355B1E496FCD00B34BB4 /* FSCalendarCalculator.m in Sources */,
+				45E21AB61E8A15600042C2BC /* ReviewsTableViewCell.m in Sources */,
 				025565E01DC2DAF8005A903E /* DarrenScottSalonApp.xcdatamodeld in Sources */,
 				45155B781E89FF5B008250C7 /* Review.m in Sources */,
 				025565E31DC2DAF8005A903E /* ViewController.m in Sources */,

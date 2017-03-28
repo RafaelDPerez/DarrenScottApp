@@ -34,7 +34,6 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [FIRApp configure];
     self.ref = [[FIRDatabase database] reference];
    
     rootView = self.navigationController.view;

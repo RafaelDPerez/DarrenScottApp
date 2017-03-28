@@ -534,6 +534,7 @@
                         <outlet property="textViewWith" destination="Y1D-tN-wSm" id="0bI-kv-y4S"/>
                         <segue destination="b8j-AF-Pqz" kind="modal" identifier="callLogIn" id="kbp-sh-xaW"/>
                         <segue destination="VXe-7t-Jny" kind="modal" identifier="callProfile" id="L7h-2b-oZd"/>
+                        <segue destination="lHL-gF-0HY" kind="modal" identifier="callReviews" id="B2a-zK-xlU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -688,6 +689,81 @@ Termination. We may modify, suspend, or terminate your access to or use of our S
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CL4-Q7-t8Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-395" y="543"/>
+        </scene>
+        <!--Reviews Table View Controller-->
+        <scene sceneID="AKB-Ok-XGK">
+            <objects>
+                <tableViewController id="DAm-cO-zhI" customClass="ReviewsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="87" sectionHeaderHeight="28" sectionFooterHeight="28" id="gDk-Kq-ft1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="reviewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="reviewCell" rowHeight="87" id="mCm-Qn-rBG" customClass="ReviewsTableViewCell">
+                                <rect key="frame" x="0.0" y="28" width="375" height="87"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mCm-Qn-rBG" id="Az4-aw-Z2h">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="86"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="When" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BhP-qo-QJQ">
+                                            <rect key="frame" x="255" y="8" width="112" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Syncopate-Bold" family="Syncopate" pointSize="9"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9W-Rf-Oj2">
+                                            <rect key="frame" x="8" y="8" width="204" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Syncopate-Bold" family="Syncopate" pointSize="13"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y0G-0O-0uD" customClass="ASStarRatingView">
+                                            <rect key="frame" x="220" y="46" width="147" height="31"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Where" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="he6-bw-EyC">
+                                            <rect key="frame" x="7" y="51" width="204" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Syncopate-Bold" family="Syncopate" pointSize="13"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="lblWhat" destination="w9W-Rf-Oj2" id="gIB-fx-BDo"/>
+                                    <outlet property="lblWhen" destination="BhP-qo-QJQ" id="Gih-7J-K74"/>
+                                    <outlet property="lblWhere" destination="he6-bw-EyC" id="7d9-7K-jEq"/>
+                                    <outlet property="rating" destination="y0G-0O-0uD" id="7DO-pS-fr8"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="DAm-cO-zhI" id="yKb-jS-iWf"/>
+                            <outlet property="delegate" destination="DAm-cO-zhI" id="buf-kv-e1o"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="AYT-g9-QfP">
+                        <barButtonItem key="leftBarButtonItem" image="menu-button.png" id="Bpd-RA-Rge">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="buttonMenuLeft:" destination="DAm-cO-zhI" id="Tb0-ih-BGv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="jxk-hw-it8" kind="modal" identifier="callHome" id="6sM-ta-krn"/>
+                        <segue destination="VXe-7t-Jny" kind="modal" identifier="callProfile" id="r83-Fr-ce8"/>
+                        <segue destination="b8j-AF-Pqz" kind="modal" identifier="callLogIn" id="Hgi-xI-JLb"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tkD-vQ-RxN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2600" y="361"/>
         </scene>
         <!--Right Menu View Controller-->
         <scene sceneID="Lms-zV-S3Z">
@@ -1075,6 +1151,22 @@ Termination. We may modify, suspend, or terminate your access to or use of our S
             </objects>
             <point key="canvasLocation" x="-200.5" y="1467.5"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="BwI-rP-JE9">
+            <objects>
+                <navigationController id="lHL-gF-0HY" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="vCm-vI-jTP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="DAm-cO-zhI" kind="relationship" relationship="rootViewController" id="IAv-lD-qdZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ang-s9-hvs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1674" y="-1128"/>
+        </scene>
         <!--Profile View Controller-->
         <scene sceneID="1Pm-9v-dLR">
             <objects>
@@ -1088,19 +1180,19 @@ Termination. We may modify, suspend, or terminate your access to or use of our S
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gAO-B0-T6F">
-                                <rect key="frame" x="155" y="370" width="204" height="39"/>
+                                <rect key="frame" x="155" y="370" width="204" height="39.5"/>
                                 <fontDescription key="fontDescription" name="Syncopate-Bold" family="Syncopate" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nnu-Bb-Scd">
-                                <rect key="frame" x="155" y="449" width="204" height="30"/>
+                                <rect key="frame" x="155" y="449.5" width="204" height="29.5"/>
                                 <fontDescription key="fontDescription" name="Syncopate-Bold" family="Syncopate" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LRR-Gb-FeA">
-                                <rect key="frame" x="16" y="426" width="126" height="12.5"/>
+                                <rect key="frame" x="16" y="426.5" width="126" height="12"/>
                                 <fontDescription key="fontDescription" name="Syncopate-Bold" family="Syncopate" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1112,7 +1204,7 @@ Termination. We may modify, suspend, or terminate your access to or use of our S
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o6H-v3-ITW">
-                                <rect key="frame" x="16" y="368.5" width="126" height="0.5"/>
+                                <rect key="frame" x="16" y="369" width="126" height="0.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="126" id="s7d-eN-8j0"/>
                                 </constraints>
@@ -1139,7 +1231,7 @@ Termination. We may modify, suspend, or terminate your access to or use of our S
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Profil-Jean_format_360x360" translatesAutoresizingMaskIntoConstraints="NO" id="kSp-Vs-NOh">
-                                <rect key="frame" x="112" y="28" width="180" height="190.5"/>
+                                <rect key="frame" x="112" y="28" width="180" height="191"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="180" id="44K-sY-Pxb"/>
                                     <constraint firstAttribute="height" constant="190.5" id="dwg-Fr-wRM"/>
@@ -1153,7 +1245,7 @@ Termination. We may modify, suspend, or terminate your access to or use of our S
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oPy-DR-vXf">
-                                <rect key="frame" x="112" y="220.5" width="180" height="27"/>
+                                <rect key="frame" x="112" y="221" width="180" height="27"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="27" id="Yjk-P3-m84"/>
@@ -1163,7 +1255,7 @@ Termination. We may modify, suspend, or terminate your access to or use of our S
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gje-Cd-XTD">
-                                <rect key="frame" x="16" y="376" width="75" height="20"/>
+                                <rect key="frame" x="16" y="376.5" width="75" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="UYy-h5-3kf"/>
                                 </constraints>
@@ -1172,7 +1264,7 @@ Termination. We may modify, suspend, or terminate your access to or use of our S
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LUb-WR-c6Y">
-                                <rect key="frame" x="155" y="417" width="204" height="30"/>
+                                <rect key="frame" x="155" y="417.5" width="204" height="30"/>
                                 <fontDescription key="fontDescription" name="Syncopate-Bold" family="Syncopate" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1236,11 +1328,12 @@ Termination. We may modify, suspend, or terminate your access to or use of our S
                         <outlet property="lbluserName" destination="uTV-ap-aRE" id="qKV-Px-WZz"/>
                         <segue destination="jxk-hw-it8" kind="modal" identifier="callHome" id="teW-bA-Dbf"/>
                         <segue destination="b8j-AF-Pqz" kind="modal" identifier="callLogIn" id="vai-Ze-Sws"/>
+                        <segue destination="lHL-gF-0HY" kind="modal" identifier="callReviews" id="qNU-qA-4eL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eDU-RQ-TNZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1990.5" y="-606.5"/>
+            <point key="canvasLocation" x="-2148" y="-419"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="G4y-tZ-cbo">
@@ -1283,6 +1376,8 @@ Termination. We may modify, suspend, or terminate your access to or use of our S
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="vai-Ze-Sws"/>
-        <segue reference="C3W-72-0Wh"/>
+        <segue reference="r83-Fr-ce8"/>
+        <segue reference="qNU-qA-4eL"/>
+        <segue reference="teW-bA-Dbf"/>
     </inferredMetricsTieBreakers>
 </document>

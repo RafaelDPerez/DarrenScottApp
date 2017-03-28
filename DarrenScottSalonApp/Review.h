@@ -9,13 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @interface Review : NSObject
-@property (weak, nonatomic) NSString *reviewID;
-@property (weak, nonatomic) NSString *date;
-@property (weak, nonatomic) NSString *where;
-@property (weak, nonatomic) NSString *who;
-@property (weak, nonatomic) NSString *what;
-@property (weak, nonatomic) NSString *with;
-@property (weak, nonatomic) NSString *why;
-@property (weak, nonatomic) NSString *comments;
-@property (weak, nonatomic) NSMutableArray *photos;
+@property (strong, nonatomic) NSString *reviewID;
+@property (strong, nonatomic) NSString *date;
+@property (strong, nonatomic) NSString *where;
+@property (strong, nonatomic) NSString *who;
+@property (strong, nonatomic) NSString *what;
+@property (strong, nonatomic) NSString *with;
+@property (strong, nonatomic) NSString *why;
+@property (strong, nonatomic) NSString *comments;
+@property (strong, nonatomic) NSMutableArray *photos;
 @end
