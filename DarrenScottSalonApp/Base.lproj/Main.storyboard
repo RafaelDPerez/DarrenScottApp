@@ -786,7 +786,7 @@ Termination. We may modify, suspend, or terminate your access to or use of our S
                                                     <constraint firstAttribute="height" constant="44" id="afb-O6-mpp"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Syncopate-Bold" family="Syncopate" pointSize="12"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="phonePad"/>
                                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES"/>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a2Z-oU-rmu">
@@ -874,11 +874,11 @@ Termination. We may modify, suspend, or terminate your access to or use of our S
                     <size key="freeformSize" width="375" height="750"/>
                     <connections>
                         <outlet property="scrollview" destination="R6D-Ce-Mgv" id="IyQ-Tt-wcm"/>
-                        <outlet property="textViewCountryCode" destination="i8f-i4-9jm" id="ap7-FN-R0L"/>
+                        <outlet property="textViewCountryCode" destination="FDx-Q6-72V" id="7gj-q1-ELc"/>
                         <outlet property="textViewEmail" destination="jP4-S1-bGr" id="vim-UV-8kX"/>
                         <outlet property="textViewFirstName" destination="OAO-5W-R9W" id="WFB-a6-fBF"/>
                         <outlet property="textViewLastName" destination="YVD-Eg-7i9" id="9dI-s0-8BB"/>
-                        <outlet property="textViewPhone" destination="FDx-Q6-72V" id="XBU-2R-N3O"/>
+                        <outlet property="textViewPhone" destination="i8f-i4-9jm" id="SD7-QS-D8p"/>
                         <outlet property="textViewUsername" destination="inb-3G-pmq" id="iQ2-BR-3xK"/>
                         <outlet property="txtDateOfBirth" destination="FdU-mW-j8k" id="S9f-Zz-LeP"/>
                         <outlet property="txtPassword" destination="2bT-u5-AX9" id="cSu-oR-SCU"/>
