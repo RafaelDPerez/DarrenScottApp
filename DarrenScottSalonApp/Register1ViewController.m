@@ -9,7 +9,9 @@
 #import "Register1ViewController.h"
 #import "ACFloatingTextField.h"
 #import "FDKeychain.h"
+#import "Country.h"
 @import Firebase;
+#import "RMPhoneFormat.h"
 
 static NSString * const sampleDescription1 = @"Welcome to clic pic review (CPR), the new exciting app that allows you a fun and simple way to record, review and share your experiences with your friends and the world.";
 static NSString * const sampleDescription2 = @"Use it as your personal diary or to promote and share your views on anything and everything.";
@@ -35,7 +37,7 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.ref = [[FIRDatabase database] reference];
-   
+   [_scrollview setContentOffset:CGPointZero animated:YES];
     rootView = self.navigationController.view;
     [[_textViewFirstName layer] setBorderWidth:1.0f];
     [[_textViewFirstName layer] setBorderColor:self.view.tintColor.CGColor];
@@ -140,10 +142,16 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     
     for (NSString *countryCode in [NSLocale ISOCountryCodes])
     {
+        Country *countryAdded = [[Country alloc]init];
         NSString *identifier = [NSLocale localeIdentifierFromComponents: [NSDictionary dictionaryWithObject: countryCode forKey: NSLocaleCountryCode]];
         NSString *country = [[NSLocale currentLocale] displayNameForKey: NSLocaleIdentifier value: identifier];
-        [_countries addObject: country];
+        countryAdded.countryCode = countryCode;
+        countryAdded.countryName = country;
+        [_countries addObject:countryAdded];
     }
+    
+    //_countries = [NSLocale ISOCountryCodes];
+    
     //sortedCountries = [countries sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
     // Do any additional setup after loading the view, typically from a nib.
     self.pickerView = [[UIPickerView alloc] init];
@@ -151,9 +159,15 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     self.pickerView.dataSource = self;
     self.pickerView.showsSelectionIndicator = YES;
     self.textViewCountryCode.inputView = self.pickerView;
+//     [self.pickerView addTarget:self action:@selector(updateTextField:) forControlEvents:UIControlEventValueChanged];
     
 [self registerForKeyboardNotifications];
 
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+
+[_scrollview setContentOffset:CGPointZero animated:YES];
 }
 
 // Call this method somewhere in your view controller setup code.
@@ -209,33 +223,36 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
     if (textView == _textViewPhone) {
-        int length = (int)[self getLength:textView.text];
-        //NSLog(@"Length  =  %d ",length);
         
-        if(length == 10)
-        {
-            if(range.length == 0)
-                return NO;
-        }
         
-        if(length == 3)
-        {
-            NSString *num = [self formatNumber:textView.text];
-            textView.text = [NSString stringWithFormat:@"(%@) ",num];
-            
-            if(range.length > 0)
-                textView.text = [NSString stringWithFormat:@"%@",[num substringToIndex:3]];
-        }
-        else if(length == 6)
-        {
-            NSString *num = [self formatNumber:textView.text];
-            //NSLog(@"%@",[num  substringToIndex:3]);
-            //NSLog(@"%@",[num substringFromIndex:3]);
-            textView.text = [NSString stringWithFormat:@"(%@) %@-",[num  substringToIndex:3],[num substringFromIndex:3]];
-            
-            if(range.length > 0)
-                textView.text = [NSString stringWithFormat:@"(%@) %@",[num substringToIndex:3],[num substringFromIndex:3]];
-        }
+       // NSString *formattedNumber = [fmt format:numberString];
+//        int length = (int)[self getLength:textView.text];
+//        //NSLog(@"Length  =  %d ",length);
+//        
+//        if(length == 10)
+//        {
+//            if(range.length == 0)
+//                return NO;
+//        }
+//        
+//        if(length == 3)
+//        {
+//            NSString *num = [self formatNumber:textView.text];
+//            textView.text = [NSString stringWithFormat:@"(%@) ",num];
+//            
+//            if(range.length > 0)
+//                textView.text = [NSString stringWithFormat:@"%@",[num substringToIndex:3]];
+//        }
+//        else if(length == 6)
+//        {
+//            NSString *num = [self formatNumber:textView.text];
+//            //NSLog(@"%@",[num  substringToIndex:3]);
+//            //NSLog(@"%@",[num substringFromIndex:3]);
+//            textView.text = [NSString stringWithFormat:@"(%@) %@-",[num  substringToIndex:3],[num substringFromIndex:3]];
+//            
+//            if(range.length > 0)
+//                textView.text = [NSString stringWithFormat:@"(%@) %@",[num substringToIndex:3],[num substringFromIndex:3]];
+//        }
     }
     
     
@@ -244,24 +261,26 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
 
 
 
+
 - (NSString *)formatNumber:(NSString *)mobileNumber
 {
-    mobileNumber = [mobileNumber stringByReplacingOccurrencesOfString:@"(" withString:@""];
-    mobileNumber = [mobileNumber stringByReplacingOccurrencesOfString:@")" withString:@""];
-    mobileNumber = [mobileNumber stringByReplacingOccurrencesOfString:@" " withString:@""];
-    mobileNumber = [mobileNumber stringByReplacingOccurrencesOfString:@"-" withString:@""];
-    mobileNumber = [mobileNumber stringByReplacingOccurrencesOfString:@"+" withString:@""];
-    
-    NSLog(@"%@", mobileNumber);
-    
-    int length = (int)[mobileNumber length];
-    if(length > 10)
-    {
-        mobileNumber = [mobileNumber substringFromIndex: length-10];
-        NSLog(@"%@", mobileNumber);
-        
-    }
-    
+//    mobileNumber = [mobileNumber stringByReplacingOccurrencesOfString:@"(" withString:@""];
+//    mobileNumber = [mobileNumber stringByReplacingOccurrencesOfString:@")" withString:@""];
+//    mobileNumber = [mobileNumber stringByReplacingOccurrencesOfString:@" " withString:@""];
+//    mobileNumber = [mobileNumber stringByReplacingOccurrencesOfString:@"-" withString:@""];
+//    mobileNumber = [mobileNumber stringByReplacingOccurrencesOfString:@"+" withString:@""];
+//    
+//    NSLog(@"%@", mobileNumber);
+//    
+//    int length = (int)[mobileNumber length];
+//    if(length > 10)
+//    {
+//        mobileNumber = [mobileNumber substringFromIndex: length-10];
+//        NSLog(@"%@", mobileNumber);
+//        
+//    }
+    RMPhoneFormat *fmt = [[RMPhoneFormat alloc] init];
+   NSString *formattedNumber = [fmt format:mobileNumber];
     return mobileNumber;
 }
 
@@ -290,12 +309,24 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    return [_countries objectAtIndex:row];
+    Country *countryShown = [[Country alloc]init];
+    countryShown = [_countries objectAtIndex:row];
+    return [NSString stringWithFormat:@"%@ - %@",countryShown.countryCode, countryShown.countryName];
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    self.textViewCountryCode.text = [_countries objectAtIndex:row];
+    RMPhoneFormat *fmt = [RMPhoneFormat instance];
+    
+     // based on current Region Format (locale)
+    Country *countryShown = [[Country alloc]init];
+    countryShown = [_countries objectAtIndex:row];
+    self.textViewCountryCode.text = [NSString stringWithFormat:@"%@ - %@",countryShown.countryCode, countryShown.countryName];
+    NSString *callingCode = [fmt callingCodeForCountryCode:countryShown.countryCode]; // Australia - returns 61
+    NSString *defaultCallingCode = [fmt defaultCallingCode];
+    self.textViewPhone.textColor = [UIColor blackColor];
+    self.textViewPhone.text = [NSString stringWithFormat:@"%@",callingCode];
+    NSLog(@"%@",countryShown.countryCode);
 }
 
 -(void)updateTextField:(id)sender
@@ -304,6 +335,10 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     //self.txtDateOfBirth.text = [NSString stringWithFormat:@"%@",picker.date];
     self.txtDateOfBirth.text = [self formatDate:picker.date];
 }
+
+
+
+
 
 - (NSString *)formatDate:(NSDate *)date {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -329,6 +364,12 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
 }
 
 - (void)textViewDidEndEditing:(UITextView *)textView {
+    if (textView == _textViewPhone) {
+        RMPhoneFormat *fmt = [[RMPhoneFormat alloc] init];
+        NSString *formattedNumber = [fmt format:textView.text];
+        textView.text = formattedNumber;
+    }
+    
     if([textView.text isEqualToString:@""])
     {
         if (textView.tag ==101) {

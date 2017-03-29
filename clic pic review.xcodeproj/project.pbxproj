@@ -83,6 +83,9 @@
 		45C6B8011DD2A3F90067654B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45C6B8001DD2A3F90067654B /* Social.framework */; };
 		45E21AB61E8A15600042C2BC /* ReviewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E21AB51E8A15600042C2BC /* ReviewsTableViewCell.m */; };
 		45E21AB91E8A15F00042C2BC /* ReviewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E21AB81E8A15F00042C2BC /* ReviewsTableViewController.m */; };
+		45FE25601E8B2B7F00F2F14E /* Country.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FE255F1E8B2B7F00F2F14E /* Country.m */; };
+		45FE25641E8B343500F2F14E /* RMPhoneFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FE25631E8B343500F2F14E /* RMPhoneFormat.m */; };
+		45FE25661E8B375100F2F14E /* PhoneFormats.dat in Resources */ = {isa = PBXBuildFile; fileRef = 45FE25651E8B369B00F2F14E /* PhoneFormats.dat */; };
 		562BDAAE4AF94B16711391D2 /* libPods-clic pic reviewTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBFB5E484F2F7E7340A3259 /* libPods-clic pic reviewTests.a */; };
 		5CCAB07E22968F3514F80D2C /* libPods-DarrenScottSalonAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DB04EBBF36AB7A0C112AAE5 /* libPods-DarrenScottSalonAppTests.a */; };
 		C974EFF848C979EC65B5B37B /* libPods-clic pic review.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F4E1BA3085A2E07E709DE22 /* libPods-clic pic review.a */; };
@@ -221,6 +224,11 @@
 		45E21AB51E8A15600042C2BC /* ReviewsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewsTableViewCell.m; sourceTree = "<group>"; };
 		45E21AB71E8A15F00042C2BC /* ReviewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewsTableViewController.h; sourceTree = "<group>"; };
 		45E21AB81E8A15F00042C2BC /* ReviewsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewsTableViewController.m; sourceTree = "<group>"; };
+		45FE255E1E8B2B7F00F2F14E /* Country.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Country.h; sourceTree = "<group>"; };
+		45FE255F1E8B2B7F00F2F14E /* Country.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Country.m; sourceTree = "<group>"; };
+		45FE25621E8B343500F2F14E /* RMPhoneFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPhoneFormat.h; sourceTree = "<group>"; };
+		45FE25631E8B343500F2F14E /* RMPhoneFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPhoneFormat.m; sourceTree = "<group>"; };
+		45FE25651E8B369B00F2F14E /* PhoneFormats.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = PhoneFormats.dat; sourceTree = "<group>"; };
 		4F4E1BA3085A2E07E709DE22 /* libPods-clic pic review.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-clic pic review.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		86355BF8E0C5E1D4C83BE495 /* libPods-DarrenScottSalonApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DarrenScottSalonApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FF0AA875CA448B782DCE7F1 /* Pods-DarrenScottSalonAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DarrenScottSalonAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DarrenScottSalonAppTests/Pods-DarrenScottSalonAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -281,6 +289,7 @@
 		025565D61DC2DAF8005A903E /* clicpicreviewApp */ = {
 			isa = PBXGroup;
 			children = (
+				45FE25611E8B342500F2F14E /* RMFormat */,
 				45E21AB31E8A15490042C2BC /* Cells */,
 				45155B721E89FEA5008250C7 /* Model */,
 				45B9AF011E7D08C600513B2E /* EKWelcomeView */,
@@ -299,6 +308,7 @@
 				025565DC1DC2DAF8005A903E /* AppDelegate.m */,
 				45C6B7FE1DD2960A0067654B /* GoogleService-Info.plist */,
 				025565E71DC2DAF8005A903E /* Images.xcassets */,
+				45FE25651E8B369B00F2F14E /* PhoneFormats.dat */,
 				45025D6F1E3851E4001FEAB6 /* Main.storyboard */,
 				025565E91DC2DAF8005A903E /* LaunchScreen.xib */,
 				025565DE1DC2DAF8005A903E /* DarrenScottSalonApp.xcdatamodeld */,
@@ -383,6 +393,8 @@
 				45155B741E89FEBE008250C7 /* User.m */,
 				45155B761E89FF5B008250C7 /* Review.h */,
 				45155B771E89FF5B008250C7 /* Review.m */,
+				45FE255E1E8B2B7F00F2F14E /* Country.h */,
+				45FE255F1E8B2B7F00F2F14E /* Country.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -548,6 +560,15 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
+		45FE25611E8B342500F2F14E /* RMFormat */ = {
+			isa = PBXGroup;
+			children = (
+				45FE25621E8B343500F2F14E /* RMPhoneFormat.h */,
+				45FE25631E8B343500F2F14E /* RMPhoneFormat.m */,
+			);
+			name = RMFormat;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -635,6 +656,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45FE25661E8B375100F2F14E /* PhoneFormats.dat in Resources */,
 				45B8299C1E6BD7650012B220 /* icon2@2x.png in Resources */,
 				451F948D1E64E8700006C105 /* Syncopate-Bold.ttf in Resources */,
 				451F948B1E64D6150006C105 /* Syncopate-Regular.ttf in Resources */,
@@ -805,10 +827,12 @@
 				453835351E4962DD00B34BB4 /* Register2ViewController.m in Sources */,
 				453835621E496FCD00B34BB4 /* FSCalendarExtensions.m in Sources */,
 				4538355B1E496FCD00B34BB4 /* FSCalendarCalculator.m in Sources */,
+				45FE25601E8B2B7F00F2F14E /* Country.m in Sources */,
 				45E21AB61E8A15600042C2BC /* ReviewsTableViewCell.m in Sources */,
 				025565E01DC2DAF8005A903E /* DarrenScottSalonApp.xcdatamodeld in Sources */,
 				45155B781E89FF5B008250C7 /* Review.m in Sources */,
 				025565E31DC2DAF8005A903E /* ViewController.m in Sources */,
+				45FE25641E8B343500F2F14E /* RMPhoneFormat.m in Sources */,
 				025565DA1DC2DAF8005A903E /* main.m in Sources */,
 				45B9AF091E7D08D400513B2E /* EKSecondHintView.m in Sources */,
 				4538355D1E496FCD00B34BB4 /* FSCalendarCollectionView.m in Sources */,
