@@ -12,6 +12,7 @@
 #import "Country.h"
 @import Firebase;
 #import "RMPhoneFormat.h"
+#import "EKWelcomeViewController.h"
 
 static NSString * const sampleDescription1 = @"Welcome to clic pic review (CPR), the new exciting app that allows you a fun and simple way to record, review and share your experiences with your friends and the world.";
 static NSString * const sampleDescription2 = @"Use it as your personal diary or to promote and share your views on anything and everything.";
@@ -33,10 +34,18 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
 @end
 
 @implementation Register1ViewController
-
+@synthesize btnBack;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.ref = [[FIRDatabase database] reference];
+    btnBack = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(goBack:)];
+    [btnBack setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                     [UIFont fontWithName:@"Syncopate" size:14.0], NSFontAttributeName,
+                                     [UIColor blackColor], NSForegroundColorAttributeName,
+                                     nil]
+                           forState:UIControlStateNormal];
+    self.navigationItem.leftBarButtonItem = btnBack;
+    
    [_scrollview setContentOffset:CGPointZero animated:YES];
     rootView = self.navigationController.view;
     [[_textViewFirstName layer] setBorderWidth:1.0f];
@@ -164,6 +173,17 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
 [self registerForKeyboardNotifications];
 
 }
+
+
+-(IBAction)goBack:(id)sender{
+    NSString * storyboardName = @"Main";
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
+    UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"Welcome"];
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
+
+
 
 -(void)viewDidAppear:(BOOL)animated{
 

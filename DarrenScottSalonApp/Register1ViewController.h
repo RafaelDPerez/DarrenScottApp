@@ -17,4 +17,6 @@
 @property (weak, nonatomic) IBOutlet UITextView *textViewPhone;
 @property (weak, nonatomic) IBOutlet UITextField *txtPassword;
 @property (weak, nonatomic) IBOutlet UITextView *textViewUsername;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *btnBack;
+
 @end
