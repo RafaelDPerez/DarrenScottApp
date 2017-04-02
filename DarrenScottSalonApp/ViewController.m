@@ -25,6 +25,7 @@
     NSData *imageData;
     UIImage *hola;
     UITextView *selectedTextView;
+    
 }
 
 @property (nonatomic, strong) VKSideMenu *menuLeft;
@@ -36,7 +37,7 @@
 
 @implementation ViewController
 @synthesize ivPickedImage,ivPickedImage2,ivPickedImage3;
-@synthesize btnCamera,btnGallery,btnCheckIn, btnCamera2,btnGallery2,btnCamera3,btnGallery3;
+@synthesize btnCamera,btnGallery,btnCheckIn, btnCamera2,btnGallery2,btnCamera3,btnGallery3, swLocation;
 
 
 
@@ -160,6 +161,8 @@
     [ivPickedImage setUserInteractionEnabled:YES];
     [ivPickedImage addGestureRecognizer:singleTap];
     
+    [swLocation addTarget:self action:@selector(setState:) forControlEvents:UIControlEventValueChanged];
+
 //    CGRect frameRect = textFieldService.frame;
 //    frameRect.size.height = 100; // <-- Specify the height you want here.
 //    textFieldService.frame = frameRect;
@@ -171,6 +174,27 @@
     [self registerForKeyboardNotifications];
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardFrameWillChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
 
+}
+
+- (void)setState:(id)sender
+{
+    BOOL state = [sender isOn];
+    if (state) {
+       // [_textViewWhere becomeFirstResponder];
+        [_textViewWhere performSelector:@selector(becomeFirstResponder) withObject:nil afterDelay:0];
+
+        _textViewWhere.editable = YES;
+        _textViewWhere.text = @"";
+    }
+    else{
+        [_textViewWhere resignFirstResponder];
+        _textViewWhere.text = @"Where (Check in or insert Website)";
+        _textViewWhere.textColor = [UIColor lightGrayColor];
+        _textViewWhere.clipsToBounds = YES;
+        
+        _textViewWhere.delegate = self;
+        _textViewWhere.editable = NO;
+    }
 }
 
 -(IBAction)shareReview{
@@ -558,6 +582,7 @@ didAutocompleteWithPlace:(GMSPlace *)place {
         [text appendAttributedString:place.attributions];
     }
     [_textViewWhere resignFirstResponder];
+    _textViewWhere.textColor = [UIColor blackColor];
     _textViewWhere.text = place.name;
 }
 
@@ -880,6 +905,7 @@ didFailAutocompleteWithError:(NSError *)error {
 {
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
+
 
 - (void)didReceiveMemoryWarning
 {

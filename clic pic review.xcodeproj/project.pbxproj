@@ -16,7 +16,6 @@
 		025565F71DC2DAF8005A903E /* DarrenScottSalonAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 025565F61DC2DAF8005A903E /* DarrenScottSalonAppTests.m */; };
 		02C18A721DC2F307008745BE /* ASStarRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C18A711DC2F307008745BE /* ASStarRatingView.m */; };
 		45025D121E381F0C001FEAB6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45025D111E381F0C001FEAB6 /* Security.framework */; };
-		45025D411E384D2C001FEAB6 /* Animations in Resources */ = {isa = PBXBuildFile; fileRef = 45025D401E384D2C001FEAB6 /* Animations */; };
 		45025D451E384D4C001FEAB6 /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = 45025D441E384D4C001FEAB6 /* Assets */; };
 		45025D711E3851E4001FEAB6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45025D6F1E3851E4001FEAB6 /* Main.storyboard */; };
 		45025D741E385A38001FEAB6 /* menu-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 45025D721E385A38001FEAB6 /* menu-button.png */; };
@@ -122,7 +121,6 @@
 		1509F0AE6089A9E0D1F5839F /* Pods-clic pic review.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-clic pic review.debug.xcconfig"; path = "Pods/Target Support Files/Pods-clic pic review/Pods-clic pic review.debug.xcconfig"; sourceTree = "<group>"; };
 		2FBFB5E484F2F7E7340A3259 /* libPods-clic pic reviewTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-clic pic reviewTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45025D111E381F0C001FEAB6 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		45025D401E384D2C001FEAB6 /* Animations */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Animations; sourceTree = "<group>"; };
 		45025D441E384D4C001FEAB6 /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Assets; sourceTree = "<group>"; };
 		45025D701E3851E4001FEAB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		45025D721E385A38001FEAB6 /* menu-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-button.png"; path = "Assets/menu-button.png"; sourceTree = "<group>"; };
@@ -302,7 +300,6 @@
 				4538352B1E4960CB00B34BB4 /* Buttons */,
 				453835271E495F6A00B34BB4 /* ACFloatingTextField */,
 				45025D441E384D4C001FEAB6 /* Assets */,
-				45025D401E384D2C001FEAB6 /* Animations */,
 				02C18A6F1DC2F2E6008745BE /* ASStarRatingView */,
 				025565DB1DC2DAF8005A903E /* AppDelegate.h */,
 				025565DC1DC2DAF8005A903E /* AppDelegate.m */,
@@ -662,7 +659,6 @@
 				451F948B1E64D6150006C105 /* Syncopate-Regular.ttf in Resources */,
 				45B9AF0F1E7DA32300513B2E /* img4.png in Resources */,
 				45B829AA1E6BDA760012B220 /* img3.png in Resources */,
-				45025D411E384D2C001FEAB6 /* Animations in Resources */,
 				45B829A21E6BD7650012B220 /* pageDot.png in Resources */,
 				45B8299B1E6BD7650012B220 /* icon1@2x.png in Resources */,
 				45025D451E384D4C001FEAB6 /* Assets in Resources */,

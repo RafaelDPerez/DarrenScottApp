@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "ASStarRatingView.h"
 @import Firebase;
-
 @interface ViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITextViewDelegate>
 {
     UIImagePickerController *ipc;
@@ -42,6 +41,7 @@
 @property (nonatomic, strong) UIPickerView *pickerViewStylist;
 @property (nonatomic, strong) NSArray *pickerServices;
 @property (nonatomic, strong) NSArray *pickerStylists;
+@property (weak, nonatomic) IBOutlet UISwitch *swLocation;
 @property int senderID;
 
 
