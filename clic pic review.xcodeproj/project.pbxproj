@@ -127,6 +127,7 @@
 		45025D731E385A38001FEAB6 /* menu-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-button@2x.png"; path = "Assets/menu-button@2x.png"; sourceTree = "<group>"; };
 		45025D761E385BF3001FEAB6 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		45025D771E385BF3001FEAB6 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		45026B5E1E91C55900122A01 /* clic pic review.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "clic pic review.entitlements"; sourceTree = "<group>"; };
 		450703E11E36D306003B7793 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		450703E21E36D306003B7793 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		450703E41E36D408003B7793 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -267,6 +268,7 @@
 		025565CB1DC2DAF8005A903E = {
 			isa = PBXGroup;
 			children = (
+				45026B5E1E91C55900122A01 /* clic pic review.entitlements */,
 				025565D61DC2DAF8005A903E /* clicpicreviewApp */,
 				025565F31DC2DAF8005A903E /* clicpicreviewTests */,
 				025565D51DC2DAF8005A903E /* Products */,
@@ -579,6 +581,7 @@
 				025565D21DC2DAF8005A903E /* Resources */,
 				8A0FA957454656AD7311B0EF /* [CP] Embed Pods Frameworks */,
 				AFBCF4ECCAE9F7E287C130CA /* [CP] Copy Pods Resources */,
+				45026B5F1E91CA2600122A01 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -622,6 +625,11 @@
 					025565D31DC2DAF8005A903E = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = 9ZZEJK9DFN;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					025565EF1DC2DAF8005A903E = {
 						CreatedOnToolsVersion = 6.4;
@@ -709,6 +717,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-clic pic reviewTests/Pods-clic pic reviewTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		45026B5F1E91CA2600122A01 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" e435b304a46bf06510f09731887cefff46e05342 dc9b121821afb1579f0bddafe7f00893144b630cf6e559bf3d639867768e8b84";
 		};
 		4A8C15DB4D6CB3052F098062 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -967,6 +988,7 @@
 			baseConfigurationReference = 1509F0AE6089A9E0D1F5839F /* Pods-clic pic review.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "clic pic review.entitlements";
 				DEVELOPMENT_TEAM = 9ZZEJK9DFN;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -986,6 +1008,7 @@
 			baseConfigurationReference = D453EE1746104F00BB04BE44 /* Pods-clic pic review.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "clic pic review.entitlements";
 				DEVELOPMENT_TEAM = 9ZZEJK9DFN;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

@@ -8,18 +8,55 @@
 
 #import "Register2ViewController.h"
 #import "FDKeychain.h"
-
+#import "PDKClient.h"
+#import "PDKUser.h"
+#import <TwitterKit/TwitterKit.h>
+#import "PDKBoard.h"
+#import "PDKClient.h"
+#import "PDKPin.h"
+#import "PDKResponseObject.h"
+#import "PDKUser.h"
 
 @interface Register2ViewController ()
-
+@property (nonatomic, strong) PDKUser *user;
 
 @end
 
 @implementation Register2ViewController
-@synthesize sldFbk;
+@synthesize sldFbk, sldPinterest;
 - (void)viewDidLoad {
     [super viewDidLoad];
+    TWTRLogInButton *logInButton = [TWTRLogInButton buttonWithLogInCompletion:^(TWTRSession *session, NSError *error) {
+        if (session) {
+            // Callback for login success or failure. The TWTRSession
+            // is also available on the [Twitter sharedInstance]
+            // singleton.
+            //
+            // Here we pop an alert just to give an example of how
+            // to read Twitter user info out of a TWTRSession.
+            //
+            // TODO: Remove alert and use the TWTRSession's userID
+            // with your app's user model
+            NSString *message = [NSString stringWithFormat:@"@%@ logged in! (%@)",
+                                 [session userName], [session userID]];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Logged in!"
+                                                            message:message
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        } else {
+            NSLog(@"Login error: %@", [error localizedDescription]);
+        }
+    }];
+    
+    // TODO: Change where the log in button is positioned in your view
+    logInButton.center = self.view.center;
+    [self.view addSubview:logInButton];
+
   [sldFbk addTarget:self action:@selector(setState:) forControlEvents:UIControlEventValueChanged];
+[sldPinterest addTarget:self action:@selector(setState:) forControlEvents:UIControlEventValueChanged];
+    
     // Do any additional setup after loading the view.
 }
 
@@ -28,6 +65,9 @@
     BOOL state = [sender isOn];
     if (sender ==sldFbk && state) {
         [self FacebookLogIn:self];
+    }
+    if (sender==sldPinterest && state) {
+        [self authenticateButtonTapped:sender];
     }
   
 }
@@ -60,6 +100,25 @@
          }
      }];
     
+}
+
+- (IBAction)authenticateButtonTapped:(id)sender
+{
+    __weak Register2ViewController *weakSelf = self;
+    [[PDKClient sharedInstance] authenticateWithPermissions:@[PDKClientReadPublicPermissions,
+                                                              PDKClientWritePublicPermissions,
+                                                              PDKClientReadRelationshipsPermissions,
+                                                              PDKClientWriteRelationshipsPermissions]
+                                                withSuccess:^(PDKResponseObject *responseObject)
+     {
+         weakSelf.user = [responseObject user];
+     //    weakSelf.resultLabel.text = [NSString stringWithFormat:@"%@ authenticated!", weakSelf.user.firstName];
+       //  [weakSelf updateButtonEnabledState];
+     } andFailure:^(NSError *error) {
+        // weakSelf.resultLabel.text = @"authentication failed";
+     }];
+    
+ 
 }
 
 - (void)didReceiveMemoryWarning {

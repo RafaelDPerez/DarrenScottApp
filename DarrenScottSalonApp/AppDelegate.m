@@ -16,6 +16,9 @@
 #import <Security/Security.h>
 #import "FDKeychain.h"
 #import "ProfileViewController.h"
+#import "PDKClient.h"
+#import <Fabric/Fabric.h>
+#import <TwitterKit/TwitterKit.h>
 
 
 
@@ -35,6 +38,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
      [FIRApp configure];
+    [Fabric with:@[[Twitter class]]];
+    [PDKClient configureSharedInstanceWithAppId:@"4893039640897927918"];
     [[FBSDKApplicationDelegate sharedInstance] application:application
                              didFinishLaunchingWithOptions:launchOptions];
     [GMSPlacesClient provideAPIKey:@"AIzaSyDegZLmKL9c42BLpAAJGtNNFu7Dc7pabW0"];
@@ -148,9 +153,19 @@
                                                                annotation:annotation
                     ];
     // Add any custom logic here.
-    return handled;
+    return handled || [[PDKClient sharedInstance] handleCallbackURL:url];;
 } 
 
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    return [[PDKClient sharedInstance] handleCallbackURL:url];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(nonnull NSURL *)url options:(nonnull NSDictionary<NSString *,id> *)options
+{
+    return [[PDKClient sharedInstance] handleCallbackURL:url];
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
