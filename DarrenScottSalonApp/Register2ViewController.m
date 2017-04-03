@@ -23,7 +23,7 @@
 @end
 
 @implementation Register2ViewController
-@synthesize sldFbk, sldPinterest;
+@synthesize sldFbk, sldPinterest, sldTwt;
 - (void)viewDidLoad {
     [super viewDidLoad];
     TWTRLogInButton *logInButton = [TWTRLogInButton buttonWithLogInCompletion:^(TWTRSession *session, NSError *error) {
@@ -34,7 +34,7 @@
             //
             // Here we pop an alert just to give an example of how
             // to read Twitter user info out of a TWTRSession.
-            //
+                //
             // TODO: Remove alert and use the TWTRSession's userID
             // with your app's user model
             NSString *message = [NSString stringWithFormat:@"@%@ logged in! (%@)",
@@ -48,14 +48,15 @@
         } else {
             NSLog(@"Login error: %@", [error localizedDescription]);
         }
-    }];
+}];
     
-    // TODO: Change where the log in button is positioned in your view
+//    // TODO: Change where the log in button is positioned in your view
     logInButton.center = self.view.center;
     [self.view addSubview:logInButton];
 
   [sldFbk addTarget:self action:@selector(setState:) forControlEvents:UIControlEventValueChanged];
-[sldPinterest addTarget:self action:@selector(setState:) forControlEvents:UIControlEventValueChanged];
+  [sldPinterest addTarget:self action:@selector(setState:) forControlEvents:UIControlEventValueChanged];
+  [sldTwt addTarget:self action:@selector(setState:) forControlEvents:UIControlEventValueChanged];
     
     // Do any additional setup after loading the view.
 }
@@ -68,6 +69,23 @@
     }
     if (sender==sldPinterest && state) {
         [self authenticateButtonTapped:sender];
+    }
+    if (sender==sldTwt && state) {
+        TWTRSessionStore *store = [[Twitter sharedInstance] sessionStore];
+        NSString *userID = store.session.userID;
+        if (userID) {
+            NSLog(@"User is Logged.");
+        }
+        else{
+            [[Twitter sharedInstance] logInWithCompletion:^(TWTRSession *session, NSError *error) {
+                if (session) {
+                    NSLog(@"signed in as %@", [session userID]);
+                } else {
+                    NSLog(@"error: %@", [error localizedDescription]);
+                }
+            }];
+        }
+       
     }
   
 }

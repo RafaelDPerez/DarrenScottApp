@@ -38,6 +38,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
      [FIRApp configure];
+    [[Twitter sharedInstance] startWithConsumerKey:@"b9Lztf5aMSTc2bZbeBIb9EkRq" consumerSecret:@"ypCbRgCq3HcklSit9U6y2qM9qePtif8rGBtG9DCUv1LYzBq5B1"];
     [Fabric with:@[[Twitter class]]];
     [PDKClient configureSharedInstanceWithAppId:@"4893039640897927918"];
     [[FBSDKApplicationDelegate sharedInstance] application:application
@@ -157,6 +158,16 @@
 } 
 
 
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options
+{
+    if ([[Twitter sharedInstance] application:app openURL:url options:options]) {
+        return YES;
+    }
+    
+    // If you handle other (non Twitter Kit) URLs elsewhere in your app, return YES. Otherwise
+    return YES;
+}
+/*
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
 {
     return [[PDKClient sharedInstance] handleCallbackURL:url];
@@ -166,7 +177,7 @@
 {
     return [[PDKClient sharedInstance] handleCallbackURL:url];
 }
-
+*/
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

@@ -26,7 +26,7 @@
             <objects>
                 <navigationController storyboardIdentifier="Slide" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jxk-hw-it8" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="1cP-1Z-D44"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Sc4-0g-Fat">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Sc4-0g-Fat">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -512,6 +512,7 @@
                         <outlet property="scrollview" destination="iCa-8S-Unw" id="gHE-dX-4lp"/>
                         <outlet property="starsRating" destination="Q6M-9q-znJ" id="ZHy-N5-qOF"/>
                         <outlet property="swLocation" destination="vLb-6I-qD5" id="5cp-Dw-Bl7"/>
+                        <outlet property="swTwitter" destination="WGO-NZ-CG9" id="onR-97-W04"/>
                         <outlet property="textViewComments" destination="yun-MZ-gtj" id="cnl-we-La9"/>
                         <outlet property="textViewWhat" destination="N8h-f1-MAG" id="DKl-f6-RZ6"/>
                         <outlet property="textViewWhere" destination="Roy-ll-VnS" id="czZ-Ja-fbt"/>
@@ -792,7 +793,7 @@ Termination. We may modify, suspend, or terminate your access to or use of our S
             <objects>
                 <navigationController id="3Pi-eE-rkh" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="bh2-da-Ixi"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mc6-aK-Jnt">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mc6-aK-Jnt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
@@ -1157,6 +1158,7 @@ Termination. We may modify, suspend, or terminate your access to or use of our S
                     <connections>
                         <outlet property="sldFbk" destination="9fG-Wd-JjK" id="LgS-tW-Yxt"/>
                         <outlet property="sldPinterest" destination="4un-Al-5NA" id="1jW-cV-VDc"/>
+                        <outlet property="sldTwt" destination="sMe-RH-AkO" id="e8J-XV-8fM"/>
                         <segue destination="BJC-I1-JZo" kind="modal" identifier="RegisterCompleted" id="YOH-cT-4ry"/>
                     </connections>
                 </viewController>
@@ -1168,7 +1170,7 @@ Termination. We may modify, suspend, or terminate your access to or use of our S
         <scene sceneID="BwI-rP-JE9">
             <objects>
                 <navigationController id="lHL-gF-0HY" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vCm-vI-jTP">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="vCm-vI-jTP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1358,7 +1360,7 @@ Termination. We may modify, suspend, or terminate your access to or use of our S
         <scene sceneID="G4y-tZ-cbo">
             <objects>
                 <navigationController id="VXe-7t-Jny" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JQV-Uj-GUl">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="JQV-Uj-GUl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

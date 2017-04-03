@@ -15,6 +15,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "VKSideMenu.h"
 #import "FDKeychain.h"
+#import <TwitterKit/TwitterKit.h>
 
 
 @import Firebase;
@@ -37,7 +38,7 @@
 
 @implementation ViewController
 @synthesize ivPickedImage,ivPickedImage2,ivPickedImage3;
-@synthesize btnCamera,btnGallery,btnCheckIn, btnCamera2,btnGallery2,btnCamera3,btnGallery3, swLocation;
+@synthesize btnCamera,btnGallery,btnCheckIn, btnCamera2,btnGallery2,btnCamera3,btnGallery3, swLocation, swTwitter;
 
 
 
@@ -162,7 +163,7 @@
     [ivPickedImage addGestureRecognizer:singleTap];
     
     [swLocation addTarget:self action:@selector(setState:) forControlEvents:UIControlEventValueChanged];
-
+    [swTwitter addTarget:self action:@selector(setState:) forControlEvents:UIControlEventValueChanged];
 //    CGRect frameRect = textFieldService.frame;
 //    frameRect.size.height = 100; // <-- Specify the height you want here.
 //    textFieldService.frame = frameRect;
@@ -179,22 +180,30 @@
 - (void)setState:(id)sender
 {
     BOOL state = [sender isOn];
-    if (state) {
-       // [_textViewWhere becomeFirstResponder];
-        [_textViewWhere performSelector:@selector(becomeFirstResponder) withObject:nil afterDelay:0];
-
-        _textViewWhere.editable = YES;
-        _textViewWhere.text = @"";
+    if (sender==swLocation) {
+        if (state) {
+            // [_textViewWhere becomeFirstResponder];
+            [_textViewWhere performSelector:@selector(becomeFirstResponder) withObject:nil afterDelay:0];
+            
+            _textViewWhere.editable = YES;
+            _textViewWhere.text = @"";
+        }
+        else{
+            [_textViewWhere resignFirstResponder];
+            _textViewWhere.text = @"Where (Check in or insert Website)";
+            _textViewWhere.textColor = [UIColor lightGrayColor];
+            _textViewWhere.clipsToBounds = YES;
+            
+            _textViewWhere.delegate = self;
+            _textViewWhere.editable = NO;
+        }
     }
-    else{
-        [_textViewWhere resignFirstResponder];
-        _textViewWhere.text = @"Where (Check in or insert Website)";
-        _textViewWhere.textColor = [UIColor lightGrayColor];
-        _textViewWhere.clipsToBounds = YES;
-        
-        _textViewWhere.delegate = self;
-        _textViewWhere.editable = NO;
+    if (sender==swTwitter) {
+        if (state) {
+            [self sendTweet:sender];
+        }
     }
+    
 }
 
 -(IBAction)shareReview{
@@ -315,6 +324,12 @@
                                error: nil];
                 [FDKeychain deleteItemForKey:@"token" forService:@"ReviewApp" error:nil];
                 [self performSegueWithIdentifier:@"callLogIn" sender:self];
+                TWTRSessionStore *store = [[Twitter sharedInstance] sessionStore];
+                NSString *userID = store.session.userID;
+                
+                
+                [store logOutUserID:userID];
+                NSLog(@"%@",store.session.userID);
             }
             
         }
@@ -338,6 +353,27 @@
     return YES;
 }
 
+
+
+
+-(IBAction)sendTweet:(id)sender{
+    // Objective-C
+    TWTRComposer *composer = [[TWTRComposer alloc] init];
+    
+    [composer setText:@"this is a test"];
+    [composer setImage:[UIImage imageNamed:@"selfie"]];
+    
+    // Called from a UIViewController
+    [composer showFromViewController:self completion:^(TWTRComposerResult result) {
+        if (result == TWTRComposerResultCancelled) {
+            NSLog(@"Tweet composition cancelled");
+        }
+        else {
+            NSLog(@"Sending Tweet!");
+        }
+    }];
+
+}
 
 
 

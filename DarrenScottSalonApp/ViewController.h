@@ -42,6 +42,7 @@
 @property (nonatomic, strong) NSArray *pickerServices;
 @property (nonatomic, strong) NSArray *pickerStylists;
 @property (weak, nonatomic) IBOutlet UISwitch *swLocation;
+@property (weak, nonatomic) IBOutlet UISwitch *swTwitter;
 @property int senderID;
 
 

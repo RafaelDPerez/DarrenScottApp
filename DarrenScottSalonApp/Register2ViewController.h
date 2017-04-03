@@ -16,6 +16,7 @@
 @interface Register2ViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UISwitch *sldFbk;
 @property (weak, nonatomic) IBOutlet UISwitch *sldPinterest;
+@property (weak, nonatomic) IBOutlet UISwitch *sldTwt;
 
 
 @end
