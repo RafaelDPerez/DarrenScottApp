@@ -20,6 +20,8 @@
 
 @property (strong, nonatomic) NSCalendar *gregorian;
 
+@property (weak, nonatomic) UIView *hola;
+
 
 - (void)previousClicked:(id)sender;
 - (void)nextClicked:(id)sender;

@@ -8,11 +8,35 @@
 
 #import "CalendarViewController.h"
 
-@interface CalendarViewController ()
-
+@interface CalendarViewController ()<UITableViewDataSource, UITableViewDelegate>
+@property (strong, nonatomic) UITableView *tableView;
 @end
 
 @implementation CalendarViewController
+
+-(UITableView *)makeTableView
+{
+    CGFloat x = 0;
+    CGFloat y = 300;
+    CGFloat width = self.view.frame.size.width;
+    CGFloat height = self.view.frame.size.height - 300;
+    CGRect tableFrame = CGRectMake(x, y, width, height);
+    
+    UITableView *tableView = [[UITableView alloc]initWithFrame:tableFrame style:UITableViewStylePlain];
+    
+    tableView.rowHeight = 45;
+    tableView.sectionFooterHeight = 22;
+    tableView.sectionHeaderHeight = 22;
+    tableView.scrollEnabled = YES;
+    tableView.showsVerticalScrollIndicator = YES;
+    tableView.userInteractionEnabled = YES;
+    tableView.bounces = YES;
+    
+    tableView.delegate = self;
+    tableView.dataSource = self;
+    
+    return tableView;
+}
 
 - (instancetype)init
 {
@@ -29,6 +53,15 @@
     view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     self.view = view;
     
+    
+    self.tableView = [self makeTableView];
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"newFriendCell"];
+    [self.view addSubview:self.tableView];
+    
+
+
+    
+    [self.view addSubview:_hola];
     // 450 for iPad and 300 for iPhone
     CGFloat height = [[UIDevice currentDevice].model hasPrefix:@"iPad"] ? 450 : 300;
     FSCalendar *calendar = [[FSCalendar alloc] initWithFrame:CGRectMake(0, 64, view.frame.size.width, height)];
@@ -60,6 +93,45 @@
     
 }
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"newFriendCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+    }
+    //etc.
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"detailsView" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    //I set the segue identifier in the interface builder
+    if ([segue.identifier isEqualToString:@"detailsView"])
+    {
+        
+        NSLog(@"segue"); //check to see if method is called, it is NOT called upon cell touch
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        ///more code to prepare next view controller....
+    }
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+#warning Incomplete implementation, return the number of sections
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+#warning Incomplete implementation, return the number of rows
+    return 4;
+}
 
 
 - (void)viewDidLoad
@@ -67,7 +139,9 @@
     [super viewDidLoad];
     
     self.gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSString *dateString = @"01-02-2017";
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"dd-MM-yyyy";
+    NSString *dateString = [formatter stringFromDate:[NSDate date]];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     // this is imporant - we set our input date format to match our input string
     // if format doesn't match you'll get nil from your string, so be careful

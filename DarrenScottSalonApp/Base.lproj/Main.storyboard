@@ -608,7 +608,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mIJ-Fp-wB6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1061" y="990"/>
+            <point key="canvasLocation" x="-1061.5" y="989.5"/>
         </scene>
         <!--Autocomplete Modal View Controller-->
         <scene sceneID="zgv-6I-xfz">
