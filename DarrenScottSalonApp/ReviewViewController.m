@@ -25,6 +25,19 @@
     _lblWith.text = self.review.with;
     _lblComments.text = self.review.comments;
     
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back to Reviews"
+                                                                   style:UIBarButtonItemStyleBordered
+                                                                  target:self
+                                                                  action:@selector(handleBack:)];
+    
+    [backButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                       [UIFont fontWithName:@"Syncopate-Bold" size:10.0], NSFontAttributeName,
+                                       [UIColor blackColor], NSForegroundColorAttributeName,
+                                       nil] 
+forState:UIControlStateNormal];
+    self.navigationItem.leftBarButtonItem = backButton;
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor blackColor];
+    
     
     float ratingFloat = [self.review.rating floatValue];
     NSString *url = [self.review.photos objectAtIndex:0];
@@ -32,6 +45,12 @@
                   placeholderImage:[UIImage imageNamed:@"Garage-50"]];
     [_rating setRating:ratingFloat];
     _rating.canEdit = NO;
+}
+
+
+- (void)handleBack:(id)sender {
+    // pop to root view controller
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

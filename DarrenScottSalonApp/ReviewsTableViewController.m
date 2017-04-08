@@ -280,6 +280,7 @@
     cell.lblWhen.text = review.date;
     float ratingFloat = [review.rating floatValue];
     [cell.rating setRating:ratingFloat];
+    cell.rating.canEdit = NO;
     
     // Configure the cell...
     
