@@ -41,6 +41,10 @@
             Review *rev = [[Review alloc]init];
             rev.what = child.value[@"what"];
             rev.where = child.value[@"where"];
+            rev.who = child.value[@"who"];
+            rev.why = child.value[@"why"];
+            rev.with = child.value[@"with"];
+            rev.comments = child.value[@"comments"];
             rev.date = child.value[@"date"];
             rev.categories = child.value[@"categories"];
             rev.photos = child.value[@"photos"];
@@ -274,6 +278,8 @@
     cell.lblWhat.text = review.what;
     cell.lblWhere.text = review.where;
     cell.lblWhen.text = review.date;
+    float ratingFloat = [review.rating floatValue];
+    [cell.rating setRating:ratingFloat];
     
     // Configure the cell...
     

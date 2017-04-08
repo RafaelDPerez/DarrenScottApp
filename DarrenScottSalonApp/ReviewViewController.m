@@ -7,7 +7,7 @@
 //
 
 #import "ReviewViewController.h"
-
+#import "SDWebImage/UIImageView+WebCache.h"
 @interface ReviewViewController ()
 
 @end
@@ -19,6 +19,19 @@
     // Do any additional setup after loading the view.
     _lblWhere.text = self.review.where;
     _lblAddress.text = self.review.address;
+    _lblWhat.text = self.review.what;
+    _lblWho.text = self.review.who;
+    _lblWhy.text = self.review.why;
+    _lblWith.text = self.review.with;
+    _lblComments.text = self.review.comments;
+    
+    
+    float ratingFloat = [self.review.rating floatValue];
+    NSString *url = [self.review.photos objectAtIndex:0];
+    [_ivReviewPic sd_setImageWithURL:[NSURL URLWithString:url]
+                  placeholderImage:[UIImage imageNamed:@"Garage-50"]];
+    [_rating setRating:ratingFloat];
+    _rating.canEdit = NO;
 }
 
 - (void)didReceiveMemoryWarning {
