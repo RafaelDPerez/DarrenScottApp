@@ -18,4 +18,7 @@
 @property (strong, nonatomic) NSString *why;
 @property (strong, nonatomic) NSString *comments;
 @property (strong, nonatomic) NSMutableArray *photos;
+@property (strong, nonatomic) NSString *categories;
+@property (strong, nonatomic) NSString *address;
+@property (strong, nonatomic) NSString *rating;
 @end

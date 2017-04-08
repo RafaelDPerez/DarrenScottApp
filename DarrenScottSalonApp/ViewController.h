@@ -37,6 +37,7 @@
 @property (strong, nonatomic) IBOutlet UITextView *textViewWhat;
 @property (strong, nonatomic) IBOutlet UITextView *textViewWith;
 @property (strong, nonatomic) IBOutlet UITextView *textViewWhy;
+@property (strong, nonatomic) IBOutlet UITextView *textViewCategory;
 @property (nonatomic, strong) UIPickerView *pickerViewService;
 @property (nonatomic, strong) UIPickerView *pickerViewStylist;
 @property (nonatomic, strong) NSArray *pickerServices;

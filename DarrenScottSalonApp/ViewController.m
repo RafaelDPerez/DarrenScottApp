@@ -16,6 +16,7 @@
 #import "VKSideMenu.h"
 #import "FDKeychain.h"
 #import <TwitterKit/TwitterKit.h>
+#import "Review.h"
 
 
 @import Firebase;
@@ -30,10 +31,12 @@
 }
 
 @property (nonatomic, strong) VKSideMenu *menuLeft;
+@property (nonatomic, strong) Review *review;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollview;
 @property (weak, nonatomic) UITextView *activeTxtView;
 @property (strong, nonatomic) FIRDatabaseReference *ref;
-
+@property (strong, nonatomic) NSString *PlaceAddress;
+@property (strong, nonatomic) NSString *downloadURL;
 @end
 
 @implementation ViewController
@@ -68,6 +71,9 @@
     
     [[_textViewWhere layer] setBorderWidth:1.0f];
     [[_textViewWhere layer] setBorderColor:self.view.tintColor.CGColor];
+    
+    [[_textViewCategory layer] setBorderWidth:1.0f];
+    [[_textViewCategory layer] setBorderColor:self.view.tintColor.CGColor];
 
     
     [[btnCamera layer] setBorderWidth:1.0f];
@@ -113,37 +119,36 @@
     _textViewComments.text = @"Write (how was the whole experience)";
     _textViewComments.textColor = [UIColor lightGrayColor];
     _textViewComments.clipsToBounds = YES;
-//    _textViewComments.layer.cornerRadius = 10.0f;
     _textViewComments.delegate = self;
+    
+    _textViewCategory.text = @"Category";
+    _textViewCategory.textColor = [UIColor lightGrayColor];
+    _textViewCategory.clipsToBounds = YES;
+    _textViewCategory.delegate = self;
     
     _textViewWhere.text = @"Where (Check in or insert Website)";
     _textViewWhere.textColor = [UIColor lightGrayColor];
     _textViewWhere.clipsToBounds = YES;
-    //    _textViewComments.layer.cornerRadius = 10.0f;
     _textViewWhere.delegate = self;
     
     _textViewWhy.text = @"Why (are you there, birthday, just because)";
     _textViewWhy.textColor = [UIColor lightGrayColor];
     _textViewWhy.clipsToBounds = YES;
-    //    _textViewComments.layer.cornerRadius = 10.0f;
     _textViewWhy.delegate = self;
     
     _textViewWho.text = @"Who (Who helped/served you)";
     _textViewWho.textColor = [UIColor lightGrayColor];
     _textViewWho.clipsToBounds = YES;
-    //    _textViewComments.layer.cornerRadius = 10.0f;
     _textViewWho.delegate = self;
     
     _textViewWhat.text = @"What (did you see/drink/get done)";
     _textViewWhat.textColor = [UIColor lightGrayColor];
     _textViewWhat.clipsToBounds = YES;
-    //    _textViewComments.layer.cornerRadius = 10.0f;
     _textViewWhat.delegate = self;
     
     _textViewWith.text = @"With (are you with friends/family)";
     _textViewWith.textColor = [UIColor lightGrayColor];
     _textViewWhere.clipsToBounds = YES;
-    //    _textViewComments.layer.cornerRadius = 10.0f;
     _textViewWhere.delegate = self;
    
     FIRStorage *storage = [FIRStorage storage];
@@ -207,7 +212,7 @@
 }
 
 -(IBAction)shareReview{
-    if (_textViewWhere.text && _textViewWhere.text.length > 0 && _textViewWhy.text && _textViewWhy.text.length > 0 && _textViewWith.text && _textViewWith.text.length > 0 && _textViewWho.text && _textViewWho.text.length > 0 && _textViewWhat.text && _textViewWhat.text.length > 0)
+    if (_textViewWhere.text && _textViewWhere.text.length > 0 && _textViewWhy.text && _textViewWhy.text.length > 0 && _textViewWith.text && _textViewWith.text.length > 0 && _textViewWho.text && _textViewWho.text.length > 0 && _textViewWhat.text && _textViewWhat.text.length > 0 && _textViewCategory.text && _textViewCategory.text.length > 0)
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"clic pic review"
                                                         message:@"Are you sure you want to share this review?"
@@ -231,6 +236,8 @@
 
 }
 
+
+
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (alertView.tag == 0) {
@@ -241,20 +248,67 @@
             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
             formatter.dateFormat = @"dd-MM-yyyy";
             NSString *string = [formatter stringFromDate:[NSDate date]];
+
+            
+            
+            
+            
+            
+            
+            
             FIRDatabaseReference *autoId = [_ref childByAutoId];
-            NSLog(@"%@",autoId.key);
-            [[[_ref child:@"reviews"] child:autoId.key]
-             setValue:@{@"id": autoId.key,
-                        @"comments": _textViewComments.text,
-                        @"date": string,
-                        @"photos":@[],
-                        @"what": _textViewWhat.text,
-                        @"where": _textViewWhere.text,
-                        @"who": _textViewWho.text,
-                        @"with": _textViewWith.text,
-                        @"why":_textViewWhy.text}];
-            NSString *userID = [FIRAuth auth].currentUser.uid;
-            [[[[_ref child:@"users"] child:userID] child:@"reviews"] setValue:@{@"id": autoId.key}];
+            //NSString * timestamp = [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970] * 1000];
+            _review = [[Review alloc]init];
+            _review.reviewID=autoId.key;
+            _review.comments = _textViewComments.text;
+            _review.date = string;
+            
+            _review.what = _textViewWhat.text;
+            _review.where = _textViewWhere.text;
+            _review.who = _textViewWho.text;
+            _review.with = _textViewWith.text;
+            _review.why = _textViewWhy.text;
+            _review.categories = _textViewCategory.text;
+            _review.address = _PlaceAddress;
+            _review.rating = [[NSNumber numberWithFloat:_starsRating.rating] stringValue];
+            
+            
+            NSString * selfieStorageName = [NSString stringWithFormat:@"reviewsPics/review%@.jpg",autoId];
+            // Create a reference to the file you want to upload
+            FIRStorageReference *riversRef = [storageRef child:selfieStorageName];
+//
+//            // Upload the file to the path "images/rivers.jpg"
+//            // Upload the file to the path "images/rivers.jpg"
+//            
+//           // ***FIREBASE UPLOAD
+                FIRStorageUploadTask *uploadTask = [riversRef putData:imageData metadata:nil completion:^(FIRStorageMetadata *metadata, NSError *error) {
+                    if (error != nil) {
+                        // Uh-oh, an error occurred!
+                    } else {
+                        // Metadata contains file metadata such as size, content-type, and download URL.
+                        NSURL *downloadURL = metadata.downloadURL;
+                        _downloadURL = downloadURL.absoluteString;
+                        [_review.photos addObject: _downloadURL];
+                        NSLog(@"%@",autoId.key);
+                        [[[_ref child:@"reviews"] child:autoId.key]
+                         setValue:@{@"id": autoId.key,
+                                    @"comments": _review.comments,
+                                    @"date": string,
+                                    @"photos":@[_downloadURL],
+                                    @"what": _review.what,
+                                    @"where": _review.where,
+                                    @"who": _review.who,
+                                    @"with": _review.with,
+                                    @"why":_review.why,
+                                    @"categories":_review.categories,
+                                    @"address":_PlaceAddress,
+                                    @"rating": [[NSNumber numberWithFloat:_starsRating.rating] stringValue]}];
+                        NSString *userID = [FIRAuth auth].currentUser.uid;
+                        [[[[_ref child:@"users"] child:userID] child:@"reviews"] setValue:@{@"id": autoId.key}];
+                    }
+                }];
+
+            
             
             
             UIAlertView * secondAlertView = [[UIAlertView alloc] initWithTitle:@"Success!!"
@@ -269,6 +323,11 @@
             _textViewComments.textColor = [UIColor lightGrayColor];
             _textViewComments.clipsToBounds = YES;
             _textViewComments.delegate = self;
+            
+            _textViewCategory.text = @"Category";
+            _textViewCategory.textColor = [UIColor lightGrayColor];
+            _textViewCategory.clipsToBounds = YES;
+            _textViewCategory.delegate = self;
             
             _textViewWhere.text = @"Where (Check in or insert Website)";
             _textViewWhere.textColor = [UIColor lightGrayColor];
@@ -326,8 +385,10 @@
                 [self performSegueWithIdentifier:@"callLogIn" sender:self];
                 TWTRSessionStore *store = [[Twitter sharedInstance] sessionStore];
                 NSString *userID = store.session.userID;
-                
-                
+//                [[[Twitter sharedInstance] APIClient] loadUserWithID:[session userID]
+//                                                          completion:^(TWTRUser *user,
+//                                                                       NSError *error)
+              //  [[[Twitter sharedInstance] sessionStore] logOutUserID:USERID];
                 [store logOutUserID:userID];
                 NSLog(@"%@",store.session.userID);
             }
@@ -342,7 +403,7 @@
 - (BOOL) textViewShouldBeginEditing:(UITextView *)textView
 {
     _activeTxtView = textView;
-    if([textView.text isEqualToString:@"Write (how was the whole experience)"]||[textView.text isEqualToString:@"Where (Check in or insert Website)"]||[textView.text isEqualToString:@"With (are you with friends/family)"]||[textView.text isEqualToString:@"Why (are you there, birthday, just because)"]||[textView.text isEqualToString:@"Who (Who helped/served you)"]||[textView.text isEqualToString:@"What (did you see/drink/get done)"]){
+    if([textView.text isEqualToString:@"Write (how was the whole experience)"]||[textView.text isEqualToString:@"Where (Check in or insert Website)"]||[textView.text isEqualToString:@"With (are you with friends/family)"]||[textView.text isEqualToString:@"Why (are you there, birthday, just because)"]||[textView.text isEqualToString:@"Who (Who helped/served you)"]||[textView.text isEqualToString:@"What (did you see/drink/get done)"]||[textView.text isEqualToString:@"Category"]){
         textView.text = @"";
         textView.textColor = [UIColor blackColor];
     }
@@ -358,20 +419,67 @@
 
 -(IBAction)sendTweet:(id)sender{
     // Objective-C
-    TWTRComposer *composer = [[TWTRComposer alloc] init];
     
-    [composer setText:@"this is a test"];
-    [composer setImage:[UIImage imageNamed:@"selfie"]];
+    TWTRSessionStore *store = [[Twitter sharedInstance] sessionStore];
+    NSString *userID = store.session.userID;
     
-    // Called from a UIViewController
-    [composer showFromViewController:self completion:^(TWTRComposerResult result) {
-        if (result == TWTRComposerResultCancelled) {
-            NSLog(@"Tweet composition cancelled");
+    
+    //[store logOutUserID:userID];
+    if (userID) {
+        [[Twitter sharedInstance] logInWithCompletion:^(TWTRSession *session, NSError *error) {
+            if (session) {
+                NSLog(@"signed in as %@", [session userID]);
+                TWTRComposer *composer = [[TWTRComposer alloc] init];
+                
+                [composer setText:@"this is a test"];
+                [composer setImage:[UIImage imageNamed:@"selfie"]];
+                
+                // Called from a UIViewController
+                [composer showFromViewController:self completion:^(TWTRComposerResult result) {
+                    if (result == TWTRComposerResultCancelled) {
+                        NSLog(@"Tweet composition cancelled");
+                    }
+                    else {
+                        NSLog(@"Sending Tweet!");
+                    }
+                }];
+            } else {
+                NSLog(@"error: %@", [error localizedDescription]);
+            }
+        }];
+
+    }
+    else{
+        TWTRSessionStore *store = [[Twitter sharedInstance] sessionStore];
+        NSString *userID = store.session.userID;
+        if (userID) {
+            NSLog(@"User is Logged.");
         }
-        else {
-            NSLog(@"Sending Tweet!");
+        else{
+            [[Twitter sharedInstance] logInWithCompletion:^(TWTRSession *session, NSError *error) {
+                if (session) {
+                    NSLog(@"signed in as %@", [session userID]);
+                    TWTRComposer *composer = [[TWTRComposer alloc] init];
+                    
+                    [composer setText:@"this is a test"];
+                    [composer setImage:[UIImage imageNamed:@"selfie"]];
+                    
+                    // Called from a UIViewController
+                    [composer showFromViewController:self completion:^(TWTRComposerResult result) {
+                        if (result == TWTRComposerResultCancelled) {
+                            NSLog(@"Tweet composition cancelled");
+                        }
+                        else {
+                            NSLog(@"Sending Tweet!");
+                        }
+                    }];
+                } else {
+                    NSLog(@"error: %@", [error localizedDescription]);
+                }
+            }];
         }
-    }];
+    }
+    
 
 }
 
@@ -416,6 +524,11 @@
         }
         if (textView.tag ==106) {
             textView.text = @"Write (how was the whole experience)";
+            textView.textColor = [UIColor lightGrayColor];
+            textView.clipsToBounds = YES;
+        }
+        if (textView.tag ==107) {
+            textView.text = @"Category";
             textView.textColor = [UIColor lightGrayColor];
             textView.clipsToBounds = YES;
         }
@@ -620,6 +733,25 @@ didAutocompleteWithPlace:(GMSPlace *)place {
     [_textViewWhere resignFirstResponder];
     _textViewWhere.textColor = [UIColor blackColor];
     _textViewWhere.text = place.name;
+    _PlaceAddress = place.formattedAddress;
+
+    [_textViewCategory resignFirstResponder];
+    _textViewCategory.textColor = [UIColor blackColor];
+    NSArray *types = place.types;
+    NSMutableString *typesName = [NSMutableString stringWithCapacity:150];
+    for (int i=0; i<[types count]; i++) {
+        if (i==[types count]-1) {
+            NSString *placeCat = types[i];
+            [typesName appendString:[NSString stringWithFormat:@"%@",[placeCat stringByReplacingOccurrencesOfString:@"_"withString:@" "]]];
+        }
+        else{
+            NSString *placeCat = types[i];
+            [typesName appendString:[NSString stringWithFormat:@"%@, ",[placeCat stringByReplacingOccurrencesOfString:@"_"withString:@" "]]];
+        }
+        
+    }
+    _textViewCategory.text = typesName;
+
 }
 
 - (void)viewController:(GMSAutocompleteViewController *)viewController
@@ -764,6 +896,7 @@ didFailAutocompleteWithError:(NSError *)error {
     [_textViewWith resignFirstResponder];
     [_textViewWhy resignFirstResponder];
     [_textViewWhere resignFirstResponder];
+    [_textViewCategory resignFirstResponder];
     
 }
 

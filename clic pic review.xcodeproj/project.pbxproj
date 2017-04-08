@@ -54,6 +54,7 @@
 		453835671E496FCD00B34BB4 /* FSCalendarWeekdayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 453835571E496FCD00B34BB4 /* FSCalendarWeekdayView.m */; };
 		4538356A1E496FFF00B34BB4 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 453835691E496FFF00B34BB4 /* CalendarViewController.m */; };
 		454073A41E63909C008F245E /* VKSideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 454073A31E63909C008F245E /* VKSideMenu.m */; };
+		45751B331E986A7900583E74 /* ReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45751B321E986A7900583E74 /* ReviewViewController.m */; };
 		45B2F7411DE27C3100AAB600 /* TermsAndConditionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B2F7401DE27C3100AAB600 /* TermsAndConditionsViewController.m */; };
 		45B829961E6BD7650012B220 /* bg1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B829831E6BD7650012B220 /* bg1@2x.png */; };
 		45B829971E6BD7650012B220 /* bg2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B829841E6BD7650012B220 /* bg2@2x.png */; };
@@ -188,6 +189,8 @@
 		4540739B1E638AF3008F245E /* Syncopate-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Syncopate-Regular.ttf"; sourceTree = "<group>"; };
 		454073A21E63909C008F245E /* VKSideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VKSideMenu.h; path = VKSideMenu/VKSideMenu.h; sourceTree = "<group>"; };
 		454073A31E63909C008F245E /* VKSideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VKSideMenu.m; path = VKSideMenu/VKSideMenu.m; sourceTree = "<group>"; };
+		45751B311E986A7900583E74 /* ReviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewViewController.h; sourceTree = "<group>"; };
+		45751B321E986A7900583E74 /* ReviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewViewController.m; sourceTree = "<group>"; };
 		45B2F73F1DE27C3100AAB600 /* TermsAndConditionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermsAndConditionsViewController.h; sourceTree = "<group>"; };
 		45B2F7401DE27C3100AAB600 /* TermsAndConditionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermsAndConditionsViewController.m; sourceTree = "<group>"; };
 		45B829831E6BD7650012B220 /* bg1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg1@2x.png"; sourceTree = "<group>"; };
@@ -429,6 +432,8 @@
 				45155B701E89DA14008250C7 /* SignInViewController.m */,
 				45E21AB71E8A15F00042C2BC /* ReviewsTableViewController.h */,
 				45E21AB81E8A15F00042C2BC /* ReviewsTableViewController.m */,
+				45751B311E986A7900583E74 /* ReviewViewController.h */,
+				45751B321E986A7900583E74 /* ReviewViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -844,6 +849,7 @@
 				453835351E4962DD00B34BB4 /* Register2ViewController.m in Sources */,
 				453835621E496FCD00B34BB4 /* FSCalendarExtensions.m in Sources */,
 				4538355B1E496FCD00B34BB4 /* FSCalendarCalculator.m in Sources */,
+				45751B331E986A7900583E74 /* ReviewViewController.m in Sources */,
 				45FE25601E8B2B7F00F2F14E /* Country.m in Sources */,
 				45E21AB61E8A15600042C2BC /* ReviewsTableViewCell.m in Sources */,
 				025565E01DC2DAF8005A903E /* DarrenScottSalonApp.xcdatamodeld in Sources */,

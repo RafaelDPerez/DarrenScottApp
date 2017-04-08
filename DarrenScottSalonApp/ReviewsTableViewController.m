@@ -10,6 +10,7 @@
 #import "Review.h"
 #import "VKSideMenu.h"
 #import "FDKeychain.h"
+#import "ReviewViewController.h"
 @import Firebase;
 
 @interface ReviewsTableViewController ()<VKSideMenuDelegate, VKSideMenuDataSource>
@@ -18,7 +19,7 @@
 @end
 
 @implementation ReviewsTableViewController
-@synthesize reviewsArray;
+@synthesize reviewsArray, reviewSelected;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.menuLeft = [[VKSideMenu alloc] initWithSize:320 andDirection:VKSideMenuDirectionFromLeft];
@@ -41,6 +42,10 @@
             rev.what = child.value[@"what"];
             rev.where = child.value[@"where"];
             rev.date = child.value[@"date"];
+            rev.categories = child.value[@"categories"];
+            rev.photos = child.value[@"photos"];
+            rev.rating = child.value[@"rating"];
+            rev.address = child.value[@"address"];
 
             [reviewsArray addObject:rev];
             
@@ -51,6 +56,8 @@
         NSLog(@"%@", error.localizedDescription);
     }];
 }
+
+
 
 -(IBAction)buttonMenuLeft:(id)sender
 {
@@ -181,6 +188,13 @@
     if ([segue.identifier isEqualToString:@"callLogIn"]) {
         
     }
+    if ([segue.identifier isEqualToString:@"ViewReview"]) {
+        ReviewViewController *reviewViewController = [segue destinationViewController];
+        //     [cell getCurrentIndex];
+        //        offerViewController.hola= offerSelected.OfferImage;
+        reviewViewController.review = reviewSelected;
+        
+    }
 }
 
 -(void)sideMenuDidShow:(VKSideMenu *)sideMenu
@@ -265,6 +279,13 @@
     
     return cell;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    reviewSelected = [reviewsArray objectAtIndex:indexPath.row];
+    [self performSegueWithIdentifier:@"ViewReview" sender:self];
+}
+
+
 
 
 /*

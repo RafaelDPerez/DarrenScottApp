@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ReviewsTableViewCell.h"
+#import "Review.h"
 
 @interface ReviewsTableViewController : UITableViewController
 @property (strong, nonatomic) NSMutableArray *reviewsArray;
+@property (weak, nonatomic) Review *reviewSelected;
 @end
