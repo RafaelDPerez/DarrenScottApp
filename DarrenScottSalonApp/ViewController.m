@@ -308,6 +308,66 @@
                     }
                 }];
 
+            // For more complex open graph stories, use `FBSDKShareAPI`
+            // with `FBSDKShareOpenGraphContent`
+            
+            FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+            
+            [login
+             logInWithReadPermissions: @[@"public_profile", @"email", @"user_friends", @"user_posts"]
+             fromViewController:self
+             handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+                 if (error) {
+                     NSLog(@"Process error");
+                 } else if (result.isCancelled) {
+                     NSLog(@"Cancelled");
+                 } else {
+                     //             FIRAuthCredential *credential = [FIRFacebookAuthProvider
+                     //                                              credentialWithAccessToken:[FBSDKAccessToken currentAccessToken]
+                     //                                              .tokenString];
+                     //             [[FIRAuth auth] signInWithCredential:credential
+                     //                                       completion:^(FIRUser *user, NSError *error) {
+                     //
+                     //                                           [FDKeychain saveItem: @"YES"
+                     //                                                         forKey: @"loggedin"
+                     //                                                     forService: @"ReviewApp"
+                     //                                                          error: nil];
+                     //                                       }];
+                     //  [self performSegueWithIdentifier:@"callReviewApp" sender:self];
+                                                                           NSDictionary *params = @{
+                                                                                                    @"message": @"This is a test message",
+                                                                                                    };
+                                                                           /* make the API call */
+                                                                           FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]
+                                                                                                         initWithGraphPath:@"/me/feed"
+                                                                                                         parameters:params
+                                                                                                         HTTPMethod:@"POST"];
+                                                                           [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
+                                                                                                                 id result,
+                                                                                                                 NSError *error) {
+                                                                               // Handle the result
+                                                                           }];
+                                                                     
+                 
+                     
+                     
+                 }
+             }];
+            
+            if ([[FBSDKAccessToken currentAccessToken] hasGranted:@"publish_actions"]) {
+                // TODO: publish content.
+            } else {
+                
+                
+//                FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
+//                [loginManager logInWithPublishPermissions:@[@"publish_actions"]
+//                                       fromViewController:self
+//                                                  handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+//                                                      //TODO: process error or result.
+//                                                      NSLog(@"token: %@",[FBSDKAccessToken currentAccessToken].tokenString);
+
+            }
+            
             
             
             

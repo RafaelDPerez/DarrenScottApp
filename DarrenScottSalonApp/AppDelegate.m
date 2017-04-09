@@ -39,7 +39,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
      [FIRApp configure];
     [[Twitter sharedInstance] startWithConsumerKey:@"b9Lztf5aMSTc2bZbeBIb9EkRq" consumerSecret:@"ypCbRgCq3HcklSit9U6y2qM9qePtif8rGBtG9DCUv1LYzBq5B1"];
-    [Fabric with:@[[Twitter class]]];
+  //  [Fabric with:@[[Twitter class]]];
     [PDKClient configureSharedInstanceWithAppId:@"4893039640897927918"];
     [[FBSDKApplicationDelegate sharedInstance] application:application
                              didFinishLaunchingWithOptions:launchOptions];
@@ -154,19 +154,22 @@
                                                                annotation:annotation
                     ];
     // Add any custom logic here.
-    return handled || [[PDKClient sharedInstance] handleCallbackURL:url];;
+    return handled;
 } 
 
 
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options
-{
-    if ([[Twitter sharedInstance] application:app openURL:url options:options]) {
-        return YES;
-    }
-    
-    // If you handle other (non Twitter Kit) URLs elsewhere in your app, return YES. Otherwise
-    return YES;
-}
+
+
+//- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options
+//{
+//    if ([[Twitter sharedInstance] application:app openURL:url options:options]) {
+//        return YES;
+//    }
+//    
+//    // If you handle other (non Twitter Kit) URLs elsewhere in your app, return YES. Otherwise
+//    return YES;
+//}
+
 /*
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
 {

@@ -55,6 +55,7 @@
 		4538356A1E496FFF00B34BB4 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 453835691E496FFF00B34BB4 /* CalendarViewController.m */; };
 		454073A41E63909C008F245E /* VKSideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 454073A31E63909C008F245E /* VKSideMenu.m */; };
 		45751B331E986A7900583E74 /* ReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45751B321E986A7900583E74 /* ReviewViewController.m */; };
+		45ADCAF81E99DD4D00783FE2 /* clic pic review.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 45026B5E1E91C55900122A01 /* clic pic review.entitlements */; };
 		45B2F7411DE27C3100AAB600 /* TermsAndConditionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B2F7401DE27C3100AAB600 /* TermsAndConditionsViewController.m */; };
 		45B829961E6BD7650012B220 /* bg1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B829831E6BD7650012B220 /* bg1@2x.png */; };
 		45B829971E6BD7650012B220 /* bg2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B829841E6BD7650012B220 /* bg2@2x.png */; };
@@ -666,6 +667,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45ADCAF81E99DD4D00783FE2 /* clic pic review.entitlements in Resources */,
 				45FE25661E8B375100F2F14E /* PhoneFormats.dat in Resources */,
 				45B8299C1E6BD7650012B220 /* icon2@2x.png in Resources */,
 				451F948D1E64E8700006C105 /* Syncopate-Bold.ttf in Resources */,
