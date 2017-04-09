@@ -7,13 +7,14 @@
 //
 
 #import "CalendarViewController.h"
-
+@import Firebase;
 @interface CalendarViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) FIRDatabaseReference *ref;
 @end
 
 @implementation CalendarViewController
-
+@synthesize reviewsArray, reviewSelected;
 -(UITableView *)makeTableView
 {
     CGFloat x = 0;
@@ -99,15 +100,19 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     //etc.
+    Review *review = [[Review alloc]init];
+    review = [reviewsArray objectAtIndex:indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@",review.where,review.date];
+    cell.detailTextLabel.text = @"detalle";
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self performSegueWithIdentifier:@"detailsView" sender:self];
+    //[self performSegueWithIdentifier:@"detailsView" sender:self];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -130,13 +135,55 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
-    return 4;
+    return [reviewsArray count];
 }
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    reviewsArray = [[NSMutableArray alloc]init];
+    self.ref = [[FIRDatabase database] reference];
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+    self.fillDefaultColors = [[NSMutableDictionary alloc]init];
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [[_ref child:@"reviews"] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        for ( FIRDataSnapshot *child in snapshot.children) {
+            
+            //  NSLog(@"child.value = %@",child.value[@"station_name"]);
+            Review *rev = [[Review alloc]init];
+            rev.what = child.value[@"what"];
+            rev.where = child.value[@"where"];
+            rev.who = child.value[@"who"];
+            rev.why = child.value[@"why"];
+            rev.with = child.value[@"with"];
+            rev.comments = child.value[@"comments"];
+            rev.date = child.value[@"date"];
+            rev.categories = child.value[@"categories"];
+            rev.photos = child.value[@"photos"];
+            rev.rating = child.value[@"rating"];
+            rev.address = child.value[@"address"];
+            
+            [reviewsArray addObject:rev];
+            
+            [self.tableView reloadData];
+            for (int i=0; i<[reviewsArray count]-1; i++) {
+                Review *thisReview = [[Review alloc]init];
+                thisReview = [reviewsArray objectAtIndex:i];
+              [self.fillDefaultColors setObject:[UIColor greenColor] forKey:thisReview.date];
+            
+            }
+            [self.calendar reloadData];
+        }
+        
+    } withCancelBlock:^(NSError * _Nonnull error) {
+        NSLog(@"%@", error.localizedDescription);
+    }];
+
+    
+    
     
     self.gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -151,20 +198,26 @@
     [self.calendar selectDate:dateFromString];
     //
     //    self.calendar.selectedDate
-    self.fillDefaultColors = @{@"2017/02/03":[UIColor purpleColor],
-                               @"2015/10/06":[UIColor greenColor],
-                               @"2015/10/18":[UIColor cyanColor],
-                               @"2015/10/22":[UIColor yellowColor],
-                               @"2015/11/08":[UIColor purpleColor],
-                               @"2015/11/06":[UIColor greenColor],
-                               @"2015/11/18":[UIColor cyanColor],
-                               @"2015/11/22":[UIColor yellowColor],
-                               @"2015/12/08":[UIColor purpleColor],
-                               @"2015/12/06":[UIColor greenColor],
-                               @"2015/12/18":[UIColor cyanColor],
-                               @"2015/12/22":[UIColor magentaColor]};
-    self.dateFormatter1 = [[NSDateFormatter alloc] init];
-    self.dateFormatter1.dateFormat = @"yyyy/MM/dd";
+//    self.fillDefaultColors = @{@"2017/02/03":[UIColor purpleColor],
+//                               @"2015/10/06":[UIColor greenColor],
+//                               @"2015/10/18":[UIColor cyanColor],
+//                               @"2015/10/22":[UIColor yellowColor],
+//                               @"2015/11/08":[UIColor purpleColor],
+//                               @"2015/11/06":[UIColor greenColor],
+//                               @"2015/11/18":[UIColor cyanColor],
+//                               @"2015/11/22":[UIColor yellowColor],
+//                               @"2015/12/08":[UIColor purpleColor],
+//                               @"2015/12/06":[UIColor greenColor],
+//                               @"2015/12/18":[UIColor cyanColor],
+//                               @"2015/12/22":[UIColor magentaColor]};
+//    self.dateFormatter1 = [[NSDateFormatter alloc] init];
+//    self.dateFormatter1.dateFormat = @"yyyy/MM/dd";
+    
+     //   self.fillDefaultColors = @{@"06/01/2017":[UIColor purpleColor]};
+    
+   // [self.fillDefaultColors setObject:[UIColor purpleColor] forKey:@"06/01/2017"];
+        self.dateFormatter1 = [[NSDateFormatter alloc] init];
+        self.dateFormatter1.dateFormat = @"dd-MM-yyyy";
     
     
     

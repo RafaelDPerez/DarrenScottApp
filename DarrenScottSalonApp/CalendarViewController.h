@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "FSCalendar.h"
+#import "Review.h"
 
 @interface CalendarViewController : UIViewController<FSCalendarDataSource, FSCalendarDelegate, FSCalendarDelegateAppearance>
 @property (weak, nonatomic) FSCalendar *calendar;
@@ -16,12 +17,13 @@
 @property (weak, nonatomic) UIButton *nextButton;
 
 @property (strong, nonatomic) NSDateFormatter *dateFormatter1;
-@property (strong, nonatomic) NSDictionary *fillDefaultColors;
+@property (strong, nonatomic) NSMutableDictionary *fillDefaultColors;
 
 @property (strong, nonatomic) NSCalendar *gregorian;
 
 @property (weak, nonatomic) UIView *hola;
-
+@property (strong, nonatomic) NSMutableArray *reviewsArray;
+@property (weak, nonatomic) Review *reviewSelected;
 
 - (void)previousClicked:(id)sender;
 - (void)nextClicked:(id)sender;
