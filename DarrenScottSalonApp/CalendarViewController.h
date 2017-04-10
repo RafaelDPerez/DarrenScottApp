@@ -23,6 +23,7 @@
 
 @property (weak, nonatomic) UIView *hola;
 @property (strong, nonatomic) NSMutableArray *reviewsArray;
+@property (strong, nonatomic) NSMutableArray *reviewsArrayShow;
 @property (weak, nonatomic) Review *reviewSelected;
 
 - (void)previousClicked:(id)sender;

@@ -7,6 +7,7 @@
 //
 
 #import "CalendarViewController.h"
+#import "ReviewViewController.h"
 @import Firebase;
 @interface CalendarViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) UITableView *tableView;
@@ -14,7 +15,7 @@
 @end
 
 @implementation CalendarViewController
-@synthesize reviewsArray, reviewSelected;
+@synthesize reviewsArray, reviewSelected, reviewsArrayShow;
 -(UITableView *)makeTableView
 {
     CGFloat x = 0;
@@ -104,27 +105,31 @@
     }
     //etc.
     Review *review = [[Review alloc]init];
-    review = [reviewsArray objectAtIndex:indexPath.row];
+    review = [reviewsArrayShow objectAtIndex:indexPath.row];
     cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@",review.where,review.date];
     cell.detailTextLabel.text = @"detalle";
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    //[self performSegueWithIdentifier:@"detailsView" sender:self];
+//-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    [self performSegueWithIdentifier:@"callReview" sender:self];
+//}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath: (NSIndexPath *)indexPath {
+    reviewSelected = [reviewsArrayShow objectAtIndex:indexPath.row];
+    [self performSegueWithIdentifier:@"callReview" sender:self];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    //I set the segue identifier in the interface builder
-    if ([segue.identifier isEqualToString:@"detailsView"])
-    {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+ 
+    if ([segue.identifier isEqualToString:@"callReview"]) {
+        ReviewViewController *reviewViewController = [segue destinationViewController];
+        //     [cell getCurrentIndex];
+        //        offerViewController.hola= offerSelected.OfferImage;
+        reviewViewController.review = reviewSelected;
         
-        NSLog(@"segue"); //check to see if method is called, it is NOT called upon cell touch
-        
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        ///more code to prepare next view controller....
     }
 }
 
@@ -135,7 +140,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
-    return [reviewsArray count];
+    return [reviewsArrayShow count];
 }
 
 
@@ -143,12 +148,16 @@
 {
     [super viewDidLoad];
     reviewsArray = [[NSMutableArray alloc]init];
+    reviewsArrayShow = [[NSMutableArray alloc]init];
     self.ref = [[FIRDatabase database] reference];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     self.fillDefaultColors = [[NSMutableDictionary alloc]init];
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"dd-MM-yyyy";
+    NSString *string = [formatter stringFromDate:[NSDate date]];
     [[_ref child:@"reviews"] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         for ( FIRDataSnapshot *child in snapshot.children) {
             
@@ -166,6 +175,9 @@
             rev.rating = child.value[@"rating"];
             rev.address = child.value[@"address"];
             
+            if ([rev.date isEqualToString:string]) {
+                [reviewsArrayShow addObject:rev];
+            }
             [reviewsArray addObject:rev];
             
             [self.tableView reloadData];
@@ -175,9 +187,28 @@
               [self.fillDefaultColors setObject:[UIColor greenColor] forKey:thisReview.date];
             
             }
-            [self.calendar reloadData];
+           
+            
+            
+            
+            
+//            [self.calendar removeFromSuperview];
+//            
+
+            
+
+            
         }
-        
+        formatter.dateFormat = @"dd-MM-yyyy";
+        NSString *dateString = [formatter stringFromDate:[NSDate date]];
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        // this is imporant - we set our input date format to match our input string
+        // if format doesn't match you'll get nil from your string, so be careful
+        [dateFormatter setDateFormat:@"dd-MM-yyyy"];
+        NSDate *dateFromString = [[NSDate alloc] init];
+        dateFromString = [dateFormatter dateFromString:dateString];
+        [self.calendar setCurrentPage:dateFromString animated:YES];
+         //           [self.calendar reloadData];
     } withCancelBlock:^(NSError * _Nonnull error) {
         NSLog(@"%@", error.localizedDescription);
     }];
@@ -186,7 +217,7 @@
     
     
     self.gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    //NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = @"dd-MM-yyyy";
     NSString *dateString = [formatter stringFromDate:[NSDate date]];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -197,7 +228,7 @@
     dateFromString = [dateFormatter dateFromString:dateString];
     [self.calendar selectDate:dateFromString];
     //
-    //    self.calendar.selectedDate
+        //self.calendar.selectedDate =
 //    self.fillDefaultColors = @{@"2017/02/03":[UIColor purpleColor],
 //                               @"2015/10/06":[UIColor greenColor],
 //                               @"2015/10/18":[UIColor cyanColor],
@@ -209,14 +240,17 @@
 //                               @"2015/12/08":[UIColor purpleColor],
 //                               @"2015/12/06":[UIColor greenColor],
 //                               @"2015/12/18":[UIColor cyanColor],
-//                               @"2015/12/22":[UIColor magentaColor]};
+////                               @"2015/12/22":[UIColor magentaColor]};
 //    self.dateFormatter1 = [[NSDateFormatter alloc] init];
 //    self.dateFormatter1.dateFormat = @"yyyy/MM/dd";
+//    
+//        //self.fillDefaultColors = @{@"06/01/2017":[UIColor purpleColor]};
+//    
+//    [self.fillDefaultColors setObject:[UIColor purpleColor] forKey:@"06/01/2017"];
     
-     //   self.fillDefaultColors = @{@"06/01/2017":[UIColor purpleColor]};
     
-   // [self.fillDefaultColors setObject:[UIColor purpleColor] forKey:@"06/01/2017"];
-        self.dateFormatter1 = [[NSDateFormatter alloc] init];
+    
+     self.dateFormatter1 = [[NSDateFormatter alloc] init];
         self.dateFormatter1.dateFormat = @"dd-MM-yyyy";
     
     
@@ -226,6 +260,22 @@
 
 - (void)calendar:(FSCalendar *)calendar didSelectDate:(NSDate *)date atMonthPosition:(FSCalendarMonthPosition)monthPosition{
     NSLog(@"%@",date);
+    reviewsArrayShow = [[NSMutableArray alloc]init];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"dd-MM-yyyy";
+    NSString *string = [formatter stringFromDate:date];
+                for (int x=0;x<[reviewsArray count] ;x++ ) {
+                    Review *reviewsDay = [[Review alloc]init];
+                    reviewsDay = [reviewsArray objectAtIndex:x];
+                    if ([reviewsDay.date isEqualToString:string]) {
+                        [reviewsArrayShow addObject:reviewsDay];
+                    }
+                }
+    //NSIndexPath *indexPath =[NSIndexPath indexPathForRow:sender.tag inSection:0];
+//    [self.collectionView deleteItemsAtIndexPaths:[NSArray arrayWithObject:indexPath]];
+//    [self.collectionView reloadItemsAtIndexPaths:[self.collectionView indexPathsForVisibleItems]];
+    [self.tableView reloadData];
+    //[self.calendar reloadData];
     
 }
 

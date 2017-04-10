@@ -25,7 +25,7 @@
     _lblWith.text = self.review.with;
     _lblComments.text = self.review.comments;
     
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back to Reviews"
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back"
                                                                    style:UIBarButtonItemStyleBordered
                                                                   target:self
                                                                   action:@selector(handleBack:)];
