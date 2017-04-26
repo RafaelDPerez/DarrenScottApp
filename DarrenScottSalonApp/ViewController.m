@@ -26,6 +26,8 @@
 @interface ViewController ()<VKSideMenuDelegate, VKSideMenuDataSource,GMSAutocompleteViewControllerDelegate, UIAlertViewDelegate>{
     FIRStorageReference *storageRef;
     NSData *imageData;
+    NSData *imageData2;
+    NSData *imageData3;
     UIImage *hola;
     UITextView *selectedTextView;
     
@@ -247,6 +249,16 @@
     [self addPhotoWithCompletionHandler:^(BOOL success, UIImage *image) {
         if (success) {
             imageView.image = image;
+            if (buttonTap.tag ==11) {
+                imageData = UIImageJPEGRepresentation(image, 0.5);
+            }
+            if (buttonTap.tag ==22) {
+                imageData2 = UIImageJPEGRepresentation(image, 0.5);
+            }
+            if (buttonTap.tag ==33) {
+                imageData3 = UIImageJPEGRepresentation(image, 0.5);
+            }
+
         }
     }];
 }
