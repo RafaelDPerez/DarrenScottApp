@@ -26,7 +26,7 @@
             <objects>
                 <navigationController storyboardIdentifier="Slide" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jxk-hw-it8" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="1cP-1Z-D44"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Sc4-0g-Fat">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Sc4-0g-Fat">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -340,14 +340,14 @@
                                             <constraint firstAttribute="width" constant="103" id="jmk-QJ-eLb"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Syncopate-Regular" family="Syncopate" pointSize="7"/>
-                                        <state key="normal" title="Pick From Gallery">
+                                        <state key="normal" title="Pick Photo 1">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="btnGalleryClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TQN-b2-TKb"/>
+                                            <action selector="addImageView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8yH-7v-pU3"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="13" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WNo-wU-5kd">
+                                    <button opaque="NO" tag="33" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WNo-wU-5kd">
                                         <rect key="frame" x="264" y="151" width="103" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="103" id="DOH-l7-bUC"/>
@@ -355,14 +355,14 @@
                                             <constraint firstAttribute="width" secondItem="WNo-wU-5kd" secondAttribute="height" multiplier="103:24" id="h4U-ps-JHO"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Syncopate-Regular" family="Syncopate" pointSize="7"/>
-                                        <state key="normal" title="Pick From Gallery">
+                                        <state key="normal" title="Pick Photo 3">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="btnGalleryClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Iqb-bt-Gm5"/>
+                                            <action selector="addImageView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eaN-Ex-TCV"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="12" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9id-mg-AYB">
+                                    <button opaque="NO" tag="22" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9id-mg-AYB">
                                         <rect key="frame" x="136" y="151" width="103" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="9id-mg-AYB" secondAttribute="height" multiplier="103:24" id="ed2-VT-QCZ"/>
@@ -370,11 +370,11 @@
                                             <constraint firstAttribute="height" constant="24" id="xVn-Gl-HRl"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Syncopate-Regular" family="Syncopate" pointSize="7"/>
-                                        <state key="normal" title="Pick From Gallery">
+                                        <state key="normal" title="Pick Photo 2">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="btnGalleryClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZPb-lh-Qpq"/>
+                                            <action selector="addImageView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bfg-vh-rmv"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -493,9 +493,9 @@
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
                         <outlet property="btnCheckIn" destination="YEs-Cp-K6g" id="35D-1T-Kab"/>
-                        <outlet property="btnGallery" destination="kbX-XB-JfP" id="EJI-3v-Zx6"/>
-                        <outlet property="btnGallery2" destination="9id-mg-AYB" id="hE7-HG-Wpy"/>
-                        <outlet property="btnGallery3" destination="WNo-wU-5kd" id="u39-H3-YMN"/>
+                        <outlet property="btnPhoto1" destination="kbX-XB-JfP" id="eVc-8D-hMu"/>
+                        <outlet property="btnPhoto2" destination="9id-mg-AYB" id="W3X-6y-H4x"/>
+                        <outlet property="btnPhoto3" destination="WNo-wU-5kd" id="VV8-Ns-NPT"/>
                         <outlet property="ivPickedImage" destination="Mjv-K7-IKM" id="vmA-eJ-Tsq"/>
                         <outlet property="ivPickedImage2" destination="nKZ-29-MUb" id="Rzi-MC-qh9"/>
                         <outlet property="ivPickedImage3" destination="Vbi-0I-bh5" id="ZoD-yr-gKj"/>
@@ -927,7 +927,7 @@ Termination. We may modify, suspend, or terminate your access to or use of our S
             <objects>
                 <navigationController id="3Pi-eE-rkh" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="bh2-da-Ixi"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mc6-aK-Jnt">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mc6-aK-Jnt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
@@ -1323,7 +1323,7 @@ Termination. We may modify, suspend, or terminate your access to or use of our S
         <scene sceneID="BwI-rP-JE9">
             <objects>
                 <navigationController id="lHL-gF-0HY" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vCm-vI-jTP">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="vCm-vI-jTP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1513,7 +1513,7 @@ Termination. We may modify, suspend, or terminate your access to or use of our S
         <scene sceneID="G4y-tZ-cbo">
             <objects>
                 <navigationController id="VXe-7t-Jny" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JQV-Uj-GUl">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="JQV-Uj-GUl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

@@ -17,6 +17,7 @@
 #import "FDKeychain.h"
 #import <TwitterKit/TwitterKit.h>
 #import "Review.h"
+#import "UIViewController+SLPhotoSelection.h"
 
 
 @import Firebase;
@@ -41,7 +42,7 @@
 
 @implementation ViewController
 @synthesize ivPickedImage,ivPickedImage2,ivPickedImage3;
-@synthesize btnCamera,btnGallery,btnCheckIn, btnCamera2,btnGallery2,btnCamera3,btnGallery3, swLocation, swTwitter;
+@synthesize btnPhoto1,btnPhoto2,btnPhoto3, swLocation, swTwitter, btnCheckIn;
 
 
 
@@ -76,29 +77,19 @@
     [[_textViewCategory layer] setBorderColor:self.view.tintColor.CGColor];
 
     
-    [[btnCamera layer] setBorderWidth:1.0f];
-    [[btnCamera layer] setBorderColor:self.view.tintColor.CGColor];
-    btnCamera.layer.cornerRadius = 15.0f;
+    [[btnPhoto1 layer] setBorderWidth:1.0f];
+    [[btnPhoto1 layer] setBorderColor:self.view.tintColor.CGColor];
+    btnPhoto1.layer.cornerRadius = 15.0f;
     
-    [[btnGallery layer] setBorderWidth:1.0f];
-    [[btnGallery layer] setBorderColor:self.view.tintColor.CGColor];
-    btnGallery.layer.cornerRadius = 15.0f;
+    [[btnPhoto2 layer] setBorderWidth:1.0f];
+    [[btnPhoto2 layer] setBorderColor:self.view.tintColor.CGColor];
+    btnPhoto2.layer.cornerRadius = 15.0f;
     
-    [[btnCamera2 layer] setBorderWidth:1.0f];
-    [[btnCamera2 layer] setBorderColor:self.view.tintColor.CGColor];
-    btnCamera2.layer.cornerRadius = 15.0f;
+    [[btnPhoto3 layer] setBorderWidth:1.0f];
+    [[btnPhoto3 layer] setBorderColor:self.view.tintColor.CGColor];
+    btnPhoto3.layer.cornerRadius = 15.0f;
     
-    [[btnGallery2 layer] setBorderWidth:1.0f];
-    [[btnGallery2 layer] setBorderColor:self.view.tintColor.CGColor];
-    btnGallery2.layer.cornerRadius = 15.0f;
     
-    [[btnCamera3 layer] setBorderWidth:1.0f];
-    [[btnCamera3 layer] setBorderColor:self.view.tintColor.CGColor];
-    btnCamera3.layer.cornerRadius = 15.0f;
-    
-    [[btnGallery3 layer] setBorderWidth:1.0f];
-    [[btnGallery3 layer] setBorderColor:self.view.tintColor.CGColor];
-    btnGallery3.layer.cornerRadius = 15.0f;
     
     [[btnCheckIn layer] setBorderWidth:1.0f];
     [[btnCheckIn layer] setBorderColor:self.view.tintColor.CGColor];
@@ -234,6 +225,30 @@
     }
    
 
+}
+
+#pragma mark - SLPhotoSelection methods
+
+- (IBAction)addImageView:(id)sender
+{
+    UIButton *buttonTap = sender;
+    __weak UIImageView *imageView = self.ivPickedImage;
+    if (buttonTap.tag ==11) {
+        imageView = self.ivPickedImage;
+    }
+    if (buttonTap.tag ==22) {
+        imageView = self.ivPickedImage2;
+    }
+    if (buttonTap.tag ==33) {
+        imageView = self.ivPickedImage3;
+    }
+   
+    
+    [self addPhotoWithCompletionHandler:^(BOOL success, UIImage *image) {
+        if (success) {
+            imageView.image = image;
+        }
+    }];
 }
 
 
@@ -1028,40 +1043,40 @@ didFailAutocompleteWithError:(NSError *)error {
 }
 
 
--(void)tapDetected{
-    ipc = [[UIImagePickerController alloc] init];
-    ipc.delegate = self;
-    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
-    {
-        ipc.sourceType = UIImagePickerControllerSourceTypeCamera;
-        ipc.cameraDevice = UIImagePickerControllerCameraDeviceFront;
-        [self presentViewController:ipc animated:YES completion:NULL];
-    }
-    else
-    {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"No Camera Available." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-        [alert show];
-        alert = nil;
-    }
-}
-
-- (IBAction)btnGalleryClicked:(id)sender
-{
-    ipc= [[UIImagePickerController alloc] init];
-    ipc.delegate = self;
-    ipc.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
-
-    UIButton *hola = sender;
-    _senderID = hola.tag;
-    
-    if(UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPhone)
-        [self presentViewController:ipc animated:YES completion:nil];
-    else
-    {
-        popover=[[UIPopoverController alloc]initWithContentViewController:ipc];
-        [popover presentPopoverFromRect:btnGallery.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-    }
-}
+//-(void)tapDetected{
+//    ipc = [[UIImagePickerController alloc] init];
+//    ipc.delegate = self;
+//    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+//    {
+//        ipc.sourceType = UIImagePickerControllerSourceTypeCamera;
+//        ipc.cameraDevice = UIImagePickerControllerCameraDeviceFront;
+//        [self presentViewController:ipc animated:YES completion:NULL];
+//    }
+//    else
+//    {
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"No Camera Available." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+//        [alert show];
+//        alert = nil;
+//    }
+//}
+//
+//- (IBAction)btnGalleryClicked:(id)sender
+//{
+//    ipc= [[UIImagePickerController alloc] init];
+//    ipc.delegate = self;
+//    ipc.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+//
+//    UIButton *hola = sender;
+//    _senderID = hola.tag;
+//    
+//    if(UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPhone)
+//        [self presentViewController:ipc animated:YES completion:nil];
+//    else
+//    {
+//        popover=[[UIPopoverController alloc]initWithContentViewController:ipc];
+//        [popover presentPopoverFromRect:btn.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+//    }
+//}
 
 
 //- (IBAction)btnPhotoGalleryClicked:(id)sender
@@ -1081,59 +1096,59 @@ didFailAutocompleteWithError:(NSError *)error {
 
 
 
-- (IBAction)btnCameraClicked:(id)sender
-{
-    ipc = [[UIImagePickerController alloc] init];
-    ipc.delegate = self;
-    
-    UIButton *hola = sender;
-    _senderID = hola.tag;
-    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
-    {
-        ipc.sourceType = UIImagePickerControllerSourceTypeCamera;
-        [self presentViewController:ipc animated:YES completion:NULL];
-    }
-    else
-    {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"No Camera Available." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-        [alert show];
-        alert = nil;
-    }
-}
+//- (IBAction)btnCameraClicked:(id)sender
+//{
+//    ipc = [[UIImagePickerController alloc] init];
+//    ipc.delegate = self;
+//    
+//    UIButton *hola = sender;
+//    _senderID = hola.tag;
+//    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+//    {
+//        ipc.sourceType = UIImagePickerControllerSourceTypeCamera;
+//        [self presentViewController:ipc animated:YES completion:NULL];
+//    }
+//    else
+//    {
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"No Camera Available." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+//        [alert show];
+//        alert = nil;
+//    }
+//}
 
-#pragma mark - ImagePickerController Delegate
-
--(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-    if(UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPhone) {
-        [picker dismissViewControllerAnimated:YES completion:nil];
-    } else {
-        [popover dismissPopoverAnimated:YES];
-    }
-    if (_senderID == 11 || _senderID == 21) {
-        ivPickedImage.image = [info objectForKey:UIImagePickerControllerOriginalImage];
-        imageData = UIImageJPEGRepresentation([info objectForKey:UIImagePickerControllerOriginalImage], 1.0);
-    }
-    if (_senderID == 12 || _senderID == 22) {
-        ivPickedImage2.image = [info objectForKey:UIImagePickerControllerOriginalImage];
-        imageData = UIImageJPEGRepresentation([info objectForKey:UIImagePickerControllerOriginalImage], 1.0);
-    }
-    if (_senderID == 13 || _senderID == 23) {
-        ivPickedImage3.image = [info objectForKey:UIImagePickerControllerOriginalImage];
-        imageData = UIImageJPEGRepresentation([info objectForKey:UIImagePickerControllerOriginalImage], 1.0);
-    }
-//    ivPickedImage.image = [info objectForKey:UIImagePickerControllerOriginalImage];
-//    imageData = UIImageJPEGRepresentation([info objectForKey:UIImagePickerControllerOriginalImage], 1.0);
-    //hola = [info objectForKey:UIImagePickerControllerOriginalImage];
-    
-}
-
-
-
--(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
-{
-    [picker dismissViewControllerAnimated:YES completion:nil];
-}
+//#pragma mark - ImagePickerController Delegate
+//
+//-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+//{
+//    if(UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPhone) {
+//        [picker dismissViewControllerAnimated:YES completion:nil];
+//    } else {
+//        [popover dismissPopoverAnimated:YES];
+//    }
+//    if (_senderID == 11 || _senderID == 21) {
+//        ivPickedImage.image = [info objectForKey:UIImagePickerControllerOriginalImage];
+//        imageData = UIImageJPEGRepresentation([info objectForKey:UIImagePickerControllerOriginalImage], 1.0);
+//    }
+//    if (_senderID == 12 || _senderID == 22) {
+//        ivPickedImage2.image = [info objectForKey:UIImagePickerControllerOriginalImage];
+//        imageData = UIImageJPEGRepresentation([info objectForKey:UIImagePickerControllerOriginalImage], 1.0);
+//    }
+//    if (_senderID == 13 || _senderID == 23) {
+//        ivPickedImage3.image = [info objectForKey:UIImagePickerControllerOriginalImage];
+//        imageData = UIImageJPEGRepresentation([info objectForKey:UIImagePickerControllerOriginalImage], 1.0);
+//    }
+////    ivPickedImage.image = [info objectForKey:UIImagePickerControllerOriginalImage];
+////    imageData = UIImageJPEGRepresentation([info objectForKey:UIImagePickerControllerOriginalImage], 1.0);
+//    //hola = [info objectForKey:UIImagePickerControllerOriginalImage];
+//    
+//}
+//
+//
+//
+//-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+//{
+//    [picker dismissViewControllerAnimated:YES completion:nil];
+//}
 
 
 - (void)didReceiveMemoryWarning

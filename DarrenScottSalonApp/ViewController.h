@@ -15,12 +15,9 @@
     UIPopoverController *popover;
 }
 @property (nonatomic, assign) BOOL slideOutAnimationEnabled;
-@property (weak, nonatomic) IBOutlet UIButton *btnGallery;
-@property (weak, nonatomic) IBOutlet UIButton *btnCamera;
-@property (weak, nonatomic) IBOutlet UIButton *btnGallery2;
-@property (weak, nonatomic) IBOutlet UIButton *btnCamera2;
-@property (weak, nonatomic) IBOutlet UIButton *btnGallery3;
-@property (weak, nonatomic) IBOutlet UIButton *btnCamera3;
+@property (weak, nonatomic) IBOutlet UIButton *btnPhoto1;
+@property (weak, nonatomic) IBOutlet UIButton *btnPhoto2;
+@property (weak, nonatomic) IBOutlet UIButton *btnPhoto3;
 @property (weak, nonatomic) IBOutlet UIButton *btnCheckIn;
 @property(strong,nonatomic) IBOutlet ASStarRatingView *starsRating;
 @property (weak, nonatomic) IBOutlet UIImageView *ivPickedImage;
