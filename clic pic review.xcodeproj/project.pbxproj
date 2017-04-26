@@ -84,6 +84,7 @@
 		45C6B8011DD2A3F90067654B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45C6B8001DD2A3F90067654B /* Social.framework */; };
 		45E21AB61E8A15600042C2BC /* ReviewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E21AB51E8A15600042C2BC /* ReviewsTableViewCell.m */; };
 		45E21AB91E8A15F00042C2BC /* ReviewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E21AB81E8A15F00042C2BC /* ReviewsTableViewController.m */; };
+		45F5B5FE1EB01374002D06B2 /* UIViewController+SLPhotoSelection.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F5B5FD1EB01374002D06B2 /* UIViewController+SLPhotoSelection.m */; };
 		45FE25601E8B2B7F00F2F14E /* Country.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FE255F1E8B2B7F00F2F14E /* Country.m */; };
 		45FE25641E8B343500F2F14E /* RMPhoneFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FE25631E8B343500F2F14E /* RMPhoneFormat.m */; };
 		45FE25661E8B375100F2F14E /* PhoneFormats.dat in Resources */ = {isa = PBXBuildFile; fileRef = 45FE25651E8B369B00F2F14E /* PhoneFormats.dat */; };
@@ -227,6 +228,8 @@
 		45E21AB51E8A15600042C2BC /* ReviewsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewsTableViewCell.m; sourceTree = "<group>"; };
 		45E21AB71E8A15F00042C2BC /* ReviewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewsTableViewController.h; sourceTree = "<group>"; };
 		45E21AB81E8A15F00042C2BC /* ReviewsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewsTableViewController.m; sourceTree = "<group>"; };
+		45F5B5FC1EB01374002D06B2 /* UIViewController+SLPhotoSelection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SLPhotoSelection.h"; sourceTree = "<group>"; };
+		45F5B5FD1EB01374002D06B2 /* UIViewController+SLPhotoSelection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SLPhotoSelection.m"; sourceTree = "<group>"; };
 		45FE255E1E8B2B7F00F2F14E /* Country.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Country.h; sourceTree = "<group>"; };
 		45FE255F1E8B2B7F00F2F14E /* Country.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Country.m; sourceTree = "<group>"; };
 		45FE25621E8B343500F2F14E /* RMPhoneFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPhoneFormat.h; sourceTree = "<group>"; };
@@ -293,6 +296,7 @@
 		025565D61DC2DAF8005A903E /* clicpicreviewApp */ = {
 			isa = PBXGroup;
 			children = (
+				45F5B5FB1EB01363002D06B2 /* SLPhotoSelection */,
 				45FE25611E8B342500F2F14E /* RMFormat */,
 				45E21AB31E8A15490042C2BC /* Cells */,
 				45155B721E89FEA5008250C7 /* Model */,
@@ -565,6 +569,15 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
+		45F5B5FB1EB01363002D06B2 /* SLPhotoSelection */ = {
+			isa = PBXGroup;
+			children = (
+				45F5B5FC1EB01374002D06B2 /* UIViewController+SLPhotoSelection.h */,
+				45F5B5FD1EB01374002D06B2 /* UIViewController+SLPhotoSelection.m */,
+			);
+			name = SLPhotoSelection;
+			sourceTree = "<group>";
+		};
 		45FE25611E8B342500F2F14E /* RMFormat */ = {
 			isa = PBXGroup;
 			children = (
@@ -821,6 +834,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45155B751E89FEBE008250C7 /* User.m in Sources */,
+				45F5B5FE1EB01374002D06B2 /* UIViewController+SLPhotoSelection.m in Sources */,
 				4538352E1E4960D100B34BB4 /* UIUnderlinedButton.m in Sources */,
 				4538355E1E496FCD00B34BB4 /* FSCalendarCollectionViewLayout.m in Sources */,
 				453835581E496FCD00B34BB4 /* FSCalendar.m in Sources */,

@@ -10,7 +10,7 @@
 @import Firebase;
 #import "FDKeychain.h"
 
-@interface SignInViewController ()
+@interface SignInViewController ()<UITextFieldDelegate>
 
 @end
 
@@ -33,6 +33,18 @@
     _textViewUsername.clipsToBounds = YES;
     //    _textViewComments.layer.cornerRadius = 10.0f;
     _textViewUsername.delegate = self;
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
+}
+
+-(void)dismissKeyboard {
+    [_txtPassword resignFirstResponder];
+    [_textViewUsername resignFirstResponder];
+    
 }
 
 -(IBAction)SignIn:(id)sender{
@@ -91,6 +103,13 @@
         
     }
 }
+
+-(BOOL) textFieldShouldReturn:(UITextField *)textField{
+    
+    [textField resignFirstResponder];
+    return YES;
+}
+
 
 -(BOOL) NSStringIsValidEmail:(NSString *)checkString
     {
