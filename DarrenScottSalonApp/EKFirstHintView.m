@@ -35,7 +35,7 @@
 	self.hint.backgroundColor = [UIColor clearColor];
 	self.hint.textAlignment = NSTextAlignmentCenter;
     self.hint.numberOfLines = 5;
-    self.hint.font = [UIFont systemFontOfSize:10];
+    self.hint.font = [UIFont fontWithName:@"Syncopate" size:8];
 	self.hint.text = @"Welcome to clic pic review (CPR), the new exciting app that allows you a fun and simple way to record, review and share your experiences with your friends and the world.";
 	self.hint.textColor = [UIColor blackColor];
 	[self addSubview:self.hint];
@@ -44,7 +44,7 @@
     self.hint2.backgroundColor = [UIColor clearColor];
     self.hint2.textAlignment = NSTextAlignmentCenter;
     self.hint2.numberOfLines = 5;
-    self.hint2.font = [UIFont systemFontOfSize:10];
+    self.hint2.font = [UIFont fontWithName:@"Syncopate" size:8];
     self.hint2.text = @"Register your social media, and share with a swipe of the finger. CPR saves you time and helps you save, share and store your memories.";
     self.hint2.textColor = [UIColor blackColor];
     [self addSubview:self.hint2];
@@ -53,7 +53,7 @@
     self.hint3.backgroundColor = [UIColor clearColor];
     self.hint3.textAlignment = NSTextAlignmentCenter;
     self.hint3.numberOfLines = 5;
-    self.hint3.font = [UIFont systemFontOfSize:10];
+    self.hint3.font = [UIFont fontWithName:@"Syncopate" size:8];
     self.hint3.text = @"Start your adventure now with Clic Pic Review";
     self.hint3.textColor = [UIColor blackColor];
     [self addSubview:self.hint3];
@@ -81,7 +81,7 @@
     
     self.img1.frame = CGRectMake(self.bounds.origin.x + 30.0f, self.bounds.origin.y+30.0f, self.frame.size.width - 80.0f, self.bounds.size.height / 4.0f);
     
-    self.img2.frame = CGRectMake(30.0f, self.bounds.origin.y + 350.0f, self.frame.size.width - 80.0f, self.bounds.size.height / 4.0f);
+    self.img2.frame = CGRectMake(30.0f, self.bounds.origin.y + 410.0f, self.frame.size.width - 80.0f, self.bounds.size.height / 4.0f);
     
 //    self.hint.frame = CGRectMake(0.0f, self.frame.origin.y + 40.0f, self.bounds.size.width, self.bounds.size.height - 90.0f);
 

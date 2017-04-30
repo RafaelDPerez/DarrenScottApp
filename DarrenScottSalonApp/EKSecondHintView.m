@@ -33,7 +33,7 @@
     self.hint.backgroundColor = [UIColor clearColor];
     self.hint.textAlignment = NSTextAlignmentCenter;
     self.hint.numberOfLines = 5;
-    self.hint.font = [UIFont systemFontOfSize:10];
+    self.hint.font = [UIFont fontWithName:@"Syncopate" size:10];
     self.hint.text = @"Use it as your personal diary using the calendar functinos found in the top right if the main screen once you've registered. Then when you're asked what did you do on the weekend, you can tell and show them where, who, what, why, with and write about your overall experience";
     self.hint.textColor = [UIColor blackColor];
     [self addSubview:self.hint];
@@ -42,7 +42,7 @@
     self.hint2.backgroundColor = [UIColor clearColor];
     self.hint2.textAlignment = NSTextAlignmentCenter;
     self.hint2.numberOfLines = 5;
-    self.hint2.font = [UIFont systemFontOfSize:10];
+    self.hint2.font = [UIFont fontWithName:@"Syncopate" size:10];
     self.hint2.text = @"Promote and share your veiws on anything and everything";
     self.hint2.textColor = [UIColor blackColor];
     [self addSubview:self.hint2];

@@ -42,6 +42,9 @@
 @property (weak, nonatomic) IBOutlet UISwitch *swLocation;
 @property (weak, nonatomic) IBOutlet UISwitch *swTwitter;
 @property int senderID;
+-(void)tapDetected;
+-(void)tapDetected2;
+-(void)tapDetected3;
 
 
 

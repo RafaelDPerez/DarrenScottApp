@@ -160,6 +160,16 @@
     [ivPickedImage setUserInteractionEnabled:YES];
     [ivPickedImage addGestureRecognizer:singleTap];
     
+    UITapGestureRecognizer *singleTap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetected2)];
+    singleTap2.numberOfTapsRequired = 1;
+    [ivPickedImage2 setUserInteractionEnabled:YES];
+    [ivPickedImage2 addGestureRecognizer:singleTap2];
+    
+    UITapGestureRecognizer *singleTap3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetected3)];
+    singleTap3.numberOfTapsRequired = 1;
+    [ivPickedImage3 setUserInteractionEnabled:YES];
+    [ivPickedImage3 addGestureRecognizer:singleTap3];
+    
     [swLocation addTarget:self action:@selector(setState:) forControlEvents:UIControlEventValueChanged];
     [swTwitter addTarget:self action:@selector(setState:) forControlEvents:UIControlEventValueChanged];
 //    CGRect frameRect = textFieldService.frame;
@@ -1055,22 +1065,20 @@ didFailAutocompleteWithError:(NSError *)error {
 }
 
 
-//-(void)tapDetected{
-//    ipc = [[UIImagePickerController alloc] init];
-//    ipc.delegate = self;
-//    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
-//    {
-//        ipc.sourceType = UIImagePickerControllerSourceTypeCamera;
-//        ipc.cameraDevice = UIImagePickerControllerCameraDeviceFront;
-//        [self presentViewController:ipc animated:YES completion:NULL];
-//    }
-//    else
-//    {
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"No Camera Available." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-//        [alert show];
-//        alert = nil;
-//    }
-//}
+-(void)tapDetected{
+    
+    [self addImageView:ivPickedImage];
+}
+
+-(void)tapDetected2{
+    
+    [self addImageView:ivPickedImage2];
+}
+
+-(void)tapDetected3{
+    
+    [self addImageView:ivPickedImage3];
+}
 //
 //- (IBAction)btnGalleryClicked:(id)sender
 //{
