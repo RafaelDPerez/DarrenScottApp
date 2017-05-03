@@ -82,6 +82,8 @@
 		45B9AF0F1E7DA32300513B2E /* img4.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B9AF0E1E7DA32300513B2E /* img4.png */; };
 		45C6B7FF1DD2960A0067654B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 45C6B7FE1DD2960A0067654B /* GoogleService-Info.plist */; };
 		45C6B8011DD2A3F90067654B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45C6B8001DD2A3F90067654B /* Social.framework */; };
+		45DCE6321EB64CE700DA55BF /* RegisterSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCE6311EB64CE700DA55BF /* RegisterSelectViewController.m */; };
+		45DCE6351EB656DA00DA55BF /* RegisterBusinessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCE6341EB656DA00DA55BF /* RegisterBusinessViewController.m */; };
 		45E21AB61E8A15600042C2BC /* ReviewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E21AB51E8A15600042C2BC /* ReviewsTableViewCell.m */; };
 		45E21AB91E8A15F00042C2BC /* ReviewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E21AB81E8A15F00042C2BC /* ReviewsTableViewController.m */; };
 		45F5B5FE1EB01374002D06B2 /* UIViewController+SLPhotoSelection.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F5B5FD1EB01374002D06B2 /* UIViewController+SLPhotoSelection.m */; };
@@ -224,6 +226,10 @@
 		45B9AF0E1E7DA32300513B2E /* img4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img4.png; sourceTree = "<group>"; };
 		45C6B7FE1DD2960A0067654B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		45C6B8001DD2A3F90067654B /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		45DCE6301EB64CE700DA55BF /* RegisterSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterSelectViewController.h; sourceTree = "<group>"; };
+		45DCE6311EB64CE700DA55BF /* RegisterSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterSelectViewController.m; sourceTree = "<group>"; };
+		45DCE6331EB656DA00DA55BF /* RegisterBusinessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterBusinessViewController.h; sourceTree = "<group>"; };
+		45DCE6341EB656DA00DA55BF /* RegisterBusinessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterBusinessViewController.m; sourceTree = "<group>"; };
 		45E21AB41E8A15600042C2BC /* ReviewsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewsTableViewCell.h; sourceTree = "<group>"; };
 		45E21AB51E8A15600042C2BC /* ReviewsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewsTableViewCell.m; sourceTree = "<group>"; };
 		45E21AB71E8A15F00042C2BC /* ReviewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewsTableViewController.h; sourceTree = "<group>"; };
@@ -439,6 +445,8 @@
 				45E21AB81E8A15F00042C2BC /* ReviewsTableViewController.m */,
 				45751B311E986A7900583E74 /* ReviewViewController.h */,
 				45751B321E986A7900583E74 /* ReviewViewController.m */,
+				45DCE6331EB656DA00DA55BF /* RegisterBusinessViewController.h */,
+				45DCE6341EB656DA00DA55BF /* RegisterBusinessViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -504,6 +512,8 @@
 				45B2F7401DE27C3100AAB600 /* TermsAndConditionsViewController.m */,
 				025565E11DC2DAF8005A903E /* ViewController.h */,
 				025565E21DC2DAF8005A903E /* ViewController.m */,
+				45DCE6301EB64CE700DA55BF /* RegisterSelectViewController.h */,
+				45DCE6311EB64CE700DA55BF /* RegisterSelectViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -861,6 +871,7 @@
 				4538355F1E496FCD00B34BB4 /* FSCalendarConstants.m in Sources */,
 				453835591E496FCD00B34BB4 /* FSCalendar+Deprecated.m in Sources */,
 				453835651E496FCD00B34BB4 /* FSCalendarStickyHeader.m in Sources */,
+				45DCE6351EB656DA00DA55BF /* RegisterBusinessViewController.m in Sources */,
 				453835661E496FCD00B34BB4 /* FSCalendarTransitionCoordinator.m in Sources */,
 				453835351E4962DD00B34BB4 /* Register2ViewController.m in Sources */,
 				453835621E496FCD00B34BB4 /* FSCalendarExtensions.m in Sources */,
@@ -869,6 +880,7 @@
 				45FE25601E8B2B7F00F2F14E /* Country.m in Sources */,
 				45E21AB61E8A15600042C2BC /* ReviewsTableViewCell.m in Sources */,
 				025565E01DC2DAF8005A903E /* DarrenScottSalonApp.xcdatamodeld in Sources */,
+				45DCE6321EB64CE700DA55BF /* RegisterSelectViewController.m in Sources */,
 				45155B781E89FF5B008250C7 /* Review.m in Sources */,
 				025565E31DC2DAF8005A903E /* ViewController.m in Sources */,
 				45FE25641E8B343500F2F14E /* RMPhoneFormat.m in Sources */,

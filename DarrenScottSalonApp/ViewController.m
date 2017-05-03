@@ -339,9 +339,10 @@
                                     @"why":_review.why,
                                     @"categories":_review.categories,
                                     @"address":_PlaceAddress,
-                                    @"rating": [[NSNumber numberWithFloat:_starsRating.rating] stringValue]}];
+                                    @"rating": [[NSNumber numberWithFloat:_starsRating.rating] stringValue],
+                                    @"user":[FIRAuth auth].currentUser.uid}];
                         NSString *userID = [FIRAuth auth].currentUser.uid;
-                        [[[[_ref child:@"users"] child:userID] child:@"reviews"] setValue:@{@"id": autoId.key}];
+                        [[[[[_ref child:@"users"] child:userID] child:@"reviews"] child:autoId.key]setValue:@{@"id":autoId.key}];
                     }
                 }];
 
