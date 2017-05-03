@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UISwitch *sldFbk;
 @property (weak, nonatomic) IBOutlet UISwitch *sldPinterest;
 @property (weak, nonatomic) IBOutlet UISwitch *sldTwt;
+@property (weak, nonatomic) NSString *userType;
+
 
 
 @end

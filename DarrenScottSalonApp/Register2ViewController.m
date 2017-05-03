@@ -16,6 +16,7 @@
 #import "PDKPin.h"
 #import "PDKResponseObject.h"
 #import "PDKUser.h"
+#import "TermsAndConditionsViewController.h"
 
 @interface Register2ViewController ()
 @property (nonatomic, strong) PDKUser *user;
@@ -146,6 +147,7 @@
 
 -(IBAction)RegisterUser:(id)sender{
 [self performSegueWithIdentifier:@"RegisterCompleted" sender:self];
+    
     //
 //    if (_txtEmail.text && _txtEmail.text.length > 0 && _txtMobile.text && _txtMobile.text.length > 0 &&_txtPassword.text && _txtPassword.text.length > 0 && _txtConfirmPassword.text && _txtConfirmPassword.text.length > 0 )
 //    {
@@ -172,14 +174,17 @@
     
 }
 
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
+ //In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"RegisterCompleted"]) {
+    TermsAndConditionsViewController *viewCont = [segue destinationViewController];
+        viewCont.userType = self.userType;
+    
+    }
 }
-*/
+
 
 @end

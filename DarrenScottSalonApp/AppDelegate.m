@@ -35,6 +35,7 @@
 
 @implementation AppDelegate
 @synthesize loggedIn = _loggedIn;
+@synthesize userType = _userType;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
      [FIRApp configure];
@@ -56,7 +57,9 @@
     _loggedIn = [FDKeychain itemForKey: @"loggedin"
                             forService: @"ReviewApp"
                                  error: nil];
- 
+    _userType = [FDKeychain itemForKey: @"userType"
+                            forService: @"ReviewApp"
+                                 error: nil];
     
     if ([_loggedIn isEqualToString:@"YES"]) {
       // self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
@@ -66,17 +69,28 @@
 //                [self.window makeKeyAndVisible];
         
 //        LeftMenuViewController *leftMenu = (LeftMenuViewController*)[storyboard instantiateViewControllerWithIdentifier: @"LeftMenuViewController"];
-
+//        [FDKeychain saveItem: @"0"
+//                      forKey: @"userType"
+//                  forService: @"ReviewApp"
+//                       error: nil];
+      
         
-        
-
+        if ([_userType isEqualToString:@"0"]) {
+            self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+            UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"Slide"];
+            self.window.rootViewController = vc;
+            [self.window makeKeyAndVisible];
+        }
+        else{
+            self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+            UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"Business"];
+            self.window.rootViewController = vc;
+            [self.window makeKeyAndVisible];
+        }
         
         // Creating a custom bar button for right menu
                
-        self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
-        UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"Slide"];
-        self.window.rootViewController = vc;
-        [self.window makeKeyAndVisible];
+        
     }
     else{
         self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];

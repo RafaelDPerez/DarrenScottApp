@@ -13,6 +13,7 @@
 @import Firebase;
 #import "RMPhoneFormat.h"
 #import <GooglePlaces/GooglePlaces.h>
+#import "Register2ViewController.h"
 
 @interface RegisterBusinessViewController ()<UITextFieldDelegate, UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollview;
@@ -531,7 +532,7 @@ didFailAutocompleteWithError:(NSError *)error {
                           NSError *_Nullable error) {
                  if (user) {
                      FIRDatabaseReference *rootRef= [[FIRDatabase database] reference];
-                     [[[_ref child:@"business_users"] child:user.uid]
+                     [[[_ref child:@"users"] child:user.uid]
                       setValue:@{@"id": user.uid,
                                  @"first_name": _textViewFirstName.text,
                                  @"last_name": _textViewLastName.text,
@@ -542,11 +543,17 @@ didFailAutocompleteWithError:(NSError *)error {
                                  @"contact_phone": _textViewPhone.text,
                                  @"company_search": _textViewPlace.text,
                                  @"company_address": _PlaceAddress,
+                                 @"user_type": @"1",
                                  @"company_category": _textViewCategory.text
                                  }];
                      
                      [FDKeychain saveItem: @"YES"
                                    forKey: @"loggedin"
+                               forService: @"ReviewApp"
+                                    error: nil];
+                     
+                     [FDKeychain saveItem: @"1"
+                                   forKey: @"userType"
                                forService: @"ReviewApp"
                                     error: nil];
                      
@@ -608,7 +615,8 @@ didFailAutocompleteWithError:(NSError *)error {
     
     
     if ([segue.identifier isEqualToString:@"NextRegisterBusiness"]) {
-        
+        Register2ViewController *register2ViewController = [segue destinationViewController];
+        register2ViewController.userType = @"1";
         //        //        NSIndexPath *indexPaths = [self.tableView indexPathForSelectedRow];
         //        Register2ViewController *register2ViewController = [segue destinationViewController];
         //        register2ViewController.user = [[User alloc]init];

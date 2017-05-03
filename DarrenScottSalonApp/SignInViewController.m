@@ -11,13 +11,14 @@
 #import "FDKeychain.h"
 
 @interface SignInViewController ()<UITextFieldDelegate>
-
+@property (strong, nonatomic) FIRDatabaseReference *ref;
 @end
 
 @implementation SignInViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _ref = [[FIRDatabase database] reference];
     // Do any additional setup after loading the view.
     [[_txtPassword layer] setBorderWidth:1.0f];
     [[_txtPassword layer] setBorderColor:self.view.tintColor.CGColor];
@@ -67,7 +68,49 @@
                                                            forKey: @"token"
                                                        forService: @"ReviewApp"
                                                             error: nil];
-                                             [self performSegueWithIdentifier:@"callHome" sender:self];
+                                             [[[_ref child:@"users"] child:user.uid] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+                                                 NSLog(@"%@",snapshot.value[@"user_type"]);
+                                                 if ([snapshot.value[@"user_type"] isEqualToString:@"0"]) {
+                                                     [FDKeychain saveItem: @"0"
+                                                                   forKey: @"userType"
+                                                               forService: @"ReviewApp"
+                                                                    error: nil];
+                                                     [self performSegueWithIdentifier:@"callHome" sender:self];
+                                                     }
+                                                 else{
+                                                     [FDKeychain saveItem: @"1"
+                                                                   forKey: @"userType"
+                                                               forService: @"ReviewApp"
+                                                                    error: nil];
+                                                 [self performSegueWithIdentifier:@"callHomeBusiness" sender:self];
+                                                 }
+                                                 
+//                                                 for ( FIRDataSnapshot *child in snapshot.children) {
+//                                                     
+//                                                     //  NSLog(@"child.value = %@",child.value[@"station_name"]);
+//                                                     Review *rev = [[Review alloc]init];
+//                                                     rev.what = child.value[@"what"];
+//                                                     rev.where = child.value[@"where"];
+//                                                     rev.who = child.value[@"who"];
+//                                                     rev.why = child.value[@"why"];
+//                                                     rev.with = child.value[@"with"];
+//                                                     rev.comments = child.value[@"comments"];
+//                                                     rev.date = child.value[@"date"];
+//                                                     rev.categories = child.value[@"categories"];
+//                                                     rev.photos = child.value[@"photos"];
+//                                                     rev.rating = child.value[@"rating"];
+//                                                     rev.address = child.value[@"address"];
+//                                                     
+//                                                     [reviewsArray addObject:rev];
+//                                                     
+//                                                     [self.tableView reloadData];
+//                                                 }
+                                                 
+                                             } withCancelBlock:^(NSError * _Nonnull error) {
+                                                 NSLog(@"%@", error.localizedDescription);
+                                             }];
+
+                                             
                                          }];
                                      
                                      }

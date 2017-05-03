@@ -20,6 +20,7 @@
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 @property (weak, nonatomic) NSString *loggedIn;
+@property (weak, nonatomic) NSString *userType;
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 

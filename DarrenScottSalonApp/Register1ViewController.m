@@ -12,6 +12,7 @@
 #import "Country.h"
 @import Firebase;
 #import "RMPhoneFormat.h"
+#import "Register2ViewController.h"
 #import "EKWelcomeViewController.h"
 
 static NSString * const sampleDescription1 = @"Welcome to clic pic review (CPR), the new exciting app that allows you a fun and simple way to record, review and share your experiences with your friends and the world.";
@@ -532,11 +533,17 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
                                  @"password": _txtPassword.text,
                                  @"birth_date": _txtDateOfBirth.text,
                                  @"mobile_phone": _textViewPhone.text,
+                                 @"user_type": @"0",
                                  @"reviews": @[
                                          ]}];
                      
                      [FDKeychain saveItem: @"YES"
                                    forKey: @"loggedin"
+                               forService: @"ReviewApp"
+                                    error: nil];
+                     
+                     [FDKeychain saveItem: @"0"
+                                   forKey: @"userType"
                                forService: @"ReviewApp"
                                     error: nil];
                      
@@ -600,12 +607,10 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     if ([segue.identifier isEqualToString:@"NextRegister"]) {
         
 //        //        NSIndexPath *indexPaths = [self.tableView indexPathForSelectedRow];
-//        Register2ViewController *register2ViewController = [segue destinationViewController];
-//        register2ViewController.user = [[User alloc]init];
-//        register2ViewController.user.firstName = _txtNombre.text;
-//        register2ViewController.user.age = _txtEdad.text;
-//        register2ViewController.user.gender = _txtSexo.text;
-//        
+        Register2ViewController *register2ViewController = [segue destinationViewController];
+        register2ViewController.userType = @"0";
+
+//
 //        NSLog(_txtNombre.text);
 //        //        _selectedStation = [stationsArray objectAtIndex:indexPaths.row];
 //        //        stationViewController.Station = _selectedStation;

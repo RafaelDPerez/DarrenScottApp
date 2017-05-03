@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *btnAccept;
 @property (weak, nonatomic) IBOutlet UIButton *btnDecline;
+@property (weak, nonatomic) NSString *userType;
 
 
 @end

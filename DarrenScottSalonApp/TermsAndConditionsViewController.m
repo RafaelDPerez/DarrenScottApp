@@ -29,6 +29,12 @@
 
 -(IBAction)AcceptConditions:(id)sender{
     [[NSUserDefaults standardUserDefaults] setValue:@"YES" forKey:@"Terms"];
+    if ([self.userType isEqualToString:@"0"]) {
+        [self performSegueWithIdentifier:@"callHomeUser" sender:self];
+    }
+    else
+        [self performSegueWithIdentifier:@"callHomeBusiness" sender:self];
+    
 
 }
 

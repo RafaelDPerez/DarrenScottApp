@@ -30,6 +30,7 @@
 		45155B711E89DA14008250C7 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45155B701E89DA14008250C7 /* SignInViewController.m */; };
 		45155B751E89FEBE008250C7 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 45155B741E89FEBE008250C7 /* User.m */; };
 		45155B781E89FF5B008250C7 /* Review.m in Sources */ = {isa = PBXBuildFile; fileRef = 45155B771E89FF5B008250C7 /* Review.m */; };
+		451C8E691EB97A1D00313370 /* BusinessHomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 451C8E681EB97A1D00313370 /* BusinessHomeTableViewController.m */; };
 		451F948B1E64D6150006C105 /* Syncopate-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4540739B1E638AF3008F245E /* Syncopate-Regular.ttf */; };
 		451F948D1E64E8700006C105 /* Syncopate-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 451F948C1E64E8300006C105 /* Syncopate-Bold.ttf */; };
 		4538352A1E495FB700B34BB4 /* ACFloatingTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 453835291E495FB700B34BB4 /* ACFloatingTextField.m */; };
@@ -147,6 +148,8 @@
 		45155B741E89FEBE008250C7 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		45155B761E89FF5B008250C7 /* Review.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Review.h; sourceTree = "<group>"; };
 		45155B771E89FF5B008250C7 /* Review.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Review.m; sourceTree = "<group>"; };
+		451C8E671EB97A1D00313370 /* BusinessHomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessHomeTableViewController.h; sourceTree = "<group>"; };
+		451C8E681EB97A1D00313370 /* BusinessHomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessHomeTableViewController.m; sourceTree = "<group>"; };
 		451F948C1E64E8300006C105 /* Syncopate-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Syncopate-Bold.ttf"; sourceTree = "<group>"; };
 		453835281E495FB700B34BB4 /* ACFloatingTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACFloatingTextField.h; sourceTree = "<group>"; };
 		453835291E495FB700B34BB4 /* ACFloatingTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACFloatingTextField.m; sourceTree = "<group>"; };
@@ -447,6 +450,8 @@
 				45751B321E986A7900583E74 /* ReviewViewController.m */,
 				45DCE6331EB656DA00DA55BF /* RegisterBusinessViewController.h */,
 				45DCE6341EB656DA00DA55BF /* RegisterBusinessViewController.m */,
+				451C8E671EB97A1D00313370 /* BusinessHomeTableViewController.h */,
+				451C8E681EB97A1D00313370 /* BusinessHomeTableViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -887,6 +892,7 @@
 				025565DA1DC2DAF8005A903E /* main.m in Sources */,
 				45B9AF091E7D08D400513B2E /* EKSecondHintView.m in Sources */,
 				4538355D1E496FCD00B34BB4 /* FSCalendarCollectionView.m in Sources */,
+				451C8E691EB97A1D00313370 /* BusinessHomeTableViewController.m in Sources */,
 				453835321E4962CD00B34BB4 /* Register1ViewController.m in Sources */,
 				4538355C1E496FCD00B34BB4 /* FSCalendarCell.m in Sources */,
 			);
